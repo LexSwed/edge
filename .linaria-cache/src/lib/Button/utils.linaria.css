@@ -1,0 +1,13 @@
+.fx_xs{font-size:10px;height:20px;padding:0px 8px;}
+.fx_s{padding:0px 10px;}
+.fx_m{padding:0px 16px;}
+.fx_l{padding:0px 16px;}
+.fx_commonLight:disabled{color:#718096;}
+.fx_commonDark{color:#fff;border-color:transparent;}.fx_commonDark:disabled{color:#EDF2F7;}
+.fx_default{-webkit-fx_commonLight background-color:#fff;fx_commonLight background-color:#fff;}.fx_default:hover{background-color:#EDF2F7;}.fx_default:active{background-color:#E2E8F0;}.fx_default:active,.fx_default:hover{border-color:#718096;}
+.fx_flat{-webkit-fx_commonLight border-color:transparent-fx_flat;fx_commonLight border-color:transparent-fx_flat;background-color:#EDF2F7;}.fx_flat:hover{background-color:#E2E8F0;}.fx_flat:active{background-color:#EDF2F7;}
+.fx_transparent{-webkit-fx_commonLight border-color:transparent-fx_transparent;fx_commonLight border-color:transparent-fx_transparent;background-color:transparent;}.fx_transparent:hover{background-color:#EDF2F7;}.fx_transparent:active{background-color:#F7FAFC;}
+.fx_primary{-webkit-fx_commonDark background-color:#e15756;fx_commonDark background-color:#e15756;}.fx_primary:hover{background-color:#cb4e4d;}.fx_primary:active{background-color:#e15756;}
+.fx_warning{-webkit-fx_commonDark background-color:#FFB300;fx_commonDark background-color:#FFB300;}.fx_warning:hover{background-color:#FFA000;}.fx_warning:active{background-color:#FFB300;}
+.fx_danger{-webkit-fx_commonDark background-color:#E53E3E;fx_commonDark background-color:#E53E3E;}.fx_danger:hover{background-color:#C53030;}.fx_danger:active{background-color:#E53E3E;}
+.fx_ButtonStyled{background-color:transparent;border:1px solid #CBD5E0;color:var(--text-color);-webkit-transition:background-color 0.1s,border-color 0.1s;transition:background-color 0.1s,border-color 0.1s;cursor:pointer;-webkit-text-decoration:none;text-decoration:none;display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-flow:row nowrap;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;box-sizing:border-box;border-radius:2;}var(--b3idhov-2) var(--b3idhov-3) .fx_ButtonStyled:focus{border-color:#2D3748;outline:none;}.fx_ButtonStyled:disabled{position:relative;border-color:transparent;opacity:0.8;pointer-events:none;cursor:not-allowed;}.fx_ButtonStyled:disabled:after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;cursor:not-allowed;pointer-events:all;}

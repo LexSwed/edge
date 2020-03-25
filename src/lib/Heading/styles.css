@@ -1,0 +1,30 @@
+.fx-heading {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.fx-heading--h1 {
+  font-size: 42px;
+  line-height: 44px;
+}
+.fx-heading--h2 {
+  font-size: 28px;
+  line-height: 36px;
+}
+.fx-heading--h3 {
+  font-size: 21px;
+  line-height: 28px;
+}
+.fx-heading--h4 {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.fx-heading--default {
+  font-weight: 700;
+}
+
+.fx-heading--light {
+  font-weight: 400;
+}

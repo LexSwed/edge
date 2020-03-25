@@ -1,7 +1,2 @@
-type Props = {
-  name: string;
-};
-
-export default (n: Props) => {
-  console.log(n.name);
-};
+export { default as Edge } from 'lib/Edge';
+export { default as Button } from 'lib/Button';

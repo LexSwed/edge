@@ -1,0 +1,145 @@
+.fx-button {
+  --bg-color: transparent;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  transition: background-color 0.1s, border-color 0.1s;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border-radius: var(--br);
+  &:focus {
+    --border-color: var(--border-color-focus);
+    outline: none;
+  }
+  &:disabled {
+    position: relative;
+    --border-color: transparent;
+    opacity: 0.8;
+    pointer-events: none;
+    cursor: not-allowed;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      cursor: not-allowed;
+      pointer-events: all;
+    }
+  }
+}
+
+/* Sizes */
+
+.fx-button--xs {
+  font-size: 10px;
+  height: 20px;
+  padding: 0 8px;
+}
+.fx-button--s {
+  font-size: 12px;
+  height: 26px;
+  padding: 0 10px;
+}
+.fx-button--m {
+  font-size: 13px;
+  height: 32px;
+  padding: 0 16px;
+}
+.fx-button--l {
+  font-size: 16px;
+  height: 40px;
+  padding: 0 16px;
+}
+
+/* Variations */
+
+.fx-button--default,
+.fx-button--flat,
+.fx-button--transparent {
+  &:disabled {
+    color: var(--gray-600);
+  }
+}
+
+.fx-button--default {
+  --bg-color: #fff;
+  &:hover {
+    --bg-color: var(--gray-200);
+  }
+  &:active {
+    --bg-color: var(--gray-300);
+  }
+  &:active,
+  &:hover {
+    --border-color: var(--border-color-hover);
+  }
+}
+
+.fx-button--flat {
+  --border-color: transparent;
+  --bg-color: var(--gray-200);
+  &:hover {
+    --bg-color: var(--gray-300);
+  }
+  &:active {
+    --bg-color: var(--gray-200);
+  }
+}
+
+.fx-button--transparent {
+  --border-color: transparent;
+  --bg-color: transparent;
+  &:hover {
+    --bg-color: var(--gray-200);
+  }
+  &:active {
+    --bg-color: var(--gray-100);
+  }
+}
+
+.fx-button--primary,
+.fx-button--warning,
+.fx-button--error {
+  --text-color: #fff;
+  --border-color: transparent;
+  &:disabled {
+    color: var(--gray-200);
+  }
+}
+
+.fx-button--primary {
+  --bg-color: var(--brand-600);
+  &:hover {
+    --bg-color: var(--brand-700);
+  }
+  &:active {
+    --bg-color: var(--brand-600);
+  }
+}
+
+.fx-button--warning {
+  --bg-color: var(--warning-600);
+  &:hover {
+    --bg-color: var(--warning-700);
+  }
+  &:active {
+    --bg-color: var(--warning-600);
+  }
+}
+
+.fx-button--error {
+  --bg-color: var(--error-600);
+  &:hover {
+    --bg-color: var(--error-700);
+  }
+  &:active {
+    --bg-color: var(--error-600);
+  }
+}

@@ -1,0 +1,8 @@
+.fx-label {
+  display: inline-block;
+  color: var(--text-color);
+  font-size: var(--font-size, 14px);
+  line-height: 20px;
+  padding: 0;
+  margin-bottom: 8px;
+}

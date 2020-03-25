@@ -1,0 +1,70 @@
+{
+  "name": "@foxtrot/edge",
+  "version": "0.0.1",
+  "description": "A component library for @foxtrot project",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "homepage": "https://gitlab.com/sparqhub/edge",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/sparqhub/edge.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/sparqhub/edge/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "LexSwed <lexswed@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn build:webpack",
+    "build": "NODE_ENV=production yarn build:webpack && tsc --emitDeclarationOnly",
+    "build:webpack": "webpack --config webpack.config.js",
+    "build:report": "REPORT=1 yarn build:webpack",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
+    "lint": "eslint src --ext js,jsx,ts,tsx --fix --quiet",
+    "test": "echo \"No tests yet\"",
+    "type-check": "./node_modules/.bin/tsc --noEmit",
+    "commit": "git-cz"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/react": "^16.9.25",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "file-loader": "^6.0.0",
+    "husky": "^4.2.3",
+    "linaria": "^1.3.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "prettier": "^2.0.2",
+    "pretty-quick": "^2.0.1",
+    "terser-webpack-plugin": "^2.3.5",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-bundle-analyzer": "^3.6.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "browserslist": [
+    ">1%"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --pattern \"src/**/*.*\" --staged && yarn type-check && yarn lint"
+    }
+  }
+}

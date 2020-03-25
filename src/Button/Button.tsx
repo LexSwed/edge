@@ -46,7 +46,7 @@ if (__DEV__) {
 
 Button.defaultProps = {
   size: 'm',
-  variant: 'default'
+  variant: ButtonVariant.default
 };
 
 export default Button;
@@ -54,13 +54,7 @@ export default Button;
 interface CommonProps {
   className?: string;
   size?: 'xs' | 's' | 'm' | 'l';
-  variant?:
-    | 'default'
-    | 'flat'
-    | 'transparent'
-    | 'primary'
-    | 'warning'
-    | 'danger';
+  variant?: ButtonVariant;
 }
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
@@ -76,4 +70,13 @@ type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
 // Guard to check if href exists in props
 function hasHref(props: ButtonProps | AnchorProps): props is AnchorProps {
   return 'href' in props;
+}
+
+export const enum ButtonVariant {
+  'default' = 'default',
+  'flat' = 'flat',
+  'transparent' = 'transparent',
+  'primary' = 'primary',
+  'warning' = 'warning',
+  'danger' = 'danger'
 }

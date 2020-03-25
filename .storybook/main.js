@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
+  addons: ['@storybook/addon-knobs/register', 'storybook-readme/register'],
   webpackFinal: async config => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
@@ -8,6 +9,14 @@ module.exports = {
       options: {
         presets: [['react-app', { flow: false, typescript: true }]]
       }
+    });
+    config.module.rules.push({
+      test: /\.md$/,
+      use: [
+        {
+          loader: 'markdown-loader'
+        }
+      ]
     });
     config.plugins.push(
       new webpack.DefinePlugin({

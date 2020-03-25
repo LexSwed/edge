@@ -42,6 +42,7 @@
   --content-width: 1000px;
   --br: 2px;
   --text-color: var(--gray-900);
+  --font-family: 'Source Sans Pro', system-ui, sans-serif;
   --brand-color: var(--brand-600);
   --border-color: var(--gray-400);
   --border-color-hover: var(--gray-600);
@@ -50,6 +51,6 @@
 
 body {
   margin: 0;
-  font-family: 'system-ui', sans-serif;
+  font-family: var(--font-family);
   color: var(--text-color);
 }

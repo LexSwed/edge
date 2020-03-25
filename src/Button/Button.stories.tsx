@@ -1,14 +1,9 @@
 import React from 'react';
 import Button from './Button';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
-export default { title: 'Button' };
+export default { title: 'Button', decorators: [withKnobs] };
 
-export const withText = () => <Button>Hello Button</Button>;
-
-export const withEmoji = () => (
-  <Button>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
-  </Button>
-);
+// export const withText = () => (
+//   <Button variant={select('Variant', ['flat'], 'default')}>Hello Button</Button>
+// );

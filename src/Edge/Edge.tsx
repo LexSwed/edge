@@ -12,6 +12,8 @@ const Edge: React.FC = ({ children }) => {
   );
 };
 
-Edge.displayName = 'fx-edge';
+if (__DEV__) {
+  Edge.displayName = 'fx-edge';
+}
 
 export default Edge;

@@ -17,9 +17,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "lint": "tsdx lint"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -31,33 +29,20 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@storybook/addon-actions": "^5.3.17",
-    "@storybook/addon-docs": "^5.3.17",
-    "@storybook/addon-info": "^5.3.17",
-    "@storybook/addon-knobs": "^5.3.17",
-    "@storybook/addon-links": "^5.3.17",
-    "@storybook/addons": "^5.3.17",
-    "@storybook/react": "^5.3.17",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^25.1.4",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
-    "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
     "cssnano": "^4.1.10",
     "husky": "^4.2.3",
-    "markdown-loader": "^5.1.0",
     "postcss-preset-env": "^6.7.0",
     "pretty-quick": "^2.0.1",
     "react": "^16.13.1",
-    "react-docgen-typescript-loader": "^3.7.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
     "rollup-plugin-postcss": "^2.5.0",
-    "storybook-readme": "^5.0.8",
-    "ts-loader": "^6.2.2",
     "tsdx": "^0.13.0",
-    "tslib": "^1.11.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {

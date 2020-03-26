@@ -17,10 +17,14 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint"
+    "lint": "tsdx lint",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "react-dom": ">=16"
   },
   "husky": {
     "hooks": {
@@ -35,6 +39,8 @@
     "@types/react-dom": "^16.9.5",
     "babel-preset-react-app": "^9.1.2",
     "cssnano": "^4.1.10",
+    "docz": "^2.2.0",
+    "gatsby-plugin-postcss": "^2.2.1",
     "husky": "^4.2.3",
     "postcss-preset-env": "^6.7.0",
     "pretty-quick": "^2.0.1",

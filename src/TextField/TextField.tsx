@@ -2,7 +2,7 @@ import React from 'react';
 import { useUID } from 'react-uid';
 import cx from 'classnames';
 
-import Label from 'Label';
+import Label from '../Label';
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 type WrapperProps = React.HTMLAttributes<HTMLDivElement>;
@@ -94,7 +94,7 @@ if (__DEV__) {
 TextField.defaultProps = {
   type: 'text',
   size: 'm',
-  inputProps: {},
+  inputProps: {}
 };
 
 export default TextField;

@@ -88,7 +88,7 @@ if (__DEV__) {
 TextField.defaultProps = {
   type: 'text',
   size: 'm',
-  inputProps: {}
+  inputProps: {},
 };
 
 export default TextField;

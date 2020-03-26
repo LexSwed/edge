@@ -28,7 +28,7 @@ if (__DEV__) {
 
 Heading.defaultProps = {
   as: 'h1',
-  weight: 'default'
+  weight: 'default',
 };
 
 export default Heading;

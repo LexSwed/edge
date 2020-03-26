@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source + Sans + Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 :root {
   --gray-100: #f7fafc;
@@ -45,7 +45,7 @@
   --br: 2px;
   --text-color: var(--gray-900);
   --text-color-light: var(--gray-700);
-  --text-size: 14px;
+  --text-size: 16px;
   --font-family: 'Source Sans Pro', system-ui, sans-serif;
   --brand-color: var(--brand-600);
   --border-color: var(--gray-400);

@@ -6,7 +6,7 @@ import Inline from '../Inline';
 
 import './styles.css';
 
-const icons: Record<Props['tone'], React.ReactNode> = {
+const icons: Record<NonNullable<Props['tone']>, React.ReactNode> = {
   neutral: null,
   positive: <Icon icon="check_circle_outline" size="xs" />,
   critical: <Icon icon="error_outline" size="xs" />,
@@ -51,5 +51,5 @@ type Props = {
    * Tone of the message
    * @default 'neutral'
    */
-  tone: 'neutral' | 'positive' | 'critical';
+  tone?: 'neutral' | 'positive' | 'critical';
 } & DivProps;

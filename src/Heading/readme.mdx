@@ -1,0 +1,37 @@
+---
+name: Heading
+route: /fx-heading
+menu: Components
+---
+
+import { Playground } from 'docz';
+import Heading from './Heading';
+
+import Stack from '../Stack';
+
+# Heading
+
+Text headings.
+
+## Basic usage
+
+```tsx
+import { Heading } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Heading>Default heading</Heading>
+</Playground>
+
+## Tone and size
+
+<Playground>
+  <Stack>
+    <Heading tone="light">Level 1 with light tone</Heading>
+    <Heading as="h2">Level 2</Heading>
+    <Heading as="h3">Level 3</Heading>
+    <Heading as="h4" tone="light">
+      Level 4 with light tone
+    </Heading>
+  </Stack>
+</Playground>

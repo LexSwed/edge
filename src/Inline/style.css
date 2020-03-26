@@ -1,10 +1,22 @@
 .fx-inline {
   --space: 0px;
+  --negative: calc(var(--space) * -1);
+  padding-top: 1px;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  &:before {
+    content: '';
+    display: block;
+    margin-top: var(--negative);
+  }
+}
+
+.fx-inline__flex {
   display: flex;
   flex-flow: row wrap;
   vertical-align: baseline;
-  margin-top: calc(-1 * var(--space));
-  margin-left: calc(-1 * var(--space));
+  margin-left: var(--negative);
 }
 
 .fx-inline__child {

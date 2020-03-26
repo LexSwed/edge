@@ -1,0 +1,205 @@
+---
+name: Inline
+route: /fx-inline
+menu: Components
+---
+
+import { Playground } from 'docz';
+import Inline from './Inline';
+
+import Box from '../Box';
+import Placeholder from '../Placeholder';
+
+# Inline
+
+Wraps its children in a row.
+
+## Basic usage
+
+```tsx
+import { Inline } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Box style={{ width: '400px' }}>
+    <Inline>
+      {Array(6)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+## Space
+
+### Extra small
+
+<Playground>
+  <Box style={{ width: '400px' }}>
+    <Inline space="xs">
+      {Array(6)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+### Small
+
+<Playground>
+  <Box style={{ width: '400px' }}>
+    <Inline space="s">
+      {Array(6)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+### Medium (defaul)
+
+<Playground>
+  <Box style={{ width: '400px' }}>
+    <Inline space="m">
+      {Array(6)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+### Large
+
+<Playground>
+  <Box style={{ width: '400px' }}>
+    <Inline space="l">
+      {Array(6)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+### Extra large
+
+<Playground>
+  <Box style={{ width: '400px' }}>
+    <Inline space="xl">
+      {Array(6)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+## Alignment
+
+### Left (default)
+
+<Playground>
+  <Box padding="none" style={{ width: '400px', backgroundColor: 'var(--gray-100)' }}>
+    <Inline align="left">
+      {Array(8)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+### Center
+
+<Playground>
+  <Box padding="none" style={{ width: '400px', backgroundColor: 'var(--gray-100)' }}>
+    <Inline align="center">
+      {Array(8)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+### Right
+
+<Playground>
+  <Box padding="none" style={{ width: '400px', backgroundColor: 'var(--gray-100)' }}>
+    <Inline align="right">
+      {Array(8)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+## Horizontal alignment
+
+### Top
+
+<Playground>
+  <Box padding="none" style={{ backgroundColor: 'var(--gray-100)' }}>
+    <Inline alignY="top">
+      <Placeholder height={40} width={48} />
+      <Placeholder height={100} width={48} />
+      <Placeholder height={60} width={48} />
+    </Inline>
+  </Box>
+</Playground>
+
+### Center
+
+<Playground>
+  <Box padding="none" style={{ backgroundColor: 'var(--gray-100)' }}>
+    <Inline alignY="center">
+      <Placeholder height={40} width={48} />
+      <Placeholder height={100} width={48} />
+      <Placeholder height={60} width={48} />
+    </Inline>
+  </Box>
+</Playground>
+
+### Bottom
+
+<Playground>
+  <Box padding="none" style={{ backgroundColor: 'var(--gray-100)' }}>
+    <Inline alignY="bottom">
+      <Placeholder height={40} width={48} />
+      <Placeholder height={100} width={48} />
+      <Placeholder height={60} width={48} />
+    </Inline>
+  </Box>
+</Playground>

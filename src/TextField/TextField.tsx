@@ -3,6 +3,7 @@ import { useUID } from 'react-uid';
 import cx from 'classnames';
 
 import Label from '../Label';
+import FieldMessage from '../FieldMessage';
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 type WrapperProps = React.HTMLAttributes<HTMLDivElement>;
@@ -16,6 +17,7 @@ type Props = {
   type?: InputProps['type'];
   name?: InputProps['name'];
   message?: string;
+  tone?: React.ComponentProps<typeof FieldMessage>['tone'];
   size?: 'xs' | 's' | 'm' | 'l';
   inputProps?: InputProps & {
     ref?: React.MutableRefObject<HTMLInputElement>;
@@ -33,6 +35,7 @@ const TextField = React.forwardRef<HTMLDivElement, Props>(
       type,
       name,
       message,
+      tone,
       size,
       children,
       className,
@@ -75,14 +78,18 @@ const TextField = React.forwardRef<HTMLDivElement, Props>(
           />
           {children}
         </label>
-        {message && <div className={cx('fx-textfield-message')} id={messageId}></div>}
+        {message && (
+          <FieldMessage tone={tone} disabled={disabled} id={messageId} className={cx('fx-textfield-message')}>
+            {message}
+          </FieldMessage>
+        )}
       </div>
     );
   }
 );
 
 if (__DEV__) {
-  TextField.displayName = 'fx-textfield';
+  TextField.displayName = 'FxTextField';
 }
 
 TextField.defaultProps = {

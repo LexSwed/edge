@@ -1,6 +1,6 @@
 .fx-heading {
-  font-family: 'Source Sans Pro', sans-serif;
-  color: var(--gray-900);
+  font-family: var(--font-family);
+  color: var(--text-color);
   margin: 0;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .fx-heading--default {
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .fx-heading--light {

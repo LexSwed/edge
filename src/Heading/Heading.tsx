@@ -5,17 +5,17 @@ import './styles.css';
 
 type Props = {
   /** Specifies level of the Heading */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  as?: 'h1' | 'h2' | 'h3' | 'h4';
   /** Specifies font-weight: default bold or lighter */
-  weight?: 'default' | 'light';
+  tone?: 'default' | 'light';
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 const Heading = React.forwardRef<HTMLHeadingElement, Props>(
-  ({ as = 'h1', weight, className, children, ...props }, ref) => {
+  ({ as = 'h1', tone, className, children, ...props }, ref) => {
     const Tag = as;
 
     return (
-      <Tag className={cx('fx-heading', `fx-heading--${as}`, `fx-heading--${weight}`, className)} {...props} ref={ref}>
+      <Tag className={cx('fx-heading', `fx-heading--${as}`, `fx-heading--${tone}`, className)} {...props} ref={ref}>
         {children}
       </Tag>
     );
@@ -23,12 +23,12 @@ const Heading = React.forwardRef<HTMLHeadingElement, Props>(
 );
 
 if (__DEV__) {
-  Heading.displayName = 'fx-heading';
+  Heading.displayName = 'FxHeading';
 }
 
 Heading.defaultProps = {
   as: 'h1',
-  weight: 'default',
+  tone: 'default',
 };
 
 export default Heading;

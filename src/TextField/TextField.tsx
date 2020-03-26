@@ -55,11 +55,7 @@ const TextField = React.forwardRef<HTMLDivElement, Props>(
     }
 
     return (
-      <div
-        className={cx('fx-textfield', `fx--textfield--${size}`, className)}
-        {...props}
-        ref={ref}
-      >
+      <div className={cx('fx-textfield', `fx--textfield--${size}`, className)} {...props} ref={ref}>
         {label && (
           <Label id={labelId} htmlFor={id}>
             {label}
@@ -79,9 +75,7 @@ const TextField = React.forwardRef<HTMLDivElement, Props>(
           />
           {children}
         </label>
-        {message && (
-          <div className={cx('fx-textfield-message')} id={messageId}></div>
-        )}
+        {message && <div className={cx('fx-textfield-message')} id={messageId}></div>}
       </div>
     );
   }

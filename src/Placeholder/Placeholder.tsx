@@ -14,10 +14,7 @@ type Props = {
    * @default 'auto'
    */
   height?: number | 'auto';
-} & React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
+} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Placeholder = React.forwardRef<HTMLDivElement, Props>(
   ({ height = 'auto', width = 'auto', className, ...props }, ref) => {

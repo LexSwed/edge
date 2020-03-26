@@ -1,10 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-type Props = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLElement>,
-  HTMLElement
-> & {
+type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
   /**
    * Name of the icon
    */
@@ -21,24 +18,13 @@ type Props = React.DetailedHTMLProps<
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 };
 
-const Icon = React.forwardRef<HTMLElement, Props>(
-  ({ icon, variant, size, className, ...props }) => {
-    return (
-      <i
-        className={cx(
-          'material-icons',
-          'fx-icon',
-          `fx-icon-${variant}`,
-          `fx-icon-${size}`,
-          className
-        )}
-        {...props}
-      >
-        {icon}
-      </i>
-    );
-  }
-);
+const Icon = React.forwardRef<HTMLElement, Props>(({ icon, variant, size, className, ...props }) => {
+  return (
+    <i className={cx('material-icons', 'fx-icon', `fx-icon-${variant}`, `fx-icon-${size}`, className)} {...props}>
+      {icon}
+    </i>
+  );
+});
 
 if (__DEV__) {
   Icon.displayName = 'Fx-Icon';

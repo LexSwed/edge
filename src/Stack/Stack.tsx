@@ -3,10 +3,7 @@ import cx from 'classnames';
 
 import './styles.css';
 
-type DivProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
+type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 type Props = {
   /**
@@ -23,12 +20,7 @@ type Props = {
 
 const Stack = React.forwardRef<HTMLDivElement, Props>(
   ({ space = 'm', align = 'left', className, children, ...props }, ref) => {
-    const classes = cx(
-      'fx-stack',
-      `fx-stack--${space}`,
-      `fx-stack--${align}`,
-      className
-    );
+    const classes = cx('fx-stack', `fx-stack--${space}`, `fx-stack--${align}`, className);
 
     return (
       <div className={classes} {...props} ref={ref}>

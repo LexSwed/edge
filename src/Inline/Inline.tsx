@@ -4,18 +4,7 @@ import cx from 'classnames';
 import './style.css';
 
 const Inline = React.forwardRef<HTMLDivElement, Props>(
-  (
-    {
-      space = 'm',
-      align = 'left',
-      alignY = 'top',
-      nowrap = false,
-      className,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ space = 'm', align = 'left', alignY = 'top', nowrap = false, className, children, ...props }, ref) => {
     const classes = cx(
       'fx-inline',
       `fx-inline--${space}`,
@@ -61,7 +50,4 @@ type Props = {
    * @default false
    */
   nowrap?: boolean;
-} & React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
+} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;

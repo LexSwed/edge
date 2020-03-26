@@ -5,12 +5,7 @@ import './styles.css';
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(
   ({ size = 'm', variant = 'default', className, children, ...props }, ref) => {
-    const classes = cx(
-      'fx-button',
-      `fx-button--${size}`,
-      `fx-button--${variant}`,
-      className
-    );
+    const classes = cx('fx-button', `fx-button--${size}`, `fx-button--${variant}`, className);
 
     return (
       <button {...props} className={classes} ref={ref}>
@@ -36,11 +31,5 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
    * The color variant of the button
    * @default 'default'
    */
-  variant?:
-    | 'default'
-    | 'flat'
-    | 'transparent'
-    | 'primary'
-    | 'warning'
-    | 'error';
+  variant?: 'default' | 'flat' | 'transparent' | 'primary' | 'warning' | 'error';
 };

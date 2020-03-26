@@ -5,24 +5,15 @@ import './styles.css';
 
 type Props = {
   padding?: 'xs' | 's' | 'm' | 'l';
-} & React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
+} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-const Card = React.forwardRef<HTMLDivElement, Props>(
-  ({ padding, className, children, ...props }, ref) => {
-    return (
-      <div
-        className={cx('fx-card', `fx-card--${padding}`, className)}
-        {...props}
-        ref={ref}
-      >
-        {children}
-      </div>
-    );
-  }
-);
+const Card = React.forwardRef<HTMLDivElement, Props>(({ padding, className, children, ...props }, ref) => {
+  return (
+    <div className={cx('fx-card', `fx-card--${padding}`, className)} {...props} ref={ref}>
+      {children}
+    </div>
+  );
+});
 
 if (__DEV__) {
   Card.displayName = 'fx-card';

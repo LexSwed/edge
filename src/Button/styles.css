@@ -23,7 +23,6 @@
     --border-color: transparent;
     opacity: 0.8;
     pointer-events: none;
-    cursor: not-allowed;
     &:after {
       content: '';
       position: absolute;
@@ -106,9 +105,8 @@
   }
 }
 
-.fx-button--primary,
-.fx-button--warning,
-.fx-button--error {
+.fx-button--accent,
+.fx-button--critical {
   --text-color: #fff;
   --border-color: transparent;
   &:disabled {
@@ -116,7 +114,7 @@
   }
 }
 
-.fx-button--primary {
+.fx-button--accent {
   --bg-color: var(--brand-600);
   &:hover {
     --bg-color: var(--brand-700);
@@ -126,17 +124,7 @@
   }
 }
 
-.fx-button--warning {
-  --bg-color: var(--warning-600);
-  &:hover {
-    --bg-color: var(--warning-700);
-  }
-  &:active {
-    --bg-color: var(--warning-600);
-  }
-}
-
-.fx-button--error {
+.fx-button--critical {
   --bg-color: var(--error-600);
   &:hover {
     --bg-color: var(--error-700);

@@ -1,0 +1,62 @@
+---
+name: Icon
+route: /fx-icon
+menu: Components
+---
+
+import { Playground } from 'docz';
+import Icon from './Icon';
+import Inline from '../Inline';
+
+# Icon
+
+Uses [Material Design Icons](https://material.io/resources/icons/?style=baseline) (Apache License 2.0)
+
+## Basic usage
+
+```tsx
+import { Icon } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Inline>
+    <Icon icon="build" />
+  </Inline>
+</Playground>
+
+## Tones
+
+You can define which style of Material Icons to use
+
+<Playground>
+  <Inline alignY="center">
+    <Inline space="xs" alignY="center">
+      Default:
+      <Icon icon="build" title="default" tone="default" />
+    </Inline>
+    <Inline space="xs" alignY="center">
+      Outlined:
+      <Icon icon="build" title="outlined" tone="outlined" />
+    </Inline>
+    <Inline space="xs" alignY="center">
+      Round:
+      <Icon icon="build" title="round" tone="round" />
+    </Inline>
+    <Inline space="xs" alignY="center">
+      Two-Tone:
+      <Icon icon="build" title="two-tone" tone="two-tone" />
+    </Inline>
+  </Inline>
+</Playground>
+
+## Sizes
+
+<Playground>
+  <Inline>
+    <Icon icon="format_size" size="xs" />
+    <Icon icon="format_size" size="s" />
+    <Icon icon="format_size" size="m" />
+    <Icon icon="format_size" size="l" />
+    <Icon icon="format_size" size="xl" />
+  </Inline>
+</Playground>

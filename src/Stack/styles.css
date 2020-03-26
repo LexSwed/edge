@@ -20,4 +20,7 @@
 
 .fx-stack__child {
   padding-bottom: var(--space);
+  &:last-child {
+    padding-bottom: 0;
+  }
 }

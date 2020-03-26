@@ -1,11 +1,12 @@
+@import url(https://fonts.googleapis.com/icon?family=Material + Icons|Material + Icons + Outlined|Material + Icons + Two + Tone|Material + Icons + Round);
+
 .fx-icon {
-  font-family: 'Material Icons';
-  user-select: none;
-  pointer-events: none;
-  color: inherit;
+  color: currentColor;
   vertical-align: sub;
   flex-shrink: 0;
   line-height: 1;
+  cursor: default;
+  user-select: none;
 }
 
 /* Variations */

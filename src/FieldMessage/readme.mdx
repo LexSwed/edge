@@ -1,0 +1,35 @@
+---
+name: FieldMessage
+route: /fx-fieldMessage
+menu: Components
+---
+
+import { Playground } from 'docz';
+import FieldMessage from './FieldMessage';
+import Stack from '../Stack';
+
+# FieldMessage
+
+Message that accompanies user input fields.
+
+## Basic usage
+
+```tsx
+import { FieldMessage } from '@foxtrot/edge';
+```
+
+<Playground>
+  <FieldMessage>Some message.</FieldMessage>
+</Playground>
+
+## Tones
+
+<Playground>
+  <Stack>
+    <FieldMessage tone="neutral">Simple explanation message.</FieldMessage>
+    <FieldMessage tone="positive">Message about something positive.</FieldMessage>
+    <FieldMessage tone="critical">
+      A critical message that should draw attention for something being incorrect.
+    </FieldMessage>
+  </Stack>
+</Playground>

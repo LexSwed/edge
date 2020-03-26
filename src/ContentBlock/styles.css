@@ -1,0 +1,8 @@
+.fx-contentblock {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.fx-contentblock--wide {
+  max-width: 1280px;
+}

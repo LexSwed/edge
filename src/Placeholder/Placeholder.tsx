@@ -17,12 +17,12 @@ type Props = {
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Placeholder = React.forwardRef<HTMLDivElement, Props>(
-  ({ height = 'auto', width = 'auto', className, ...props }, ref) => {
+  ({ height = 'auto', width = 'auto', className, children, ...props }, ref) => {
     const classes = cx('fx-placeholder', className);
     const style = {
       ...props.style,
       height,
-      width
+      width,
     };
 
     return (
@@ -31,6 +31,7 @@ const Placeholder = React.forwardRef<HTMLDivElement, Props>(
           <line x1="0" y1="0" x2="100%" y2="100%"></line>
           <line x1="100%" y1="0" x2="0" y2="100%"></line>
         </svg>
+        {children}
       </div>
     );
   }

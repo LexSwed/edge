@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 
+import { renderValidChild } from '../@utils';
+
 import './style.css';
 
 const Inline = React.forwardRef<HTMLDivElement, Props>(
@@ -15,7 +17,7 @@ const Inline = React.forwardRef<HTMLDivElement, Props>(
     );
     return (
       <div className={classes} {...props} ref={ref}>
-        {React.Children.map(children, child => (
+        {renderValidChild(children, (child) => (
           <div className="fx-inline__child">{child}</div>
         ))}
       </div>

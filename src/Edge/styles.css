@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Source + Sans + Pro&display=swap);
+
 :root {
   --gray-100: #f7fafc;
   --gray-200: #edf2f7;
@@ -19,15 +21,15 @@
   --brand-800: #b44645;
   --brand-900: #9e3d3c;
 
-  --warning-100: #ffecb3;
-  --warning-200: #ffe082;
-  --warning-300: #ffd54f;
-  --warning-400: #ffca28;
-  --warning-500: #ffc107;
-  --warning-600: #ffb300;
-  --warning-700: #ffa000;
-  --warning-800: #ff8f00;
-  --warning-900: #ff6f00;
+  --green-100: #e6fffa;
+  --green-200: #b2f5ea;
+  --green-300: #81e6d9;
+  --green-400: #4fd1c5;
+  --green-500: #38b2ac;
+  --green-600: #319795;
+  --green-700: #2c7a7b;
+  --green-800: #285e61;
+  --green-900: #234e52;
 
   --error-100: #fff5f5;
   --error-200: #fed7d7;
@@ -42,6 +44,8 @@
   --content-width: 1000px;
   --br: 2px;
   --text-color: var(--gray-900);
+  --text-color-light: var(--gray-700);
+  --text-size: 14px;
   --font-family: 'Source Sans Pro', system-ui, sans-serif;
   --brand-color: var(--brand-600);
   --border-color: var(--gray-400);
@@ -52,7 +56,7 @@
 .edge-wrapper {
   margin: 0;
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: var(--text-size);
   line-height: 1.2em;
   color: var(--text-color);
 }

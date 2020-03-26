@@ -1,0 +1,26 @@
+---
+name: Card
+route: /fx-card
+menu: Components
+---
+
+import { Playground } from 'docz';
+import Card from './Card';
+import Stack from '../Stack';
+
+# Card
+
+## Basic usage
+
+```tsx
+import { Card } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Stack>
+    <Card>Default box</Card>
+    <Card padding="xl">
+      With <code>Box</code> padding property
+    </Card>
+  </Stack>
+</Playground>

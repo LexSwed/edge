@@ -2,6 +2,12 @@
 
 A component library for [`foxtrot`](https://github.com/LexSwed/foxtrot) project.
 
+### Acknowledgments
+
+- [TailwindCSS](https://tailwindcss.com) for some design inspirations and color palette
+- [Braid Design System](https://seek-oss.github.io/braid-design-system) for components implementations examples
+- [@reach/ui](https://reacttraining.com/reach-ui) for accessible inputs logic
+
 ### Why not CSS-inJS solution?
 
 #### I actually like CSS-in-JS:
@@ -66,3 +72,4 @@ Downsides:
 - I liked Tailwind for the approach of atomic CSS classes. With just `postcss` it's hard to share and optimize styles in a composable way (not through class composition please)
 - you're not cool for not using CSS-in-JS
 - you're stuck with CSS variables (but it's nice feeling actually)
+- you can forget CSS variable names even with consistent naming

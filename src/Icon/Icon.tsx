@@ -1,16 +1,20 @@
 import React from 'react';
 import cx from 'classnames';
 
-type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+import './styles.css';
+
+type ElementProps = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>, 'children'>;
+
+type Props = ElementProps & {
   /**
    * Name of the icon
    */
   icon: string;
   /**
-   * Material Design icon variant
+   * Material Design icon tone
    * @default 'default'
    */
-  variant?: 'default' | 'outlined' | 'round' | 'sharp' | 'two-tone';
+  tone?: 'default' | 'outlined' | 'round' | 'two-tone';
   /**
    *  Size of the icon
    * @default 'm'
@@ -18,16 +22,21 @@ type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElem
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 };
 
-const Icon = React.forwardRef<HTMLElement, Props>(({ icon, variant, size, className, ...props }) => {
+const Icon = React.forwardRef<HTMLElement, Props>(({ icon, tone, size, className, ...props }, ref) => {
   return (
-    <i className={cx('material-icons', 'fx-icon', `fx-icon-${variant}`, `fx-icon-${size}`, className)} {...props}>
+    <i
+      className={cx('material-icons', 'fx-icon', `fx-icon--${tone}`, `fx-icon--${size}`, className)}
+      role="img"
+      {...props}
+      ref={ref}
+    >
       {icon}
     </i>
   );
 });
 
 if (__DEV__) {
-  Icon.displayName = 'Fx-Icon';
+  Icon.displayName = 'FxIcon';
 }
 
 export default Icon;

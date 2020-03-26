@@ -1,6 +1,5 @@
 ---
 name: Box
-route: /fx-box
 menu: Components
 ---
 
@@ -12,27 +11,31 @@ import Stack from '../Stack';
 
 ## Basic usage
 
+```tsx
+import { Box } from '@foxtrot/edge';
+```
+
 <Playground>
-  <Box style="background: var(--gray-200)">Default box</Box>
+  <Box style={{ background: 'var(--gray-200)' }}>Default box</Box>
 </Playground>
 
 ## Paddings
 
 <Playground>
   <Stack>
-    <Box padding="xs" style="background: var(--gray-200)">
+    <Box padding="xs" style={{ background: 'var(--gray-200)' }}>
       Padding extra-small
     </Box>
-    <Box padding="s" style="background: var(--gray-200)">
+    <Box padding="s" style={{ background: 'var(--gray-200)' }}>
       Padding small
     </Box>
-    <Box padding="m" style="background: var(--gray-200)">
+    <Box padding="m" style={{ background: 'var(--gray-200)' }}>
       Padding medium
     </Box>
-    <Box padding="l" style="background: var(--gray-200)">
+    <Box padding="l" style={{ background: 'var(--gray-200)' }}>
       Padding large
     </Box>
-    <Box padding="xl" style="background: var(--gray-200)">
+    <Box padding="xl" style={{ background: 'var(--gray-200)' }}>
       Padding extra-large
     </Box>
   </Stack>

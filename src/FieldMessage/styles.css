@@ -1,0 +1,21 @@
+.fx-fieldmessage {
+  font-size: 13px;
+  line-height: 1.1;
+  color: var(--text-color);
+  transition: 0.2s ease-in-out;
+}
+
+.fx-fieldmessage--disabled {
+  opacity: 0;
+  visibility: none;
+}
+
+.fx-fieldmessage--neutral {
+  --text-color: var(--text-color-light);
+}
+.fx-fieldmessage--positive {
+  --text-color: var(--green-600);
+}
+.fx-fieldmessage--critical {
+  --text-color: var(--error-600);
+}

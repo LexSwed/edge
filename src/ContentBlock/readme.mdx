@@ -1,0 +1,32 @@
+---
+name: ContentBlock
+route: /fx-contentblock
+menu: Components
+---
+
+import { Playground } from 'docz';
+import ContentBlock from './ContentBlock';
+
+import Stack from '../Stack';
+import Placeholder from '../Placeholder';
+
+# ContentBlock
+
+## Basic usage
+
+```tsx
+import { ContentBlock } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Stack>
+    <ContentBlock>
+      <Placeholder height={100}>Content with max-width of 940px</Placeholder>
+    </ContentBlock>
+
+    <ContentBlock wide>
+      <Placeholder height={100}>Content with max-width of 1280px</Placeholder>
+    </ContentBlock>
+
+  </Stack>
+</Playground>

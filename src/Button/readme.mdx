@@ -12,20 +12,26 @@ import Inline from '../Inline';
 
 ## Basic usage
 
-<Playground>
-  <Button>Click</Button>
-</Playground>
-
-## Variants
+```tsx
+import { Button } from '@foxtrot/edge';
+```
 
 <Playground>
   <Inline>
-    <Button variant="default">Default</Button>
-    <Button variant="flat">Flat</Button>
-    <Button variant="transparent">Transparent</Button>
-    <Button variant="primary">Primary</Button>
-    <Button variant="warning">Warning</Button>
-    <Button variant="error">Error</Button>
+    <Button>Click</Button>
+    <Button disabled>Disabled</Button>
+  </Inline>
+</Playground>
+
+## Tones
+
+<Playground>
+  <Inline>
+    <Button tone="default">Default</Button>
+    <Button tone="flat">Flat</Button>
+    <Button tone="transparent">Transparent</Button>
+    <Button tone="accent">Accent</Button>
+    <Button tone="critical">Critical</Button>
   </Inline>
 </Playground>
 

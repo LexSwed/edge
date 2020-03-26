@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 
+import { renderValidChild } from '../@utils';
+
 import './styles.css';
 
 type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
@@ -24,9 +26,7 @@ const Stack = React.forwardRef<HTMLDivElement, Props>(
 
     return (
       <div className={classes} {...props} ref={ref}>
-        {React.Children.map(children, child => (
-          <div className="fx-stack__child">{child}</div>
-        ))}
+        {renderValidChild(children, (child) => child && <div className="fx-stack__child">{child}</div>)}
       </div>
     );
   }

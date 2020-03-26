@@ -1,26 +1,32 @@
 import React from 'react';
 import cx from 'classnames';
 
+import Box from '../Box';
+
 import './styles.css';
 
 type Props = {
-  padding?: 'xs' | 's' | 'm' | 'l';
+  /**
+   * Content padding
+   * @default 'm'
+   */
+  padding?: React.ComponentProps<typeof Box>['padding'];
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-const Card = React.forwardRef<HTMLDivElement, Props>(({ padding, className, children, ...props }, ref) => {
+const Card = React.forwardRef<HTMLDivElement, Props>(({ className, children, ...props }, ref) => {
   return (
-    <div className={cx('fx-card', `fx-card--${padding}`, className)} {...props} ref={ref}>
+    <Box className={cx('fx-card', className)} {...props} ref={ref}>
       {children}
-    </div>
+    </Box>
   );
 });
 
 if (__DEV__) {
-  Card.displayName = 'fx-card';
+  Card.displayName = 'FxCard';
 }
 
 Card.defaultProps = {
-  padding: 'm'
+  padding: 'm',
 };
 
 export default Card;

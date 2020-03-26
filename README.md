@@ -8,7 +8,7 @@ A component library for [`foxtrot`](https://github.com/LexSwed/foxtrot) project.
 
 - you don't need to make up class names
 - the composition and styling is easy
-- you can use string interpolation to inject JS properties into CSS, making it reusable
+- you can use string interpolation to inject common styles and JS properties into CSS, making CSS code more reusable
 
 For example, you can export a color scheme or utils from your library:
 

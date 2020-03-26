@@ -8,17 +8,20 @@ import './style.css';
 const Inline = React.forwardRef<HTMLDivElement, Props>(
   ({ space = 'm', align = 'left', alignY = 'top', nowrap = false, className, children, ...props }, ref) => {
     return (
-      <div className={cx('fx-inline', `fx-inline--${space}`, className)}>
-        <div
-          className={cx(
-            'fx-inline__flex',
-            `fx-inline--${align}`,
-            `fx-inline--y-${alignY}`,
-            nowrap && 'fx-inline--nowrap'
-          )}
-          {...props}
-          ref={ref}
-        >
+      <div
+        className={cx(
+          'fx-inline',
+          `fx-inline--${space}`,
+          `fx-inline--${align}`,
+          `fx-inline--y-${alignY}`,
+
+          nowrap && 'fx-inline--nowrap',
+          className
+        )}
+        {...props}
+        ref={ref}
+      >
+        <div className="fx-inline__flex">
           {renderValidChild(children, (child) => (
             <div className="fx-inline__child">{child}</div>
           ))}

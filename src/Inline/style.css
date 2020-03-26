@@ -1,26 +1,25 @@
 .fx-inline {
   --space: 0px;
   --negative: calc(var(--space) * -1);
-  padding-top: 1px;
-  &:before {
-    content: '';
-    display: block;
-    margin-top: calc(var(--negative) - 1px);
-  }
+  --justify-content: flex-start;
+  --align-items: flex-start;
+  display: flex;
 }
 
 .fx-inline__flex {
   display: flex;
   flex-flow: row wrap;
-  vertical-align: baseline;
+  margin-top: var(--negative);
   margin-left: var(--negative);
+  justify-content: var(--justify-content);
+  align-items: var(--align-items);
 }
 
 .fx-inline__child {
   display: flex;
-  padding-top: var(--space);
-  padding-left: var(--space);
   box-sizing: border-box;
+  margin-top: var(--space);
+  margin-left: var(--space);
 }
 
 /** Space */
@@ -45,27 +44,29 @@
 
 /** Align X */
 .fx-inline--left {
-  justify-content: flex-start;
+  --justify-content: flex-start;
 }
 .fx-inline--center {
-  justify-content: center;
+  --justify-content: center;
 }
 .fx-inline--right {
-  justify-content: flex-end;
+  --justify-content: flex-end;
 }
 
 /** Align Y */
 .fx-inline--y-top {
-  align-items: flex-start;
+  --align-items: flex-start;
 }
 .fx-inline--y-center {
-  align-items: center;
+  --align-items: center;
 }
 .fx-inline--y-bottom {
-  align-items: flex-end;
+  --align-items: flex-end;
 }
 
 /* Other */
 .fx-inline--no-wrap {
-  flex-wrap: nowrap;
+  & > .fx-inline__flex {
+    flex-wrap: nowrap;
+  }
 }

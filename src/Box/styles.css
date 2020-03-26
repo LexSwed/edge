@@ -1,0 +1,22 @@
+.fx-box {
+  --space: 0px;
+
+  display: block;
+  padding: var(--space);
+}
+
+.fx-box--xs {
+  --space: 4px;
+}
+.fx-box--s {
+  --space: 8px;
+}
+.fx-box--m {
+  --space: 16px;
+}
+.fx-box--l {
+  --space: 32px;
+}
+.fx-box--xl {
+  --space: 48px;
+}

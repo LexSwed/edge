@@ -1,0 +1,23 @@
+.fx-link {
+  --color: var(--text-color, inherit);
+  color: var(--color);
+  text-decoration: none;
+  box-sizing: border-box;
+  &:after {
+    content: '';
+    display: block;
+    bottom: -1px;
+    width: 90%;
+    margin: 0 auto;
+    height: 2px;
+    background-color: var(--color);
+    transition: transform 0.12s ease-in-out;
+  }
+  &:hover:after {
+    transform: translateY(-1px);
+  }
+}
+
+.fx-link--active {
+  --color: var(--brand-color);
+}

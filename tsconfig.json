@@ -1,5 +1,5 @@
 {
-  "include": ["webpack.config.js", "src", "types"],
+  "include": ["src", "types"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
@@ -24,7 +24,6 @@
       "*": ["src/*", "node_modules/*"]
     },
     "jsx": "react",
-    "esModuleInterop": true,
-    "outDir": "./dist"
+    "esModuleInterop": true
   }
 }

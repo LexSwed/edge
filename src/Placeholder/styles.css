@@ -1,0 +1,13 @@
+.fx-placeholder {
+  position: relative;
+  background-color: var(--gray-100);
+  border: 2px solid var(--gray-300);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.fx-placeholder > svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

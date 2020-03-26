@@ -1,0 +1,39 @@
+---
+name: Box
+route: /fx-box
+menu: Components
+---
+
+import { Playground } from 'docz';
+import Box from './Box';
+import Stack from '../Stack';
+
+# Box
+
+## Basic usage
+
+<Playground>
+  <Box style="background: var(--gray-200)">Default box</Box>
+</Playground>
+
+## Paddings
+
+<Playground>
+  <Stack>
+    <Box padding="xs" style="background: var(--gray-200)">
+      Padding extra-small
+    </Box>
+    <Box padding="s" style="background: var(--gray-200)">
+      Padding small
+    </Box>
+    <Box padding="m" style="background: var(--gray-200)">
+      Padding medium
+    </Box>
+    <Box padding="l" style="background: var(--gray-200)">
+      Padding large
+    </Box>
+    <Box padding="xl" style="background: var(--gray-200)">
+      Padding extra-large
+    </Box>
+  </Stack>
+</Playground>

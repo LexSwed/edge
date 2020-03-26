@@ -1,0 +1,41 @@
+---
+name: Button
+route: /fx-button
+menu: Components
+---
+
+import { Playground } from 'docz';
+import Button from './Button';
+import Inline from '../Inline';
+
+# Button
+
+## Basic usage
+
+<Playground>
+  <Button>Click</Button>
+</Playground>
+
+## Variants
+
+<Playground>
+  <Inline>
+    <Button variant="default">Default</Button>
+    <Button variant="flat">Flat</Button>
+    <Button variant="transparent">Transparent</Button>
+    <Button variant="primary">Primary</Button>
+    <Button variant="warning">Warning</Button>
+    <Button variant="error">Error</Button>
+  </Inline>
+</Playground>
+
+## Sizes
+
+<Playground>
+  <Inline alignY="center">
+    <Button size="xs">Exra small</Button>
+    <Button size="s">Small</Button>
+    <Button size="m">Medium</Button>
+    <Button size="l">Large</Button>
+  </Inline>
+</Playground>

@@ -53,6 +53,14 @@ There are other solutions considered, like [astroturf](https://github.com/4Catal
 
 to stick to a usual setup of `postcss` plus `classnames` for dynamic classnames assignment. Building this way gives neat folders, less mess with `.ts` files and `props` all around. I can just build my components with neat classnames.
 
+Upside:
+
+- setup is easy
+- using CSS variables is fun, they are composable
+- no peer dependencies
+- no weird JS/TS(x) files around
+- migrating from CSS to other solutions should be easy in the future
+
 Downsides:
 
 - I liked Tailwind for the approach of atomic CSS classes. With just `postcss` it's hard to share and optimize styles in a composable way (not through class composition please)

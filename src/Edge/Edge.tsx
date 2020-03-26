@@ -7,7 +7,7 @@ const context = React.createContext(null);
 const Edge: React.FC = ({ children }) => {
   return (
     <context.Provider value={null}>
-      <>{children}</>
+      <div className="edge-wrapper">{children}</div>
     </context.Provider>
   );
 };

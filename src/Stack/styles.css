@@ -1,0 +1,23 @@
+.fx-stack {
+  --space: 0px;
+}
+
+.fx-stack--xs {
+  --space: 4px;
+}
+.fx-stack--s {
+  --space: 8px;
+}
+.fx-stack--m {
+  --space: 16px;
+}
+.fx-stack--l {
+  --space: 32px;
+}
+.fx-stack--xl {
+  --space: 48px;
+}
+
+.fx-stack__child {
+  padding-bottom: var(--space);
+}

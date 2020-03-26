@@ -1,0 +1,43 @@
+.fx-icon {
+  font-family: 'Material Icons';
+  user-select: none;
+  pointer-events: none;
+  color: inherit;
+  vertical-align: sub;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Variations */
+.fx-icon--default {
+  font-family: 'Material Icons';
+}
+.fx-icon--outlined {
+  font-family: 'Material Icons Outlined';
+}
+.fx-icon--round {
+  font-family: 'Material Icons Round';
+}
+.fx-icon--sharp {
+  font-family: 'Material Icons Sharp';
+}
+.fx-icon--two-tone {
+  font-family: 'Material Icons Two Tone';
+}
+
+/* Sizes */
+.fx-icon--xs {
+  font-size: 14px;
+}
+.fx-icon--s {
+  font-size: 18px;
+}
+.fx-icon--m {
+  font-size: 24px;
+}
+.fx-icon--l {
+  font-size: 32px;
+}
+.fx-icon--xl {
+  font-size: 48px;
+}

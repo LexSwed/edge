@@ -1,0 +1,28 @@
+<svg viewBox="0 0 364 593" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+<path d="M15.8313 432.544L47.4475 464.167C55.2225 471.944 67.8283 471.944 75.6033 464.167L181 358.746L121.189 299L15.8313 404.382C8.05625 412.158 8.05625 424.767 15.8313 432.544Z" fill="#E87E7D"/>
+</g>
+<g filter="url(#filter1_d)">
+<path d="M348.126 165.35L316.366 133.59C308.556 125.779 295.892 125.779 288.082 133.59L182.134 239.537L122.268 179.671L228.037 73.9026C235.847 66.0921 235.847 53.4288 228.037 45.6183L196.277 13.8579C188.466 6.04737 175.803 6.04739 167.992 13.8579L16.1423 165.708C8.3318 173.518 8.3318 186.182 16.1423 193.992L288.082 465.574C295.892 473.384 308.556 473.384 316.366 465.574L348.126 433.813C355.937 426.003 355.937 413.339 348.126 405.529L242.179 299.582L348.126 193.634C355.937 185.824 355.937 173.16 348.126 165.35Z" fill="#E15756"/>
+</g>
+<defs>
+<filter id="filter0_d" x="0" y="291" width="191" height="191" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<filter id="filter1_d" x="0.284424" y="1.19205e-07" width="363.7" height="483.431" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+</defs>
+</svg>

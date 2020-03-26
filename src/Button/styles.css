@@ -4,6 +4,7 @@
   border: 1px solid var(--border-color);
   color: var(--text-color);
   font-family: var(--font-family);
+  line-height: 1em;
   transition: background-color 0.1s, border-color 0.1s;
   cursor: pointer;
   text-decoration: none;

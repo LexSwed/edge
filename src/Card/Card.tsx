@@ -29,7 +29,7 @@ if (__DEV__) {
 }
 
 Card.defaultProps = {
-  padding: 'm',
+  padding: 'm'
 };
 
 export default Card;

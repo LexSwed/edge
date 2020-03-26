@@ -1,0 +1,62 @@
+.fx-inline {
+  --space: 0px;
+  display: flex;
+  flex-flow: row wrap;
+  vertical-align: baseline;
+  margin-top: calc(-1 * var(--space));
+  margin-left: calc(-1 * var(--space));
+}
+
+.fx-inline__child {
+  display: flex;
+  padding-top: var(--space);
+  padding-left: var(--space);
+  box-sizing: border-box;
+}
+
+/** Space */
+.fx-inline--none {
+  --space: 0;
+}
+.fx-inline--xs {
+  --space: 4px;
+}
+.fx-inline--s {
+  --space: 8px;
+}
+.fx-inline--m {
+  --space: 16px;
+}
+.fx-inline--l {
+  --space: 32px;
+}
+.fx-inline--xl {
+  --space: 48px;
+}
+
+/** Align X */
+.fx-inline--left {
+  justify-content: flex-start;
+}
+.fx-inline--center {
+  justify-content: center;
+}
+.fx-inline--right {
+  justify-content: flex-end;
+}
+
+/** Align Y */
+.fx-inline--y-top {
+  align-items: flex-start;
+}
+.fx-inline--y-center {
+  align-items: center;
+}
+.fx-inline--y-bottom {
+  align-items: flex-end;
+}
+
+/* Other */
+.fx-inline--no-wrap {
+  flex-wrap: nowrap;
+}

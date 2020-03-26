@@ -1,4 +1,8 @@
 export default {
   themesDir: 'src/.docs',
-  typescript: true
+  public: 'src/.docs/static',
+  typescript: true,
+  themeConfig: {
+    showPlaygroundEditor: false
+  }
 };

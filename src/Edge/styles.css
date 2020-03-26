@@ -49,8 +49,10 @@
   --border-color-focus: var(--gray-800);
 }
 
-body {
+.edge-wrapper {
   margin: 0;
   font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 1.2em;
   color: var(--text-color);
 }

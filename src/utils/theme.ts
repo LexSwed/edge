@@ -7,7 +7,7 @@ const brand = {
   600: '#e15756',
   700: '#cb4e4d',
   800: '#b44645',
-  900: '#9e3d3c',
+  900: '#9e3d3c'
 };
 
 const gray = {
@@ -19,7 +19,7 @@ const gray = {
   600: '#718096',
   700: '#4A5568',
   800: '#2D3748',
-  900: '#1A202C',
+  900: '#1A202C'
 };
 
 const red = {
@@ -31,7 +31,7 @@ const red = {
   600: '#E53E3E',
   700: '#C53030',
   800: '#9B2C2C',
-  900: '#742A2A',
+  900: '#742A2A'
 };
 
 const yellow = {
@@ -43,7 +43,7 @@ const yellow = {
   600: '#FFB300',
   700: '#FFA000',
   800: '#FF8F00',
-  900: '#FF6F00',
+  900: '#FF6F00'
 };
 
 export default {
@@ -55,15 +55,15 @@ export default {
     text: {
       main: gray[900],
       weak: gray[700],
-      brand: brand[600],
-    },
+      brand: brand[600]
+    }
   },
   border: {
     radius: 2,
     colors: {
       main: gray[400],
       hover: gray[600],
-      focus: gray[800],
-    },
-  },
+      focus: gray[800]
+    }
+  }
 };

@@ -1,5 +1,15 @@
 .fx-stack {
   --space: 0px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+
+.fx-stack__child {
+  padding-bottom: var(--space);
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
 
 .fx-stack--xs {
@@ -18,9 +28,12 @@
   --space: 48px;
 }
 
-.fx-stack__child {
-  padding-bottom: var(--space);
-  &:last-child {
-    padding-bottom: 0;
-  }
+.fx-stack--left {
+  align-items: flex-start;
+}
+.fx-stack--center {
+  align-items: center;
+}
+.fx-stack--right {
+  align-items: flex-end;
 }

@@ -3,3 +3,75 @@ name: Stack
 route: /fx-stack
 menu: Components
 ---
+
+import { Playground } from 'docz';
+import Stack from './Stack';
+
+import Placeholder from '../Placeholder';
+
+# Stack
+
+## Basic usage
+
+```tsx
+import { Stack } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Stack>
+    <Placeholder height={100} />
+    <Placeholder height={100} />
+  </Stack>
+</Playground>
+
+## Space
+
+<Playground>
+  <Stack space="l">
+    <Stack space="xs" style={{ backgroundColor: 'var(--gray-500)' }}>
+      <Placeholder height={50}>xs</Placeholder>
+      <Placeholder height={50}>xs</Placeholder>
+    </Stack>
+    <Stack space="s" style={{ backgroundColor: 'var(--gray-500)' }}>
+      <Placeholder height={50}>s</Placeholder>
+      <Placeholder height={50}>s</Placeholder>
+    </Stack>
+    <Stack space="m" style={{ backgroundColor: 'var(--gray-500)' }}>
+      <Placeholder height={50}>m</Placeholder>
+      <Placeholder height={50}>m</Placeholder>
+    </Stack>
+    <Stack space="l" style={{ backgroundColor: 'var(--gray-500)' }}>
+      <Placeholder height={50}>l</Placeholder>
+      <Placeholder height={50}>l</Placeholder>
+    </Stack>
+    <Stack space="xl" style={{ backgroundColor: 'var(--gray-500)' }}>
+      <Placeholder height={50}>xl</Placeholder>
+      <Placeholder height={50}>xl</Placeholder>
+    </Stack>
+  </Stack>
+</Playground>
+
+## Align
+
+<Playground>
+  <Stack space="l">
+    <Stack align="left" space="s">
+      <Placeholder height={50} width={400}>
+        Left
+      </Placeholder>
+      <Placeholder height={50} width={300} />
+    </Stack>
+    <Stack align="center" space="s">
+      <Placeholder height={50} width={400}>
+        Center
+      </Placeholder>
+      <Placeholder height={50} width={300} />
+    </Stack>
+    <Stack align="right" space="s">
+      <Placeholder height={50} width={400}>
+        Right
+      </Placeholder>
+      <Placeholder height={50} width={300} />
+    </Stack>
+  </Stack>
+</Playground>

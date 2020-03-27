@@ -3,3 +3,36 @@ name: Placeholder
 route: /fx-placeholder
 menu: Components
 ---
+
+import { Playground } from 'docz';
+import Placeholder from './Placeholder';
+
+import Stack from '../Stack';
+import Columns from '../Columns';
+import Column from '../Column';
+
+# Placeholder
+
+A temporary dummy to show instead of content.
+
+## Basic usage
+
+```tsx
+import { Placeholder } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Stack>
+    <Placeholder height={100} />
+    <Columns>
+      <Column width="content">
+        <Placeholder height={100} width={100}>
+          With label
+        </Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={100} />
+      </Column>
+    </Columns>
+  </Stack>
+</Playground>

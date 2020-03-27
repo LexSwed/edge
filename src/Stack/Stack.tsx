@@ -15,22 +15,19 @@ type Props = {
   space?: 'xs' | 's' | 'm' | 'l' | 'xl';
   /**
    * Children alignment
-   * @default 'left'
    */
   align?: 'left' | 'right' | 'center';
 } & DivProps;
 
-const Stack = React.forwardRef<HTMLDivElement, Props>(
-  ({ space = 'm', align = 'left', className, children, ...props }, ref) => {
-    const classes = cx('fx-stack', `fx-stack--${space}`, `fx-stack--${align}`, className);
+const Stack = React.forwardRef<HTMLDivElement, Props>(({ space = 'm', align, className, children, ...props }, ref) => {
+  const classes = cx('fx-stack', `fx-stack--${space}`, align && `fx-stack--${align}`, className);
 
-    return (
-      <div className={classes} {...props} ref={ref}>
-        {renderValidChild(children, (child) => child && <div className="fx-stack__child">{child}</div>)}
-      </div>
-    );
-  }
-);
+  return (
+    <div className={classes} {...props} ref={ref}>
+      {renderValidChild(children, (child) => child && <div className="fx-stack__child">{child}</div>)}
+    </div>
+  );
+});
 
 if (__DEV__) {
   Stack.displayName = 'FxStack';

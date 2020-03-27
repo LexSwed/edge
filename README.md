@@ -7,6 +7,7 @@ A component library for [`foxtrot`](https://github.com/LexSwed/foxtrot) project.
 - [TailwindCSS](https://tailwindcss.com) for some design inspirations and color palette
 - [Braid Design System](https://seek-oss.github.io/braid-design-system) for components implementations examples
 - [@reach/ui](https://reacttraining.com/reach-ui) for accessible inputs logic
+- [Alex Sexton](https://www.youtube.com/watch?v=EDyiaDJJu-4) for some of the tips for Design Systems
 
 ### Why not CSS-inJS solution?
 
@@ -20,7 +21,7 @@ For example, you can export a color scheme or utils from your library:
 
 ```js
 // in the library:
-export const spacer = n => `${n * 8}px`;
+export const spacer = (n) => `${n * 8}px`;
 
 const style = css`
   padding: ${spacer(2)};

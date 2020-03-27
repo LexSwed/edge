@@ -1,0 +1,34 @@
+.fx-columns {
+  --space: 0;
+  --negative: calc(var(--space) * -1);
+  display: flex;
+  flex-direction: row;
+  margin-left: var(--negative);
+}
+
+.fx-columns--none {
+  --space: 0;
+}
+.fx-columns--xs {
+  --space: 4px;
+}
+.fx-columns--s {
+  --space: 8px;
+}
+.fx-columns--m {
+  --space: 16px;
+}
+.fx-columns--l {
+  --space: 32px;
+}
+.fx-columns--xl {
+  --space: 48px;
+}
+.fx-columns--apart {
+  --space: 0;
+  justify-content: space-between;
+}
+.fx-columns--spread {
+  --space: 0;
+  justify-content: space-evenly;
+}

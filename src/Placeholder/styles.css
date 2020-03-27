@@ -7,6 +7,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--text-color-light);
+  font-size: 14px;
+  line-height: 1;
 }
 
 .fx-placeholder > svg {

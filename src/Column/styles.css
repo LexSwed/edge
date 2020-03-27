@@ -1,0 +1,40 @@
+.fx-column {
+  width: 100%;
+  margin-left: var(--space);
+}
+
+.fx-column--content {
+  flex-shrink: 0;
+  width: auto;
+}
+
+.fx-column--1-2 {
+  flex: 0 0 50%;
+}
+
+.fx-column--1-3 {
+  flex: 0 0 calc(100% / 3);
+}
+.fx-column--2-3 {
+  flex: 0 0 calc(2 * (100% / 3));
+}
+
+.fx-column--1-4 {
+  flex: 0 0 calc(100% / 4);
+}
+.fx-column--3-4 {
+  flex: 0 0 calc(3 * (100% / 4));
+}
+
+.fx-column--1-5 {
+  flex: 0 0 calc(100% / 5);
+}
+.fx-column--2-5 {
+  flex: 0 0 calc(2 * (100% / 5));
+}
+.fx-column--3-5 {
+  flex: 0 0 calc(3 * (100% / 5));
+}
+.fx-column--4-5 {
+  flex: 0 0 calc(4 * (100% / 5));
+}

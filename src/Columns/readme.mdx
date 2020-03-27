@@ -1,0 +1,109 @@
+---
+name: Columns
+route: /fx-columns
+menu: Components
+---
+
+# Columns
+
+import { Playground } from 'docz';
+import Columns from './Columns';
+
+import Column from '../Column';
+import Stack from '../Stack';
+import Placeholder from '../Placeholder';
+
+## Basic usage
+
+```tsx
+import { Columns } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Columns>
+    <Column>
+      <Placeholder height={40} />
+    </Column>
+    <Column>
+      <Placeholder height={40} />
+    </Column>
+  </Columns>
+</Playground>
+
+## Space
+
+<Playground>
+  <Stack>
+    <Columns space="xs">
+      <Column>
+        <Placeholder height={40}>space="xs"</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="xs"</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="xs"</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="xs"</Placeholder>
+      </Column>
+    </Columns>
+    <Columns space="s">
+      <Column>
+        <Placeholder height={40}>space="s"</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="s"</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="s"</Placeholder>
+      </Column>
+    </Columns>
+    <Columns space="m">
+      <Column>
+        <Placeholder height={40}>space="m" (default)</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="m" (default)</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="m" (default)</Placeholder>
+      </Column>
+    </Columns>
+    <Columns space="l">
+      <Column>
+        <Placeholder height={40}>space="l"</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="l"</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="l"</Placeholder>
+      </Column>
+    </Columns>
+    <Columns space="xl">
+      <Column>
+        <Placeholder height={40}>space="xl"</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>space="xl"</Placeholder>
+      </Column>
+    </Columns>
+    <Columns space="spread">
+      <Column width="content">
+        <Placeholder height={40}>Spread space</Placeholder>
+      </Column>
+      <Column width="1/5">
+        <Placeholder height={40}>evenly</Placeholder>
+      </Column>
+    </Columns>
+    <Columns space="apart">
+      <Column width="1/2">
+        <Placeholder height={40}>Move items</Placeholder>
+      </Column>
+      <Column width="content">
+        <Placeholder height={40}>apart</Placeholder>
+      </Column>
+    </Columns>
+  </Stack>
+</Playground>

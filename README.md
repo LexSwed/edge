@@ -9,7 +9,9 @@ A component library for [`foxtrot`](https://github.com/LexSwed/foxtrot) project.
 - [@reach/ui](https://reacttraining.com/reach-ui) for accessible inputs logic
 - [Alex Sexton](https://www.youtube.com/watch?v=EDyiaDJJu-4) for some of the tips for Design Systems
 
-### Why not CSS-inJS solution?
+<details>
+<summary>About CSS-in-JS considerations</summary>
+<p>
 
 #### I actually like CSS-in-JS:
 
@@ -74,3 +76,6 @@ Downsides:
 - you're not cool for not using CSS-in-JS
 - you're stuck with CSS variables (but it's nice feeling actually)
 - you can forget CSS variable names even with consistent naming
+
+</p>
+</details>

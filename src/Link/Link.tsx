@@ -16,7 +16,7 @@ const Link = React.forwardRef<HTMLAnchorElement, Props>(({ active, children, cla
 });
 
 if (__DEV__) {
-  Link.displayName = 'fx-link';
+  Link.displayName = 'FxLink';
 }
 
 export default Link;

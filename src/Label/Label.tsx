@@ -2,7 +2,11 @@ import React from 'react';
 
 import './styles.css';
 
-type Props = React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+type LabelAttrs = React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+
+type Props = LabelAttrs & {
+  htmlFor: LabelAttrs['htmlFor'];
+};
 
 const Label = React.forwardRef<HTMLLabelElement, Props>(({ children, ...props }, ref) => {
   return (
@@ -13,7 +17,7 @@ const Label = React.forwardRef<HTMLLabelElement, Props>(({ children, ...props },
 });
 
 if (__DEV__) {
-  Label.displayName = 'fx-label';
+  Label.displayName = 'FxLabel';
 }
 
 export default Label;

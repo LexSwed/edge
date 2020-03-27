@@ -1,12 +1,16 @@
 .fx-link {
-  --color: var(--text-color, inherit);
+  --color: var(--green-900);
   color: var(--color);
   text-decoration: none;
   box-sizing: border-box;
+  display: inline-block;
+  padding: 4px;
+  margin: -4px;
+  cursor: pointer;
   &:after {
     content: '';
     display: block;
-    bottom: -1px;
+    transform: translateY(-1px);
     width: 90%;
     margin: 0 auto;
     height: 2px;
@@ -14,7 +18,7 @@
     transition: transform 0.12s ease-in-out;
   }
   &:hover:after {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 }
 

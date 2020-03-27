@@ -89,19 +89,50 @@ import { Columns } from '@foxtrot/edge';
         <Placeholder height={40}>space="xl"</Placeholder>
       </Column>
     </Columns>
-    <Columns space="spread">
+  </Stack>
+</Playground>
+
+## Alignment
+
+<Playground>
+  <Stack>
+    <Columns align="left">
       <Column width="content">
-        <Placeholder height={40}>Spread space</Placeholder>
+        <Placeholder height={40}>Align</Placeholder>
       </Column>
-      <Column width="1/5">
+      <Column width="3/5">
+        <Placeholder height={40}>left</Placeholder>
+      </Column>
+    </Columns>
+    <Columns align="center">
+      <Column width="content">
+        <Placeholder height={40}>Align</Placeholder>
+      </Column>
+      <Column width="3/5">
+        <Placeholder height={40}>center</Placeholder>
+      </Column>
+    </Columns>
+    <Columns align="right">
+      <Column width="content">
+        <Placeholder height={40}>Align</Placeholder>
+      </Column>
+      <Column width="3/5">
+        <Placeholder height={40}>right</Placeholder>
+      </Column>
+    </Columns>
+    <Columns align="spread">
+      <Column width="content">
+        <Placeholder height={40}>Align</Placeholder>
+      </Column>
+      <Column width="3/5">
         <Placeholder height={40}>evenly</Placeholder>
       </Column>
     </Columns>
-    <Columns space="apart">
-      <Column width="1/2">
-        <Placeholder height={40}>Move items</Placeholder>
-      </Column>
+    <Columns align="apart">
       <Column width="content">
+        <Placeholder height={40}>Align</Placeholder>
+      </Column>
+      <Column width="3/5">
         <Placeholder height={40}>apart</Placeholder>
       </Column>
     </Columns>

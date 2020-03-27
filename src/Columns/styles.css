@@ -6,6 +6,7 @@
   margin-left: var(--negative);
 }
 
+/* Space */
 .fx-columns--none {
   --space: 0;
 }
@@ -23,6 +24,18 @@
 }
 .fx-columns--xl {
   --space: 48px;
+}
+
+/* Alignment */
+.fx-columns--left {
+  justify-content: flex-start;
+}
+
+.fx-columns--center {
+  justify-content: center;
+}
+.fx-columns--right {
+  justify-content: flex-end;
 }
 .fx-columns--apart {
   --space: 0;

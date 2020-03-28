@@ -1,0 +1,34 @@
+---
+name: Text
+route: /fx-text
+menu: Components
+---
+
+import { Playground } from 'docz';
+import Text from './Text';
+
+import Stack from '../Stack';
+
+# Text
+
+## Basic usage
+
+```tsx
+import { Text } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Text>Just text</Text>
+</Playground>
+
+## Role and truncation
+
+<Playground>
+  <Stack>
+    <Text>Default text</Text>
+    <Text role="secondary">As a secondary text</Text>
+    <Text style={{ width: '300px' }} maxLines={1}>
+      This text is long enough to occupy more than 2 lines and so it is truncated with ellipsis.
+    </Text>
+  </Stack>
+</Playground>

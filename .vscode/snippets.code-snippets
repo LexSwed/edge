@@ -26,7 +26,7 @@
       "",
       "type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;",
       "",
-      "const $1 = React.forwardRef<HTMLDivElement, Props>(({ children, className, ...props }, ref) => {",
+      "const $0 = React.forwardRef<HTMLDivElement, Props>(({ children, className, ...props }, ref) => {",
       "  return (",
       "    <div className={cx(className)} {...props} ref={ref}>",
       "      {children}",
@@ -35,10 +35,10 @@
       "});",
       "",
       "if (__DEV__) {",
-      "  $1.displayName = 'Fx$1';",
+      "  $0.displayName = 'Fx$0';",
       "}",
       "",
-      "export default $1;",
+      "export default $0;",
       ""
     ],
     "description": "Create an edge component template"

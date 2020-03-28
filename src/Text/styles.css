@@ -1,0 +1,19 @@
+.fx-text {
+  display: block;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--text-color);
+}
+
+.fx-text--secondary {
+  --text-color: var(--text-color-light);
+  --font-size: 13px;
+}
+
+.fx-text--truncate {
+  --line-camp: 3;
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-camp);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

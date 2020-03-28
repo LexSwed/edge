@@ -1,28 +1,28 @@
 .fx-heading {
   font-family: var(--font-family);
   color: var(--text-color);
+  font-weight: 700;
   margin: 0;
 }
 
 .fx-heading--h1 {
-  font-size: 42px;
-  line-height: 44px;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 24px;
+  text-transform: uppercase;
 }
 .fx-heading--h2 {
-  font-size: 28px;
-  line-height: 36px;
+  font-size: 26px;
+  line-height: 32px;
 }
 .fx-heading--h3 {
   font-size: 21px;
   line-height: 28px;
 }
 .fx-heading--h4 {
-  font-size: 18px;
-  line-height: 28px;
-}
-
-.fx-heading--default {
-  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: uppercase;
 }
 
 .fx-heading--light {

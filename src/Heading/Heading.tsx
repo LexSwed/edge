@@ -4,10 +4,12 @@ import cx from 'classnames';
 import './styles.css';
 
 type Props = {
-  /** Specifies level of the Heading */
+  /** Specifies level of the Heading
+   * @default 'h1'
+   */
   as?: 'h1' | 'h2' | 'h3' | 'h4';
   /** Specifies font-weight: default bold or lighter */
-  tone?: 'default' | 'light';
+  tone?: 'light';
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 const Heading = React.forwardRef<HTMLHeadingElement, Props>(
@@ -15,7 +17,11 @@ const Heading = React.forwardRef<HTMLHeadingElement, Props>(
     const Tag = as;
 
     return (
-      <Tag className={cx('fx-heading', `fx-heading--${as}`, `fx-heading--${tone}`, className)} {...props} ref={ref}>
+      <Tag
+        className={cx('fx-heading', `fx-heading--${as}`, tone && `fx-heading--${tone}`, className)}
+        {...props}
+        ref={ref}
+      >
         {children}
       </Tag>
     );
@@ -28,7 +34,6 @@ if (__DEV__) {
 
 Heading.defaultProps = {
   as: 'h1',
-  tone: 'default',
 };
 
 export default Heading;

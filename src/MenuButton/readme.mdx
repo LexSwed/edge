@@ -1,5 +1,5 @@
 ---
-name: Menu
+name: Menu Button
 route: /fx-menu
 menu: Components
 ---
@@ -9,7 +9,7 @@ import { Menu, MenuButton, MenuList, MenuItem } from './index';
 
 import Icon from '../Icon';
 
-# Menu
+# Menu Button
 
 An accessible dropdown menu for the common dropdown menu button design pattern.
 
@@ -18,7 +18,7 @@ Please note that the buttons on this page are styled by this website. They are j
 ## Basic usage
 
 ```tsx
-import { Menu, MenuButton } from '@foxtrot/edge';
+import { Menu, MenuButton, MenuList, MenuItem } from '@foxtrot/edge';
 ```
 
 <Playground>
@@ -28,7 +28,7 @@ import { Menu, MenuButton } from '@foxtrot/edge';
     </MenuButton>
     <MenuList>
       <MenuItem>
-        Option 1 <Icon icon="settings" tone="outlined" size="s" />
+        With icons <Icon icon="settings" tone="outlined" />
       </MenuItem>
       <MenuItem>Option 2</MenuItem>
       <MenuItem>Option 3</MenuItem>

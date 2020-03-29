@@ -9,6 +9,7 @@
 .fx-menuitem[data-reach-menu-item] {
   --border-color: transparent;
   --border-width: 0px;
+  --icon-size: 18px;
   box-sizing: border-box;
   padding: 0 16px;
   height: 40px;

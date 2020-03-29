@@ -41,7 +41,7 @@ type Props = {
   /**
    * Field the message describes
    */
-  id: string;
+  id?: string;
   /**
    * Whether described by the message field is disabled
    * @default false

@@ -1,18 +1,16 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round');
 
 .fx-icon {
+  font-family: 'Material Icons';
   color: currentColor;
   vertical-align: sub;
   flex-shrink: 0;
   line-height: 1;
-  cursor: default;
+  cursor: inherit;
   user-select: none;
 }
 
 /* Variations */
-.fx-icon--default {
-  font-family: 'Material Icons';
-}
 .fx-icon--outlined {
   font-family: 'Material Icons Outlined';
 }
@@ -28,17 +26,17 @@
 
 /* Sizes */
 .fx-icon--xs {
-  font-size: 14px;
+  font-size: var(--font-size, 14px);
 }
 .fx-icon--s {
-  font-size: 18px;
+  font-size: var(--font-size, 18px);
 }
 .fx-icon--m {
-  font-size: 24px;
+  font-size: var(--font-size, 24px);
 }
 .fx-icon--l {
-  font-size: 32px;
+  font-size: var(--font-size, 32px);
 }
 .fx-icon--xl {
-  font-size: 48px;
+  font-size: var(--font-size, 48px);
 }

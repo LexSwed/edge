@@ -1,0 +1,8 @@
+.fx-fieldlabel {
+  display: inline-block;
+  color: var(--text-color);
+  font-size: var(--font-size, 14px);
+  font-weight: 400;
+  line-height: var(--font-size);
+  transition: all 0.12s ease-in-out;
+}

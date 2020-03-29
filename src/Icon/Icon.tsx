@@ -12,9 +12,8 @@ type Props = ElementProps & {
   icon: string;
   /**
    * Material Design icon tone
-   * @default 'default'
    */
-  tone?: 'default' | 'outlined' | 'round' | 'two-tone';
+  tone?: 'outlined' | 'round' | 'two-tone';
   /**
    *  Size of the icon
    * @default 'm'
@@ -22,10 +21,10 @@ type Props = ElementProps & {
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 };
 
-const Icon = React.forwardRef<HTMLElement, Props>(({ icon, tone, size, className, ...props }, ref) => {
+const Icon = React.forwardRef<HTMLElement, Props>(({ icon, tone, size = 'm', className, ...props }, ref) => {
   return (
     <i
-      className={cx('material-icons', 'fx-icon', `fx-icon--${tone}`, `fx-icon--${size}`, className)}
+      className={cx('material-icons', 'fx-icon', tone && `fx-icon--${tone}`, `fx-icon--${size}`, className)}
       role="img"
       {...props}
       ref={ref}

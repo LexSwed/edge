@@ -1,6 +1,6 @@
 .fx-fieldmessage {
-  font-size: 13px;
-  line-height: 1.1;
+  font-size: 12px;
+  line-height: 1;
   color: var(--text-color);
   transition: 0.2s ease-in-out;
 }

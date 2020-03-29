@@ -3,3 +3,76 @@ name: TextField
 route: /fx-textfield
 menu: Components
 ---
+
+import { useState } from 'react';
+import { Playground } from 'docz';
+import TextField from './TextField';
+
+import Box from '../Box';
+import Icon from '../Icon';
+import Stack from '../Stack';
+
+## Basic usage
+
+```tsx
+import { Text } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Box padding="xs" style={{ width: '300px' }}>
+    <TextField label="Full name" placeholder="John Doe" message="We just want to know how we can approach you" />
+  </Box>
+</Playground>
+
+## With clear button
+
+<Playground>
+  {() => {
+    const [value, setValue] = React.useState('');
+    return (
+      <TextField
+        label="With onClear handler"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={() => setValue('')}
+        style={{ display: 'inline-flex' }}
+      />
+    );
+  }}
+</Playground>
+
+#### Be aware
+
+If you provide `defaultValue` with `onClear` funciton, but not `value` prop, the clear button will be always shown,
+as it only checks for `value` prop. To fix this, `TextField` component will need to have an internal state, making the `<input />`
+always controlled. This creattes additional overhead and code I don't want to ship to cover such a rare case.
+
+<Playground>
+  <Box padding="xs" style={{ width: '300px' }}>
+    <TextField label="With onClear handler" onClear={() => {}} inputProps={{ defaultValue: 'Clear me' }} />
+  </Box>
+</Playground>
+
+Use next snippet if you need uncontrolled input with `defaultValue`:
+
+```tsx
+const Uncontrolled = () => {
+  const [defaultValue, setValue] = React.useState('default value');
+
+  return <TextField defaultValue={defaultValue} onClear={() => setValue('')}
+}
+```
+
+## Sizes
+
+<Playground>
+  <Box padding="xs" style={{ width: '300px' }}>
+    <Stack>
+      <TextField placeholder="Small inline input" size="s" />
+      <TextField label="Normal input (default)" placeholder="Medium" size="m" />
+      <TextField label="Prominent input" placeholder="Large" size="l" />
+    </Stack>
+  </Box>
+</Playground>
+
+## Icons

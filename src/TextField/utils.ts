@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import FieldMessage from '../FieldMessage';
 import { useId } from '@reach/auto-id';
 
@@ -25,8 +25,9 @@ export type Props = WrapperProps & {
   tone?: React.ComponentProps<typeof FieldMessage>['tone'];
   size?: 's' | 'm' | 'l';
   icon?: string;
-  onClear?: () => void;
+  allowClear?: boolean;
   inputProps?: InputProps;
+  children: (props: InputProps, ref?: React.RefObject<HTMLInputElement>) => WrapperProps['children'];
 };
 
 /**
@@ -76,4 +77,29 @@ export function useMergedInputProps(props: Partial<Props>): Partial<InputProps> 
   }
 
   return merged;
+}
+
+export function useClearButton(ref?: React.Ref<HTMLInputElement>) {
+  const inputRefInternal = useRef<HTMLInputElement>(null);
+  const inputRef = (ref as React.RefObject<HTMLInputElement>) || inputRefInternal;
+
+  function onClearClick() {
+    if (!inputRef?.current) {
+      return;
+    }
+
+    setNativeValue(inputRef.current, '');
+    inputRef.current.focus();
+  }
+
+  return [inputRef, onClearClick] as const;
+}
+
+function setNativeValue(input: HTMLInputElement, value: string) {
+  const valueSetter =
+    Object.getOwnPropertyDescriptor(Object.getPrototypeOf(input), 'value')?.set ??
+    Object.getOwnPropertyDescriptor(input, 'value')?.set;
+
+  valueSetter?.call(input, value);
+  input.dispatchEvent(new Event('change', { bubbles: true }));
 }

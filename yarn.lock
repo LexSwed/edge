@@ -1445,6 +1445,21 @@
     "@reach/utils" "^0.9.0"
     tslib "^1.10.0"
 
+"@reach/combobox@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@reach/combobox/-/combobox-0.9.1.tgz#3f2f708f8f8eedac70818e946af9bcb875a9c515"
+  integrity sha512-K45Yda0sCJ/yB/WN93ujuTt2dfLycl/MTMJ5sNMK9c4KgT585nrL2K/LKVtkRF9k4Ken6brdVE4zP7/mUBL8+w==
+  dependencies:
+    "@reach/auto-id" "^0.9.0"
+    "@reach/descendants" "^0.9.1"
+    "@reach/popover" "^0.9.0"
+    "@reach/portal" "^0.9.0"
+    "@reach/utils" "^0.9.0"
+    escape-regexp "0.0.1"
+    highlight-words-core "1.2.2"
+    prop-types "^15.7.2"
+    tslib "^1.10.0"
+
 "@reach/descendants@^0.9.1":
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/@reach/descendants/-/descendants-0.9.1.tgz#f17eec0a245d3b6a7cccd020b8edf5b7d1115fc2"
@@ -5318,6 +5333,11 @@ escape-html@~1.0.3:
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
+escape-regexp@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/escape-regexp/-/escape-regexp-0.0.1.tgz#f44bda12d45bbdf9cb7f862ee7e4827b3dd32254"
+  integrity sha1-9EvaEtRbvfnLf4Yu5+SCez3TIlQ=
+
 escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -7342,6 +7362,11 @@ hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
+
+highlight-words-core@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/highlight-words-core/-/highlight-words-core-1.2.2.tgz#1eff6d7d9f0a22f155042a00791237791b1eeaaa"
+  integrity sha512-BXUKIkUuh6cmmxzi5OIbUJxrG8OAk2MqoL1DtO3Wo9D2faJg2ph5ntyuQeLqaHJmzER6H5tllCDA9ZnNe9BVGg==
 
 hmac-drbg@^1.0.0:
   version "1.0.1"

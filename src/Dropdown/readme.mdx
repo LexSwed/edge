@@ -6,6 +6,9 @@ menu: Components
 
 import { Playground } from 'docz';
 import Dropdown from './Dropdown';
+import { ComboboxOption } from '@reach/combobox';
+
+import Box from '../Box';
 
 # Dropdown
 
@@ -15,4 +18,14 @@ import Dropdown from './Dropdown';
 import { Dropdown } from '@foxtrot/edge';
 ```
 
-<Playground></Playground>
+<Playground>
+  <Box style={{ width: '200px' }}>
+    <Dropdown onSelect={(item) => window.alert(item)} allowClear>
+      <ComboboxOption value="Apple" />
+      <ComboboxOption value="Banana" />
+      <ComboboxOption value="Orange" />
+      <ComboboxOption value="Pineapple" />
+      <ComboboxOption value="Kiwi" />
+    </Dropdown>
+  </Box>
+</Playground>

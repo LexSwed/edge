@@ -28,13 +28,13 @@ import { Text } from '@foxtrot/edge';
 
 <Playground>
   {() => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState('Clear me');
     return (
       <TextField
-        label="With onClear handler"
+        label="Allows clearing the input"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        onClear={() => setValue('')}
+        allowClear
         style={{ display: 'inline-flex' }}
       />
     );
@@ -43,25 +43,15 @@ import { Text } from '@foxtrot/edge';
 
 #### Be aware
 
-If you provide `defaultValue` with `onClear` funciton, but not `value` prop, the clear button will be always shown,
-as it only checks for `value` prop. To fix this, `TextField` component will need to have an internal state, making the `<input />`
-always controlled. This creattes additional overhead and code I don't want to ship to cover such a rare case.
+If you provide `defaultValue`, but not `value` prop, the clear button won't be shown, as it only checks for `value` prop.
+To fix this, `TextField` component will need to have an internal state, making the `<input />`
+always controlled. This creattes additional overhead and code to cover such rare case.
 
 <Playground>
   <Box padding="xs" style={{ width: '300px' }}>
-    <TextField label="With onClear handler" onClear={() => {}} inputProps={{ defaultValue: 'Clear me' }} />
+    <TextField label="Allows clearing the input" allowClear inputProps={{ defaultValue: 'Clear me' }} />
   </Box>
 </Playground>
-
-Use next snippet if you need uncontrolled input with `defaultValue`:
-
-```tsx
-const Uncontrolled = () => {
-  const [defaultValue, setValue] = React.useState('default value');
-
-  return <TextField onClear={() => setValue('')} inputProps={{ defaultValue }} />;
-};
-```
 
 ## Message and tone
 
@@ -70,14 +60,7 @@ const Uncontrolled = () => {
     <Stack>
       <TextField label="Default tone" size="s" message="This will be used later" />
       <TextField label="Critical tone" size="m" message="The input is incorrect" tone="critical" />
-      <TextField
-        label="Positive tone"
-        size="l"
-        value="password"
-        type="password"
-        message="The password seems strong"
-        tone="positive"
-      />
+      <TextField label="Positive tone" size="l" type="password" message="The password seems strong" tone="positive" />
     </Stack>
   </Box>
 </Playground>
@@ -99,26 +82,20 @@ const Uncontrolled = () => {
 <Playground>
   <Box padding="xs" style={{ width: '300px' }}>
     <Stack>
-      <TextField
-        label="Small with"
-        size="s"
-        icon="search"
-        inputProps={{ defaultValue: 'With left icon' }}
-        onClear={() => {}}
-      />
+      <TextField label="Small with" size="s" icon="search" inputProps={{ defaultValue: 'With left icon' }} allowClear />
       <TextField
         label="Normal input (default)"
         size="m"
         icon="expand_more"
         inputProps={{ defaultValue: 'With left icon' }}
-        onClear={() => {}}
+        allowClear
       />
       <TextField
         label="Prominent input"
         size="l"
         icon="search"
         inputProps={{ defaultValue: 'With left icon' }}
-        onClear={() => {}}
+        allowClear
       />
     </Stack>
   </Box>

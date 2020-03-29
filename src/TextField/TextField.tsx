@@ -12,7 +12,7 @@ import { Props, useMergedInputProps } from './utils';
 const TextField = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const inputProps = useMergedInputProps(props);
 
-  const { size, tone, className, children, label, message, iconLeft, onClear, ...wrapperProps } = props;
+  const { size, tone, className, label, message, iconLeft, onClear, ...wrapperProps } = props;
   delete wrapperProps.inputProps;
 
   const classes = cx('fx-textfield', `fx--textfield--${size}`, className);
@@ -26,7 +26,7 @@ const TextField = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
       )}
       <label className={cx('fx-textfield-wrapper')}>
         {iconLeft}
-        <Input {...inputProps} onClear={onClear} />
+        <Input {...inputProps} size={size} onClear={onClear} />
       </label>
       {message && (
         <FieldMessage

@@ -2,12 +2,15 @@ import React, { ReactNode } from 'react';
 import FieldMessage from '../FieldMessage';
 import { useId } from '@reach/auto-id';
 
-export type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
+export type InputProps = Omit<
+  React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+  'size'
+> & {
   ref?: React.RefObject<HTMLInputElement>;
 };
 type WrapperProps = React.HTMLAttributes<HTMLDivElement>;
 
-export type Props = {
+export type Props = WrapperProps & {
   label?: string;
   placeholder?: InputProps['placeholder'];
   value?: InputProps['value'];
@@ -20,11 +23,11 @@ export type Props = {
   id?: InputProps['id'];
   message?: string;
   tone?: React.ComponentProps<typeof FieldMessage>['tone'];
-  size?: 'xs' | 's' | 'm' | 'l';
+  size?: 's' | 'm' | 'l';
   iconLeft?: ReactNode;
   onClear?: () => void;
   inputProps?: InputProps;
-} & WrapperProps;
+};
 
 /**
  * Merges commonly used input props that were added as shortcuts (type, autoFocus,...)

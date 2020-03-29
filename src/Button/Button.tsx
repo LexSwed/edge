@@ -1,16 +1,26 @@
 import React from 'react';
 import cx from 'classnames';
+import { MenuButton as ReachMenuButton } from '@reach/menu-button';
+
+import Inline from '../Inline';
 
 import './styles.css';
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(
-  ({ size = 'm', tone = 'default', className, children, ...props }, ref) => {
-    const classes = cx('fx-button', `fx-button--${size}`, `fx-button--${tone}`, className);
+  ({ menuButton = false, size = 'm', tone, className, children, ...props }, ref) => {
+    const classes = cx('fx-button', `fx-button--${size}`, tone && `fx-button--${tone}`, className);
+    const Component = menuButton ? ReachMenuButton : 'button';
 
     return (
-      <button {...props} className={classes} ref={ref}>
-        {children}
-      </button>
+      <Component {...props} className={classes} ref={ref}>
+        {React.Children.count(children) > 1 ? (
+          <Inline alignY="center" space={size}>
+            {children}
+          </Inline>
+        ) : (
+          children
+        )}
+      </Component>
     );
   }
 );
@@ -21,7 +31,7 @@ if (__DEV__) {
 
 export default Button;
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = {
   /**
    * The size of the button
    * @default 'm'
@@ -29,7 +39,13 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: 'xs' | 's' | 'm' | 'l';
   /**
    * The color tone of the button
-   * @default 'default'
    */
-  tone?: 'default' | 'flat' | 'transparent' | 'accent' | 'critical';
+  tone?: 'flat' | 'transparent' | 'accent' | 'critical';
+  /**
+   * Renders menu button
+   * @default false
+   */
+  menuButton?: boolean;
 };
+
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps;

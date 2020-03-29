@@ -1,0 +1,27 @@
+---
+name: Menu
+route: /fx-menu
+menu: Components
+---
+
+import { Playground } from 'docz';
+import Menu from './Menu';
+import MenuButton from './MenuButton';
+
+import Icon from '../Icon';
+
+# Menu
+
+## Basic usage
+
+```tsx
+import { Menu, MenuButton } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Menu>
+    <MenuButton>
+      Actions <Icon icon="more_horiz" />
+    </MenuButton>
+  </Menu>
+</Playground>

@@ -32,7 +32,7 @@ const TextField = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
             <Icon icon={icon} size={size} />
           </span>
         )}
-        <Input {...inputProps} size={size} onClear={onClear} />
+        <Input {...inputProps} onClear={onClear} />
       </label>
       {message && (
         <FieldMessage

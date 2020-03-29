@@ -7,6 +7,8 @@
   line-height: 1;
   cursor: inherit;
   user-select: none;
+  /* magic number I liked */
+  font-size: var(--icon-size);
 }
 
 /* Variations */
@@ -25,17 +27,17 @@
 
 /* Sizes */
 .fx-icon--xs {
-  font-size: var(--font-size, 14px);
+  font-size: var(--icon-size, 14px);
 }
 .fx-icon--s {
-  font-size: var(--font-size, 18px);
+  font-size: var(--icon-size, 18px);
 }
 .fx-icon--m {
-  font-size: var(--font-size, 24px);
+  font-size: var(--icon-size, 24px);
 }
 .fx-icon--l {
-  font-size: var(--font-size, 32px);
+  font-size: var(--icon-size, 32px);
 }
 .fx-icon--xl {
-  font-size: var(--font-size, 48px);
+  font-size: var(--icon-size, 48px);
 }

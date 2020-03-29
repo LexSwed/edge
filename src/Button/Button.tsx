@@ -14,7 +14,7 @@ const Button = React.forwardRef<HTMLButtonElement, Props>(
     return (
       <Component {...props} className={classes} ref={ref}>
         {React.Children.count(children) > 1 ? (
-          <Inline alignY="center" space={size}>
+          <Inline alignY="center" space={sizeToSpaceMap[size]} nowrap>
             {children}
           </Inline>
         ) : (
@@ -30,6 +30,14 @@ if (__DEV__) {
 }
 
 export default Button;
+
+/** Do not make it larger then 'm' */
+const sizeToSpaceMap: Record<NonNullable<ButtonProps['size']>, React.ComponentProps<typeof Inline>['space']> = {
+  xs: 'xs',
+  s: 's',
+  m: 'm',
+  l: 'm',
+};
 
 type ButtonProps = {
   /**

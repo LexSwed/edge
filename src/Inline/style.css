@@ -4,6 +4,7 @@
   --justify-content: flex-start;
   --align-items: flex-start;
   display: flex;
+  height: 100%;
 }
 
 .fx-inline__flex {
@@ -65,8 +66,12 @@
 }
 
 /* Other */
-.fx-inline--no-wrap {
+.fx-inline--nowrap {
   & > .fx-inline__flex {
     flex-wrap: nowrap;
+    margin-top: 0;
+  }
+  & .fx-inline__child {
+    margin-top: 0;
   }
 }

@@ -5,17 +5,19 @@ import Input from './Input';
 import Stack from '../Stack';
 import FieldLabel from '../FieldLabel';
 import FieldMessage from '../FieldMessage';
+import Icon from '../Icon';
+
+import { Props, useMergedInputProps } from './utils';
 
 import './styles.css';
-import { Props, useMergedInputProps } from './utils';
 
 const TextField = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const inputProps = useMergedInputProps(props);
 
-  const { size, tone, className, label, message, iconLeft, onClear, ...wrapperProps } = props;
+  const { size, tone, className, label, message, icon, onClear, ...wrapperProps } = props;
   delete wrapperProps.inputProps;
 
-  const classes = cx('fx-textfield', `fx--textfield--${size}`, className);
+  const classes = cx('fx-textfield', `fx-textfield--${size}`, tone && `fx-textfield--${tone}`, className);
 
   return (
     <Stack space="xs" className={classes} {...wrapperProps} ref={ref}>
@@ -25,7 +27,11 @@ const TextField = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
         </FieldLabel>
       )}
       <label className={cx('fx-textfield-wrapper')}>
-        {iconLeft}
+        {icon && (
+          <span className="fx-textfield-icon">
+            <Icon icon={icon} size={size} />
+          </span>
+        )}
         <Input {...inputProps} size={size} onClear={onClear} />
       </label>
       {message && (

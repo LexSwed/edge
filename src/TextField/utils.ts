@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import FieldMessage from '../FieldMessage';
 import { useId } from '@reach/auto-id';
 
@@ -24,7 +24,7 @@ export type Props = WrapperProps & {
   message?: string;
   tone?: React.ComponentProps<typeof FieldMessage>['tone'];
   size?: 's' | 'm' | 'l';
-  iconLeft?: ReactNode;
+  icon?: string;
   onClear?: () => void;
   inputProps?: InputProps;
 };

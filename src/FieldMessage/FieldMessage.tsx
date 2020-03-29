@@ -22,7 +22,7 @@ const FieldMessage = React.forwardRef<HTMLDivElement, Props>(
     );
 
     return (
-      <Inline id={id} className={classes} space="xs" {...props} ref={ref}>
+      <Inline id={id} className={classes} alignY="center" space="xs" {...props} ref={ref}>
         {icons[tone]}
         <span>{children}</span>
       </Inline>

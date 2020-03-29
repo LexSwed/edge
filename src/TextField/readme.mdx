@@ -59,9 +59,28 @@ Use next snippet if you need uncontrolled input with `defaultValue`:
 const Uncontrolled = () => {
   const [defaultValue, setValue] = React.useState('default value');
 
-  return <TextField defaultValue={defaultValue} onClear={() => setValue('')}
-}
+  return <TextField onClear={() => setValue('')} inputProps={{ defaultValue }} />;
+};
 ```
+
+## Message and tone
+
+<Playground>
+  <Box padding="xs" style={{ width: '300px' }}>
+    <Stack>
+      <TextField label="Default tone" size="s" message="This will be used later" />
+      <TextField label="Critical tone" size="m" message="The input is incorrect" tone="critical" />
+      <TextField
+        label="Positive tone"
+        size="l"
+        value="password"
+        type="password"
+        message="The password seems strong"
+        tone="positive"
+      />
+    </Stack>
+  </Box>
+</Playground>
 
 ## Sizes
 
@@ -75,4 +94,19 @@ const Uncontrolled = () => {
   </Box>
 </Playground>
 
-## Icons
+## With icon
+
+<Playground>
+  <Box padding="xs" style={{ width: '300px' }}>
+    <Stack>
+      <TextField label="Small with" size="s" icon="search" inputProps={{ defaultValue: 'With left icon' }} />
+      <TextField
+        label="Normal input (default)"
+        size="m"
+        icon="expand_more"
+        inputProps={{ defaultValue: 'With left icon' }}
+      />
+      <TextField label="Prominent input" size="l" icon="search" inputProps={{ defaultValue: 'With left icon' }} />
+    </Stack>
+  </Box>
+</Playground>

@@ -3,7 +3,6 @@
 .fx-icon {
   font-family: 'Material Icons';
   color: currentColor;
-  vertical-align: sub;
   flex-shrink: 0;
   line-height: 1;
   cursor: inherit;

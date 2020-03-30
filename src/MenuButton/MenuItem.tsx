@@ -22,7 +22,7 @@ const MenuItem = React.forwardRef<HTMLDivElement, Props>(
 
     return (
       <MenuItemReach className={classes} {...props} ref={ref}>
-        <Inline alignY="center" nowrap>
+        <Inline alignY="center" space="s" nowrap>
           {children}
         </Inline>
       </MenuItemReach>

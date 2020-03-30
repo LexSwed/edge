@@ -1,18 +1,16 @@
 import React from 'react';
 import cx from 'classnames';
-import { MenuButton as ReachMenuButton } from '@reach/menu-button';
 
 import Inline from '../Inline';
 
 import './styles.css';
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(
-  ({ menuButton = false, size = 'm', tone, className, children, ...props }, ref) => {
+  ({ size = 'm', tone, className, children, ...props }, ref) => {
     const classes = cx('fx-button', `fx-button--${size}`, tone && `fx-button--${tone}`, className);
-    const Component = menuButton ? ReachMenuButton : 'button';
 
     return (
-      <Component {...props} className={classes} ref={ref}>
+      <button {...props} className={classes} ref={ref}>
         {React.Children.count(children) > 1 ? (
           <Inline alignY="center" space={sizeToSpaceMap[size]} nowrap>
             {children}
@@ -20,7 +18,7 @@ const Button = React.forwardRef<HTMLButtonElement, Props>(
         ) : (
           children
         )}
-      </Component>
+      </button>
     );
   }
 );
@@ -49,11 +47,6 @@ type ButtonProps = {
    * The color tone of the button
    */
   tone?: 'flat' | 'transparent' | 'accent' | 'critical';
-  /**
-   * Renders menu button
-   * @default false
-   */
-  menuButton?: boolean;
 };
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps;

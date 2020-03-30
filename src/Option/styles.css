@@ -1,0 +1,49 @@
+.fx-option[data-reach-menu-item] {
+  --border-color: transparent;
+  --border-width: 0px;
+  --icon-size: 18px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  height: 40px;
+  border-radius: var(--br);
+  cursor: pointer;
+  background-color: transparent;
+  border: var(--border-width) solid var(--border-color);
+  transition: border-color 0.12s, background-color 0.12s;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  &:focus,
+  &:active {
+    --border-color: var(--gray-700);
+    background-color: transparent;
+    outline: none;
+  }
+  &[data-selected],
+  &:hover {
+    color: var(--text-color);
+    background-color: var(--gray-200);
+  }
+}
+.fx-option.fx-option--disabled {
+  background-color: var(--gray-200);
+  pointer-events: none;
+  color: var(--gray-600);
+  opacity: 0.6;
+}
+
+.fx-option.fx-option--selected {
+  background-color: var(--gray-300);
+}
+
+.fx-option.fx-option--bordered {
+  --border-width: 1px;
+  --border-color: transparent;
+  background-color: transparent;
+  &[data-selected]:hover {
+    background-color: var(--gray-200);
+  }
+  &.fx-option--selected {
+    --border-color: var(--gray-700);
+    background-color: #fff;
+  }
+}

@@ -1,21 +1,30 @@
-import React from 'react';
-
-import { MenuButton as ReachMenuButton } from '@reach/menu-button';
+import React, { useContext, useCallback } from 'react';
 
 import './styles.css';
-import '@reach/menu-button/styles.css';
 
 import Button from '../Button';
+import { popoverContext } from '../Popover/utils';
 
-type Props = React.ComponentProps<typeof Button> & React.ComponentProps<typeof ReachMenuButton>;
+type Props = React.ComponentProps<typeof Button>;
 
-const MenuButton = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props }, ref) => {
+const MenuButton: React.FC<Props> = ({ children, onClick, ...props }) => {
+  const { triggerRef, setOpen } = useContext(popoverContext);
+
+  const onClickMemo = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      setOpen((val) => !val);
+
+      onClick?.(e);
+    },
+    [setOpen, onClick]
+  );
+
   return (
-    <Button {...props} menuButton ref={ref}>
+    <Button {...props} onClick={onClickMemo} ref={triggerRef as React.RefObject<HTMLButtonElement>}>
       {children}
     </Button>
   );
-});
+};
 
 if (__DEV__) {
   MenuButton.displayName = 'FxMenuButton';

@@ -28,7 +28,7 @@ import { Menu, MenuButton, MenuList, MenuItem } from '@foxtrot/edge';
     </MenuButton>
     <MenuList>
       <MenuItem>
-        With icons <Icon icon="settings" tone="outlined" />
+        <Icon icon="settings" tone="outlined" /> With icon
       </MenuItem>
       <MenuItem>Option 2</MenuItem>
       <MenuItem>Option 3</MenuItem>

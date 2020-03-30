@@ -1,22 +1,28 @@
-import React, { useContext, useCallback } from 'react';
+import React, { useContext, useCallback, useEffect } from 'react';
 
 import './styles.css';
 
 import Button from '../Button';
-import { popoverContext } from '../Popover/utils';
+import { dropdownStaticContext } from '../Dropdown/utils';
 
 type Props = React.ComponentProps<typeof Button>;
 
 const MenuButton: React.FC<Props> = ({ children, onClick, ...props }) => {
-  const { triggerRef, setOpen } = useContext(popoverContext);
+  const { triggerRef, dispatch } = useContext(dropdownStaticContext);
+
+  useEffect(() => {
+    dispatch({ type: 'setCloseOnClick' });
+  }, [dispatch]);
+
+  console.log('render button');
 
   const onClickMemo = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      setOpen((val) => !val);
+      dispatch({ type: 'switchOpenState' });
 
       onClick?.(e);
     },
-    [setOpen, onClick]
+    [dispatch, onClick]
   );
 
   return (

@@ -75,3 +75,16 @@
     margin-top: 0;
   }
 }
+
+.fx-inlinegrid {
+  display: inline-grid;
+  overflow: hidden;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: nowrap;
+  grid-template-rows: auto;
+  justify-items: flex-start;
+  grid-template-columns: repeat(var(--columns-count), auto);
+  height: 100%;
+  grid-gap: var(--grid-gap, 8px);
+}

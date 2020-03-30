@@ -1,26 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cx from 'classnames';
-import { MenuItem } from '@reach/menu-button';
-import { ComboboxOption } from '@reach/combobox';
 
-import Inline from '../Inline';
+import { dropdownStaticContext } from '../Dropdown/utils';
 
 import './styles.css';
-
-const componentMatch: Record<Props['type'], typeof MenuItem | typeof ComboboxOption> = {
-  menu: MenuItem,
-  combobox: ComboboxOption,
-};
+import InlineGrid from '../Inline/InlineGrid';
 
 type Props = {
   disabled?: boolean;
   selected?: boolean;
   bordered?: boolean;
-  type: 'menu' | 'combobox';
-} & React.ComponentProps<typeof MenuItem | typeof ComboboxOption>;
+} & React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>;
 
-const Option = React.forwardRef<HTMLElement, Props>(
-  ({ disabled, selected, bordered, type, children, className, ...props }, ref) => {
+const Option = React.forwardRef<HTMLLIElement, Props>(
+  ({ disabled, selected, bordered, children, className, ...props }, ref) => {
     const classes = cx(
       'fx-option',
       disabled && 'fx-option--disabled',
@@ -28,15 +21,17 @@ const Option = React.forwardRef<HTMLElement, Props>(
       bordered && 'fx-option--bordered',
       className
     );
+    const { dispatch } = useContext(dropdownStaticContext);
 
-    const Option = componentMatch[type];
+    const onLiClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+      dispatch({ type: 'optionClick' });
+      props.onClick?.(e);
+    };
 
     return (
-      <Option className={classes} {...props} ref={ref as any}>
-        <Inline alignY="center" nowrap>
-          {children}
-        </Inline>
-      </Option>
+      <li className={classes} {...props} onClick={onLiClick} ref={ref}>
+        <InlineGrid>{children}</InlineGrid>
+      </li>
     );
   }
 );

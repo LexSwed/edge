@@ -1,24 +1,19 @@
-import React, { useRef, useMemo, useState } from 'react';
+import React from 'react';
 
-import { popoverContext } from '../Popover/utils';
+import { dropdownContext, dropdownStaticContext, useDropdownProviderValue } from './utils';
 
 import './styles.css';
 
 type Props = {};
 
 const Dropdown: React.FC<Props> = ({ children }) => {
-  const triggerRef = useRef<HTMLElement>(null);
-  const dropdownRef = useRef<HTMLElement>(null);
-  const [isOpen, setOpen] = useState(false);
+  const [state, methods] = useDropdownProviderValue();
 
-  const value = useMemo(() => ({ triggerRef, dropdownRef, isOpen, setOpen }), [
-    triggerRef,
-    dropdownRef,
-    isOpen,
-    setOpen,
-  ]);
-
-  return <popoverContext.Provider value={value}>{children}</popoverContext.Provider>;
+  return (
+    <dropdownContext.Provider value={state}>
+      <dropdownStaticContext.Provider value={methods}>{children}</dropdownStaticContext.Provider>
+    </dropdownContext.Provider>
+  );
 };
 
 if (__DEV__) {

@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import { renderValidChild } from '../@utils';
 
-import './style.css';
+import './styles.css';
 
 const Inline = React.forwardRef<HTMLDivElement, Props>(
   ({ space = 'm', align = 'left', alignY = 'top', nowrap = false, className, children, ...props }, ref) => {

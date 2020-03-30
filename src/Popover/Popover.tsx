@@ -7,13 +7,13 @@ import { usePopper, usePopoverHandles } from './utils';
 
 type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-const Popover: React.FC<Props> = ({ children, className, ...props }) => {
+const Popover: React.FC<Props> = ({ children, ...props }) => {
   const dropdownRef = usePopper();
 
   usePopoverHandles();
 
   return ReactDOM.createPortal(
-    <div className={cx(className)} {...props} ref={dropdownRef as React.RefObject<HTMLDivElement>}>
+    <div className={cx('fx-popover')} {...props} ref={dropdownRef as React.RefObject<HTMLDivElement>}>
       {children}
     </div>,
     document.body

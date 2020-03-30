@@ -6,8 +6,11 @@ menu: Components
 
 import { Playground } from 'docz';
 
-import { Dropdown, Listbox } from './index';
-import { MenuButton } from '../MenuButton';
+import { Dropdown, Listbox, MenuButton } from './index';
+
+import Stack from '../Stack';
+import Option from '../Option';
+import Icon from '../Icon';
 
 # Dropdown
 
@@ -18,8 +21,38 @@ import { Dropdown } from '@foxtrot/edge';
 ```
 
 <Playground>
-  <Dropdown>
-    <MenuButton>Hello world</MenuButton>
-    <Listbox>some content here</Listbox>
-  </Dropdown>
+  <Stack>
+    <Dropdown>
+      <MenuButton size="s">
+        <Icon icon="more_horiz" />
+      </MenuButton>
+      <Listbox>
+        <Option>
+          <Icon icon="edit" tone="outlined" />
+          Edit
+        </Option>
+        <Option>
+          <Icon icon="delete" tone="outlined" /> Remove
+        </Option>
+      </Listbox>
+    </Dropdown>
+    <Dropdown>
+      <MenuButton>Hello world</MenuButton>
+      <Listbox>
+        <Option>Option 1</Option>
+        <Option>Option 2</Option>
+        <Option>Option 3</Option>
+        <Option>Option 4</Option>
+      </Listbox>
+    </Dropdown>
+    <Dropdown>
+      <MenuButton>Hello world</MenuButton>
+      <Listbox>
+        <Option>Option 1</Option>
+        <Option>Option 2</Option>
+        <Option>Option 3</Option>
+        <Option>Option 4</Option>
+      </Listbox>
+    </Dropdown>
+  </Stack>
 </Playground>

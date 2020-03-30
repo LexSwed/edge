@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import Inline from '../Inline';
+import InlineGrid from '../Inline/InlineGrid';
 
 import './styles.css';
 
@@ -11,13 +11,7 @@ const Button = React.forwardRef<HTMLButtonElement, Props>(
 
     return (
       <button {...props} className={classes} ref={ref}>
-        {React.Children.count(children) > 1 ? (
-          <Inline alignY="center" space={sizeToSpaceMap[size]} nowrap>
-            {children}
-          </Inline>
-        ) : (
-          children
-        )}
+        <InlineGrid space={sizeToSpaceMap[size]}>{children}</InlineGrid>
       </button>
     );
   }
@@ -30,7 +24,7 @@ if (__DEV__) {
 export default Button;
 
 /** Do not make it larger then 'm' */
-const sizeToSpaceMap: Record<NonNullable<ButtonProps['size']>, React.ComponentProps<typeof Inline>['space']> = {
+const sizeToSpaceMap: Record<NonNullable<ButtonProps['size']>, React.ComponentProps<typeof InlineGrid>['space']> = {
   xs: 'xs',
   s: 's',
   m: 'm',

@@ -2,14 +2,15 @@ import React, { useContext } from 'react';
 import cx from 'classnames';
 
 import Popover from '../Popover';
-import { popoverContext } from '../Popover/utils';
+import { dropdownContext, dropdownStaticContext } from './utils';
 
 import './styles.css';
 
 type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
 
 const ListBox: React.FC<Props> = ({ children, className, ...props }) => {
-  const { dropdownRef, isOpen } = useContext(popoverContext);
+  const { isOpen } = useContext(dropdownContext);
+  const { dropdownRef } = useContext(dropdownStaticContext);
 
   if (!isOpen) {
     return null;

@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { dropdownContext, dropdownStaticContext, useDropdownProviderValue } from './utils';
 
 import './styles.css';
+import { Options as PopoverOptions } from '@popperjs/core';
 
-type Props = {};
+type Props = {
+  placement?: PopoverOptions['placement'];
+};
 
-const Dropdown: React.FC<Props> = ({ children }) => {
+const Dropdown: React.FC<Props> = ({ placement, children }) => {
   const [state, methods] = useDropdownProviderValue();
+
+  useEffect(() => {
+    if (placement) {
+      methods.popperOptionsRef.current = { placement };
+    }
+  }, [placement, methods.popperOptionsRef]);
 
   return (
     <dropdownContext.Provider value={state}>

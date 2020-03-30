@@ -5,7 +5,7 @@ import './styles.css';
 import Button from '../Button';
 import { dropdownStaticContext } from '../Dropdown/utils';
 
-type Props = React.ComponentProps<typeof Button>;
+type Props = {} & React.ComponentProps<typeof Button>;
 
 const MenuButton: React.FC<Props> = ({ children, onClick, ...props }) => {
   const { triggerRef, dispatch } = useContext(dropdownStaticContext);
@@ -13,8 +13,6 @@ const MenuButton: React.FC<Props> = ({ children, onClick, ...props }) => {
   useEffect(() => {
     dispatch({ type: 'setCloseOnClick' });
   }, [dispatch]);
-
-  console.log('render button');
 
   const onClickMemo = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

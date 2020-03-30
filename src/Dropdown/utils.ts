@@ -1,10 +1,12 @@
 import { createContext, useRef, useMemo, useReducer } from 'react';
+import { Options as PopperOptions } from '@popperjs/core';
 
 type DropdownState = typeof initialState;
 
 type DropdownStaticContext = {
   triggerRef: React.RefObject<HTMLElement>;
   dropdownRef: React.RefObject<HTMLElement>;
+  popperOptionsRef: React.RefObject<Partial<PopperOptions>>;
   dispatch: React.Dispatch<Action>;
 };
 
@@ -41,9 +43,15 @@ export function dropdownStateReducer(state: typeof initialState, action: Action)
 export function useDropdownProviderValue() {
   const triggerRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLElement>(null);
+  const popperOptionsRef = useRef<Partial<PopperOptions>>({});
   const [state, dispatch] = useReducer(dropdownStateReducer, initialState);
 
-  const methods = useMemo(() => ({ triggerRef, dropdownRef, dispatch }), [triggerRef, dropdownRef, dispatch]);
+  const methods = useMemo(() => ({ triggerRef, dropdownRef, popperOptionsRef, dispatch }), [
+    triggerRef,
+    dropdownRef,
+    popperOptionsRef,
+    dispatch,
+  ]);
 
   return [state, methods] as const;
 }

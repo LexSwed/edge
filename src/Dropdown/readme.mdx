@@ -8,6 +8,7 @@ import { Playground } from 'docz';
 
 import { Dropdown, Listbox, MenuButton } from './index';
 
+import Inline from '../Inline';
 import Stack from '../Stack';
 import Option from '../Option';
 import Icon from '../Icon';
@@ -21,7 +22,7 @@ import { Dropdown } from '@foxtrot/edge';
 ```
 
 <Playground>
-  <Stack>
+  <Inline alignY="center">
     <Dropdown>
       <MenuButton size="s">
         <Icon icon="more_horiz" />
@@ -37,7 +38,7 @@ import { Dropdown } from '@foxtrot/edge';
       </Listbox>
     </Dropdown>
     <Dropdown>
-      <MenuButton>Hello world</MenuButton>
+      <MenuButton>Default</MenuButton>
       <Listbox>
         <Option>Option 1</Option>
         <Option>Option 2</Option>
@@ -45,8 +46,8 @@ import { Dropdown } from '@foxtrot/edge';
         <Option>Option 4</Option>
       </Listbox>
     </Dropdown>
-    <Dropdown>
-      <MenuButton>Hello world</MenuButton>
+    <Dropdown placement="bottom-end">
+      <MenuButton>With placement</MenuButton>
       <Listbox>
         <Option>Option 1</Option>
         <Option>Option 2</Option>
@@ -54,5 +55,5 @@ import { Dropdown } from '@foxtrot/edge';
         <Option>Option 4</Option>
       </Listbox>
     </Dropdown>
-  </Stack>
+  </Inline>
 </Playground>

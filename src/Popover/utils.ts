@@ -3,13 +3,14 @@ import { createPopper, Instance as PopperInstance, Options } from '@popperjs/cor
 import { dropdownStaticContext } from '../Dropdown/utils';
 
 export function usePopper() {
-  const { triggerRef, dropdownRef } = useContext(dropdownStaticContext);
+  const { triggerRef, dropdownRef, popperOptionsRef } = useContext(dropdownStaticContext);
   const popperInstanceRef = useRef<PopperInstance | null>();
 
   useLayoutEffect(() => {
     if (triggerRef.current && dropdownRef.current) {
       const options: Partial<Options> = {
         placement: 'bottom-start',
+        ...popperOptionsRef.current,
         // modifiers: {
         //   setWidth: {
         //     enabled: true,
@@ -27,7 +28,7 @@ export function usePopper() {
         popperInstanceRef.current = null;
       }
     };
-  }, [triggerRef, dropdownRef]);
+  }, [triggerRef, popperOptionsRef, dropdownRef]);
 
   return dropdownRef;
 }

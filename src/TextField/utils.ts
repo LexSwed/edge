@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 import FieldMessage from '../FieldMessage';
 import { useId } from '@reach/auto-id';
 
@@ -83,14 +83,14 @@ export function useClearButton(ref?: React.Ref<HTMLInputElement>) {
   const inputRefInternal = useRef<HTMLInputElement>(null);
   const inputRef = (ref as React.RefObject<HTMLInputElement>) || inputRefInternal;
 
-  function onClearClick() {
+  const onClearClick = useCallback(() => {
     if (!inputRef?.current) {
       return;
     }
 
     setNativeValue(inputRef.current, '');
     inputRef.current.focus();
-  }
+  }, [inputRef]);
 
   return [inputRef, onClearClick] as const;
 }

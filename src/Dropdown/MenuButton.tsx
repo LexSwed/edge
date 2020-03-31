@@ -1,9 +1,10 @@
 import React, { useContext, useCallback } from 'react';
 
-import './styles.css';
-
 import Button from '../Button';
-import { dropdownStaticContext, useCombinedRefs, dropdownContext } from './utils';
+import { dropdownStaticContext, dropdownContext } from './utils';
+import { useCombinedRefs } from '../@utils';
+
+import './styles.css';
 
 type Props = {} & React.ComponentProps<typeof Button>;
 
@@ -13,7 +14,7 @@ const MenuButton = React.forwardRef<HTMLButtonElement, Props>(({ children, onCli
 
   const onClickMemo = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      dispatch({ type: 'switchOpenState' });
+      dispatch({ type: 'SwitchOpenState' });
 
       onClick?.(e);
     },

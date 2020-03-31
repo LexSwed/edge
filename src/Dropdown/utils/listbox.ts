@@ -54,19 +54,16 @@ export function useKeyboard(children: Props['children']) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
     const onKeyDown = (e: KeyboardEvent) => {
       e.preventDefault();
       dispatch({ type: e.key as ActionType });
     };
-
-    if (!isOpen) {
-      return;
-    }
-    console.log('add');
     document.addEventListener('keydown', onKeyDown);
 
     return () => {
-      console.log('remove');
       document.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, closeRef, dispatch]);
@@ -74,7 +71,7 @@ export function useKeyboard(children: Props['children']) {
   return state;
 }
 
-function useChildren(children: Props['children']) {
+function useChildren(children: OptionChildren[] | OptionChildren) {
   return useMemo(
     () =>
       Children.map(children, (el: OptionChildren, index) => {
@@ -91,7 +88,7 @@ function useChildren(children: Props['children']) {
   );
 }
 
-type OptionChildren = React.ReactComponentElement<typeof Option>;
+export type OptionChildren = React.ReactComponentElement<typeof Option>;
 export type Props = {
   children: OptionChildren[] | OptionChildren;
 } & Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>, 'ref' | 'children'>;

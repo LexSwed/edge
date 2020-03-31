@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
+import { Options as PopoverOptions } from '@popperjs/core';
 
 import { downshiftContext, dropdownStaticContext, useDropdownProviderValue, useDownshift } from './utils';
-
-import './styles.css';
-import { Options as PopoverOptions } from '@popperjs/core';
 
 type Props = {
   placement?: PopoverOptions['placement'];

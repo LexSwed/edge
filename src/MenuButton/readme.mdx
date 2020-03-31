@@ -1,0 +1,43 @@
+---
+name: MenuButton
+route: /fx-menubutton
+menu: Components
+---
+
+import { Playground } from 'docz';
+
+import MenuButton from './MenuButton';
+
+import Button from '../Button';
+import ListBox from '../ListBox';
+import Icon from '../Icon';
+import Option from '../Option';
+
+# MenuButton
+
+A component for the common dropdown menu button design pattern.
+
+It takes **exactly** two children: button itself that serves as a trigger and [`ListBox`](/fx-listbox) component with [`Option`](/fx-option)s inside.
+
+## Basic usage
+
+```tsx
+import { MenuButton, Button, ListBox, Option } from '@foxtrot/edge';
+```
+
+<Playground>
+  <MenuButton>
+    <Button size="s">
+      <Icon icon="more_horiz" />
+    </Button>
+    <ListBox>
+      <Option onSelect={() => alert('Edit')}>
+        <Icon icon="edit" tone="outlined" />
+        Edit
+      </Option>
+      <Option onSelect={() => alert('Remove')}>
+        <Icon icon="delete" tone="outlined" /> Remove
+      </Option>
+    </ListBox>
+  </MenuButton>
+</Playground>

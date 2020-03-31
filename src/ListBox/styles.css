@@ -1,0 +1,12 @@
+.fx-listbox {
+  list-style: none;
+  padding: 4px 0;
+  background-color: #fff;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: var(--card-shadow);
+  border-radius: var(--br);
+  outline: none;
+}

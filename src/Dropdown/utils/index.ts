@@ -1,6 +1,6 @@
 import { createContext, useRef, useMemo, useContext, Children, isValidElement, useState, useEffect } from 'react';
 import { Options as PopperOptions } from '@popperjs/core';
-import { useCombobox } from 'downshift';
+import { useSelect, UseSelectProps } from 'downshift';
 
 import Option from '../../Option';
 
@@ -40,15 +40,27 @@ export function useChildren(children: any) {
   );
 }
 
+const stateReducer: UseSelectProps<any>['stateReducer'] = (state, { type, changes }) => {
+  switch (type) {
+    case useSelect.stateChangeTypes.ItemClick:
+    case useSelect.stateChangeTypes.MenuKeyDownEnter: {
+      if (changes.selectedItem?.props?.onSelect) {
+        setTimeout(() => {
+          changes.selectedItem.props.onSelect();
+        }, 0);
+      }
+      return changes;
+    }
+    default:
+      return changes;
+  }
+};
+
 export function useDownshift() {
   const [items, setItems] = useState<any[]>([]);
-  const downshift = useCombobox({
+  const downshift = useSelect({
     items,
-    itemToString,
-    // onSelectedItemChange: (...args) => {
-    //   console.log(...args);
-    //   downshift.reset();
-    // },
+    stateReducer,
   });
 
   return {
@@ -76,11 +88,16 @@ export function useOptionItems(children: OptionChildren[] | OptionChildren) {
   return { isOpen, getItemProps, highlightedIndex, getMenuProps };
 }
 
-function itemToString(item: OptionChildren): string {
-  const { value } = item.props;
+// function itemToString(item: OptionChildren): string {
+//   console.log(item);
+//   if (item === null) {
+//     return '';
+//   }
 
-  return typeof value === 'string' ? value : JSON.stringify(value);
-}
+//   const { value } = item.props;
+
+//   return typeof value === 'string' ? value : JSON.stringify(value);
+// }
 
 type DropdownStaticContext = {
   triggerRef: React.RefObject<HTMLElement>;

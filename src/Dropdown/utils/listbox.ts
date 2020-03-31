@@ -1,73 +1,72 @@
-import { Children, isValidElement, useMemo, useEffect, useReducer } from 'react';
+import { Children, isValidElement, useMemo, useEffect, useReducer, useCallback } from 'react';
 import Option from '../../Option';
 
 import { useDropdownOpen, useCloseDropdownRef } from '.';
 
 const initialState = {
-  isOpen: false,
   selectedIndex: 0,
-  items: [] as ReturnType<typeof useChildren>,
 };
 
-type ActionType = 'Open' | 'SwitchOpen' | 'ArrowUp' | 'ArrowDown' | 'Enter' | 'Escape';
+type State = typeof initialState;
+
+type ActionType = 'ArrowUp' | 'ArrowDown' | 'Enter' | 'Escape';
 
 type Action = { type: ActionType };
 
-function reducer(state: typeof initialState, action: Action) {
-  if (state.items.length === 0) {
-    return state;
-  }
-  switch (action.type) {
-    case 'Open': {
-      return { ...state, isOpen: true };
-    }
-    case 'SwitchOpen': {
-      return {
-        ...state,
-        isOpen: !state.isOpen,
-      };
-    }
-    case 'ArrowUp': {
-      const newIndex = state.items.slice(0, state.selectedIndex).findIndex((el) => !el.disabled);
-
-      return { ...state, selectedIndex: newIndex > -1 ? newIndex : 0 };
-    }
-    case 'ArrowDown': {
-      const start = state.selectedIndex + 1;
-      const newIndex = state.items.slice(start).findIndex((el) => !el.disabled);
-
-      return { ...state, selectedIndex: newIndex > -1 ? start + newIndex : state.items.length - 1 };
-    }
-    case 'Enter': {
-      console.log('Select item', state.items[state.selectedIndex]);
-      return state;
-    }
-    case 'Escape': {
-      console.log('Close popup!');
-      return state;
-    }
-    default:
-      return state;
-  }
-}
-
 export function useKeyboard(children: Props['children']) {
   const items = useChildren(children);
-  const [state, dispatch] = useReducer(reducer, { ...initialState, items });
   const isOpen = useDropdownOpen();
   const closeRef = useCloseDropdownRef();
+  const reducer = useCallback<(state: State, action: Action) => State>(
+    (state, action) => {
+      if (items.length === 0) {
+        return state;
+      }
+      switch (action.type) {
+        case 'ArrowUp': {
+          const newIndex = items.slice(0, state.selectedIndex).findIndex((el) => !el.disabled);
+
+          return { ...state, selectedIndex: newIndex > -1 ? newIndex : 0 };
+        }
+        case 'ArrowDown': {
+          const start = state.selectedIndex + 1;
+          const newIndex = items.slice(start).findIndex((el) => !el.disabled);
+
+          return { ...state, selectedIndex: newIndex > -1 ? start + newIndex : items.length - 1 };
+        }
+        case 'Enter': {
+          closeRef.current?.();
+
+          return state;
+        }
+        case 'Escape': {
+          closeRef.current?.();
+
+          return state;
+        }
+        default:
+          return state;
+      }
+    },
+    [items, closeRef]
+  );
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    if (!isOpen) {
-      return;
-    }
     const onKeyDown = (e: KeyboardEvent) => {
       e.preventDefault();
       dispatch({ type: e.key as ActionType });
     };
+
+    if (!isOpen) {
+      return;
+    }
+    console.log('add');
     document.addEventListener('keydown', onKeyDown);
 
     return () => {
+      console.log('remove');
       document.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, closeRef, dispatch]);

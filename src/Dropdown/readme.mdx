@@ -28,11 +28,11 @@ import { Dropdown } from '@foxtrot/edge';
         <Icon icon="more_horiz" />
       </MenuButton>
       <Listbox>
-        <Option>
+        <Option onClick={() => console.log('Edit')}>
           <Icon icon="edit" tone="outlined" />
           Edit
         </Option>
-        <Option>
+        <Option onClick={() => console.log('Remove')}>
           <Icon icon="delete" tone="outlined" /> Remove
         </Option>
       </Listbox>

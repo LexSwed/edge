@@ -1,75 +1,87 @@
-import { createContext, useRef, useMemo, useReducer, useCallback, useContext } from 'react';
+import { createContext, useRef, useMemo, useContext, Children, isValidElement, useState, useEffect } from 'react';
 import { Options as PopperOptions } from '@popperjs/core';
+import { useSelect } from 'downshift';
 
-type DropdownState = typeof initialState;
+import Option from '../../Option';
 
-type DropdownStaticContext = {
-  triggerRef: React.RefObject<HTMLElement>;
-  dropdownRef: React.RefObject<HTMLElement>;
-  popperOptionsRef: React.RefObject<Partial<PopperOptions>>;
-  dispatch: React.Dispatch<Action>;
-};
-
-export const dropdownContext = createContext<DropdownState>({} as DropdownState);
+export const downshiftContext = createContext<DownshiftContextType>({} as DownshiftContextType);
 export const dropdownStaticContext = createContext<DropdownStaticContext>({} as DropdownStaticContext);
-
-export const initialState = {
-  isOpen: false,
-};
-
-type Action = {
-  type: 'switchOpenState' | 'optionClick' | 'close';
-};
-
-export function dropdownStateReducer(state: typeof initialState, action: Action) {
-  switch (action.type) {
-    case 'switchOpenState':
-      return { ...state, isOpen: !state.isOpen };
-    case 'optionClick':
-    case 'close':
-      return { ...state, isOpen: false };
-    default:
-      return state;
-  }
-}
 
 export function useDropdownProviderValue() {
   const triggerRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLElement>(null);
   const popperOptionsRef = useRef<Partial<PopperOptions>>({});
-  const [state, dispatch] = useReducer(dropdownStateReducer, initialState);
 
-  const methods = useMemo(() => ({ triggerRef, dropdownRef, popperOptionsRef, dispatch }), [
-    triggerRef,
-    dropdownRef,
-    popperOptionsRef,
-    dispatch,
-  ]);
-
-  return [state, methods] as const;
-}
-
-export function useCombinedRefs<T>(...refs: React.Ref<T>[]) {
-  return useCallback((element: T) => {
-    refs.forEach((ref) => {
-      if (!ref) {
-        return;
-      }
-
-      if (typeof ref === 'function') {
-        ref(element);
-      } else {
-        (ref as React.MutableRefObject<T>).current = element;
-      }
-    });
-  }, refs); //eslint-disable-line
+  return { triggerRef, dropdownRef, popperOptionsRef };
 }
 
 export function useDropdownOpen() {
-  return useContext(dropdownContext).isOpen;
+  return useContext(downshiftContext).isOpen;
 }
 
-export function useCloseDropdownRef() {
-  const { dispatch } = useContext(dropdownStaticContext);
-  return useRef(() => dispatch({ type: 'close' }));
+export function useDropdown() {
+  return useContext(dropdownStaticContext);
 }
+
+export function useChildren(children: any) {
+  return useMemo(
+    () =>
+      Children.map(children, (el: any, index) => {
+        if (__DEV__) {
+          if (!isValidElement(el)) {
+            throw Error('Listbox can only take <Option /> as a child');
+          }
+        }
+        const { value, disabled } = el.props;
+
+        return { value, disabled, index };
+      }),
+    [children]
+  );
+}
+
+export function useDownshift() {
+  const [items, setItems] = useState<any[]>([]);
+  const downshift = useSelect({
+    items,
+    itemToString,
+    onSelectedItemChange: (...args) => {
+      console.log(...args);
+    },
+  });
+
+  return {
+    ...downshift,
+    setItems,
+  };
+}
+
+export function useDownshiftState() {
+  return useContext(downshiftContext);
+}
+
+export function useOptionItems(children: OptionChildren[] | OptionChildren) {
+  const { isOpen, getMenuProps, getItemProps, setItems, highlightedIndex } = useDownshiftState();
+
+  useEffect(() => {
+    setItems(Children.toArray(children));
+  }, [children, setItems]);
+
+  return { isOpen, getItemProps, highlightedIndex, getMenuProps };
+}
+
+function itemToString(item: OptionChildren): string {
+  const { value } = item.props;
+
+  return typeof value === 'string' ? value : JSON.stringify(value);
+}
+
+type DropdownStaticContext = {
+  triggerRef: React.RefObject<HTMLElement>;
+  dropdownRef: React.RefObject<HTMLElement>;
+  popperOptionsRef: React.RefObject<Partial<PopperOptions>>;
+};
+
+type DownshiftContextType = ReturnType<typeof useDownshift>;
+
+type OptionChildren = React.ReactComponentElement<typeof Option>;

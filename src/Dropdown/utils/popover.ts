@@ -1,12 +1,16 @@
 import { useRef, useLayoutEffect, useEffect, useContext } from 'react';
 import { createPopper, Instance as PopperInstance, Options } from '@popperjs/core';
 
-import { dropdownStaticContext, useDropdownOpen, useCloseDropdownRef } from '../utils';
+import { dropdownStaticContext, useDropdownOpen, useDownshiftState } from '../utils';
 
 export function usePopoverHandles() {
+  const isOpen = useDropdownOpen();
+
   useClickOutside();
 
-  useMountFocus();
+  useMountFocus(isOpen);
+
+  return isOpen;
 }
 
 export function usePopper() {
@@ -39,22 +43,21 @@ export function usePopper() {
 
 export function useClickOutside() {
   const { dropdownRef } = useContext(dropdownStaticContext);
-  const closeRef = useCloseDropdownRef();
-  const isOpen = useDropdownOpen();
+  const { isOpen, closeMenu } = useDownshiftState();
 
   useEffect(() => {
     if (!isOpen) {
       return;
     }
     const outsideClickOpen = (e: MouseEvent) => {
-      if (!dropdownRef.current || !closeRef.current) {
+      if (!dropdownRef.current) {
         return;
       }
       if (dropdownRef.current.contains(e.target as Node)) {
         return;
       }
 
-      closeRef.current();
+      closeMenu();
     };
 
     document.addEventListener('click', outsideClickOpen);
@@ -62,12 +65,11 @@ export function useClickOutside() {
     return () => {
       document.removeEventListener('click', outsideClickOpen);
     };
-  }, [isOpen, dropdownRef, closeRef]);
+  }, [isOpen, dropdownRef, closeMenu]);
 }
 
-export function useMountFocus() {
+export function useMountFocus(isOpen: boolean) {
   const { dropdownRef } = useContext(dropdownStaticContext);
-  const isOpen = useDropdownOpen();
 
   useLayoutEffect(() => {
     if (isOpen) {
@@ -75,9 +77,3 @@ export function useMountFocus() {
     }
   }, [isOpen, dropdownRef]);
 }
-
-// function navigationReducer(state, action) {
-//     switch (action.type) {
-//         case 'arrow-up':
-//     }
-// }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { dropdownContext, dropdownStaticContext, useDropdownProviderValue } from './utils';
+import { downshiftContext, dropdownStaticContext, useDropdownProviderValue, useDownshift } from './utils';
 
 import './styles.css';
 import { Options as PopoverOptions } from '@popperjs/core';
@@ -10,18 +10,19 @@ type Props = {
 };
 
 const Dropdown: React.FC<Props> = ({ placement, children }) => {
-  const [state, methods] = useDropdownProviderValue();
+  const refs = useDropdownProviderValue();
+  const downshift = useDownshift();
 
   useEffect(() => {
     if (placement) {
-      methods.popperOptionsRef.current = { placement };
+      refs.popperOptionsRef.current = { placement };
     }
-  }, [placement, methods.popperOptionsRef]);
+  }, [placement, refs.popperOptionsRef]);
 
   return (
-    <dropdownContext.Provider value={state}>
-      <dropdownStaticContext.Provider value={methods}>{children}</dropdownStaticContext.Provider>
-    </dropdownContext.Provider>
+    <dropdownStaticContext.Provider value={refs}>
+      <downshiftContext.Provider value={downshift}>{children}</downshiftContext.Provider>
+    </dropdownStaticContext.Provider>
   );
 };
 

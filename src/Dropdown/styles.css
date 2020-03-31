@@ -8,6 +8,7 @@
   overflow-x: hidden;
   box-shadow: var(--card-shadow);
   border-radius: var(--br);
+  outline: none;
 }
 .fx-popover {
   min-width: 120px;

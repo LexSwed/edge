@@ -1,6 +1,6 @@
 import { createContext, useRef, useMemo, useContext, Children, isValidElement, useState, useEffect } from 'react';
 import { Options as PopperOptions } from '@popperjs/core';
-import { useSelect } from 'downshift';
+import { useCombobox } from 'downshift';
 
 import Option from '../../Option';
 
@@ -42,18 +42,24 @@ export function useChildren(children: any) {
 
 export function useDownshift() {
   const [items, setItems] = useState<any[]>([]);
-  const downshift = useSelect({
+  const downshift = useCombobox({
     items,
     itemToString,
-    onSelectedItemChange: (...args) => {
-      console.log(...args);
-    },
+    // onSelectedItemChange: (...args) => {
+    //   console.log(...args);
+    //   downshift.reset();
+    // },
   });
 
   return {
     ...downshift,
     setItems,
   };
+}
+
+/** useful when you need latest state in async manner (event handlers) */
+export function useDownshiftStateRef() {
+  return useRef(useDownshiftState());
 }
 
 export function useDownshiftState() {

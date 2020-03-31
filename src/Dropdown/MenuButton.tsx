@@ -8,15 +8,17 @@ import { useCombinedRefs } from '../@utils';
 
 type Props = {} & React.ComponentProps<typeof Button>;
 
-const MenuButton = React.forwardRef<HTMLButtonElement, Props>(({ children, onClick, ...props }, ref) => {
+const MenuButton = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props }, ref) => {
   const { triggerRef } = useDropdown();
   const { getToggleButtonProps } = useDownshiftState();
+
+  const { ref: downshiftRef, ...downshiftProps } = getToggleButtonProps({ ...props } as any);
 
   return (
     <Button
       {...props}
-      {...getToggleButtonProps({ onClick })}
-      ref={useCombinedRefs(ref, triggerRef as React.Ref<HTMLButtonElement>)}
+      {...downshiftProps}
+      ref={useCombinedRefs(downshiftRef, ref, triggerRef as React.Ref<HTMLButtonElement>)}
     >
       {children}
     </Button>

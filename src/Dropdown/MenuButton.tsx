@@ -1,18 +1,15 @@
-import React, { useContext, useCallback, useEffect } from 'react';
+import React, { useContext, useCallback } from 'react';
 
 import './styles.css';
 
 import Button from '../Button';
-import { dropdownStaticContext } from '../Dropdown/utils';
+import { dropdownStaticContext, useCombinedRefs, dropdownContext } from './utils';
 
 type Props = {} & React.ComponentProps<typeof Button>;
 
-const MenuButton: React.FC<Props> = ({ children, onClick, ...props }) => {
+const MenuButton = React.forwardRef<HTMLButtonElement, Props>(({ children, onClick, ...props }, ref) => {
   const { triggerRef, dispatch } = useContext(dropdownStaticContext);
-
-  useEffect(() => {
-    dispatch({ type: 'setCloseOnClick' });
-  }, [dispatch]);
+  const { isOpen } = useContext(dropdownContext);
 
   const onClickMemo = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -24,11 +21,17 @@ const MenuButton: React.FC<Props> = ({ children, onClick, ...props }) => {
   );
 
   return (
-    <Button {...props} onClick={onClickMemo} ref={triggerRef as React.RefObject<HTMLButtonElement>}>
+    <Button
+      aria-haspopup="listbox"
+      aria-expanded={isOpen ? 'true' : 'false'}
+      {...props}
+      onClick={onClickMemo}
+      ref={useCombinedRefs(ref, triggerRef as React.Ref<HTMLButtonElement>)}
+    >
       {children}
     </Button>
   );
-};
+});
 
 if (__DEV__) {
   MenuButton.displayName = 'FxMenuButton';

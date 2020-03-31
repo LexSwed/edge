@@ -9,3 +9,11 @@
   box-shadow: var(--card-shadow);
   border-radius: var(--br);
 }
+.fx-popover {
+  min-width: 120px;
+  z-index: 2000;
+}
+
+.fx-popover--hidden {
+  display: none;
+}

@@ -1,24 +1,29 @@
 import React, { useContext } from 'react';
 import cx from 'classnames';
 
-import Popover from '../Popover';
-import { dropdownContext, dropdownStaticContext } from './utils';
+import Popover from './Popover';
+import { dropdownStaticContext } from './utils';
+
+import { useKeyboard, Props } from './utils/listbox';
 
 import './styles.css';
 
-type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>;
-
 const ListBox: React.FC<Props> = ({ children, className, ...props }) => {
-  const { isOpen } = useContext(dropdownContext);
   const { dropdownRef } = useContext(dropdownStaticContext);
 
-  if (!isOpen) {
-    return null;
-  }
+  const state = useKeyboard(children);
+
+  console.log(state);
 
   return (
     <Popover>
-      <ul className={cx('fx-listbox', className)} {...props} ref={dropdownRef as React.RefObject<HTMLUListElement>}>
+      <ul
+        role="listbox"
+        tabIndex={-1}
+        {...props}
+        className={cx('fx-listbox', className)}
+        ref={dropdownRef as React.RefObject<HTMLUListElement>}
+      >
         {children}
       </ul>
     </Popover>

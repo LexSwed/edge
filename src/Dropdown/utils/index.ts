@@ -1,4 +1,4 @@
-import { createContext, useRef, useMemo, useReducer, useCallback, useContext } from 'react';
+import { createContext, useRef, useMemo, useReducer, useContext } from 'react';
 import { Options as PopperOptions } from '@popperjs/core';
 
 type DropdownState = typeof initialState;
@@ -47,22 +47,6 @@ export function useDropdownProviderValue() {
   ]);
 
   return [state, methods] as const;
-}
-
-export function useCombinedRefs<T>(...refs: React.Ref<T>[]) {
-  return useCallback((element: T) => {
-    refs.forEach((ref) => {
-      if (!ref) {
-        return;
-      }
-
-      if (typeof ref === 'function') {
-        ref(element);
-      } else {
-        (ref as React.MutableRefObject<T>).current = element;
-      }
-    });
-  }, refs); //eslint-disable-line
 }
 
 export function useDropdownOpen() {

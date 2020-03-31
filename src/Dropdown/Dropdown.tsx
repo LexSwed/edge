@@ -4,9 +4,11 @@ import { dropdownContext, dropdownStaticContext, useDropdownProviderValue } from
 
 import './styles.css';
 import { Options as PopoverOptions } from '@popperjs/core';
+import { Props as MenuListProps } from './utils/listbox';
 
 type Props = {
   placement?: PopoverOptions['placement'];
+  children: MenuListProps['children'];
 };
 
 const Dropdown: React.FC<Props> = ({ placement, children }) => {

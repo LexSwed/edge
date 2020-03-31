@@ -1,0 +1,43 @@
+---
+name: MenuButton
+route: /fx-menubutton
+menu: Components
+---
+
+import { Playground } from 'docz';
+
+import MenuButton from './MenuButton';
+
+import Inline from '../Inline';
+import Stack from '../Stack';
+import Button from '../Button';
+import Option from '../Option';
+import Icon from '../Icon';
+
+# MenuButton
+
+## Basic usage
+
+```tsx
+import { MenuButton } from '@foxtrot/edge';
+```
+
+<Playground>
+  <Inline alignY="center">
+    <MenuButton
+      button={
+        <Button size="s">
+          <Icon icon="more_horiz" />
+        </Button>
+      }
+    >
+      <Option>
+        <Icon icon="edit" tone="outlined" />
+        Edit
+      </Option>
+      <Option>
+        <Icon icon="delete" tone="outlined" /> Remove
+      </Option>
+    </MenuButton>
+  </Inline>
+</Playground>

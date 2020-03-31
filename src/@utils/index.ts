@@ -1,17 +1,21 @@
-import { Children } from 'react';
+import { Children, useCallback } from 'react';
 
 export const renderValidChild: typeof Children['map'] = (children, renderFn) => {
   return Children.map(children, (child, i) => child && renderFn(child, i));
 };
 
-export function composeRefs(...refs: (((instance: HTMLElement) => void) | React.MutableRefObject<HTMLElement>)[]) {
-  return (instance: HTMLElement) => {
+export function useCombinedRefs<T>(...refs: React.Ref<T>[]) {
+  return useCallback((element: T) => {
     refs.forEach((ref) => {
+      if (!ref) {
+        return;
+      }
+
       if (typeof ref === 'function') {
-        ref(instance);
+        ref(element);
       } else if (ref !== null && typeof ref === 'object') {
-        ref.current = instance;
+        (ref as React.MutableRefObject<T>).current = element;
       }
     });
-  };
+  }, refs); //eslint-disable-line
 }

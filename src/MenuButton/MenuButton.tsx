@@ -1,17 +1,22 @@
 import React from 'react';
-import cx from 'classnames';
+
+import { Dropdown, Listbox } from '../Dropdown';
 
 import './styles.css';
+import MenuButtonWrapper from './ButtonWrapper';
 
-type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = {
+  button: React.ReactElement;
+  children: 
+};
 
-const MenuButton = React.forwardRef<HTMLDivElement, Props>(({ children, className, ...props }, ref) => {
+const MenuButton: React.FC<Props> = ({ button, children, ...props }) => {
   return (
-    <div className={cx(className)} {...props} ref={ref}>
-      {children}
-    </div>
+    <Dropdown {...props}>
+      <MenuButtonWrapper>{button}</MenuButtonWrapper>
+    </Dropdown>
   );
-});
+};
 
 if (__DEV__) {
   MenuButton.displayName = 'FxMenuButton';

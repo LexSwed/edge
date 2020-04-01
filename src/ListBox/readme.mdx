@@ -1,0 +1,30 @@
+---
+name: ListBox
+route: /fx-listbox
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+
+import ListBox from './ListBox';
+
+import Select from '../Select';
+import Icon from '../Icon';
+import Option from '../Option';
+
+# ListBox
+
+Popup for dropdown components like [`MenuButton`](/fx-menubutton) and [`Select`](/fx-select).
+[`Select`](/fx-select) wraps it's children in `ListBox` automatically, so it should only be used with `MenuButton` component.
+
+## Basic usage
+
+```tsx
+import { MenuButton, Button, ListBox, Option, Icon } from '@foxtrot/edge';
+```
+
+See [`MenuButton`](/fx-menubutton#basic-usage) example.
+
+## Detailed props
+
+<Props of={ListBox} />

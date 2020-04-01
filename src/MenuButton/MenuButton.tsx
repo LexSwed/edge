@@ -4,7 +4,11 @@ import { Dropdown } from 'Dropdown';
 import ToggleButton from './ToggleButton';
 
 type Props = {
-  placement: DDProps['placement'];
+  /**
+   * Placement according to [popper reference](https://popper.js.org/docs/v2/constructors/#options)
+   * @default 'bottom-start'
+   */
+  placement?: DDProps['placement'];
 };
 
 const MenuButton: React.FC<Props> = ({ children, ...props }) => {

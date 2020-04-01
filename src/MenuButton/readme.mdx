@@ -4,7 +4,7 @@ route: /fx-menubutton
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 
 import MenuButton from './MenuButton';
 
@@ -22,7 +22,7 @@ It takes **exactly** two children: button itself that serves as a trigger and [`
 ## Basic usage
 
 ```tsx
-import { MenuButton, Button, ListBox, Option } from '@foxtrot/edge';
+import { MenuButton, Button, ListBox, Option, Icon } from '@foxtrot/edge';
 ```
 
 <Playground>
@@ -55,3 +55,7 @@ You can control the placement of the dropdown, using [popper](https://popper.js.
     </ListBox>
   </MenuButton>
 </Playground>
+
+## Detailed props
+
+<Props of={MenuButton} />

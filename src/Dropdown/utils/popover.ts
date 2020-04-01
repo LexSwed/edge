@@ -1,17 +1,57 @@
 import { useRef, useLayoutEffect, useEffect, useContext } from 'react';
-import { createPopper, Instance as PopperInstance, Options } from '@popperjs/core';
+import { createPopper, Instance as PopperInstance, Options, Modifier } from '@popperjs/core';
 
 import { dropdownStaticContext, useDropdownOpen, useDownshiftState } from '../utils';
 
 export function usePopoverHandles() {
   const isOpen = useDropdownOpen();
 
-  useClickOutside();
+  // useClickOutside();
 
-  useMountFocus(isOpen);
+  // useMountFocus(isOpen);
 
   return isOpen;
 }
+
+const widthModifier: Partial<Modifier<any>> = {
+  name: 'widther',
+  enabled: true,
+  phase: 'beforeWrite',
+  requires: ['computeStyles'],
+  fn({ state }) {
+    const {
+      rects: { reference, popper },
+      styles,
+    } = state;
+    styles.popper.width = `${reference.width > popper.width ? reference.width : styles.width}px`;
+
+    return state;
+  },
+  effect: ({
+    state: {
+      elements: { popper, reference },
+    },
+  }) => {
+    const { width: refWidth } = reference.getBoundingClientRect();
+    const { width: popperWidth } = popper.getBoundingClientRect();
+
+    popper.style.width = `${refWidth > popperWidth ? refWidth : popperWidth}px`;
+
+    return () => {};
+  },
+};
+
+const offset: Partial<Modifier<any>> = {
+  name: 'offset',
+  options: {
+    offset: ({ placement }: { placement: string }) => {
+      if (placement.includes('end')) {
+        return [-1, 0];
+      }
+      return [];
+    },
+  },
+};
 
 export function usePopper() {
   const { triggerRef, dropdownRef, popperOptionsRef } = useContext(dropdownStaticContext);
@@ -25,6 +65,7 @@ export function usePopper() {
     if (triggerRef.current && dropdownRef.current) {
       const options: Partial<Options> = {
         placement: 'bottom-start',
+        modifiers: [offset, widthModifier],
         ...popperOptionsRef.current,
       };
       popperInstanceRef.current = createPopper(triggerRef.current, dropdownRef.current, options);

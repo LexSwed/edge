@@ -1,0 +1,61 @@
+---
+name: Option
+route: /fx-option
+menu: Components
+---
+
+import { Playground } from 'docz';
+import Option from './Option';
+
+import MenuButton from '../MenuButton';
+import Button from '../Button';
+import ListBox from '../ListBox';
+import Box from '../Box';
+import Stack from '../Stack';
+import Icon from '../Icon';
+
+# Option
+
+Option component is used inside dropdowns.
+
+- `value` property should be specified if used within [`Select`](/fx-select) component
+- `onSelect` callback should be used to handle `Option` click within for example [`MenuButton`](/fx-menubutton)
+
+## Basic usage
+
+```tsx
+import { MenuButton, Button, ListBox, Option } from '@foxtrot/edge';
+```
+
+<Playground>
+  <MenuButton>
+    <Button size="s">
+      <Icon icon="more_horiz" />
+    </Button>
+    <ListBox>
+      <Option onSelect={() => alert('Edit')}>
+        <Icon icon="edit" tone="outlined" />
+        Edit
+      </Option>
+      <Option onSelect={() => alert('Remove')}>
+        <Icon icon="delete" tone="outlined" /> Remove
+      </Option>
+    </ListBox>
+  </MenuButton>
+</Playground>
+
+## Different states
+
+<Playground>
+  <Box padding="none" style={{ width: '200px' }}>
+    <Stack>
+      <Option>Default</Option>
+      <Option disabled>Disabled</Option>
+      <Option selected>Selected</Option>
+      <Option>
+        <Icon icon="settings" mode="outlined" />
+        With icon
+      </Option>
+    </Stack>
+  </Box>
+</Playground>

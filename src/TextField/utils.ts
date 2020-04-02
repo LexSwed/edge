@@ -1,17 +1,15 @@
-import React, { useRef, useCallback } from 'react';
-import FieldMessage from '../FieldMessage';
+import React from 'react';
 import { useId } from '@reach/auto-id';
+import { FieldProps, FieldInputProps } from 'Field/utils';
 
-export type InputProps = Omit<
-  React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-  'size'
-> & {
+export type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
   ref?: React.RefObject<HTMLInputElement>;
 };
 type WrapperProps = React.HTMLAttributes<HTMLDivElement>;
 
-export type Props = WrapperProps & {
+type TextFieldProps = {
   label?: string;
+  message?: string;
   placeholder?: InputProps['placeholder'];
   value?: InputProps['value'];
   onChange?: InputProps['onChange'];
@@ -20,15 +18,14 @@ export type Props = WrapperProps & {
   autoComplete?: InputProps['autoComplete'];
   type?: InputProps['type'];
   name?: InputProps['name'];
-  id?: InputProps['id'];
-  message?: string;
-  tone?: React.ComponentProps<typeof FieldMessage>['tone'];
-  size?: 's' | 'm' | 'l';
-  icon?: string;
   allowClear?: boolean;
+  tone?: FieldProps['tone'];
+  size?: FieldInputProps['size'];
+  icon?: FieldInputProps['icon'];
   inputProps?: InputProps;
-  children: (props: InputProps, ref?: React.RefObject<HTMLInputElement>) => WrapperProps['children'];
 };
+
+export type Props = WrapperProps & TextFieldProps;
 
 /**
  * Merges commonly used input props that were added as shortcuts (type, autoFocus,...)
@@ -77,29 +74,4 @@ export function useMergedInputProps(props: Partial<Props>): Partial<InputProps> 
   }
 
   return merged;
-}
-
-export function useClearButton(ref?: React.Ref<HTMLInputElement>) {
-  const inputRefInternal = useRef<HTMLInputElement>(null);
-  const inputRef = (ref as React.RefObject<HTMLInputElement>) || inputRefInternal;
-
-  const onClearClick = useCallback(() => {
-    if (!inputRef?.current) {
-      return;
-    }
-
-    setNativeValue(inputRef.current, '');
-    inputRef.current.focus();
-  }, [inputRef]);
-
-  return [inputRef, onClearClick] as const;
-}
-
-function setNativeValue(input: HTMLInputElement, value: string) {
-  const valueSetter =
-    Object.getOwnPropertyDescriptor(Object.getPrototypeOf(input), 'value')?.set ??
-    Object.getOwnPropertyDescriptor(input, 'value')?.set;
-
-  valueSetter?.call(input, value);
-  input.dispatchEvent(new Event('change', { bubbles: true }));
 }

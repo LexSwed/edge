@@ -1,0 +1,108 @@
+.fx-field {
+  --font-size: 14px;
+  &:not(:focus-within) {
+    --text-color: var(--text-color-light);
+  }
+  &:focus-within {
+    --text-color: var(--text-color);
+  }
+}
+
+.fx-field-input {
+  --bg-color: #fff;
+  --text-color: var(--gray-900);
+  --height: auto;
+  --padding: 0;
+  --btn-space: calc(var(--padding, 0) / 2);
+  display: inline-flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 0 var(--padding, 0);
+  box-sizing: border-box;
+  border-radius: var(--br);
+  width: 100%;
+  height: var(--height);
+  cursor: text;
+  color: var(--text-color);
+  font-size: var(--font-size);
+  &:hover {
+    --bg-color: #fff;
+    --border-color: var(--border-color-hover);
+  }
+  &:focus-within {
+    --border-color: var(--border-color-focus);
+  }
+  &:disabled {
+    --bg-color: var(--gray-100);
+    --border-color: transparent;
+    pointer-events: none;
+  }
+}
+.fx-field-clear {
+  --left-padding: calc(var(--btn-space) - var(--padding));
+  --button-height: calc(var(--height) + (var(--left-padding) * 2) - 2px);
+  display: inline-block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease-in-out;
+  padding-left: var(--btn-space);
+  margin-right: var(--left-padding);
+}
+
+.fx-field-clear--shown {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.fx-field-icon {
+  --spacing: calc(var(--padding) / 2);
+  --icon-size: calc(var(--font-size) * 1.14);
+  display: inline-flex;
+  padding-right: var(--spacing);
+  margin-left: calc(-1 * var(--spacing));
+}
+
+/* Sizes */
+
+.fx-field-input--s {
+  --padding: 4px;
+  --font-size: 12px;
+  --height: 26px;
+}
+.fx-field-input--m {
+  --padding: 8px;
+  --font-size: 14px;
+  --height: 36px;
+  & .fx-field-icon {
+    --font-size: 16px;
+  }
+}
+.fx-field-input--l {
+  --padding: 12px;
+  --font-size: 18px;
+  --height: 40px;
+}
+
+/* Tone */
+
+.fx-field-input--positive {
+  --border-color: var(--green-500);
+  &:hover {
+    --border-color: var(--green-600);
+  }
+  &:focus-within {
+    --border-color: var(--green-800);
+  }
+}
+
+.fx-field-input--critical {
+  --border-color: var(--error-400);
+  &:hover {
+    --border-color: var(--error-600);
+  }
+  &:focus-within {
+    --border-color: var(--error-800);
+  }
+}

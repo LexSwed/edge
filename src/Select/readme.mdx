@@ -7,14 +7,23 @@ menu: Components
 import { Playground } from 'docz';
 import Select from './Select';
 
+import Box from '../Box';
+import Option from '../Option';
+
 # Select
 
 ## Basic usage
 
 ```tsx
-import { Select } from '@foxtrot/edge';
+import { Select, Option } from '@foxtrot/edge';
 ```
 
 <Playground>
-
+  <Box style={{ width: '240px' }}>
+    <Select label="Select one option" message="Any option would work">
+      <Option>Some text</Option>
+      <Option>Some text 2</Option>
+      <Option>Some text 3</Option>
+    </Select>
+  </Box>
 </Playground>

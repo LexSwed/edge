@@ -83,8 +83,9 @@
   align-items: center;
   white-space: nowrap;
   grid-template-rows: auto;
-  justify-items: flex-start;
+  justify-content: center;
   grid-template-columns: repeat(var(--columns-count), auto);
-  height: 100%;
   grid-gap: var(--grid-gap, 8px);
+  width: 100%;
+  height: 100%;
 }

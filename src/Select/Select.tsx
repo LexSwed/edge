@@ -1,15 +1,20 @@
 import React from 'react';
-import cx from 'classnames';
 
-import './styles.css';
+import { TextFieldProps } from 'TextField/utils';
+import ListBox from 'ListBox';
+import SelectInput from './SelectInput';
+import { Dropdown } from 'Dropdown';
 
-type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = TextFieldProps & {
+  children: React.ComponentProps<typeof ListBox>['children'];
+};
 
-const Select = React.forwardRef<HTMLDivElement, Props>(({ children, className, ...props }, ref) => {
+const Select = React.forwardRef<HTMLDivElement, Props>(({ children, ...props }, ref) => {
   return (
-    <div className={cx(className)} {...props} ref={ref}>
-      {children}
-    </div>
+    <Dropdown>
+      <SelectInput {...props} ref={ref} />
+      <ListBox>{children}</ListBox>
+    </Dropdown>
   );
 });
 

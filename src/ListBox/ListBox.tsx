@@ -19,7 +19,7 @@ const ListBox = React.forwardRef<HTMLUListElement, Props>(({ children, className
         {...menuProps}
         {...props}
         className={cx('fx-listbox', className)}
-        ref={useCombinedRefs(ref, forwardedRef, dropdownRef)}
+        ref={useCombinedRefs(ref, forwardedRef, dropdownRef as React.RefObject<HTMLUListElement>)}
       >
         {isOpen &&
           Children.map(children, (el: OptionChildren, index) => {

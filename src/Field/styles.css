@@ -8,7 +8,7 @@
   }
 }
 
-.fx-field-input {
+.fx-field-wrap {
   --bg-color: #fff;
   --text-color: var(--gray-900);
   --height: auto;
@@ -66,12 +66,12 @@
 
 /* Sizes */
 
-.fx-field-input--s {
+.fx-field-wrap--s {
   --padding: 4px;
   --font-size: 12px;
   --height: 26px;
 }
-.fx-field-input--m {
+.fx-field-wrap--m {
   --padding: 8px;
   --font-size: 14px;
   --height: 36px;
@@ -79,7 +79,7 @@
     --font-size: 16px;
   }
 }
-.fx-field-input--l {
+.fx-field-wrap--l {
   --padding: 12px;
   --font-size: 18px;
   --height: 40px;
@@ -87,7 +87,7 @@
 
 /* Tone */
 
-.fx-field-input--positive {
+.fx-field-wrap--positive {
   --border-color: var(--green-500);
   &:hover {
     --border-color: var(--green-600);
@@ -97,12 +97,38 @@
   }
 }
 
-.fx-field-input--critical {
+.fx-field-wrap--critical {
   --border-color: var(--error-400);
   &:hover {
     --border-color: var(--error-600);
   }
   &:focus-within {
     --border-color: var(--error-800);
+  }
+}
+
+.fx-field-input {
+  all: unset;
+  font-size: inherit;
+  color: var(--text-color);
+  line-height: 1.2;
+  border: none;
+  background: transparent;
+  flex: 1 1 auto;
+  padding: 0;
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  &::placeholder {
+    color: var(--gray-500);
+  }
+  &[readonly] {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import './styles.css';
-import InlineGrid from '../Inline/InlineGrid';
+import Inline from '../Inline';
 
 type Props<T = any> = {
   value?: T;
@@ -23,7 +23,9 @@ const Option = React.forwardRef<HTMLLIElement, Props>(
 
     return (
       <li {...props} className={classes} ref={ref}>
-        <InlineGrid>{children}</InlineGrid>
+        <Inline space="s" alignY="center" nowrap>
+          {children}
+        </Inline>
       </li>
     );
   }

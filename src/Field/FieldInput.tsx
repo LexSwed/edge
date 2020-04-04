@@ -1,38 +1,63 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import cx from 'classnames';
 
-import Button from '../Button';
-import Icon from '../Icon';
-import { useClearButton, FieldInputProps } from './utils';
+import ClearButton from './ClearButton';
+import LeftIcon from './LeftIcon';
+import FieldLabel from 'FieldLabel';
+import FieldMessage from 'FieldMessage';
+import { useMergedInputProps, useClearButton, FieldInputProps } from './utils';
 
 import './styles.css';
+import { useCombinedRefs } from '@utils';
 
-type LabelProps = React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+type LabelProps = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'children'>;
 
 type Props = LabelProps & FieldInputProps;
 
-const FieldInput = React.forwardRef<HTMLLabelElement, Props>(
-  ({ icon, clearButton, size = 'm', tone, inputRef, children, className, ...props }, ref) => {
-    const [usedInputRef, onClearClick] = useClearButton(inputRef);
+const FieldInput = React.forwardRef<HTMLDivElement, Props>(
+  ({ label, message, icon, size = 'm', disabled, tone, className, onClick, onClear, inputProps, ...props }, ref) => {
+    const classes = cx('fx-field-wrap', `fx-field-wrap--${size}`, tone && `fx-field-wrap--${tone}`, className);
+    const { ref: providedInputRef, className: inputClassName, ...mergedInputProps } = useMergedInputProps({
+      inputProps,
+      disabled,
+      ...props,
+    });
 
-    const classes = cx('fx-field-input', `fx-field-input--${size}`, tone && `fx-field-input--${tone}`, className);
+    const inputRef = useRef<HTMLInputElement>();
+    const onClearClick = useClearButton(inputRef, onClear);
+    const inputRefs = useCombinedRefs(providedInputRef, inputRef);
 
-    const renderIcon = icon && (
-      <span className="fx-field-icon">{React.isValidElement(icon) ? icon : <Icon icon={icon} />}</span>
+    const onWrapperClick = useCallback(
+      (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        onClick?.(e);
+        inputRef?.current?.focus();
+      },
+      [onClick]
     );
 
     return (
-      <label className={classes} {...props} ref={ref}>
-        {renderIcon}
-        {React.cloneElement(React.Children.only(children), { ref: usedInputRef })}
-        {clearButton && (
-          <span className={cx('fx-field-clear', `fx-field-clear--${clearButton}`)}>
-            <Button onClick={onClearClick} size="xs" tone="transparent">
-              <Icon icon="clear" />
-            </Button>
-          </span>
+      <>
+        {label && (
+          <FieldLabel id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
+            {label}
+          </FieldLabel>
         )}
-      </label>
+        <div className={classes} onClick={onWrapperClick} {...props} ref={ref}>
+          <LeftIcon icon={icon} />
+          <input {...mergedInputProps} className={cx('fx-field-input', inputClassName)} ref={inputRefs} />
+          {onClear && <ClearButton shown={Boolean(mergedInputProps?.value)} onClick={onClearClick} />}
+        </div>
+        {message && (
+          <FieldMessage
+            tone={tone}
+            disabled={disabled}
+            id={mergedInputProps['aria-describedby']}
+            className="fx-field-message"
+          >
+            {message}
+          </FieldMessage>
+        )}
+      </>
     );
   }
 );

@@ -1,8 +1,19 @@
-import { createContext, useRef, useMemo, useContext, Children, isValidElement, useState, useEffect } from 'react';
+import {
+  createContext,
+  useRef,
+  useMemo,
+  useContext,
+  Children,
+  isValidElement,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 import { Options as PopperOptions } from '@popperjs/core';
 import { useSelect, UseSelectProps } from 'downshift';
 
 import Option from '../../Option';
+import { useCombinedRefs } from '@utils';
 
 export const downshiftContext = createContext<DownshiftContextType>({} as DownshiftContextType);
 export const dropdownStaticContext = createContext<DropdownStaticContext>({} as DropdownStaticContext);
@@ -40,7 +51,7 @@ export function useChildren(children: any) {
   );
 }
 
-const stateReducer: UseSelectProps<any>['stateReducer'] = (state, { type, changes }) => {
+const stateReducer: UseSelectProps<any>['stateReducer'] = (_state, { type, changes }) => {
   switch (type) {
     case useSelect.stateChangeTypes.ItemClick:
     case useSelect.stateChangeTypes.MenuKeyDownEnter: {
@@ -56,11 +67,22 @@ const stateReducer: UseSelectProps<any>['stateReducer'] = (state, { type, change
   }
 };
 
-export function useDownshift() {
+export function useDownshift({ value, onSelect }: { value?: string; onSelect?: (v: string) => void }) {
   const [items, setItems] = useState<any[]>([]);
+  const onSelectedItemChange: UseSelectProps<OptionChildren | undefined>['onSelectedItemChange'] = useCallback(
+    ({ selectedItem }) => {
+      setTimeout(() => {
+        onSelect?.(optionToString(selectedItem));
+      }, 0);
+    },
+    [onSelect]
+  );
   const downshift = useSelect({
     items,
     stateReducer,
+    itemToString: optionToString,
+    selectedItem: items.find((option) => optionToString(option) === value),
+    onSelectedItemChange,
   });
 
   return {
@@ -84,20 +106,27 @@ export function useOptionItems(children: OptionChildren[] | OptionChildren) {
   useEffect(() => {
     setItems(Children.toArray(children));
   }, [children, setItems]);
-
   return { isOpen, getItemProps, highlightedIndex, getMenuProps };
 }
 
-// function itemToString(item: OptionChildren): string {
-//   console.log(item);
-//   if (item === null) {
-//     return '';
-//   }
+export function useToggleButtonProps() {
+  const { triggerRef } = useDropdown();
+  const { getToggleButtonProps } = useDownshiftState();
 
-//   const { value } = item.props;
+  const { ref: downshiftRef, ...downshiftProps } = getToggleButtonProps();
+  downshiftProps.ref = useCombinedRefs(triggerRef, downshiftRef);
 
-//   return typeof value === 'string' ? value : JSON.stringify(value);
-// }
+  return downshiftProps;
+}
+
+export function optionToString(item?: OptionChildren): string {
+  if (!item) {
+    return '';
+  }
+
+  const { value } = item.props;
+  return typeof value === 'string' ? value : JSON.stringify(value);
+}
 
 type DropdownStaticContext = {
   triggerRef: React.RefObject<HTMLElement>;

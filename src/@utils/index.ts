@@ -4,8 +4,12 @@ export const renderValidChild: typeof Children['map'] = (children, renderFn) => 
   return Children.map(children, (child, i) => child && renderFn(child, i));
 };
 
-export function useCombinedRefs<T>(...refs: React.Ref<T>[]) {
-  return useCallback((element: T) => {
+export function useCombinedRefs<T extends any = null>(...refs: Refs<T>[]) {
+  return useCallback(joinRefs(...refs), refs); //eslint-disable-line
+}
+
+export function joinRefs<T>(...refs: Refs<T>[]) {
+  return (element: T) =>
     refs.forEach((ref) => {
       if (!ref) {
         return;
@@ -17,5 +21,6 @@ export function useCombinedRefs<T>(...refs: React.Ref<T>[]) {
         (ref as React.MutableRefObject<T>).current = element;
       }
     });
-  }, refs); //eslint-disable-line
 }
+
+type Refs<T> = React.Ref<T> | React.RefObject<T> | React.MutableRefObject<T> | undefined | null;

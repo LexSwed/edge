@@ -1,22 +1,22 @@
 import React from 'react';
 
-import { TextFieldProps } from 'TextField/utils';
 import ListBox from 'ListBox';
 import SelectInput from './SelectInput';
 import { Dropdown } from 'Dropdown';
+import type { Props as ExtraProps } from './utils';
 
-type Props = TextFieldProps & {
+type Props = {
   children: React.ComponentProps<typeof ListBox>['children'];
-};
+} & ExtraProps;
 
-const Select = React.forwardRef<HTMLDivElement, Props>(({ children, ...props }, ref) => {
+const Select: React.FC<Props> = ({ children, ...props }) => {
   return (
-    <Dropdown>
-      <SelectInput {...props} ref={ref} />
+    <Dropdown value={props.value} onSelect={props.onSelect}>
+      <SelectInput {...props} />
       <ListBox>{children}</ListBox>
     </Dropdown>
   );
-});
+};
 
 if (__DEV__) {
   Select.displayName = 'FxSelect';

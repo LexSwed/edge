@@ -1,24 +1,13 @@
 import React from 'react';
 
-import { useDropdown, useDownshiftState } from 'Dropdown/utils';
-import { useCombinedRefs } from '../@utils';
+import { useToggleButtonProps } from 'Dropdown/utils';
 
 type Props = {};
 
 const ToggleButton: React.FC<Props> = ({ children }) => {
-  const { triggerRef } = useDropdown();
-  const { getToggleButtonProps } = useDownshiftState();
+  const downshiftProps = useToggleButtonProps();
 
-  const { ref: downshiftRef, ...downshiftProps } = getToggleButtonProps({
-    ...(children as React.ReactElement).props,
-  } as any);
-
-  const refs = useCombinedRefs(downshiftRef, triggerRef);
-
-  return React.cloneElement(children as React.ReactElement, {
-    ...downshiftProps,
-    ref: refs,
-  });
+  return React.cloneElement(children as React.ReactElement, downshiftProps);
 };
 
 if (__DEV__) {

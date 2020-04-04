@@ -62,6 +62,7 @@ export function usePopper() {
     if (!isOpen) {
       return;
     }
+
     if (triggerRef.current && dropdownRef.current) {
       const options: Partial<Options> = {
         placement: 'bottom-start',

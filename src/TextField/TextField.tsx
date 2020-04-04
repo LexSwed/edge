@@ -1,36 +1,25 @@
 import React from 'react';
 
-import { Props, useMergedInputProps } from './utils';
-
 import Field from 'Field';
 import FieldInput from 'Field/FieldInput';
+import type { FieldInputProps } from 'Field/utils';
 
-import './styles.css';
-import Input from './Input';
+type Props = Omit<FieldInputProps, 'onClear'> & {
+  allowClear?: boolean;
+};
 
-const TextField = React.forwardRef<HTMLDivElement, Props>(
-  ({ label, message, tone, size, icon, disabled, allowClear, inputProps, ...props }, ref) => {
-    const mergedProps = useMergedInputProps({ inputProps, disabled, ...props });
-
-    return (
-      <Field label={label} message={message} tone={tone} disabled={disabled} {...props} ref={ref}>
-        <FieldInput
-          className="fx-textfield"
-          icon={icon}
-          clearButton={allowClear && mergedProps.value ? 'shown' : 'hidden'}
-          tone={tone}
-          size={size}
-          inputRef={inputProps?.ref}
-        >
-          <Input {...mergedProps} />
-        </FieldInput>
-      </Field>
-    );
-  }
-);
+const TextField: React.FC<Props> = ({ allowClear, ...props }) => {
+  return (
+    <Field>
+      <FieldInput {...props} onClear={allowClear ? onClear : undefined} />
+    </Field>
+  );
+};
 
 if (__DEV__) {
   TextField.displayName = 'FxTextField';
 }
 
 export default TextField;
+
+function onClear() {}

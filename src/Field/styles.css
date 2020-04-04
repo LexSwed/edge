@@ -90,22 +90,22 @@
 /* Tone */
 
 .fx-field-wrap--positive {
-  --border-color: var(--green-500);
+  --border-color: var(--positive-1);
   &:hover {
-    --border-color: var(--green-600);
+    --border-color: var(--positive-2);
   }
   &:focus-within {
-    --border-color: var(--green-800);
+    --border-color: var(--positive-3);
   }
 }
 
 .fx-field-wrap--critical {
-  --border-color: var(--error-400);
+  --border-color: var(--critical-1);
   &:hover {
-    --border-color: var(--error-600);
+    --border-color: var(--critical-2);
   }
   &:focus-within {
-    --border-color: var(--error-800);
+    --border-color: var(--critical-3);
   }
 }
 

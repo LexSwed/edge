@@ -21,7 +21,7 @@
   --brand-800: #b44645;
   --brand-900: #9e3d3c; */
 
-  /* --brand-100: #ebf4ff;
+  --brand-100: #ebf4ff;
   --brand-200: #c3dafe;
   --brand-300: #a3bffa;
   --brand-400: #7f9cf5;
@@ -29,9 +29,9 @@
   --brand-600: #5a67d8;
   --brand-700: #4c51bf;
   --brand-800: #434190;
-  --brand-900: #3c366b; */
+  --brand-900: #3c366b;
 
-  --brand-100: #ebf8ff;
+  /* --brand-100: #ebf8ff;
   --brand-200: #bee3f8;
   --brand-300: #90cdf4;
   --brand-400: #63b3ed;
@@ -39,7 +39,7 @@
   --brand-600: #3182ce;
   --brand-700: #2b6cb0;
   --brand-800: #2c5282;
-  --brand-900: #2a4365;
+  --brand-900: #2a4365; */
 
   --green-100: #e6fffa;
   --green-200: #b2f5ea;
@@ -71,6 +71,15 @@
   --border-color: var(--gray-500);
   --border-color-hover: var(--gray-600);
   --border-color-focus: var(--gray-800);
+
+  --positive-1: var(--green-500);
+  --positive-2: var(--green-600);
+  --positive-3: var(--green-800);
+
+  --critical-1: var(--error-400);
+  --critical-2: var(--error-600);
+  --critical-3: var(--error-800);
+
   --card-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13), 0px 0px 2.9px rgba(0, 0, 0, 0.11);
 }
 

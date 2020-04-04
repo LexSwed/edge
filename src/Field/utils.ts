@@ -23,10 +23,10 @@ export function useMergedInputProps(props: Partial<FieldInputProps>): Partial<In
     inputProps: { id, defaultValue, ...inputProps } = {},
   } = props;
   const uid = useId(id);
-  const inputId = `textfield-${uid}`;
+  const inputId = `input-${uid}`;
 
   const merged: Partial<InputProps> = {
-    id,
+    id: inputId,
     value,
     onChange,
     type,
@@ -112,5 +112,5 @@ export type FieldInputProps = {
 };
 
 type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
-  ref?: React.RefObject<HTMLInputElement>;
+  ref?: React.Ref<HTMLInputElement>;
 };

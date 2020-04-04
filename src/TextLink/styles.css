@@ -3,9 +3,6 @@
   color: var(--color);
   text-decoration: none;
   box-sizing: border-box;
-  display: inline;
-  padding: 4px;
-  margin: -4px;
   cursor: pointer;
   font-weight: 600;
   &:hover {

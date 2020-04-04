@@ -20,14 +20,14 @@ export function useMergedInputProps(props: Partial<FieldInputProps>): Partial<In
     name,
     label,
     message,
-    inputProps,
+    inputProps: { id, defaultValue, ...inputProps } = {},
   } = props;
-  const uid = useId(inputProps?.id);
-  const id = `textfield-${uid}`;
+  const uid = useId(id);
+  const inputId = `textfield-${uid}`;
 
   const merged: Partial<InputProps> = {
     id,
-    value: value ?? '',
+    value,
     onChange,
     type,
     placeholder,
@@ -35,11 +35,12 @@ export function useMergedInputProps(props: Partial<FieldInputProps>): Partial<In
     autoFocus,
     autoComplete,
     name,
+    defaultValue,
     ...inputProps,
   };
 
-  const labelId = `${id}-label`;
-  const messageId = `${id}-message`;
+  const labelId = `${inputId}-label`;
+  const messageId = `${inputId}-message`;
 
   if (label && !merged['aria-labelledby']) {
     merged['aria-labelledby'] = labelId;

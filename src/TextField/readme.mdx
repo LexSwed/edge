@@ -19,7 +19,7 @@ import { Text } from '@foxtrot/edge';
 ```
 
 <Playground>
-  <Box padding="xs" style={{ width: '300px' }}>
+  <Box padding="none" width={300}>
     <TextField label="Full name" placeholder="John Doe" message="We just want to know how we can approach you" />
   </Box>
 </Playground>
@@ -30,13 +30,14 @@ import { Text } from '@foxtrot/edge';
   {() => {
     const [value, setValue] = React.useState('Clear me');
     return (
-      <TextField
-        label="Allows clearing the input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        allowClear
-        style={{ display: 'inline-flex' }}
-      />
+      <Box padding="none" width={300}>
+        <TextField
+          label="Allows clearing the input"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          allowClear
+        />
+      </Box>
     );
   }}
 </Playground>
@@ -48,7 +49,7 @@ To fix this, `TextField` component will need to have an internal state, making t
 always controlled. This creattes additional overhead and code to cover such rare case.
 
 <Playground>
-  <Box padding="xs" style={{ width: '300px' }}>
+  <Box padding="none" width={300}>
     <TextField label="Allows clearing the input" allowClear inputProps={{ defaultValue: 'Clear me' }} />
   </Box>
 </Playground>
@@ -56,7 +57,7 @@ always controlled. This creattes additional overhead and code to cover such rare
 ## Message and tone
 
 <Playground>
-  <Box padding="xs" style={{ width: '300px' }}>
+  <Box padding="none" width={300}>
     <Stack>
       <TextField label="Default tone" size="s" message="This will be used later" />
       <TextField label="Critical tone" size="m" message="The input is incorrect" tone="critical" />
@@ -68,7 +69,7 @@ always controlled. This creattes additional overhead and code to cover such rare
 ## Sizes
 
 <Playground>
-  <Box padding="xs" style={{ width: '300px' }}>
+  <Box padding="none" width={300}>
     <Stack>
       <TextField placeholder="Small inline input" size="s" />
       <TextField label="Normal input (default)" placeholder="Medium" size="m" />
@@ -80,11 +81,18 @@ always controlled. This creattes additional overhead and code to cover such rare
 ## With icon
 
 <Playground>
-  <Box padding="xs" style={{ width: '300px' }}>
+  <Box padding="none" width={300}>
     <Stack>
-      <TextField label="Small with" size="s" icon="search" value="Small sized" allowClear />
-      <TextField label="Normal input (default)" size="m" icon="expand_more" value="Medium sized" allowClear />
-      <TextField label="Prominent input" size="l" icon="search" value="Large sized" allowClear />
+      <TextField label="Small with" size="s" icon="search" value="Small sized" onChange={() => {}} allowClear />
+      <TextField
+        label="Normal input (default)"
+        size="m"
+        icon="expand_more"
+        value="Medium sized"
+        onChange={() => {}}
+        allowClear
+      />
+      <TextField label="Prominent input" size="l" icon="search" value="Large sized" onChange={() => {}} allowClear />
     </Stack>
   </Box>
 </Playground>

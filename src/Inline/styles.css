@@ -19,8 +19,8 @@
 .fx-inline__child {
   display: flex;
   box-sizing: border-box;
-  margin-top: var(--space);
-  margin-left: var(--space);
+  padding-top: var(--space);
+  padding-left: var(--space);
 }
 
 /** Space */
@@ -72,7 +72,7 @@
     margin-top: 0;
   }
   & .fx-inline__child {
-    margin-top: 0;
+    padding-top: 0;
   }
 }
 

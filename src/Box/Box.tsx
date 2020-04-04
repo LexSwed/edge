@@ -4,18 +4,32 @@ import cx from 'classnames';
 import './styles.css';
 
 type Props = {
-  padding?: 'xs' | 's' | 'm' | 'l' | 'xl';
+  padding?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl';
+  width?: number;
+  height?: number;
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-const Box = React.forwardRef<HTMLDivElement, Props>(({ padding = 'm', className, children, ...props }, ref) => {
-  const classes = cx('fx-box', `fx-box--${padding}`, className);
+const Box = React.forwardRef<HTMLDivElement, Props>(
+  ({ padding = 'm', width, height, className, style, children, ...props }, ref) => {
+    const classes = cx('fx-box', `fx-box--${padding}`, className);
 
-  return (
-    <div className={classes} {...props} ref={ref}>
-      {children}
-    </div>
-  );
-});
+    let styles: React.CSSProperties = { ...style };
+
+    if (width) {
+      styles.width = `${width}px`;
+    }
+
+    if (height) {
+      styles.height = `${height}px`;
+    }
+
+    return (
+      <div className={classes} style={styles} {...props} ref={ref}>
+        {children}
+      </div>
+    );
+  }
+);
 
 if (__DEV__) {
   Box.displayName = 'FxBox';

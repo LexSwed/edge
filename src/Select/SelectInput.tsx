@@ -7,7 +7,7 @@ import FieldInput from 'Field/FieldInput';
 import './styles.css';
 import type { Props } from './utils';
 
-const SelectInput: React.FC<Props> = ({ onSelect, ...props }) => {
+const SelectInput: React.FC<Props> = ({ onSelect, value, ...props }) => {
   const downshiftProps = useToggleButtonProps();
 
   const inputProps = {
@@ -18,6 +18,7 @@ const SelectInput: React.FC<Props> = ({ onSelect, ...props }) => {
     <Field>
       <FieldInput
         className="fx-select-input"
+        value={value ?? ''}
         onClear={() => onSelect(null)}
         inputProps={inputProps}
         icon="expand_more"

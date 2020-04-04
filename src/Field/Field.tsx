@@ -5,7 +5,7 @@ import Stack from '../Stack';
 
 import './styles.css';
 
-type Props = React.ComponentProps<typeof Stack>;
+type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Field = React.forwardRef<HTMLDivElement, Props>(({ className, children, ...props }, ref) => {
   return (

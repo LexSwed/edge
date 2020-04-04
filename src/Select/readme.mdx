@@ -23,7 +23,7 @@ import { Select, Option } from '@foxtrot/edge';
     const people = ['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'];
     const [value, setValue] = React.useState(people[0]);
     return (
-      <Box style={{ width: '240px' }}>
+      <Box width={240}>
         <Select
           value={value}
           onSelect={(newValue) => setValue(newValue)}

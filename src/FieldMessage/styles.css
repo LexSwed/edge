@@ -7,7 +7,7 @@
 
 .fx-fieldmessage--disabled {
   opacity: 0;
-  visibility: none;
+  visibility: hidden;
 }
 
 .fx-fieldmessage--neutral {

@@ -36,18 +36,19 @@
   &:focus-within {
     --border-color: var(--border-color-focus);
   }
-  &:disabled {
-    --bg-color: var(--gray-100);
-    --border-color: transparent;
-    pointer-events: none;
-  }
 }
+.fx-field-wrap--disabled {
+  --bg-color: var(--gray-200);
+  --border-color: var(--gray-200);
+  pointer-events: none;
+}
+
 .fx-field-clear {
   --left-padding: calc(var(--btn-space) - var(--padding));
   --button-height: calc(var(--height) + (var(--left-padding) * 2) - 2px);
   display: inline-block;
   opacity: 0;
-  pointer-events: none;
+  visibility: hidden;
   transition: opacity 0.12s ease-in-out;
   padding-left: var(--btn-space);
   margin-right: var(--left-padding);
@@ -55,12 +56,11 @@
 
 .fx-field-clear--shown {
   opacity: 1;
-  pointer-events: all;
+  visibility: visible;
 }
 
 .fx-field-icon {
   --spacing: calc(var(--padding) / 2);
-  --icon-size: calc(var(--font-size) * 1.14);
   display: inline-flex;
   padding-right: var(--spacing);
   margin-left: calc(-1 * var(--spacing));
@@ -72,19 +72,19 @@
   --padding: 4px;
   --font-size: 12px;
   --height: 26px;
+  --icon-size: 14px;
 }
 .fx-field-wrap--m {
   --padding: 8px;
   --font-size: 14px;
   --height: 36px;
-  & .fx-field-icon {
-    --font-size: 16px;
-  }
+  --icon-size: 16px;
 }
 .fx-field-wrap--l {
   --padding: 12px;
-  --font-size: 18px;
+  --font-size: 16px;
   --height: 40px;
+  --icon-size: 18px;
 }
 
 /* Tone */

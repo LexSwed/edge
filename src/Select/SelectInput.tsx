@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Field from 'Field';
-import { useToggleButtonProps } from 'Dropdown/utils';
+import { useToggleButtonProps, useDownshiftState, optionToString } from 'Dropdown/utils';
 import FieldInput from 'Field/FieldInput';
 
 import './styles.css';
@@ -13,13 +13,14 @@ const inputProps = {
 
 const SelectInput: React.FC<SelectInputProps> = ({ onSelect, value, ...props }) => {
   const downshiftProps = useToggleButtonProps();
+  const { selectedItem } = useDownshiftState();
 
   return (
     <Field>
       <FieldInput
         className="fx-select-input"
-        value={value ?? ''}
-        onClear={() => onSelect(null)}
+        value={value ?? (selectedItem ? optionToString(selectedItem) : '')}
+        onClear={onSelect ? () => onSelect(null) : null}
         inputProps={inputProps}
         icon="expand_more"
         {...props}

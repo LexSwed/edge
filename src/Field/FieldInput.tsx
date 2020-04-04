@@ -16,7 +16,13 @@ type Props = LabelProps & FieldInputProps;
 
 const FieldInput = React.forwardRef<HTMLDivElement, Props>(
   ({ label, message, icon, size = 'm', disabled, tone, className, onClick, onClear, inputProps, ...props }, ref) => {
-    const classes = cx('fx-field-wrap', `fx-field-wrap--${size}`, tone && `fx-field-wrap--${tone}`, className);
+    const classes = cx(
+      'fx-field-wrap',
+      `fx-field-wrap--${size}`,
+      tone && `fx-field-wrap--${tone}`,
+      disabled && 'fx-field-wrap--disabled',
+      className
+    );
     const { ref: providedInputRef, className: inputClassName, ...mergedInputProps } = useMergedInputProps({
       inputProps,
       disabled,
@@ -29,10 +35,13 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
 
     const onWrapperClick = useCallback(
       (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (disabled) {
+          return;
+        }
         onClick?.(e);
-        inputRef?.current?.focus();
+        inputRef.current?.focus();
       },
-      [onClick]
+      [onClick, disabled]
     );
 
     return (

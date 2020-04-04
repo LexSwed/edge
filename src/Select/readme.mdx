@@ -7,6 +7,7 @@ menu: Components
 import { Playground, Props } from 'docz';
 import Select from './Select';
 
+import Stack from '../Stack';
 import Box from '../Box';
 import Option from '../Option';
 
@@ -40,6 +41,57 @@ import { Select, Option } from '@foxtrot/edge';
       </Box>
     );
   }}
+</Playground>
+
+## Sizes
+
+## Message and tone
+
+<Playground>
+  <Box padding="none" width={300}>
+    <Stack>
+      <Select label="Default tone" size="s" message="Selected person will deploy the app">
+        {['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'].map((person) => (
+          <Option key={person} value={person}>
+            {person}
+          </Option>
+        ))}
+      </Select>
+      <Select label="Critical tone" size="m" message="Something is incorrect" tone="critical">
+        {['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'].map((person) => (
+          <Option key={person} value={person}>
+            {person}
+          </Option>
+        ))}
+      </Select>
+      <Select label="Positive tone" size="l" message="The selection is okay" tone="positive">
+        {['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'].map((person) => (
+          <Option key={person} value={person}>
+            {person}
+          </Option>
+        ))}
+      </Select>
+      <Select label="Disabled select" message="Message is ignored" disabled>
+        {['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'].map((person) => (
+          <Option key={person} value={person}>
+            {person}
+          </Option>
+        ))}
+      </Select>
+    </Stack>
+  </Box>
+</Playground>
+
+## Sizes
+
+<Playground>
+  <Box padding="none" width={300}>
+    <Stack>
+      <Select placeholder="Small inline input" size="s"></Select>
+      <Select label="Normal input (default)" placeholder="Medium" size="m"></Select>
+      <Select label="Prominent input" placeholder="Large" size="l"></Select>
+    </Stack>
+  </Box>
 </Playground>
 
 ## Props

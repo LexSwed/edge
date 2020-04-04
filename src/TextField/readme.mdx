@@ -37,6 +37,7 @@ import { Text } from '@foxtrot/edge';
           onChange={(e) => setValue(e.target.value)}
           allowClear
         />
+        <TextField label="Disabled" value={value} onChange={(e) => setValue(e.target.value)} allowClear disabled />
       </Box>
     );
   }}

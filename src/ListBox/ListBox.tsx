@@ -3,14 +3,14 @@ import cx from 'classnames';
 
 import Popover from 'Dropdown/Popover';
 import Option from 'Option';
-import { useDropdown, useOptionItems } from 'Dropdown/utils';
+import { useDropdown, useDownshiftState } from 'Dropdown/utils';
 import { useCombinedRefs } from '@utils';
 
 import './styles.css';
 
 const ListBox = React.forwardRef<HTMLUListElement, Props>(({ children, className, ...props }, forwardedRef) => {
   const { dropdownRef } = useDropdown();
-  const { isOpen, getMenuProps, getItemProps, highlightedIndex } = useOptionItems(children);
+  const { isOpen, getMenuProps, getItemProps, highlightedIndex } = useDownshiftState();
   const { ref, ...menuProps } = getMenuProps();
 
   return (

@@ -3,14 +3,12 @@ import ReactDOM from 'react-dom';
 import cx from 'classnames';
 
 import './styles.css';
-import { usePopper, usePopoverHandles } from './utils/popover';
+import { usePopper } from './utils/popover';
 
 type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Popover: React.FC<Props> = ({ children, ...props }) => {
-  const dropdownRef = usePopper();
-
-  const isOpen = usePopoverHandles();
+  const { isOpen, dropdownRef } = usePopper();
 
   return ReactDOM.createPortal(
     <div

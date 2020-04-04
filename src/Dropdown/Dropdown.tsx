@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Options as PopoverOptions } from '@popperjs/core';
 
-import { downshiftContext, dropdownStaticContext, useDropdownProviderValue, useDownshift } from './utils';
+import { downshiftContext, dropdownStaticContext, useDropdownProviderValue, useSelect } from './utils';
 
 type Props = {
   placement?: PopoverOptions['placement'];
-  downshift: ReturnType<typeof useDownshift>;
+  downshift: ReturnType<typeof useSelect>;
 };
 
 const Dropdown: React.FC<Props> = ({ placement, downshift, children }) => {

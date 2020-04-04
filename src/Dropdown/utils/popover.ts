@@ -1,17 +1,7 @@
-import { useRef, useLayoutEffect, useEffect, useContext } from 'react';
+import { useRef, useLayoutEffect, useContext } from 'react';
 import { createPopper, Instance as PopperInstance, Options, Modifier } from '@popperjs/core';
 
-import { dropdownStaticContext, useDropdownOpen, useDownshiftState } from '../utils';
-
-export function usePopoverHandles() {
-  const isOpen = useDropdownOpen();
-
-  // useClickOutside();
-
-  // useMountFocus(isOpen);
-
-  return isOpen;
-}
+import { dropdownStaticContext, useDropdownOpen } from '../utils';
 
 const widthModifier: Partial<Modifier<any>> = {
   name: 'widther',
@@ -80,10 +70,10 @@ export function usePopper() {
     };
   }, [isOpen, triggerRef, popperOptionsRef, dropdownRef]);
 
-  return dropdownRef;
+  return { isOpen, dropdownRef };
 }
 
-export function useClickOutside() {
+/* export function useClickOutside() {
   const { dropdownRef } = useContext(dropdownStaticContext);
   const { isOpen, closeMenu } = useDownshiftState();
 
@@ -119,3 +109,4 @@ export function useMountFocus(isOpen: boolean) {
     }
   }, [isOpen, dropdownRef]);
 }
+ */

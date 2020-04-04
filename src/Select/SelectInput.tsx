@@ -7,12 +7,12 @@ import FieldInput from 'Field/FieldInput';
 import './styles.css';
 import type { SelectInputProps } from './utils';
 
+const inputProps = {
+  readOnly: true,
+};
+
 const SelectInput: React.FC<SelectInputProps> = ({ onSelect, value, ...props }) => {
   const downshiftProps = useToggleButtonProps();
-
-  const inputProps = {
-    readOnly: true,
-  };
 
   return (
     <Field>

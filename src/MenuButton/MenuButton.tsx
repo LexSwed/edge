@@ -2,7 +2,7 @@ import React, { Children } from 'react';
 
 import { Dropdown } from 'Dropdown';
 import ToggleButton from './ToggleButton';
-import { useDownshift } from 'Dropdown/utils';
+import { useSelect } from 'Dropdown/utils';
 
 type Props = {
   /**
@@ -14,7 +14,7 @@ type Props = {
 
 const MenuButton: React.FC<Props> = ({ children, placement }) => {
   const [button, menu] = Children.toArray(children);
-  const downshift = useDownshift();
+  const downshift = useSelect({ options: React.isValidElement(menu) ? menu.props.children : [] });
 
   return (
     <Dropdown downshift={downshift} placement={placement}>

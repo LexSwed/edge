@@ -5,11 +5,11 @@ import { downshiftContext, dropdownStaticContext, useDropdownProviderValue, useD
 
 type Props = {
   placement?: PopoverOptions['placement'];
-} & Parameters<typeof useDownshift>[0];
+  downshift: ReturnType<typeof useDownshift>;
+};
 
-const Dropdown: React.FC<Props> = ({ placement, children, ...props }) => {
+const Dropdown: React.FC<Props> = ({ placement, downshift, children }) => {
   const refs = useDropdownProviderValue();
-  const downshift = useDownshift(props);
 
   useEffect(() => {
     if (placement) {

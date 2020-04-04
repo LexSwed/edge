@@ -5,9 +5,9 @@ import { useToggleButtonProps } from 'Dropdown/utils';
 import FieldInput from 'Field/FieldInput';
 
 import './styles.css';
-import type { Props } from './utils';
+import type { SelectInputProps } from './utils';
 
-const SelectInput: React.FC<Props> = ({ onSelect, value, ...props }) => {
+const SelectInput: React.FC<SelectInputProps> = ({ onSelect, value, ...props }) => {
   const downshiftProps = useToggleButtonProps();
 
   const inputProps = {

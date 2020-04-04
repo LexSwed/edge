@@ -3,15 +3,18 @@ import React from 'react';
 import ListBox from 'ListBox';
 import SelectInput from './SelectInput';
 import { Dropdown } from 'Dropdown';
-import type { Props as ExtraProps } from './utils';
+import { useDownshift } from 'Dropdown/utils';
+import type { SelectInputProps } from './utils';
 
-type Props = {
+type Props = SelectInputProps & {
   children: React.ComponentProps<typeof ListBox>['children'];
-} & ExtraProps;
+};
 
 const Select: React.FC<Props> = ({ children, ...props }) => {
+  const downshift = useDownshift({ value: props.value, onSelect: props.onSelect });
+
   return (
-    <Dropdown value={props.value} onSelect={props.onSelect}>
+    <Dropdown downshift={downshift}>
       <SelectInput {...props} />
       <ListBox>{children}</ListBox>
     </Dropdown>

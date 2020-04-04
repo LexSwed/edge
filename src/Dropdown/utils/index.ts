@@ -67,7 +67,8 @@ const stateReducer: UseSelectProps<any>['stateReducer'] = (_state, { type, chang
   }
 };
 
-export function useDownshift({ value, onSelect }: { value?: string; onSelect?: (v: string) => void }) {
+type UseDownshiftParams = { value?: string; onSelect?: (v: string) => void };
+export function useDownshift({ value, onSelect }: UseDownshiftParams = {}) {
   const [items, setItems] = useState<any[]>([]);
   const onSelectedItemChange: UseSelectProps<OptionChildren | undefined>['onSelectedItemChange'] = useCallback(
     ({ selectedItem }) => {

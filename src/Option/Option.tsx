@@ -22,7 +22,7 @@ const Option = React.forwardRef<HTMLLIElement, Props>(
     );
 
     return (
-      <li {...props} className={classes} ref={ref}>
+      <li role="option" aria-selected="false" {...props} className={classes} ref={ref}>
         <Inline space="s" alignY="center" nowrap>
           {children}
         </Inline>

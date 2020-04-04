@@ -7,7 +7,7 @@ export { default as Icon } from './Icon';
 export { default as Edge } from './Edge';
 export { default as Heading } from './Heading';
 export { default as FieldLabel } from './FieldLabel';
-export { default as Link } from './Link';
+export { default as Link } from './TextLink';
 // export { default as Modal } from 'components/Modal';
 // export { default as Option } from 'components/Option';
 // export { default as Select } from 'components/Select';

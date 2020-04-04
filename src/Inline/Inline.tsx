@@ -21,11 +21,15 @@ const Inline = React.forwardRef<HTMLDivElement, Props>(
         {...props}
         ref={ref}
       >
-        <div className="fx-inline__flex">
-          {renderValidChild(children, (child) => (
-            <div className="fx-inline__child">{child}</div>
-          ))}
-        </div>
+        {React.Children.count(children) > 1 ? (
+          <div className="fx-inline__flex">
+            {renderValidChild(children, (child) => (
+              <div className="fx-inline__child">{child}</div>
+            ))}
+          </div>
+        ) : (
+          children
+        )}
       </div>
     );
   }

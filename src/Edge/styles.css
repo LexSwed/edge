@@ -81,6 +81,7 @@
   --critical-3: var(--error-800);
 
   --card-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13), 0px 0px 2.9px rgba(0, 0, 0, 0.11);
+  --card-active-shadow: 0px 12.8px 28.8px rgba(0, 0, 0, 0.13), 0px 0px 9.2px rgba(0, 0, 0, 0.11);
 }
 
 .edge-wrapper {

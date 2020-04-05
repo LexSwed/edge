@@ -13,7 +13,7 @@
   --text-color: var(--gray-900);
   --height: auto;
   --padding: 0;
-  --btn-space: calc(var(--padding, 0) / 2);
+  --btn-space: calc(var(--padding) / 2);
   display: inline-flex;
   align-items: center;
   flex-flow: row nowrap;

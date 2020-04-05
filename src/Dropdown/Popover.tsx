@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import cx from 'classnames';
 
 import './styles.css';
 import { usePopper } from './utils/popover';
@@ -11,11 +10,7 @@ const Popover: React.FC<Props> = ({ children, ...props }) => {
   const { isOpen, dropdownRef } = usePopper();
 
   return ReactDOM.createPortal(
-    <div
-      className={cx('fx-popover', !isOpen && 'fx-popover--hidden')}
-      {...props}
-      ref={dropdownRef as React.RefObject<HTMLDivElement>}
-    >
+    <div className="fx-popover" {...props} ref={dropdownRef as React.RefObject<HTMLDivElement>} hidden={!isOpen}>
       {children}
     </div>,
     document.body

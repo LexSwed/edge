@@ -1,3 +1,11 @@
 .fx-select {
   cursor: default;
 }
+
+.fx-select-icon {
+  transition: transform 0.2s ease-in-out;
+}
+
+.fx-select-expanded {
+  transform: rotate(180deg);
+}

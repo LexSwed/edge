@@ -2,8 +2,7 @@
   min-width: 80px;
   z-index: 2000;
   display: inline-block;
-}
-
-.fx-popover--hidden {
-  display: none;
+  &[hidden] {
+    display: none;
+  }
 }

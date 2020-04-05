@@ -39,6 +39,10 @@ jobs:
         run: yarn build
         env:
           CI: true
+      - uses: sarthak-saxena/JSBundleSize@master
+        with:
+          dist_path: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload math result for job 1
         uses: actions/upload-artifact@master
         with:

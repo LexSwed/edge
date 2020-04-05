@@ -31,13 +31,15 @@ import { Text } from '@foxtrot/edge';
     const [value, setValue] = React.useState('Clear me');
     return (
       <Box padding="none" width={300}>
-        <TextField
-          label="Allows clearing the input"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          allowClear
-        />
-        <TextField label="Disabled" value={value} onChange={(e) => setValue(e.target.value)} allowClear disabled />
+        <Stack>
+          <TextField
+            label="Allows clearing the input"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            allowClear
+          />
+          <TextField label="Disabled" value={value} onChange={(e) => setValue(e.target.value)} allowClear disabled />
+        </Stack>
       </Box>
     );
   }}

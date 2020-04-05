@@ -6,7 +6,9 @@ menu: Components
 
 import { Playground } from 'docz';
 import Checkbox from './Checkbox';
+
 import Stack from '../Stack';
+import Text from '../Text';
 
 # Checkbox
 
@@ -17,7 +19,42 @@ import { Checkbox } from '@foxtrot/edge';
 ```
 
 <Playground>
+  {() => {
+    const [selected, setSelected] = React.useState(false);
+    return (
+      <Checkbox
+        label="Subscribe to news"
+        checked={selected}
+        onChange={(e) => setSelected(e.target.checked)}
+        message="This is the message"
+      />
+    );
+  }}
+</Playground>
+
+## Tone
+
+<Playground>
   <Stack>
-    <Checkbox label="Subscribe to news" />
+    <Checkbox label="No tone" message="Normal tone" />
+    <Checkbox label="Positive tone" message="Positive tone" tone="positive" />
+    <Checkbox label="Critical tone" message="Critical tone" tone="critical" />
+  </Stack>
+</Playground>
+
+## Checked inner Text
+
+<Playground>
+  <Stack>
+    <Checkbox
+      label="With some additional text"
+      message="It is recommended not to use message with children text"
+      checked={false}
+    >
+      <Text>This text is shown when the Checkbox is checked</Text>
+    </Checkbox>
+    <Checkbox label="With some additional text" checked={true}>
+      <Text>This text is shown when the Checkbox is checked</Text>
+    </Checkbox>
   </Stack>
 </Playground>

@@ -1,16 +1,80 @@
 .fx-checkbox {
+  --text-color: var(--text-color);
+  &:hover {
+    --border-color: var(--border-color-hover);
+  }
+  &:focus-within {
+    --border-color: var(--border-color-focus);
+  }
+}
+
+.fx-checkbox-wrap {
+  --width: 22px;
+  display: inline-flex;
 }
 
 .fx-checkbox-input {
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: var(--width);
+  height: var(--width);
   position: absolute;
   -webkit-appearance: none;
   -moz-appearance: none;
   display: block;
   margin: 0;
   padding: 0;
-  border: 0;
+  border: none;
   -webkit-tap-highlight-color: transparent;
+  z-index: 1;
+  &:focus {
+    outline: 4px auto var(--brand-700);
+  }
+  &:checked + .fx-checkbox-tick > path {
+    fill: var(--border-color-focus);
+  }
+}
+
+.fx-checkbox-tick {
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px;
+  width: var(--width);
+  height: var(--width);
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  box-sizing: border-box;
+  & > path {
+    transition: fill 0.12s ease-in-out;
+    fill: transparent;
+  }
+  &:hover > path {
+    fill: var(--gray-200);
+  }
+  &:focus > path {
+    fill: var(--border-color-focus);
+  }
+}
+
+/* Tone */
+
+.fx-checkbox--positive {
+  --border-color: var(--positive-1);
+  &:hover {
+    --border-color: var(--positive-2);
+  }
+  &:focus-within {
+    --border-color: var(--positive-3);
+  }
+}
+
+.fx-checkbox--critical {
+  --border-color: var(--critical-1);
+  &:hover {
+    --border-color: var(--critical-2);
+  }
+  &:focus-within {
+    --border-color: var(--critical-3);
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import cx from 'classnames';
 
+import Field from './Field';
 import ClearButton from './ClearButton';
 import LeftIcon from './LeftIcon';
 import FieldLabel from 'FieldLabel';
@@ -10,9 +11,9 @@ import { useMergedInputProps, useClearButton, FieldInputProps } from './utils';
 import './styles.css';
 import { useCombinedRefs } from '@utils';
 
-type LabelProps = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'children'>;
+type WrapperProps = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'children'>;
 
-type Props = LabelProps & FieldInputProps;
+type Props = WrapperProps & FieldInputProps;
 
 const FieldInput = React.forwardRef<HTMLDivElement, Props>(
   ({ label, message, icon, size = 'm', disabled, tone, className, onClick, onClear, inputProps, ...props }, ref) => {
@@ -45,7 +46,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
     );
 
     return (
-      <>
+      <Field className="fx-field-input">
         {label && (
           <FieldLabel id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
             {label}
@@ -53,7 +54,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
         )}
         <div className={classes} onClick={onWrapperClick} {...props} ref={ref}>
           <LeftIcon icon={icon} />
-          <input {...mergedInputProps} className={cx('fx-field-input', inputClassName)} ref={inputRefs} />
+          <input {...mergedInputProps} className={cx('fx-input', inputClassName)} ref={inputRefs} />
           {onClear && <ClearButton shown={Boolean(mergedInputProps?.value)} onClick={onClearClick} />}
         </div>
         {message && (
@@ -66,7 +67,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
             {message}
           </FieldMessage>
         )}
-      </>
+      </Field>
     );
   }
 );

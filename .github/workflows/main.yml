@@ -47,6 +47,7 @@ jobs:
   release:
     name: Release
     needs: build
+    runs-on: ubuntu-20.04
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout

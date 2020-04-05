@@ -1,4 +1,5 @@
 const postcss = require('rollup-plugin-postcss');
+const bundleSize = require('rollup-plugin-bundle-size');
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -11,10 +12,11 @@ module.exports = {
         config: true,
         // only write out CSS for the first bundle (avoids pointless extra files):
         // extract: !!options.writeMeta,
-        extract: options.writeMeta ? 'dist/style.css' : false
-      })
+        extract: options.writeMeta ? 'dist/style.css' : false,
+      }),
+      bundleSize()
     );
 
     return config;
-  }
+  },
 };

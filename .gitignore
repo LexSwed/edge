@@ -33,6 +33,7 @@ dist
 .cache
 .docz
 .idea
+.DS_Store
 
 storage
 .e2e-tests-cache

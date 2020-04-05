@@ -69,16 +69,19 @@
   --padding: 4px;
   --font-size: 12px;
   --height: 26px;
+  --icon-size: 14px;
 }
 .fx-field-wrap--m {
   --padding: 8px;
   --font-size: 14px;
   --height: 36px;
+  --icon-size: 16px;
 }
 .fx-field-wrap--l {
   --padding: 12px;
   --font-size: 16px;
   --height: 40px;
+  --icon-size: 18px;
 }
 
 /* Tone */

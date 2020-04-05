@@ -16,7 +16,7 @@ const SelectInput: React.FC<SelectInputProps> = ({ onSelect, value, ...props }) 
 
   return (
     <FieldInput
-      className="fx-select-input"
+      className="fx-select"
       value={value ?? (selectedItem ? optionToString(selectedItem) : '')}
       onClear={onSelect ? () => onSelect(null) : null}
       inputProps={inputProps}

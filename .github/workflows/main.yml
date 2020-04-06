@@ -39,11 +39,7 @@ jobs:
         run: yarn build
         env:
           CI: true
-      - uses: sarthak-saxena/JSBundleSize@master
-        with:
-          dist_path: dist
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload math result for job 1
+      - name: Upload build for release
         uses: actions/upload-artifact@master
         with:
           name: package build
@@ -51,8 +47,10 @@ jobs:
   release:
     name: Release
     needs: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+
     if: github.ref == 'refs/heads/master'
+
     steps:
       - name: Checkout
         uses: actions/checkout@v1

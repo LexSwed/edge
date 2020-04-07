@@ -9,6 +9,10 @@ type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, 
 const Popover: React.FC<Props> = ({ children, ...props }) => {
   const { isOpen, dropdownRef } = usePopper();
 
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   return ReactDOM.createPortal(
     <div className="fx-popover" {...props} ref={dropdownRef as React.RefObject<HTMLDivElement>} hidden={!isOpen}>
       {children}

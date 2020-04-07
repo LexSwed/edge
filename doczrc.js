@@ -4,6 +4,7 @@ export default {
   dest: '/docs',
   typescript: true,
   port: 4000,
+  hashRouter: true,
   themeConfig: {
     showPlaygroundEditor: false,
   },

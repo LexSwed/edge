@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FieldInput from 'Field/FieldInput';
-import type { FieldInputProps } from 'Field/utils';
+import FieldInput from '../Field/FieldInput';
+import type { FieldInputProps } from '../Field/utils';
 
 type Props = Omit<FieldInputProps, 'onClear'> & {
   allowClear?: boolean;

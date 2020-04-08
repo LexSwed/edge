@@ -1,8 +1,8 @@
 import React, { Children } from 'react';
 
-import { Dropdown } from 'Dropdown';
+import { Dropdown } from '../Dropdown';
 import ToggleButton from './ToggleButton';
-import { useSelect } from 'Dropdown/utils';
+import { useSelect } from '../Dropdown/utils';
 
 type Props = {
   /**

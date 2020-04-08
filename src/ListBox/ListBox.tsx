@@ -1,10 +1,10 @@
 import React, { Children } from 'react';
 import cx from 'classnames';
 
-import Popover from 'Dropdown/Popover';
-import Option from 'Option';
-import { useDropdown, useDownshiftState } from 'Dropdown/utils';
-import { useCombinedRefs } from '@utils';
+import Popover from '../Dropdown/Popover';
+import Option from '../Option';
+import { useDropdown, useDownshiftState } from '../Dropdown/utils';
+import { useCombinedRefs } from '../@utils';
 
 import './styles.css';
 

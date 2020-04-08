@@ -2,11 +2,11 @@ import React from 'react';
 import cx from 'classnames';
 
 import './styles.css';
-import Field from 'Field';
-import Inline from 'Inline';
-import FieldLabel from 'FieldLabel';
-import FieldMessage from 'FieldMessage';
-import { useMergedInputProps } from 'Field/utils';
+import Field from '../Field';
+import Inline from '../Inline';
+import FieldLabel from '../FieldLabel';
+import FieldMessage from '../FieldMessage';
+import { useMergedInputProps } from '../Field/utils';
 
 type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
   ref: React.Ref<HTMLInputElement>;

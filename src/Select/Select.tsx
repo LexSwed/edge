@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ListBox from 'ListBox';
+import ListBox from '../ListBox';
 import SelectInput from './SelectInput';
-import { Dropdown } from 'Dropdown';
-import { useSelect } from 'Dropdown/utils';
+import { Dropdown } from '../Dropdown';
+import { useSelect } from '../Dropdown/utils';
 import type { SelectInputProps } from './utils';
 
 type Props = SelectInputProps & {

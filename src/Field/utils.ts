@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useId } from '@reach/auto-id';
 
-import FieldMessage from 'FieldMessage';
+import FieldMessage from '../FieldMessage';
 
 /**
  * Merges commonly used input props that were added as shortcuts (type, autoFocus,...)

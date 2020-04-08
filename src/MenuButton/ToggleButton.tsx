@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useToggleButtonProps } from 'Dropdown/utils';
+import { useToggleButtonProps } from '../Dropdown/utils';
 
 type Props = {};
 

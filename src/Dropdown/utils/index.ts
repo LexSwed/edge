@@ -3,7 +3,7 @@ import { Options as PopperOptions } from '@popperjs/core';
 import { useSelect as useDownshiftSelect, UseSelectProps } from 'downshift';
 
 import Option from '../../Option';
-import { useCombinedRefs } from '@utils';
+import { useCombinedRefs } from '../../@utils';
 
 export const downshiftContext = createContext<DownshiftContextType>({} as DownshiftContextType);
 export const dropdownStaticContext = createContext<DropdownStaticContext>({} as DropdownStaticContext);

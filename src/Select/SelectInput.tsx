@@ -1,9 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { useToggleButtonProps, useDownshiftState } from 'Dropdown/utils';
-import FieldInput from 'Field/FieldInput';
-import Icon from 'Icon';
+import { useToggleButtonProps, useDownshiftState } from '../Dropdown/utils';
+import FieldInput from '../Field/FieldInput';
+import Icon from '../Icon';
 
 import './styles.css';
 import type { SelectInputProps } from './utils';

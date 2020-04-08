@@ -4,12 +4,12 @@ import cx from 'classnames';
 import Field from './Field';
 import ClearButton from './ClearButton';
 import LeftIcon from './LeftIcon';
-import FieldLabel from 'FieldLabel';
-import FieldMessage from 'FieldMessage';
+import FieldLabel from '../FieldLabel';
+import FieldMessage from '../FieldMessage';
 import { useMergedInputProps, useClearButton, FieldInputProps } from './utils';
 
 import './styles.css';
-import { useCombinedRefs } from '@utils';
+import { useCombinedRefs } from '../@utils';
 
 type WrapperProps = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'children'>;
 

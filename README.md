@@ -2,6 +2,10 @@
 
 A component library for [`foxtrot`](https://github.com/LexSwed/foxtrot) project.
 
+### Documentation
+
+The documentation is created with [`docz`](https://www.docz.site/) and hosted here: [https://lexswed.github.io/edge/](https://lexswed.github.io/edge/)
+
 ### Acknowledgments
 
 - [TailwindCSS](https://tailwindcss.com) for some design inspirations and color palette

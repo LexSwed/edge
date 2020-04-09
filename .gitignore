@@ -34,7 +34,6 @@ dist
 .docz
 .idea
 .DS_Store
-docs/
 
 storage
 .e2e-tests-cache

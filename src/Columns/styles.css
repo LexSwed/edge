@@ -45,3 +45,13 @@
   --space: 0;
   justify-content: space-evenly;
 }
+
+.fx-columns--y-top {
+  align-items: flex-start;
+}
+.fx-columns--y-center {
+  align-items: center;
+}
+.fx-columns--y-bottom {
+  align-items: flex-end;
+}

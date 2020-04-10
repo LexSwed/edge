@@ -5,18 +5,28 @@ import './styles.css';
 
 type Props = {
   /**
-   * Text role
+   * Text tone
    */
-  role?: 'secondary';
+  tone?: 'secondary';
+  /**
+   * Text alignment
+   */
+  align?: 'left' | 'center' | 'right';
   /**
    * Truncate text after maximum lines reached
    */
   maxLines?: number;
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-const Text = React.forwardRef<HTMLDivElement, Props>(({ role, children, className, ...props }, ref) => {
+const Text = React.forwardRef<HTMLDivElement, Props>(({ tone, align, children, className, ...props }, ref) => {
   const newProps = useTruncate(props);
-  const classes = cx('fx-text', role && `fx-text--${role}`, props.maxLines && `fx-text--truncate`, className);
+  const classes = cx(
+    'fx-text',
+    tone && `fx-text--${tone}`,
+    align && `fx-text--${align}`,
+    props.maxLines && `fx-text--truncate`,
+    className
+  );
 
   return (
     <div className={classes} {...newProps} ref={ref}>

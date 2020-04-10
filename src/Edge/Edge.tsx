@@ -9,7 +9,7 @@ const Edge: React.FC = ({ children }) => {
 
   return (
     <context.Provider value={null}>
-      <div className="edge-wrapper">{children}</div>
+      <div className="fxtrot-edge">{children}</div>
     </context.Provider>
   );
 };

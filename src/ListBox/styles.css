@@ -10,4 +10,5 @@
   border-radius: var(--br);
   box-shadow: var(--card-active-shadow);
   outline: 0;
+  z-index: 2000;
 }

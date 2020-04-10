@@ -17,3 +17,13 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.fx-text--left {
+  text-align: left;
+}
+.fx-text--center {
+  text-align: center;
+}
+.fx-text--right {
+  text-align: right;
+}

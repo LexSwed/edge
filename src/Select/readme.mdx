@@ -24,7 +24,7 @@ import { Select, Option } from '@fxtrot/edge';
     const people = ['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'];
     const [value, setValue] = React.useState(people[0]);
     return (
-      <Box width={240}>
+      <Box style={{ width: '240px' }}>
         <Select
           value={value}
           onSelect={(newValue) => setValue(newValue)}

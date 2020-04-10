@@ -21,14 +21,24 @@ import { Text } from '@fxtrot/edge';
   <Text>Just text</Text>
 </Playground>
 
-## Role and truncation
+## Tone and truncation
 
 <Playground>
   <Stack>
     <Text>Default text</Text>
-    <Text role="secondary">As a secondary text</Text>
+    <Text tone="secondary">As a secondary text</Text>
     <Text style={{ width: '300px' }} maxLines={1}>
       This text is long enough to occupy more than 2 lines and so it is truncated with ellipsis.
     </Text>
+  </Stack>
+</Playground>
+
+## Alignment
+
+<Playground>
+  <Stack>
+    <Text align="left">Left alignment (default)</Text>
+    <Text align="center">Center alignment</Text>
+    <Text align="right">Right alignment</Text>
   </Stack>
 </Playground>

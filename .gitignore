@@ -37,5 +37,6 @@ dist
 
 storage
 .e2e-tests-cache
+docs
 
 examples/**/yarn.lock

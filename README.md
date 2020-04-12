@@ -1,5 +1,10 @@
 # @fxtrot/edge
 
+![Build status](https://github.com/LexSwed/edge/workflows/CI/badge.svg)
+[![npm](https://img.shields.io/npm/v/@fxtrot/edge.svg)](https://www.npmjs.com/package/@fxtrot/edge)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![bundlephobia](https://badgen.net/bundlephobia/minzip/@fxtrot/edge)](https://bundlephobia.com/result?p=@fxtrot/edge)
+
 A component library for [`foxtrot`](https://github.com/LexSwed/foxtrot) project.
 
 ### Documentation

@@ -91,6 +91,11 @@ jobs:
         run: yarn install --frozen-lockfile
         env:
           CI: true
+      - name: Download built artifact
+        uses: actions/download-artifact@master
+        with:
+          name: package build
+          path: dist
       - name: Build docs
         run: yarn docz:build
         env:

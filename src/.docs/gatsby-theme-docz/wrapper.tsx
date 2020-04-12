@@ -2,6 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Edge from '../../../src/Edge';
 
+import '../../../dist/style.css';
+
 const Wrapper: React.FC = ({ children }) => (
   <>
     <Helmet>

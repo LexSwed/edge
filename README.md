@@ -77,3 +77,37 @@ const MyComponent = () => {
   );
 };
 ```
+
+### Development
+
+The project uses `tsdx` to build output files and `docz` to generate documentation.
+
+First, install dependencies:
+
+```bash
+yarn install
+```
+
+To work on the library, run:
+
+```bash
+yarn start
+```
+
+To work on the documentation or use it as a playground for the components you work on, start `docz`:
+
+```bash
+yarn docz:dev
+```
+
+To build the library use:
+
+```bash
+yarn build
+```
+
+To build the docs:
+
+```bash
+yarn docz:build
+```

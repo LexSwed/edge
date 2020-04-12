@@ -6,11 +6,7 @@ import Field from '../Field';
 import Inline from '../Inline';
 import FieldLabel from '../FieldLabel';
 import FieldMessage from '../FieldMessage';
-import { useMergedInputProps } from '../Field/utils';
-
-type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
-  ref: React.Ref<HTMLInputElement>;
-};
+import { useMergedInputProps, InputProps } from '../Field/utils';
 
 type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
   label?: string;
@@ -20,6 +16,7 @@ type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLD
   value?: InputProps['value'];
   checked?: InputProps['checked'];
   onChange?: InputProps['onChange'];
+  inputRef?: InputProps['ref'];
   inputProps?: InputProps;
 };
 
@@ -34,21 +31,30 @@ const checkmark = (
 );
 
 const Checkbox = React.forwardRef<HTMLDivElement, Props>(
-  ({ label, message, tone, name, value, checked, onChange, inputProps, className, children, ...props }, ref) => {
+  (
+    { label, message, tone, name, value, checked, onChange, inputRef, inputProps, className, children, ...props },
+    ref
+  ) => {
     const mergedInputProps = useMergedInputProps({
       label,
       message,
       name,
       value,
       onChange,
-      inputProps: { ...inputProps, checked },
+      inputProps,
     });
 
     return (
       <Field className={cx('fx-checkbox', className)} {...props} ref={ref}>
         <Inline alignY="center" space="s" className={cx('fx-checkbox', tone && `fx-checkbox--${tone}`)}>
           <span className="fx-checkbox-wrap">
-            <input className="fx-checkbox-input" {...mergedInputProps} type="checkbox" />
+            <input
+              className="fx-checkbox-input"
+              checked={checked}
+              {...mergedInputProps}
+              ref={inputRef}
+              type="checkbox"
+            />
             {checkmark}
           </span>
           <FieldLabel id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>

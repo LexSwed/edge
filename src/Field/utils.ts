@@ -102,7 +102,11 @@ export type FieldInputProps = {
    */
   tone?: React.ComponentProps<typeof FieldMessage>['tone'];
   /**
-   * Reference to the input element for the clear button
+   * React Ref to the input element
+   */
+  inputRef?: InputProps['ref'];
+  /**
+   * All the props that needs to be passed to the input element
    */
   inputProps?: InputProps;
   /**
@@ -111,6 +115,6 @@ export type FieldInputProps = {
   onClear?: () => void;
 };
 
-type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
-  ref?: React.Ref<HTMLInputElement>;
+export type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
+  ref: React.Ref<HTMLInputElement>;
 };

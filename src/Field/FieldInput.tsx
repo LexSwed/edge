@@ -11,12 +11,28 @@ import { useMergedInputProps, useClearButton, FieldInputProps } from './utils';
 import './styles.css';
 import { useCombinedRefs } from '../@utils';
 
-type WrapperProps = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'children'>;
+type WrapperProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'onChange'>;
 
 type Props = WrapperProps & FieldInputProps;
 
 const FieldInput = React.forwardRef<HTMLDivElement, Props>(
-  ({ label, message, icon, size = 'm', disabled, tone, className, onClick, onClear, inputProps, ...props }, ref) => {
+  (
+    {
+      label,
+      message,
+      icon,
+      size = 'm',
+      disabled,
+      tone,
+      className,
+      onClick,
+      onClear,
+      inputRef: providedInputRef,
+      inputProps,
+      ...props
+    },
+    ref
+  ) => {
     const classes = cx(
       'fx-field-wrap',
       `fx-field-wrap--${size}`,
@@ -24,7 +40,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
       disabled && 'fx-field-wrap--disabled',
       className
     );
-    const { ref: providedInputRef, className: inputClassName, ...mergedInputProps } = useMergedInputProps({
+    const { className: inputClassName, ...mergedInputProps } = useMergedInputProps({
       inputProps,
       disabled,
       ...props,

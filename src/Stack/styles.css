@@ -13,19 +13,19 @@
 }
 
 .fx-stack--xs {
-  --space: 4px;
+  --space: var(--xs);
 }
 .fx-stack--s {
-  --space: 8px;
+  --space: var(--s);
 }
 .fx-stack--m {
-  --space: 16px;
+  --space: var(--m);
 }
 .fx-stack--l {
-  --space: 32px;
+  --space: var(--l);
 }
 .fx-stack--xl {
-  --space: 48px;
+  --space: var(--xl);
 }
 
 .fx-stack--left {

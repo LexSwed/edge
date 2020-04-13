@@ -15,7 +15,7 @@ import { TextField } from '@fxtrot/edge';
 ```
 
 <Playground>
-  <Box padding="none" width={300}>
+  <Box style={{ width: '300px' }}>
     <TextField label="Full name" placeholder="John Doe" message="We just want to know how we can approach you" />
   </Box>
 </Playground>
@@ -26,7 +26,7 @@ import { TextField } from '@fxtrot/edge';
   {() => {
     const [value, setValue] = React.useState('Clear me');
     return (
-      <Box padding="none" width={300}>
+      <Box style={{ width: '300px' }}>
         <Stack>
           <TextField
             label="Allows clearing the input"
@@ -48,7 +48,7 @@ To fix this, `TextField` component will need to have an internal state, making t
 always controlled. This creattes additional overhead and code to cover such rare case.
 
 <Playground>
-  <Box padding="none" width={300}>
+  <Box style={{ width: '300px' }}>
     <TextField label="Allows clearing the input" allowClear inputProps={{ defaultValue: 'Clear me' }} />
   </Box>
 </Playground>
@@ -56,7 +56,7 @@ always controlled. This creattes additional overhead and code to cover such rare
 ## Message and tone
 
 <Playground>
-  <Box padding="none" width={300}>
+  <Box style={{ width: '300px' }}>
     <Stack>
       <TextField label="Default tone" size="s" message="This will be used later" />
       <TextField label="Critical tone" size="m" message="The input is incorrect" tone="critical" />
@@ -68,7 +68,7 @@ always controlled. This creattes additional overhead and code to cover such rare
 ## Sizes
 
 <Playground>
-  <Box padding="none" width={300}>
+  <Box style={{ width: '300px' }}>
     <Stack>
       <TextField placeholder="Small inline input" size="s" />
       <TextField label="Normal input (default)" placeholder="Medium" size="m" />
@@ -80,7 +80,7 @@ always controlled. This creattes additional overhead and code to cover such rare
 ## With icon
 
 <Playground>
-  <Box padding="none" width={300}>
+  <Box style={{ width: '300px' }}>
     <Stack>
       <TextField label="Small with" size="s" icon="search" value="Small sized" onChange={() => {}} allowClear />
       <TextField

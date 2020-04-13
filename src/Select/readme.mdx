@@ -39,12 +39,10 @@ import { Select, Option } from '@fxtrot/edge';
   }}
 </Playground>
 
-## Sizes
-
 ## Message and tone
 
 <Playground>
-  <Box padding="none" width={300}>
+  <Box style={{ width: '300px' }}>
     <Stack>
       <Select label="Default tone" size="s" message="Selected person will deploy the app">
         {['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'].map((person) => (
@@ -81,11 +79,11 @@ import { Select, Option } from '@fxtrot/edge';
 ## Sizes
 
 <Playground>
-  <Box padding="none" width={300}>
+  <Box style={{ width: '300px' }}>
     <Stack>
-      <Select placeholder="Small inline input" size="s"></Select>
-      <Select label="Normal input (default)" placeholder="Medium" size="m"></Select>
-      <Select label="Prominent input" placeholder="Large" size="l"></Select>
+      <Select placeholder="Small inline input" size="s" />
+      <Select label="Normal input (default)" placeholder="Medium" size="m" />
+      <Select label="Prominent input" placeholder="Large" size="l" />
     </Stack>
   </Box>
 </Playground>

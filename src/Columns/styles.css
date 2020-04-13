@@ -7,23 +7,20 @@
 }
 
 /* Space */
-.fx-columns--none {
-  --space: 0;
-}
 .fx-columns--xs {
-  --space: 4px;
+  --space: var(--xs);
 }
 .fx-columns--s {
-  --space: 8px;
+  --space: var(--s);
 }
 .fx-columns--m {
-  --space: 16px;
+  --space: var(--m);
 }
 .fx-columns--l {
-  --space: 32px;
+  --space: var(--l);
 }
 .fx-columns--xl {
-  --space: 48px;
+  --space: var(--xl);
 }
 
 /* Alignment */

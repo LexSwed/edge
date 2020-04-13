@@ -61,6 +61,12 @@
   --error-800: #9b2c2c;
   --error-900: #742a2a;
 
+  --xs: 4px;
+  --s: 8px;
+  --m: 16px;
+  --l: 32px;
+  --xl: 48px;
+
   --content-width: 1000px;
   --br: 2px;
   --text-color: var(--gray-900);

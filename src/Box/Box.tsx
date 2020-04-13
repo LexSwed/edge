@@ -2,26 +2,17 @@ import React from 'react';
 import cx from 'classnames';
 
 import './styles.css';
+import { SpacingProps, useSpacing } from '../@utils';
 
-type Props = {
-  padding?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl';
-  width?: number;
-  height?: number;
-} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = SpacingProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Box = React.forwardRef<HTMLDivElement, Props>(
-  ({ padding = 'm', width, height, className, style, children, ...props }, ref) => {
-    const classes = cx('fx-box', `fx-box--${padding}`, className);
-
-    let styles: React.CSSProperties = { ...style };
-
-    if (width) {
-      styles.width = `${width}px`;
-    }
-
-    if (height) {
-      styles.height = `${height}px`;
-    }
+  ({ className, children, style, p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my, ...props }, ref) => {
+    const classes = cx('fx-box', className);
+    const styles = {
+      ...style,
+      ...useSpacing({ p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my }),
+    };
 
     return (
       <div className={classes} style={styles} {...props} ref={ref}>

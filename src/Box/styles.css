@@ -1,23 +1,15 @@
 .fx-box {
-  --space: 0px;
-
   display: block;
   box-sizing: border-box;
-  padding: var(--space);
-}
 
-.fx-box--xs {
-  --space: 4px;
-}
-.fx-box--s {
-  --space: 8px;
-}
-.fx-box--m {
-  --space: 16px;
-}
-.fx-box--l {
-  --space: 32px;
-}
-.fx-box--xl {
-  --space: 48px;
+  padding-top: var(--p, var(--pt, var(--py, 0)));
+  padding-bottom: var(--p, var(--pb, var(--py, 0)));
+  padding-left: var(--p, var(--pl, var(--px, 0)));
+  padding-right: var(--p, var(--pr, var(--px, 0)));
+
+  margin: var(--m, 0);
+  margin-top: var(--mt, var(--my, 0));
+  margin-bottom: var(--mb, var(--my, 0));
+  margin-left: var(--ml, var(--mx, 0));
+  margin-right: var(--mr, var(--mx, 0));
 }

@@ -24,3 +24,35 @@ export function joinRefs<T>(...refs: Ref<T>[]) {
 }
 
 type Ref<T> = React.Ref<T> | React.MutableRefObject<T> | null | undefined;
+
+export type Size = 'xs' | 's' | 'm' | 'l' | 'xl';
+
+export type SpacingProps = {
+  p?: Size;
+  px?: Size;
+  py?: Size;
+  pt?: Size;
+  pr?: Size;
+  pb?: Size;
+  pl?: Size;
+  m?: Size;
+  mx?: Size;
+  my?: Size;
+  mt?: Size;
+  mr?: Size;
+  mb?: Size;
+  ml?: Size;
+};
+
+export function useSpacing(props: Partial<SpacingProps>): Record<string, string> {
+  const { p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my } = props;
+  const style: Record<string, string> = {};
+
+  Object.entries({ p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my })
+    .filter(([, v]) => Boolean(v))
+    .forEach(([k, v]) => {
+      style[`--${k}`] = `var(--${v})` as string;
+    });
+
+  return style;
+}

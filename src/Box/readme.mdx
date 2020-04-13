@@ -9,6 +9,27 @@ import { Box, Stack } from '@fxtrot/edge';
 
 # Box
 
+You can apply padding or margin using next short props:
+
+| prop |         CSS alternative          |
+| :--: | :------------------------------: |
+| `p`  |            `padding`             |
+| `px` | `padding-left` + `padding-right` |
+| `py` | `padding-top` + `padding-bottom` |
+| `pt` |          `padding-top`           |
+| `pr` |         `padding-bottom`         |
+| `pl` |          `padding-left`          |
+| `pr` |         `padding-right`          |
+| `m`  |             `margin`             |
+| `mx` |  `margin-left` + `margin-right`  |
+| `my` |  `margin-top` + `margin-bottom`  |
+| `mt` |           `margin-top`           |
+| `mr` |         `margin-bottom`          |
+| `ml` |          `margin-left`           |
+| `mr` |          `margin-right`          |
+
+Sizes are: `xs`, `s`, `m`, `l`, `xl` which are defined as root CSS variables by [`Edge`](/fx-edge) component.
+
 ## Basic usage
 
 ```tsx
@@ -22,21 +43,21 @@ import { Box } from '@fxtrot/edge';
 ## Paddings
 
 <Playground>
-  <Stack>
-    <Box padding="xs" style={{ background: 'var(--gray-200)' }}>
-      Padding extra-small
+  <Stack align="left">
+    <Box pt="xs" style={{ background: 'var(--gray-200)' }}>
+      Padding top extra-small
     </Box>
-    <Box padding="s" style={{ background: 'var(--gray-200)' }}>
-      Padding small
+    <Box pl="s" style={{ background: 'var(--gray-200)' }}>
+      Padding left small
     </Box>
-    <Box padding="m" style={{ background: 'var(--gray-200)' }}>
-      Padding medium
+    <Box p="m" style={{ background: 'var(--gray-200)' }}>
+      All padding medium
     </Box>
-    <Box padding="l" style={{ background: 'var(--gray-200)' }}>
-      Padding large
+    <Box pb="l" style={{ background: 'var(--gray-200)' }}>
+      Padding bottom large
     </Box>
-    <Box padding="xl" style={{ background: 'var(--gray-200)' }}>
-      Padding extra-large
+    <Box pr="xl" style={{ background: 'var(--gray-200)' }}>
+      Padding right extra-large
     </Box>
   </Stack>
 </Playground>

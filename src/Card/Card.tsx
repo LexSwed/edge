@@ -4,13 +4,9 @@ import cx from 'classnames';
 import Box from '../Box';
 
 import './styles.css';
+import { SpacingProps } from '../@utils';
 
-type Props = {
-  /**
-   * Content padding
-   * @default 'm'
-   */
-  padding?: React.ComponentProps<typeof Box>['padding'];
+type Props = SpacingProps & {
   elevation?: '0' | '1' | '2';
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
@@ -27,7 +23,7 @@ if (__DEV__) {
 }
 
 Card.defaultProps = {
-  padding: 'm',
+  p: 'm',
 };
 
 export default Card;

@@ -74,6 +74,12 @@
   height: var(--button-height, 38px);
   padding: 0 16px;
 }
+.fx-button--xl {
+  --font-size: 20px;
+  --icon-size: 24px;
+  height: var(--button-height, 46px);
+  padding: 0 16px;
+}
 
 /* Variations */
 .fx-button--flat,

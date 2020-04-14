@@ -16,6 +16,7 @@ export { default as MenuButton } from './MenuButton';
 export { default as Option } from './Option';
 export { default as Placeholder } from './Placeholder';
 export { default as Select } from './Select';
+export { default as Spinner } from './Spinner';
 export { default as Stack } from './Stack';
 export { default as Text } from './Text';
 export { default as TextField } from './TextField';

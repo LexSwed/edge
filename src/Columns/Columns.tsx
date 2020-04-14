@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 
+import { Size } from '../@utils';
+
 import './styles.css';
 
 type Props = {
@@ -8,7 +10,7 @@ type Props = {
    * Space between columns
    * @default 'm'
    */
-  space?: 'xs' | 's' | 'm' | 'l' | 'xl';
+  space?: Size;
   /**
    * Alignment of columns
    * @default 'left'

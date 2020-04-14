@@ -7,7 +7,7 @@ type Props = {
   /**
    * Text tone
    */
-  tone?: 'secondary';
+  tone?: 'light';
   /**
    * Text alignment
    */

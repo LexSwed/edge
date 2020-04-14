@@ -1,0 +1,44 @@
+---
+name: Spinner
+route: /fx-spinner
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import { Spinner, Inline, Box } from '@fxtrot/edge';
+
+# Spinner
+
+## Basic usage
+
+```tsx
+import { Spinner } from '@fxtrot/edge';
+```
+
+<Playground>
+  <Spinner />
+</Playground>
+
+## Sizes
+
+<Playground>
+  <Inline space="l" alignY="center">
+    <Spinner size="xs" />
+    <Spinner size="s" />
+    <Spinner size="m" />
+    <Spinner size="l" />
+    <Spinner size="xl" />
+  </Inline>
+</Playground>
+
+## Tones
+
+<Playground>
+  <Inline space="l" alignY="center">
+    <Spinner tone="dark" />
+    <Box p="s" style={{ backgroundColor: 'var(--gray-900)' }}>
+      <Spinner tone="light" />
+    </Box>
+    <Spinner tone="brand" />
+  </Inline>
+</Playground>

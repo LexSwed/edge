@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import Inline from '../Inline';
+import { Size } from '../@utils';
 
 import './styles.css';
 
@@ -26,11 +27,12 @@ if (__DEV__) {
 export default Button;
 
 /** Do not make it larger then 'm' */
-const sizeToSpaceMap: Record<NonNullable<ButtonProps['size']>, React.ComponentProps<typeof Inline>['space']> = {
+const sizeToSpaceMap: Record<NonNullable<Props['size']>, React.ComponentProps<typeof Inline>['space']> = {
   xs: 'xs',
   s: 's',
   m: 'm',
   l: 'm',
+  xl: 'm',
 };
 
 type ButtonProps = {
@@ -38,7 +40,7 @@ type ButtonProps = {
    * The size of the button
    * @default 'm'
    */
-  size?: 'xs' | 's' | 'm' | 'l';
+  size?: Size;
   /**
    * The color tone of the button
    */

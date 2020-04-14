@@ -7,6 +7,7 @@ export default {
   typescript: true,
   port: 4000,
   hashRouter: true,
+  propsParser: process.env.NODE_ENV === 'production',
   themeConfig: {
     showPlaygroundEditor: false,
   },

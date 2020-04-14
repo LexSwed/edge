@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { renderValidChild } from '../@utils';
+import { renderValidChild, Size } from '../@utils';
 
 import './styles.css';
 
@@ -12,7 +12,7 @@ type Props = {
    * Space between elements
    * @default 'm'
    */
-  space?: 'xs' | 's' | 'm' | 'l' | 'xl';
+  space?: Size;
   /**
    * Children alignment
    */

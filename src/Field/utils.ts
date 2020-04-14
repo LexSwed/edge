@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useId } from '@reach/auto-id';
 
 import FieldMessage from '../FieldMessage';
+import { Size } from '../@utils';
 
 /**
  * Merges commonly used input props that were added as shortcuts (type, autoFocus,...)
@@ -96,7 +97,7 @@ export type FieldInputProps = {
    * Size of the input
    * @default 'm'
    */
-  size?: 's' | 'm' | 'l';
+  size?: Omit<Size, 'xs' | 'xl'>;
   /**
    * Tone of the input field
    */

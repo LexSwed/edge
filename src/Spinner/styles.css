@@ -1,0 +1,66 @@
+.fx-spinner {
+  --size: 64px;
+  --color: var(--gray-600);
+  display: inline-block;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+}
+.fx-spin {
+  box-sizing: border-box;
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border: calc(var(--size) / 6) solid var(--color);
+  border-radius: 50%;
+  animation: fx-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--color) transparent transparent transparent;
+}
+.fx-spin:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.fx-spin:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.fx-spin:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes fx-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sizes */
+
+.fx-spinner--xs {
+  --size: 12px;
+}
+.fx-spinner--s {
+  --size: 16px;
+}
+.fx-spinner--m {
+  --size: 24px;
+}
+.fx-spinner--l {
+  --size: 48px;
+}
+.fx-spinner--xl {
+  --size: 48px;
+}
+
+/* Tones */
+
+.fx-spinner--dark {
+  --color: var(--gray-800);
+}
+.fx-spinner--light {
+  --color: #fff;
+}
+.fx-spinner--brand {
+  --color: var(--brand-600);
+}

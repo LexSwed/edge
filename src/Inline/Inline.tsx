@@ -1,12 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { renderValidChild } from '../@utils';
+import { renderValidChild, Size } from '../@utils';
 
 import './styles.css';
 
 const Inline = React.forwardRef<HTMLDivElement, Props>(
-  ({ space = 'm', align = 'left', alignY = 'top', nowrap = false, className, children, ...props }, ref) => {
+  ({ space, align = 'left', alignY = 'top', nowrap = false, className, children, ...props }, ref) => {
     return (
       <div
         className={cx(
@@ -42,9 +42,8 @@ export default Inline;
 type Props = {
   /**
    * Space between items
-   * @default 'm'
    */
-  space?: 'none' | 'xs' | 's' | 'm' | 'l';
+  space?: Size;
   /**
    * Horizontal alignment
    * @default 'left'

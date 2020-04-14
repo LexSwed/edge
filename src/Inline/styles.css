@@ -24,9 +24,6 @@
 }
 
 /** Space */
-.fx-inline--none {
-  --space: 0;
-}
 .fx-inline--xs {
   --space: var(--xs);
 }

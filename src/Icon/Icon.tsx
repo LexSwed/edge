@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import './styles.css';
+import { Size } from '../@utils';
 
 type ElementProps = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>, 'children'>;
 
@@ -18,7 +19,7 @@ type Props = ElementProps & {
    *  Size of the icon
    * @default 'm'
    */
-  size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+  size?: Size;
 };
 
 const Icon = React.forwardRef<HTMLElement, Props>(({ icon, tone, size = 'm', className, ...props }, ref) => {

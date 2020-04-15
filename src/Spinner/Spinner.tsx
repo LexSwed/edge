@@ -4,6 +4,7 @@ import cx from 'classnames';
 import { Size } from '../@utils';
 
 import './styles.css';
+import Logo from '../Logo';
 
 type Props = {
   /**
@@ -25,6 +26,7 @@ const Spinner = React.forwardRef<HTMLDivElement, Props>(({ size = 'm', tone = 'd
       <div className="fx-spin" />
       <div className="fx-spin" />
       <div className="fx-spin" />
+      {size === 'xl' && <Logo size="s" tone={tone} />}
     </div>
   );
 });

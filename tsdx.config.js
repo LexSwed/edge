@@ -1,11 +1,15 @@
 const postcss = require('rollup-plugin-postcss');
 const bundleSize = require('rollup-plugin-bundle-size');
+const images = require('@rollup/plugin-image');
+const svgr = require('@svgr/rollup').default;
 
 const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   rollup(config, options) {
     config.plugins.push(
+      svgr(),
+      images({ include: ['**/*.png', '**/*.jpg', '**/*.webp'] }),
       postcss({
         minimize: !isDev,
         inject: false,

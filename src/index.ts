@@ -12,6 +12,7 @@ export { default as Heading } from './Heading';
 export { default as Icon } from './Icon';
 export { default as Inline } from './Inline';
 export { default as ListBox } from './ListBox';
+export { default as Logo } from './Logo';
 export { default as MenuButton } from './MenuButton';
 export { default as Option } from './Option';
 export { default as Placeholder } from './Placeholder';

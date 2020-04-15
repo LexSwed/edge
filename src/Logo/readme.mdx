@@ -1,0 +1,71 @@
+---
+name: Logo
+route: /fx-logo
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Logo, Box, Inline, Stack } from '@fxtrot/edge';
+
+# Logo
+
+## Basic usage
+
+```tsx
+import { Logo } from '@fxtrot/edge';
+```
+
+<Playground>
+  <Logo />
+</Playground>
+
+## Tone
+
+<Playground>
+  <Inline>
+    <Logo tone="brand" />
+    <Box style={{ backgroundColor: 'var(--gray-900)' }}>
+      <Logo tone="light" />
+    </Box>
+    <Logo tone="dark" />
+  </Inline>
+</Playground>
+
+## Size
+
+<Playground>
+  <Inline alignY="center">
+    <Stack>
+      <Logo size="xs" />
+      <Logo size="xs" />
+    </Stack>
+    <Stack>
+      <Logo size="s" />
+      <Logo size="s" />
+    </Stack>
+    <Stack>
+      <Logo size="m" />
+      <Logo size="m" />
+    </Stack>
+    <Stack>
+      <Logo size="l" />
+      <Logo size="l" />
+    </Stack>
+    <Stack>
+      <Logo size="xl" />
+      <Logo size="xl" />
+    </Stack>
+  </Inline>
+</Playground>
+
+<!-- ## Squared
+
+By default, logo has line bottom space to be visually aligned with the text (the `x` part). You can make it squared using `squared` prop:
+
+<Playground>
+  <Inline>
+    <Box p="xs" style={{ backgroundColor: 'var(--gray-900)' }}>
+      <Logo tone="light" squared />
+    </Box>
+  </Inline>
+</Playground> -->

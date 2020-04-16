@@ -16,7 +16,7 @@ module.exports = {
         config: true,
         // only write out CSS for the first bundle (avoids pointless extra files):
         // extract: !!options.writeMeta,
-        extract: options.writeMeta ? 'dist/style.css' : false,
+        extract: options.writeMeta ? 'dist/styles.css' : false,
       }),
       bundleSize()
     );

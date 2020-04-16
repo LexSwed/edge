@@ -48,7 +48,7 @@ type ButtonProps = {
   /**
    * The color tone of the button
    */
-  tone?: 'flat' | 'transparent' | 'accent' | 'critical';
+  tone?: 'flat' | 'transparent' | 'brand' | 'critical';
 };
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps;

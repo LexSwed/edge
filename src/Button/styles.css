@@ -108,7 +108,7 @@
   }
 }
 
-.fx-button--accent,
+.fx-button--brand,
 .fx-button--critical {
   --text-color: #fff;
   --border-color: transparent;
@@ -117,7 +117,7 @@
   }
 }
 
-.fx-button--accent {
+.fx-button--brand {
   --bg-color: var(--brand-600);
   &:hover {
     --bg-color: var(--brand-700);

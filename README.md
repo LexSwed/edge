@@ -53,7 +53,7 @@ import ReactDOM from 'react-dom';
 
 import { Edge } from '@fxtrot/edge';
 
-import '@fxtrot/edge/style.css';
+import '@fxtrot/edge/styles.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Edge>
@@ -99,7 +99,7 @@ To work on the library, run:
 yarn start
 ```
 
-To work on the documentation or use it as a playground for the components you work on, start `docz`:
+To work on the documentation or use it as a playground for the components you work on, start `docz` in a separate terminal:
 
 ```bash
 yarn docz:dev

@@ -1,18 +1,14 @@
 .fx-button {
   --bg-color: #fff;
-  --font-size: 13px;
   background-color: var(--bg-color);
   border: 1px solid var(--border-color);
   color: var(--text-color);
   font-family: var(--font-family);
-  font-size: var(--font-size);
-  line-height: 1em;
+  font-size: var(--text-size);
+  line-height: 1;
   transition: background-color 0.1s, border-color 0.1s;
   cursor: pointer;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  flex-flow: row nowrap;
   flex-shrink: 0;
   box-sizing: border-box;
   border-radius: var(--br);
@@ -51,31 +47,31 @@
 /* Sizes */
 
 .fx-button--xs {
-  --font-size: 12px;
+  --text-size: 12px;
   --icon-size: 12px;
   height: var(--button-height, 20px);
   padding: 0 8px;
 }
 .fx-button--s {
-  --font-size: 12px;
+  --text-size: 12px;
   --icon-size: 14px;
   height: var(--button-height, 26px);
   padding: 0 10px;
 }
 .fx-button--m {
-  --font-size: 13px;
+  --text-size: 13px;
   --icon-size: 16px;
   height: var(--button-height, 32px);
   padding: 0 16px;
 }
 .fx-button--l {
-  --font-size: 16px;
+  --text-size: 16px;
   --icon-size: 20px;
   height: var(--button-height, 38px);
   padding: 0 16px;
 }
 .fx-button--xl {
-  --font-size: 20px;
+  --text-size: 20px;
   --icon-size: 24px;
   height: var(--button-height, 46px);
   padding: 0 16px;

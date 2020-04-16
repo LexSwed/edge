@@ -24,6 +24,10 @@ if (__DEV__) {
   Button.displayName = 'FxButton';
 }
 
+Button.defaultProps = {
+  type: 'button',
+};
+
 export default Button;
 
 /** Do not make it larger then 'm' */

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import Edge from '../../../src/Edge';
+import { Edge } from '../../../dist';
 
 import '../../../dist/styles.css';
 

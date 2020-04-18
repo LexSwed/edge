@@ -27,7 +27,7 @@ type Ref<T> = React.Ref<T> | React.MutableRefObject<T> | null | undefined;
 
 export type Size = 'xs' | 's' | 'm' | 'l' | 'xl';
 
-export type SpacingProps = {
+type Paddings = {
   p?: Size;
   px?: Size;
   py?: Size;
@@ -35,6 +35,9 @@ export type SpacingProps = {
   pr?: Size;
   pb?: Size;
   pl?: Size;
+};
+
+type Margins = {
   m?: Size;
   mx?: Size;
   my?: Size;
@@ -44,15 +47,41 @@ export type SpacingProps = {
   ml?: Size;
 };
 
+export type SpacingProps = Paddings & Margins;
+
 export function useSpacing(props: Partial<SpacingProps>): Record<string, string> {
   const { p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my } = props;
   const style: Record<string, string> = {};
 
-  Object.entries({ p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my })
-    .filter(([, v]) => Boolean(v))
-    .forEach(([k, v]) => {
-      style[`--${k}`] = `var(--${v})` as string;
-    });
+  if (pt || py || p) {
+    style['padding-top'] = `var(--${pt || py || p})`;
+  }
+  if (pr || px || p) {
+    style['padding-right'] = `var(--${pr || px || p})`;
+  }
+
+  if (pb || py || p) {
+    style['padding-bottom'] = `var(--${pb || py || p})`;
+  }
+
+  if (pl || px || p) {
+    style['padding-left'] = `var(--${pl || px || p})`;
+  }
+
+  if (mt || my || m) {
+    style['margin-top'] = `var(--${mt || my || m})`;
+  }
+  if (mr || mx || m) {
+    style['margin-right'] = `var(--${mr || mx || m})`;
+  }
+
+  if (mb || my || m) {
+    style['margin-bottom'] = `var(--${mb || my || m})`;
+  }
+
+  if (ml || mx || m) {
+    style['margin-left'] = `var(--${ml || mx || m})`;
+  }
 
   return style;
 }

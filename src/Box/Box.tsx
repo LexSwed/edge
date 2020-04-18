@@ -1,8 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
 
-import './styles.css';
 import { SpacingProps, useSpacing } from '../@utils';
+
+import './styles.css';
 
 type Props = SpacingProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 

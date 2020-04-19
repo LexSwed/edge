@@ -5,11 +5,12 @@ import { SpacingProps, useSpacing } from '../@utils';
 
 import './styles.css';
 
-type Props = SpacingProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> &
+  SpacingProps & { elevation?: '0' | '1' | '2' };
 
 const Box = React.forwardRef<HTMLDivElement, Props>(
-  ({ className, children, style, p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my, ...props }, ref) => {
-    const classes = cx('fx-box', className);
+  ({ className, children, style, p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my, elevation, ...props }, ref) => {
+    const classes = cx('fx-box', elevation && `fx-box--${elevation}`, className);
     const styles = {
       ...style,
       ...useSpacing({ p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my }),

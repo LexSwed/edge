@@ -4,11 +4,8 @@ import cx from 'classnames';
 import Box from '../Box';
 
 import './styles.css';
-import { SpacingProps } from '../@utils';
 
-type Props = SpacingProps & {
-  elevation?: '0' | '1' | '2';
-} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = React.ComponentProps<typeof Box>;
 
 const Card = React.forwardRef<HTMLDivElement, Props>(({ elevation = '1', className, children, ...props }, ref) => {
   return (
@@ -24,6 +21,7 @@ if (__DEV__) {
 
 Card.defaultProps = {
   p: 'm',
+  elevation: '1',
 };
 
 export default Card;

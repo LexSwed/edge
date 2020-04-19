@@ -2,13 +2,3 @@
   background-color: #fff;
   border-radius: var(--br);
 }
-
-.fx-card--0 {
-  box-shadow: none;
-}
-.fx-card--1 {
-  box-shadow: var(--card-shadow);
-}
-.fx-card--2 {
-  box-shadow: var(--card-active-shadow);
-}

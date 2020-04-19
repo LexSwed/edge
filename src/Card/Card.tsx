@@ -7,9 +7,9 @@ import './styles.css';
 
 type Props = React.ComponentProps<typeof Box>;
 
-const Card = React.forwardRef<HTMLDivElement, Props>(({ elevation = '1', className, children, ...props }, ref) => {
+const Card = React.forwardRef<HTMLDivElement, Props>(({ className, children, ...props }, ref) => {
   return (
-    <Box className={cx('fx-card', `fx-card--${elevation}`, className)} {...props} ref={ref}>
+    <Box className={cx('fx-card', className)} {...props} ref={ref}>
       {children}
     </Box>
   );

@@ -53,13 +53,19 @@ export function useSpacing(props: Partial<SpacingProps>): CSSProperties {
   const { p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my } = props;
   const style: CSSProperties = {};
 
-  style.padding = `${cssVar(pt, py, p)} ${cssVar(pr, px, p)} ${cssVar(pb, py, p)} ${cssVar(pl, px, p)}`;
+  style.paddingTop = cssVar(pt, py, p);
+  style.paddingRight = cssVar(pr, px, p);
+  style.paddingBottom = cssVar(pb, py, p);
+  style.paddingLeft = cssVar(pl, px, p);
 
-  style.margin = `${cssVar(mt, my, m)} ${cssVar(mr, mx, m)} ${cssVar(mb, my, m)} ${cssVar(ml, mx, m)}`;
+  style.marginTop = cssVar(mt, my, m);
+  style.marginRight = cssVar(mr, mx, m);
+  style.marginBottom = cssVar(mb, my, m);
+  style.marginLeft = cssVar(ml, mx, m);
 
   return style;
 }
 
 function cssVar(value?: Size, axis?: Size, all?: Size) {
-  return value || axis || all ? `var(--${value || axis || all})` : 0;
+  return value || axis || all ? `var(--${value || axis || all})` : undefined;
 }

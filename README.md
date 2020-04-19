@@ -9,7 +9,9 @@ A component library for [`foxtrot`](https://github.com/LexSwed/foxtrot) project.
 
 ### Documentation
 
-The documentation is created with [`docz`](https://www.docz.site/) and hosted here: [https://lexswed.github.io/edge/](https://lexswed.github.io/edge/)
+The documentation is hosted here: [https://lexswed.github.io/edge/](https://lexswed.github.io/edge/)
+
+Created with [`docz`](https://www.docz.site/)
 
 ### Acknowledgments
 

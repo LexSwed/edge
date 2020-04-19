@@ -23,12 +23,12 @@ type Props = {
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Columns = React.forwardRef<HTMLDivElement, Props>(
-  ({ space = 'm', align = 'left', alignY, children, className, ...props }, ref) => {
+  ({ space, align = 'left', alignY, children, className, ...props }, ref) => {
     return (
       <div
         className={cx(
           'fx-columns',
-          `fx-columns--${space}`,
+          space && `fx-columns--${space}`,
           `fx-columns--${align}`,
           alignY && `fx-columns--y-${alignY}`,
           className

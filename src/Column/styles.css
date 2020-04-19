@@ -1,6 +1,6 @@
 .fx-column {
   width: 100%;
-  margin-left: var(--space);
+  padding-left: var(--space);
 }
 
 .fx-column--content {

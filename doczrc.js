@@ -1,7 +1,8 @@
 export default {
   title: 'Edge',
   themesDir: 'src/.docs',
-  public: 'src/.docs/static',
+  public: 'src/.docs/public',
+  src: 'src/',
   dest: '/docs',
   base: '/edge',
   typescript: true,

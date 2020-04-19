@@ -1,4 +1,4 @@
-import { Children, useCallback } from 'react';
+import { Children, useCallback, CSSProperties } from 'react';
 
 export const renderValidChild: typeof Children['map'] = (children, renderFn) => {
   return Children.map(children, (child, i) => child && renderFn(child, i));
@@ -49,39 +49,17 @@ type Margins = {
 
 export type SpacingProps = Paddings & Margins;
 
-export function useSpacing(props: Partial<SpacingProps>): Record<string, string> {
+export function useSpacing(props: Partial<SpacingProps>): CSSProperties {
   const { p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my } = props;
-  const style: Record<string, string> = {};
+  const style: CSSProperties = {};
 
-  if (pt || py || p) {
-    style['padding-top'] = `var(--${pt || py || p})`;
-  }
-  if (pr || px || p) {
-    style['padding-right'] = `var(--${pr || px || p})`;
-  }
+  style.padding = `${cssVar(pt, py, p)} ${cssVar(pr, px, p)} ${cssVar(pb, py, p)} ${cssVar(pl, px, p)}`;
 
-  if (pb || py || p) {
-    style['padding-bottom'] = `var(--${pb || py || p})`;
-  }
-
-  if (pl || px || p) {
-    style['padding-left'] = `var(--${pl || px || p})`;
-  }
-
-  if (mt || my || m) {
-    style['margin-top'] = `var(--${mt || my || m})`;
-  }
-  if (mr || mx || m) {
-    style['margin-right'] = `var(--${mr || mx || m})`;
-  }
-
-  if (mb || my || m) {
-    style['margin-bottom'] = `var(--${mb || my || m})`;
-  }
-
-  if (ml || mx || m) {
-    style['margin-left'] = `var(--${ml || mx || m})`;
-  }
+  style.margin = `${cssVar(mt, my, m)} ${cssVar(mr, mx, m)} ${cssVar(mb, my, m)} ${cssVar(ml, mx, m)}`;
 
   return style;
+}
+
+function cssVar(value?: Size, axis?: Size, all?: Size) {
+  return value || axis || all ? `var(--${value || axis || all})` : 0;
 }

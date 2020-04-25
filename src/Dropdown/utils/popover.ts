@@ -1,9 +1,9 @@
 import { useRef, useLayoutEffect, useContext } from 'react';
-import { createPopper, Instance as PopperInstance, Options, Modifier } from '@popperjs/core';
+import { createPopper, Instance as PopperInstance, Options, Modifier, State } from '@popperjs/core';
 
 import { dropdownStaticContext, useDropdownOpen } from '../utils';
 
-const widthModifier: Partial<Modifier<any>> = {
+const widthModifier: Partial<Modifier<'widther', {}>> = {
   name: 'widther',
   enabled: true,
   phase: 'beforeWrite',
@@ -31,10 +31,10 @@ const widthModifier: Partial<Modifier<any>> = {
   },
 };
 
-const offset: Partial<Modifier<any>> = {
+const offset: Partial<Modifier<'offset', { offset: (state: State) => number[] | undefined }>> = {
   name: 'offset',
   options: {
-    offset: ({ placement }: { placement: string }) => {
+    offset: ({ placement }: State) => {
       if (placement.includes('end')) {
         return [-1, 0];
       }

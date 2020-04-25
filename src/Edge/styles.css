@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
-:root {
+.fxtrot-edge {
   --gray-100: #f7fafc;
   --gray-200: #edf2f7;
   --gray-300: #e2e8f0;
@@ -88,17 +88,14 @@
 
   --elevation-1: 0px 1.6px 3.6px rgba(0, 0, 0, 0.13), 0px 0px 2.9px rgba(0, 0, 0, 0.11);
   --elevation-2: 0px 12.8px 28.8px rgba(0, 0, 0, 0.13), 0px 0px 9.2px rgba(0, 0, 0, 0.11);
-}
 
-body,
-.fxtrot-edge {
   margin: 0;
   font-family: var(--font-family);
   font-size: var(--text-size);
   line-height: 1.2em;
   color: var(--text-color);
-}
 
-* {
-  box-sizing: border-box;
+  & * {
+    box-sizing: border-box;
+  }
 }

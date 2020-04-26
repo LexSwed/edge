@@ -118,8 +118,8 @@ import { Inline } from '@fxtrot/edge';
 ### Left (default)
 
 <Playground>
-  <Box p="m" style={{ backgroundColor: 'var(--gray-100)', width: '350px' }}>
-    <Inline align="left">
+  <Box style={{ backgroundColor: 'var(--gray-100)', width: '350px' }}>
+    <Inline space="m" align="left">
       {Array(8)
         .fill(1)
         .map((_v, i) => (
@@ -134,8 +134,8 @@ import { Inline } from '@fxtrot/edge';
 ### Center
 
 <Playground>
-  <Box p="m" style={{ backgroundColor: 'var(--gray-100)', width: '350px' }}>
-    <Inline align="center">
+  <Box style={{ backgroundColor: 'var(--gray-100)', width: '350px' }}>
+    <Inline space="m" align="center">
       {Array(8)
         .fill(1)
         .map((_v, i) => (
@@ -150,8 +150,8 @@ import { Inline } from '@fxtrot/edge';
 ### Right
 
 <Playground>
-  <Box p="m" style={{ backgroundColor: 'var(--gray-100)', width: '350px' }}>
-    <Inline align="right">
+  <Box style={{ backgroundColor: 'var(--gray-100)', width: '350px' }}>
+    <Inline space="m" align="right">
       {Array(8)
         .fill(1)
         .map((_v, i) => (
@@ -169,7 +169,7 @@ import { Inline } from '@fxtrot/edge';
 
 <Playground>
   <Box style={{ backgroundColor: 'var(--gray-100)' }}>
-    <Inline alignY="top">
+    <Inline space="m" alignY="top">
       <Placeholder height={40} width={48} />
       <Placeholder height={100} width={48} />
       <Placeholder height={60} width={48} />
@@ -181,7 +181,7 @@ import { Inline } from '@fxtrot/edge';
 
 <Playground>
   <Box style={{ backgroundColor: 'var(--gray-100)' }}>
-    <Inline alignY="center">
+    <Inline space="m" alignY="center">
       <Placeholder height={40} width={48} />
       <Placeholder height={100} width={48} />
       <Placeholder height={60} width={48} />
@@ -193,7 +193,7 @@ import { Inline } from '@fxtrot/edge';
 
 <Playground>
   <Box style={{ backgroundColor: 'var(--gray-100)' }}>
-    <Inline alignY="bottom">
+    <Inline space="m" alignY="bottom">
       <Placeholder height={40} width={48} />
       <Placeholder height={100} width={48} />
       <Placeholder height={60} width={48} />

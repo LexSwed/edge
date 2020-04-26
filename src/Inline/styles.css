@@ -3,8 +3,12 @@
   --negative: calc(var(--space) * -1);
   --justify-content: flex-start;
   --align-items: flex-start;
-  display: flex;
-  height: 100%;
+  padding-top: 1px;
+  &:before {
+    content: '';
+    display: block;
+    margin-top: calc(var(--negative) - 1px);
+  }
 }
 
 .fx-inline__flex {

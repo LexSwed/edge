@@ -11,7 +11,7 @@ const Inline = React.forwardRef<HTMLDivElement, Props>(
       <div
         className={cx(
           'fx-inline',
-          `fx-inline--${space}`,
+          space && `fx-inline--${space}`,
           `fx-inline--${align}`,
           `fx-inline--y-${alignY}`,
 

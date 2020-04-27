@@ -2,7 +2,9 @@
   --border-color: transparent;
   --border-width: 0px;
   --icon-size: 18px;
-  display: block;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   box-sizing: border-box;
   padding: 0 8px;
   height: 36px;

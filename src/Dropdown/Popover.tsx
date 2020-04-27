@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
 
 import './styles.css';
 import { usePopper } from './utils/popover';
+import { context } from '../Edge/Edge';
 
 type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Popover: React.FC<Props> = ({ children, ...props }) => {
   const { isOpen, dropdownRef } = usePopper();
+  const edgeContext = useContext(context);
 
   if (typeof window === 'undefined') {
     return null;
   }
 
-  return ReactDOM.createPortal(
+  const el = edgeContext?.edgeEl?.current;
+  const render = (
     <div className="fx-popover" {...props} ref={dropdownRef as React.RefObject<HTMLDivElement>} hidden={!isOpen}>
       {children}
-    </div>,
-    document.body
+    </div>
   );
+
+  if (el) {
+    return ReactDOM.createPortal(render, el);
+  }
+
+  return render;
 };
 
 const Wrapper: React.FC<Props> = (props) => {

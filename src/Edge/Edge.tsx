@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import './styles.css';
 
-export const context = React.createContext(null);
+type EdgeContext = {
+  edgeEl: React.RefObject<HTMLDivElement> | null;
+};
+
+export const context = React.createContext<EdgeContext>({ edgeEl: null });
 
 const Edge: React.FC = ({ children }) => {
   // useInjectedFontLinks();
+  const edgeEl = useRef(null);
 
   return (
-    <context.Provider value={null}>
-      <div className="fxtrot-edge">{children}</div>
+    <context.Provider value={{ edgeEl }}>
+      <div className="fxtrot-edge" ref={edgeEl}>
+        {children}
+      </div>
     </context.Provider>
   );
 };

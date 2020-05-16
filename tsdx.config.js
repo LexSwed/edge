@@ -2,6 +2,7 @@ const postcss = require('rollup-plugin-postcss');
 const bundleSize = require('rollup-plugin-bundle-size');
 const images = require('@rollup/plugin-image');
 const svgr = require('@svgr/rollup').default;
+const peerDepsExternal = require('rollup-plugin-peer-deps-external');
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -18,6 +19,7 @@ module.exports = {
         // extract: !!options.writeMeta,
         extract: options.writeMeta ? 'dist/styles.css' : false,
       }),
+      peerDepsExternal(),
       bundleSize()
     );
 

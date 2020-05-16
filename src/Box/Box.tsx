@@ -1,28 +1,29 @@
-import React from 'react';
-import cx from 'classnames';
+import styled from 'styled-components';
+import {
+  space,
+  SpaceProps,
+  shadow,
+  ShadowProps,
+  layout,
+  LayoutProps,
+  flex,
+  FlexProps,
+  color,
+  ColorProps,
+  borderRadius,
+  BorderRadiusProps,
+} from 'styled-system';
 
-import { SpacingProps, useSpacing } from '../@utils';
+type Props = SpaceProps & ShadowProps & LayoutProps & FlexProps & ColorProps & BorderRadiusProps;
 
-import './styles.css';
-
-type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> &
-  SpacingProps & { elevation?: '0' | '1' | '2' };
-
-const Box = React.forwardRef<HTMLDivElement, Props>(
-  ({ className, children, style, p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my, elevation, ...props }, ref) => {
-    const classes = cx('fx-box', elevation && `fx-box--${elevation}`, className);
-    const styles = {
-      ...style,
-      ...useSpacing({ p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my }),
-    };
-
-    return (
-      <div className={classes} style={styles} {...props} ref={ref}>
-        {children}
-      </div>
-    );
-  }
-);
+const Box = styled.div<Props>`
+  ${layout}
+  ${space}
+  ${shadow}
+  ${flex}
+  ${color}
+  ${borderRadius}
+`;
 
 if (__DEV__) {
   Box.displayName = 'FxBox';

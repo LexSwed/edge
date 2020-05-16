@@ -1,6 +1,7 @@
 .fx-popover {
   min-width: 80px;
   display: inline-block;
+  position: absolute;
   &[hidden] {
     display: none;
   }

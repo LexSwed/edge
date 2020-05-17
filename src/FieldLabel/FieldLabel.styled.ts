@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { fontSize, color, FontSizeProps, ColorProps } from 'styled-system';
 
-export const Label = styled.label<FontSizeProps & ColorProps>`
+export const Label = styled('label').withConfig({
+  shouldForwardProp: (prop) => !['fontSize', 'color'].includes(prop),
+})<FontSizeProps & ColorProps>`
   display: inline-block;
   ${fontSize}
   ${color}

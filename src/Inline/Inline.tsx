@@ -7,7 +7,7 @@ const Inline = React.forwardRef<HTMLDivElement, Props>(
   ({ space, align = 'left', alignY = 'center', nowrap = false, children, ...props }, ref) => {
     return (
       <Wrapper space={space} {...props}>
-        <Flex space={space} align={align} alignY={alignY} nowrap={nowrap} {...props} ref={ref}>
+        <Flex space={space} align={align} alignY={alignY} nowrap={nowrap} ref={ref}>
           {renderValidChild(children, (child) => (
             <Child pt={space} pl={space}>
               {child}

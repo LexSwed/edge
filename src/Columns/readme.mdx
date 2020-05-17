@@ -30,6 +30,20 @@ import { Columns, Column } from '@fxtrot/edge';
 
 <Playground>
   <Stack>
+    <Columns>
+      <Column>
+        <Placeholder height={40}>No space</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>No space</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>No space</Placeholder>
+      </Column>
+      <Column>
+        <Placeholder height={40}>No space</Placeholder>
+      </Column>
+    </Columns>
     <Columns space="xs">
       <Column>
         <Placeholder height={40}>space="xs"</Placeholder>
@@ -77,7 +91,7 @@ import { Columns, Column } from '@fxtrot/edge';
         <Placeholder height={40}>space="l"</Placeholder>
       </Column>
     </Columns>
-    <Columns space="xl">
+    <Columns space={['xl']}>
       <Column>
         <Placeholder height={40}>space="xl"</Placeholder>
       </Column>

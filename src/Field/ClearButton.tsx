@@ -1,20 +1,27 @@
 import React from 'react';
-import cx from 'classnames';
 
-import Button from '../Button';
-import Icon from '../Icon';
+import IconButton from '../IconButton';
+import { FieldClearButton } from './Field.styled';
+import { FieldInputProps } from './utils';
+import { Size } from '../@utils';
 
-import './styles.css';
+const sizeMap: Record<NonNullable<FieldInputProps['size']>, Size> = {
+  s: 'xs',
+  m: 's',
+  l: 'm',
+};
 
-type Props = { shown: boolean; onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void };
+type Props = {
+  shown: boolean;
+  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  size: NonNullable<FieldInputProps['size']>;
+};
 
-const ClearButton: React.FC<Props> = ({ shown, onClick }) => {
+const ClearButton: React.FC<Props> = ({ shown, onClick, size }) => {
   return (
-    <span className={cx('fx-field-clear', shown && 'fx-field-clear--shown')}>
-      <Button onClick={onClick} size="xs" tone="transparent">
-        <Icon icon="clear" />
-      </Button>
-    </span>
+    <FieldClearButton shown={shown}>
+      <IconButton icon="clear" onClick={onClick} size={sizeMap[size]} />
+    </FieldClearButton>
   );
 };
 

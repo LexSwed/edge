@@ -1,16 +1,12 @@
-import React from 'react';
-import cx from 'classnames';
+import styled from 'styled-components/macro';
 
-import './styles.css';
+type Props = { wide?: boolean };
 
-type Props = { wide?: boolean } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-
-const ContentBlock = React.forwardRef<HTMLDivElement, Props>(({ wide, className, children, ...props }, ref) => {
-  return (
-    <div className={cx('fx-contentblock', wide && 'fx-contentblock--wide', className)} {...props} ref={ref}>
-      {children}
-    </div>
-  );
-});
+const ContentBlock = styled.div<Props>`
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+  max-width: ${(props) => (props.wide ? '1280px' : '940px')};
+`;
 
 export default ContentBlock;

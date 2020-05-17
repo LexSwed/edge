@@ -28,9 +28,9 @@ Object.assign(fontSizes, {
 
 export const radii = {
   xs: 0,
-  s: 2,
-  m: 3,
-  l: 8,
-  xl: 12,
+  s: '2px',
+  m: '3px',
+  l: '8px',
+  xl: '12px',
   round: '50%',
 };

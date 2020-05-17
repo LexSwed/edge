@@ -57,6 +57,7 @@ const red = {
 const text = {
   default: gray[900],
   light: gray[700],
+  ultralight: gray[500],
   modes: {
     dark: { default: '#fff', light: gray[300] },
   },
@@ -84,6 +85,7 @@ const surface = {
   0: '#fff',
   1: '#fff',
   2: '#fff',
+  disabled: gray[200],
 };
 
 export default {

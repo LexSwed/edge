@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Inline from '../Inline';
-import ButtonStyled, { Tone } from './Button.styled';
+import { ButtonStyled, Tone } from './Button.styled';
 import { Size } from '../@utils';
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props }, ref) => {

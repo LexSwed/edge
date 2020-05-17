@@ -2,8 +2,7 @@ import React, { useRef } from 'react';
 import { ThemeProvider } from 'styled-components/macro';
 
 import theme from './theme';
-
-import './styles.css';
+import { EdgeStyled } from './Edge.styled';
 
 type EdgeContext = {
   edgeEl: React.RefObject<HTMLDivElement> | null;
@@ -17,17 +16,16 @@ type Props = {
 };
 
 const Edge: React.FC<Props> = ({ children }) => {
-  useInjectedFontLinks();
   const edgeEl = useRef(null);
 
   return (
-    <context.Provider value={{ edgeEl }}>
-      <ThemeProvider theme={theme}>
-        <div className="fxtrot-edge" ref={edgeEl}>
+    <ThemeProvider theme={theme}>
+      <context.Provider value={{ edgeEl }}>
+        <EdgeStyled color="text.default" ref={edgeEl}>
           {children}
-        </div>
-      </ThemeProvider>
-    </context.Provider>
+        </EdgeStyled>
+      </context.Provider>
+    </ThemeProvider>
   );
 };
 
@@ -37,28 +35,20 @@ if (__DEV__) {
 
 export default Edge;
 
-const links = [
-  ['main', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap&subset=cyrillic'],
-  [
-    'icons',
-    'https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round',
-  ],
-];
+if (typeof window !== 'undefined') {
+  Object.entries({
+    main: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap&subset=cyrillic',
+    icons:
+      'https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round',
+  }).forEach(([key, link]) => {
+    if (document.querySelector<HTMLLinkElement>(`link[rel="stylesheet"][data-foxtrotedge="${key}"]`)) {
+      return;
+    }
+    const el = document.createElement('link');
+    el.href = link;
+    el.dataset['foxtrotedge'] = key;
+    el.rel = 'stylesheet';
 
-function useInjectedFontLinks() {
-  React.useEffect(() => {
-    const fonts = links.map(([key, link]) => {
-      if (document.querySelector<HTMLLinkElement>(`link[rel="stylesheet"][data-foxtrotedge="${key}"]`)) {
-        return;
-      }
-      const el = document.createElement('link');
-      el.href = link;
-      el.dataset['foxtrotedge'] = key;
-      el.rel = 'stylesheet';
-
-      return el;
-    }) as Node[];
-
-    document.head.prepend(...fonts);
-  }, []);
+    document.head.prepend(el);
+  });
 }

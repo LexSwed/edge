@@ -2,30 +2,38 @@ import styled from 'styled-components/macro';
 import { variant } from 'styled-system';
 import { Size } from '../@utils';
 
+export const buttonSize = {
+  xs: 20,
+  s: 26,
+  m: 32,
+  l: 38,
+  xl: 46,
+};
+
 const sizeVariants: Record<Size, any> = {
   xs: {
     fontSize: 'xs',
-    height: 20,
+    height: buttonSize.xs,
     px: 'xs',
   },
   s: {
     fontSize: 's',
-    height: 26,
+    height: buttonSize.s,
     px: '10px',
   },
   m: {
     fontSize: 'm',
-    height: 32,
+    height: buttonSize.m,
     px: 'm',
   },
   l: {
     fontSize: 'l',
-    height: 38,
+    height: buttonSize.l,
     px: 'm',
   },
   xl: {
     fontSize: 'xl',
-    height: 46,
+    height: buttonSize.xl,
     px: 'm',
   },
 };
@@ -49,7 +57,10 @@ const toneVariants: Record<Tone, any> = {
     'borderColor': 'transparent',
     'bg': 'transparent',
     '&:hover': {
-      bg: 'gray.200',
+      'bg': 'gray.200',
+      '&:not(:active):not(:focus)': {
+        borderColor: 'transparent',
+      },
     },
     '&:active': {
       bg: 'gray.100',
@@ -88,7 +99,7 @@ const toneVariants: Record<Tone, any> = {
   },
 };
 
-const Button = styled.button`
+export const ButtonStyled = styled.button`
   background-color: #fff;
   border: 1px solid ${(props) => props.theme.colors.border.default};
   color: ${(props) => props.theme.colors.text.default};
@@ -100,7 +111,7 @@ const Button = styled.button`
   text-decoration: none;
   flex-shrink: 0;
   box-sizing: border-box;
-  border-radius: ${(props) => `${props.theme.radii.s}px`};
+  border-radius: ${(props) => props.theme.radii.s};
   padding: 0;
 
   &:hover {
@@ -142,5 +153,3 @@ const Button = styled.button`
     variants: toneVariants,
   })}
 `;
-
-export default Button;

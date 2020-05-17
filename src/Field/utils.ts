@@ -97,7 +97,7 @@ export type FieldInputProps = {
    * Size of the input
    * @default 'm'
    */
-  size?: Omit<Size, 'xs' | 'xl'>;
+  size?: Exclude<Size, 'xs' | 'xl'>;
   /**
    * Tone of the input field
    */

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './styles.css';
 import Field from '../Field';
 import FieldLabel from '../FieldLabel';
 import FieldMessage from '../FieldMessage';

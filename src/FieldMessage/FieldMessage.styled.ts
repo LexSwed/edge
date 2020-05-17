@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/macro';
 import { variant, color, fontSize, FontSizeProps, ColorProps } from 'styled-system';
 
 import Inline from '../Inline';

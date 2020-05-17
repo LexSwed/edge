@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { fontSize, color, FontSizeProps, ColorProps } from 'styled-system';
 
 export const Label = styled('label').withConfig({

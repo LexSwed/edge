@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Size } from '../@utils';
 import { variant, SpaceProps } from 'styled-system';
 import theme from '../Edge/theme';
@@ -66,13 +66,11 @@ const space = variant<object, Size>({
 
 export const ColumnsStyled = styled.div<Props & SpaceProps>`
   --space: 0;
-  --negative: calc(var(--space) * -1);
   display: flex;
   flex-direction: row;
-  margin-left: var(--negative);
   ${space}
   ${align}
-  & ${Column} {
+  & ${Column}:not(:first-child) {
       padding-left: var(--space);
   }
 `;

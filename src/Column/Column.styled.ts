@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { variant } from 'styled-system';
 
 type Props = {
@@ -9,7 +9,9 @@ type Props = {
   width?: 'content' | 'fluid' | '1/2' | '1/3' | '2/3' | '1/4' | '3/4' | '1/5' | '2/5' | '3/5' | '4/5';
 };
 
-export const ColumnStyled = styled.div<Props>`
+export const ColumnStyled = styled('div').withConfig({
+  shouldForwardProp: (prop) => !['width'].includes(prop),
+})<Props>`
   width: 100%;
   ${variant<object, NonNullable<Props['width']>>({
     prop: 'width',

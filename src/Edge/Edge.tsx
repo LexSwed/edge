@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components/macro';
 
 import theme from './theme';
 

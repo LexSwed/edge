@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme, ThemedStyledProps } from 'styled-components';
+import styled, { css, DefaultTheme, ThemedStyledProps } from 'styled-components/macro';
 import { Size } from '../@utils';
 import { space, SpaceProps, variant } from 'styled-system';
 

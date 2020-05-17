@@ -1,9 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import Inline from '../Inline';
+import { variant } from 'styled-system';
 
 const size = '20px';
-const CheckmarkSvg: React.FC = (props) => (
+const CheckmarkSvg = React.memo((props) => (
   <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
     <path
       fillRule="evenodd"
@@ -11,9 +12,9 @@ const CheckmarkSvg: React.FC = (props) => (
       d="M8.143 12.6697L15.235 4.5L16.8 5.90363L8.23812 15.7667L3.80005 11.2556L5.27591 9.7555L8.143 12.6697Z"
     />
   </svg>
-);
+));
 
-export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
+export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean; tone?: 'critical' | 'positive' }>`
   display: inline-block;
   position: relative;
   flex-shrink: 0;
@@ -21,12 +22,12 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
   width: ${size};
   height: ${size};
   background-color: #fff;
-  border: ${(props) => `1px solid ${props.theme.colors.border.default}`};
+  border: ${(props) => `1px solid var(--border-color, ${props.theme.colors.border.default})`};
   cursor: pointer;
   box-sizing: border-box;
   & > path {
     transition: fill 0.12s ease-in-out;
-    fill: transparent;
+    fill: var(--check-color, transparent);
   }
   ${(props) =>
     props.checked &&
@@ -37,6 +38,17 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
         fill: #fff;
       }
     `}
+  ${variant({
+    prop: 'tone',
+    variants: {
+      critical: {
+        borderColor: 'critical.1',
+      },
+      positive: {
+        borderColor: 'positive.1',
+      },
+    },
+  })}
 `;
 
 export const InlineWrapper = styled(Inline).attrs({
@@ -49,15 +61,27 @@ export const InlineWrapper = styled(Inline).attrs({
   &:focus-within {
     border-color: ${(props) => props.theme.colors.border.focus};
   }
-  &:hover {
-    & ${CheckMark} {
-      border-color: ${(props) => (props.checked ? props.theme.colors.brand[700] : props.theme.colors.border.hover)};
-      background-color: ${(props) => props.checked && props.theme.colors.brand[700]};
-      & path {
-        fill: ${(props) => !props.checked && props.theme.colors.border.hover};
-      }
+  ${(props) => {
+    if (props.checked) {
+      return css`
+        &:hover {
+          & ${CheckMark} {
+            --border-color: ${(props) => props.theme.colors.brand[700]};
+            --check-color: ${(props) => props.theme.colors.brand[700]};
+          }
+        }
+      `;
     }
-  }
+
+    return css`
+      &:hover {
+        & ${CheckMark} {
+          --border-color: ${(props) => props.theme.colors.border.default};
+          --check-color: ${(props) => props.theme.colors.border.hover};
+        }
+      }
+    `;
+  }}
 `;
 
 export const CheckBoxWrapper = styled.span`

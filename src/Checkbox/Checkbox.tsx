@@ -35,9 +35,9 @@ const Checkbox = React.forwardRef<HTMLDivElement, Props>(
         <InlineWrapper checked={checked}>
           <CheckBoxWrapper>
             <Input {...mergedInputProps} checked={checked} type="checkbox" ref={inputRef} />
-            <CheckMark checked={checked} />
+            <CheckMark checked={checked} tone={tone} />
           </CheckBoxWrapper>
-          <FieldLabel fontSize="m" id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
+          <FieldLabel id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
             {label}
           </FieldLabel>
         </InlineWrapper>

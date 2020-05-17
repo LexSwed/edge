@@ -80,6 +80,12 @@ const critical = {
   3: red[800],
 };
 
+const surface = {
+  0: '#fff',
+  1: '#fff',
+  2: '#fff',
+};
+
 export default {
   gray,
   brand,
@@ -91,4 +97,5 @@ export default {
   accent: brand[600],
   positive,
   critical,
+  surface,
 };

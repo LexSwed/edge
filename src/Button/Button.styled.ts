@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { variant } from 'styled-system';
 import { Size } from '../@utils';
-import theme from '../Edge/theme';
 
 const sizeVariants: Record<Size, any> = {
   xs: {
@@ -35,64 +34,64 @@ export type Tone = 'flat' | 'transparent' | 'brand' | 'critical';
 const toneVariants: Record<Tone, any> = {
   flat: {
     'borderColor': 'transparent',
-    'bg': theme.colors.gray[200],
+    'bg': 'gray.200',
     '&:hover': {
-      bg: theme.colors.gray[300],
+      bg: 'gray.300',
     },
     '&:active': {
-      bg: theme.colors.gray[200],
+      bg: 'gray.200',
     },
     '&:disabled': {
-      color: theme.colors.gray[600],
+      color: 'gray.600',
     },
   },
   transparent: {
     'borderColor': 'transparent',
     'bg': 'transparent',
     '&:hover': {
-      bg: theme.colors.gray[200],
+      bg: 'gray.200',
     },
     '&:active': {
-      bg: theme.colors.gray[100],
+      bg: 'gray.100',
     },
     '&:disabled': {
-      color: theme.colors.gray[600],
+      color: 'gray.600',
     },
   },
   brand: {
     'color': '#fff',
     'borderColor': 'transparent',
-    'bg': theme.colors.brand[600],
+    'bg': 'brand.600',
     '&:hover': {
-      bg: theme.colors.brand[700],
+      bg: 'brand.700',
     },
     '&:active': {
-      bg: theme.colors.brand[600],
+      bg: 'brand.600',
     },
     '&:disabled': {
-      color: theme.colors.gray[200],
+      color: 'gray.200',
     },
   },
   critical: {
     'color': '#fff',
     'borderColor': 'transparent',
-    'bg': theme.colors.red[600],
+    'bg': 'red.600',
     '&:hover': {
-      bg: theme.colors.red[700],
+      bg: 'red.700',
     },
     '&:active': {
-      bg: theme.colors.red[600],
+      bg: 'red.600',
     },
     '&:disabled': {
-      color: theme.colors.gray[200],
+      color: 'gray.200',
     },
   },
 };
 
 const Button = styled.button`
   background-color: #fff;
-  border: 1px solid ${theme.colors.border.default};
-  color: ${theme.colors.text.default};
+  border: 1px solid ${(props) => props.theme.colors.border.default};
+  color: ${(props) => props.theme.colors.text.default};
   font-family: var(--font-family);
   font-size: 12px;
   line-height: 1;
@@ -101,21 +100,21 @@ const Button = styled.button`
   text-decoration: none;
   flex-shrink: 0;
   box-sizing: border-box;
-  border-radius: ${theme.radii.s};
+  border-radius: ${(props) => props.theme.radii.s};
   padding: 0;
 
   &:hover {
-    background-color: ${theme.colors.gray[200]};
+    background-color: ${(props) => props.theme.colors.gray[200]};
   }
   &:active {
-    background-color: ${theme.colors.gray[300]};
+    background-color: ${(props) => props.theme.colors.gray[300]};
   }
   &:active,
   &:hover {
-    border-color: ${theme.colors.border.hover};
+    border-color: ${(props) => props.theme.colors.border.hover};
   }
   &:focus {
-    border-color: ${theme.colors.border.focus};
+    border-color: ${(props) => props.theme.colors.border.focus};
     outline: none;
   }
   &:disabled {

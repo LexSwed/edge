@@ -9,7 +9,7 @@ type Props = React.ComponentProps<typeof Box> & {
 
 const Card = React.forwardRef<HTMLDivElement, Props>(({ children, elevation, ...props }, ref) => {
   return (
-    <Box {...props} boxShadow={elevation} bg="#fff" borderRadius="m" ref={ref}>
+    <Box {...props} boxShadow={elevation} bg="surface.1" borderRadius="m" ref={ref}>
       {children}
     </Box>
   );

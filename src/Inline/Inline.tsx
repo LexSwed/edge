@@ -1,34 +1,20 @@
 import React from 'react';
-import cx from 'classnames';
 
 import { renderValidChild, Size } from '../@utils';
-
-import './styles.css';
+import { Wrapper, Flex, Child } from './Inline.styled';
 
 const Inline = React.forwardRef<HTMLDivElement, Props>(
-  ({ space, align = 'left', alignY = 'top', nowrap = false, className, children, ...props }, ref) => {
+  ({ space, align = 'left', alignY = 'center', nowrap = false, children, ...props }, ref) => {
     return (
-      <div
-        className={cx(
-          'fx-inline',
-          space && `fx-inline--${space}`,
-          `fx-inline--${align}`,
-          `fx-inline--y-${alignY}`,
-
-          nowrap && 'fx-inline--nowrap',
-          className
-        )}
-        {...props}
-        ref={ref}
-      >
-        {
-          <div className="fx-inline__flex">
-            {renderValidChild(children, (child) => (
-              <div className="fx-inline__child">{child}</div>
-            ))}
-          </div>
-        }
-      </div>
+      <Wrapper space={space} {...props}>
+        <Flex space={space} align={align} alignY={alignY} nowrap={nowrap} {...props} ref={ref}>
+          {renderValidChild(children, (child) => (
+            <Child pt={space} pl={space}>
+              {child}
+            </Child>
+          ))}
+        </Flex>
+      </Wrapper>
     );
   }
 );
@@ -39,7 +25,7 @@ if (__DEV__) {
 
 export default Inline;
 
-type Props = {
+type Props = React.ComponentProps<typeof Flex> & {
   /**
    * Space between items
    */
@@ -51,12 +37,12 @@ type Props = {
   align?: 'left' | 'right' | 'center';
   /**
    * Vertical alignment
-   * @default 'top'
+   * @default 'center'
    */
-  alignY?: 'top' | 'bottom' | 'center';
+  alignY?: 'center' | 'top' | 'bottom';
   /**
    * Disable wrapping elements to new line
    * @default false
    */
   nowrap?: boolean;
-} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+};

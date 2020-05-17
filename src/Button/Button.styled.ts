@@ -100,7 +100,7 @@ const Button = styled.button`
   text-decoration: none;
   flex-shrink: 0;
   box-sizing: border-box;
-  border-radius: ${(props) => props.theme.radii.s};
+  border-radius: ${(props) => `${props.theme.radii.s}px`};
   padding: 0;
 
   &:hover {

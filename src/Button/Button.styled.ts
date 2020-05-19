@@ -104,7 +104,6 @@ export const ButtonStyled = styled.button`
   border: 1px solid ${(props) => props.theme.colors.border.default};
   color: ${(props) => props.theme.colors.text.default};
   font-family: var(--font-family);
-  font-size: 12px;
   line-height: 1;
   transition: background-color 0.1s, border-color 0.1s;
   cursor: pointer;
@@ -113,7 +112,6 @@ export const ButtonStyled = styled.button`
   box-sizing: border-box;
   border-radius: ${(props) => props.theme.radii.s};
   padding: 0;
-
   &:hover {
     background-color: ${(props) => props.theme.colors.gray[200]};
   }

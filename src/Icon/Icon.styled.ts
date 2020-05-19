@@ -20,6 +20,7 @@ type Props = {
 
 export const IconStyled = styled.i.attrs({
   role: 'img',
+  className: 'material-icons',
 })<Props>`
   font-family: 'Material Icons';
   color: currentColor;
@@ -46,19 +47,19 @@ export const IconStyled = styled.i.attrs({
     prop: 'size',
     variants: {
       xs: {
-        fontSize: 1,
+        fontSize: 12,
       },
       s: {
-        fontSize: 2,
+        fontSize: 14,
       },
       m: {
-        fontSize: 3,
+        fontSize: 16,
       },
       l: {
-        fontSize: 4,
+        fontSize: 24,
       },
       xl: {
-        fontSize: 5,
+        fontSize: 36,
       },
     },
   })}

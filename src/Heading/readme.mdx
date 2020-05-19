@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Heading, Stack } from '@fxtrot/edge';
+import { Heading, Columns, Column } from '@fxtrot/edge';
 
 # Heading
 
@@ -24,13 +24,24 @@ import { Heading } from '@fxtrot/edge';
 ## Tone and size
 
 <Playground>
-  <Stack>
-    <Heading>Level 1</Heading>
-    <Heading as="h2">Level 2</Heading>
-    <Heading as="h3">Level 3</Heading>
-    <Heading as="h4">Level 4</Heading>
-    <Heading as="h4" tone="light">
-      Level 4 with light tone
-    </Heading>
-  </Stack>
+  <Columns space="xl">
+    <Column width="content">
+      <Heading>Level 1</Heading>
+      <Heading as="h2">Level 2</Heading>
+      <Heading as="h3">Level 3</Heading>
+      <Heading as="h4">Level 4</Heading>
+    </Column>
+    <Column width="content">
+      <Heading tone="light">Level 1 Light</Heading>
+      <Heading as="h2" tone="light">
+        Level 2 Light
+      </Heading>
+      <Heading as="h3" tone="light">
+        Level 3 Light
+      </Heading>
+      <Heading as="h4" tone="light">
+        Level 4 Light
+      </Heading>
+    </Column>
+  </Columns>
 </Playground>

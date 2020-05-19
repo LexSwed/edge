@@ -1,15 +1,16 @@
 import React from 'react';
-import cx from 'classnames';
 
 import { IconStyled } from './Icon.styled';
+import { Size } from '../@utils';
 
 type Props = React.ComponentProps<typeof IconStyled> & {
   icon: string;
+  size: Size;
 };
 
-const Icon = React.forwardRef<HTMLElement, Props>(({ icon, className, ...props }, ref) => {
+const Icon = React.forwardRef<HTMLElement, Props>(({ icon, ...props }, ref) => {
   return (
-    <IconStyled className={cx('material-icons', className)} {...props} ref={ref}>
+    <IconStyled {...props} ref={ref}>
       {icon}
     </IconStyled>
   );
@@ -18,5 +19,9 @@ const Icon = React.forwardRef<HTMLElement, Props>(({ icon, className, ...props }
 if (__DEV__) {
   Icon.displayName = 'FxIcon';
 }
+
+Icon.defaultProps = {
+  size: 'm',
+};
 
 export default Icon;

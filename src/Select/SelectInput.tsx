@@ -22,7 +22,13 @@ const SelectInput: React.FC<SelectInputProps> = ({ onSelect, value, ...props }) 
       value={value ?? ''}
       onClear={onSelect ? () => onSelect(null) : null}
       inputProps={inputProps}
-      icon={<Icon icon="expand_more" className={cx('fx-select-icon', isOpen ? 'fx-select-expanded' : '')} />}
+      icon={
+        <Icon
+          icon="expand_more"
+          size={props.size}
+          className={cx('fx-select-icon', isOpen ? 'fx-select-expanded' : '')}
+        />
+      }
       {...props}
       {...downshiftProps}
     />

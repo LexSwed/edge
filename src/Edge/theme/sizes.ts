@@ -13,17 +13,17 @@ Object.assign(space, {
   xxl: space[6],
 });
 
-type FontSize = number[] & Record<Size, number>;
+type FontSize = number[] & Record<Size & 'xxl', number>;
 
-export const fontSizes = [12, 14, 16, 20, 24] as FontSize;
+export const fontSizes = [11.06, 12.44, 14, 15.75, 17.72, 19.93, 22.43, 25.23] as FontSize;
 
 Object.assign(fontSizes, {
-  xs: fontSizes[0],
-  s: fontSizes[0],
-  m: fontSizes[1],
-  l: fontSizes[2],
-  xl: fontSizes[3],
-  xxl: fontSizes[4],
+  xs: fontSizes[1],
+  s: fontSizes[1],
+  m: fontSizes[2],
+  l: fontSizes[3],
+  xl: fontSizes[4],
+  xxl: fontSizes[5],
 });
 
 export const radii = {

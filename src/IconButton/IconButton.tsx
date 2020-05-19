@@ -5,11 +5,11 @@ import { Size } from '../@utils';
 
 // Do not make it larger then 'm'
 const sizeToIcon: Record<Size, Size> = {
-  xs: 'xs',
+  xs: 's',
   s: 's',
   m: 'm',
-  l: 'm',
-  xl: 'm',
+  l: 'l',
+  xl: 'l',
 };
 
 type Props = {

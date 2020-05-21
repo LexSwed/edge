@@ -44,10 +44,26 @@ import { MenuButton, Button, ListBox, Option } from '@fxtrot/edge';
     <Stack>
       <Option>Default</Option>
       <Option disabled>Disabled</Option>
-      <Option selected>Selected</Option>
+      <Option aria-selected="true">Selected</Option>
       <Option>
         <Icon icon="settings" mode="outlined" />
         With icon
+      </Option>
+    </Stack>
+  </Box>
+</Playground>
+
+## Bordered
+
+<Playground>
+  <Box p="none" style={{ width: '200px' }}>
+    <Stack>
+      <Option bordered>Default</Option>
+      <Option bordered disabled>
+        Disabled
+      </Option>
+      <Option bordered aria-selected="true">
+        Selected
       </Option>
     </Stack>
   </Box>

@@ -25,16 +25,8 @@ const Popover: React.FC<Props> = ({ children, ...props }) => {
   return edgeWrapperEl ? ReactDOM.createPortal(render, edgeWrapperEl) : render;
 };
 
-const Wrapper: React.FC<Props> = (props) => {
-  if (React.Children.count(props.children) < 1) {
-    return null;
-  }
-
-  return <Popover {...props} />;
-};
-
 if (__DEV__) {
   Popover.displayName = 'FxPopover';
 }
 
-export default Wrapper;
+export default Popover;

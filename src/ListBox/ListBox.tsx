@@ -8,7 +8,7 @@ import { ListBoxStyled } from './ListBox.styled';
 
 const ListBox = React.forwardRef<HTMLUListElement, Props>(({ children, ...props }, forwardedRef) => {
   const { dropdownRef } = useDropdown();
-  const { isOpen, getMenuProps, getItemProps, highlightedIndex } = useDownshiftState();
+  const { isOpen, getMenuProps, getItemProps } = useDownshiftState();
   const { ref, ...menuProps } = getMenuProps();
   const combinedRef = useCombinedRefs(ref, forwardedRef, dropdownRef as React.RefObject<HTMLUListElement>);
 
@@ -17,10 +17,7 @@ const ListBox = React.forwardRef<HTMLUListElement, Props>(({ children, ...props 
       <ListBoxStyled {...menuProps} {...props} ref={combinedRef}>
         {isOpen &&
           Children.map(children, (el: OptionChildren, index) => {
-            return React.cloneElement(el, {
-              selected: index === highlightedIndex,
-              ...getItemProps({ index, item: el, ...el.props }),
-            });
+            return React.cloneElement(el, getItemProps({ index, item: el, ...el.props }));
           })}
       </ListBoxStyled>
     </Popover>

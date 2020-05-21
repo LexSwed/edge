@@ -1,35 +1,21 @@
 import React from 'react';
-import cx from 'classnames';
 
-import './styles.css';
 import Inline from '../Inline';
+import { OptionStyled } from './Option.styled';
 
-type Props<T = any> = {
-  value?: T;
-  disabled?: boolean;
-  selected?: boolean;
-  bordered?: boolean;
-} & React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>;
+type Props = {
+  value: React.OptionHTMLAttributes<HTMLOptionElement>['value'];
+} & React.ComponentProps<typeof OptionStyled>;
 
-const Option = React.forwardRef<HTMLLIElement, Props>(
-  ({ disabled, selected, bordered, children, className, ...props }, ref) => {
-    const classes = cx(
-      'fx-option',
-      disabled && 'fx-option--disabled',
-      selected && 'fx-option--selected',
-      bordered && 'fx-option--bordered',
-      className
-    );
-
-    return (
-      <li role="option" aria-selected="false" {...props} className={classes} ref={ref}>
-        <Inline space="s" alignY="center" className="fx-option-inline" nowrap>
-          {children}
-        </Inline>
-      </li>
-    );
-  }
-);
+const Option = React.forwardRef<HTMLLIElement, Props>(({ children, ...props }, ref) => {
+  return (
+    <OptionStyled role="option" aria-selected="false" {...props} ref={ref}>
+      <Inline space="s" alignY="center" className="fx-option-inline" nowrap>
+        {children}
+      </Inline>
+    </OptionStyled>
+  );
+});
 
 if (__DEV__) {
   Option.displayName = 'FxOption';

@@ -15,7 +15,7 @@ Object.assign(space, {
 
 type FontSize = number[] & Record<Size & 'xxl', number>;
 
-export const fontSizes = [11.06, 12.44, 14, 15.75, 17.72, 19.93, 22.43, 25.23] as FontSize;
+export const fontSizes = [11.06, 12.44, 14, 17.72, 22.43, 28.38, 35.92, 45.46] as FontSize;
 
 Object.assign(fontSizes, {
   xs: fontSizes[1],

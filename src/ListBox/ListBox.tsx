@@ -1,26 +1,20 @@
 import React, { Children } from 'react';
-import cx from 'classnames';
 
 import Popover from '../Dropdown/Popover';
 import Option from '../Option';
 import { useDropdown, useDownshiftState } from '../Dropdown/utils';
 import { useCombinedRefs } from '../@utils';
+import { ListBoxStyled } from './ListBox.styled';
 
-import './styles.css';
-
-const ListBox = React.forwardRef<HTMLUListElement, Props>(({ children, className, ...props }, forwardedRef) => {
+const ListBox = React.forwardRef<HTMLUListElement, Props>(({ children, ...props }, forwardedRef) => {
   const { dropdownRef } = useDropdown();
   const { isOpen, getMenuProps, getItemProps, highlightedIndex } = useDownshiftState();
   const { ref, ...menuProps } = getMenuProps();
+  const combinedRef = useCombinedRefs(ref, forwardedRef, dropdownRef as React.RefObject<HTMLUListElement>);
 
   return (
     <Popover>
-      <ul
-        {...menuProps}
-        {...props}
-        className={cx('fx-listbox', className)}
-        ref={useCombinedRefs(ref, forwardedRef, dropdownRef as React.RefObject<HTMLUListElement>)}
-      >
+      <ListBoxStyled {...menuProps} {...props} ref={combinedRef}>
         {isOpen &&
           Children.map(children, (el: OptionChildren, index) => {
             return React.cloneElement(el, {
@@ -28,7 +22,7 @@ const ListBox = React.forwardRef<HTMLUListElement, Props>(({ children, className
               ...getItemProps({ index, item: el, ...el.props }),
             });
           })}
-      </ul>
+      </ListBoxStyled>
     </Popover>
   );
 });

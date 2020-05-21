@@ -103,6 +103,7 @@ function parentMargin(props: ThemedStyledProps<Partial<Props>, DefaultTheme>) {
   `;
 }
 
+// https://gist.github.com/OliverJAsh/7f29d0fa1d35216ec681d2949c3fe8b7#gistcomment-3229174
 export const FlexNew = styled.div<Props>`
   display: flex;
   gap: ${(props) => (props.space ? `${props.theme.space[props.space]}px` : 0)};

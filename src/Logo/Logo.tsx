@@ -1,12 +1,11 @@
 import React from 'react';
-import cx from 'classnames';
 
 import LogoBrand from './logo-solid.svg';
 import LogoDark from './logo-dark.svg';
 import LogoLight from './logo-light.svg';
 import { Size } from '../@utils';
 
-import './styles.css';
+import { LogoStyled } from './Logo.styled';
 
 type Props = {
   /** Main color scheme of the Logo
@@ -20,12 +19,8 @@ type Props = {
   size?: Size;
 } & Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'children'>;
 
-const Logo = React.forwardRef<HTMLDivElement, Props>(({ tone = 'brand', size = 'm', className, ...props }, ref) => {
-  const classes = cx('fx-logo', size && `fx-logo--${size}`, className);
-
-  const Icon = LogoIcon[tone];
-
-  return <Icon className={classes} ref={ref} {...props} />;
+const Logo = React.forwardRef<HTMLDivElement, Props>(({ tone = 'brand', size = 'm', ...props }, ref) => {
+  return <LogoStyled as={LogoIcon[tone]} size={size} ref={ref} {...props} />;
 });
 
 if (__DEV__) {

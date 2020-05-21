@@ -20,15 +20,15 @@ export const HeadingStyled = styled.h1<Props>`
     prop: 'as',
     variants: {
       h1: {
-        fontSize: 6,
+        fontSize: 5,
         fontWeight: 900,
         textTransform: 'uppercase',
       },
       h2: {
-        fontSize: 7,
+        fontSize: 6,
       },
       h3: {
-        fontSize: 5,
+        fontSize: 4,
       },
       h4: {
         fontSize: 4,

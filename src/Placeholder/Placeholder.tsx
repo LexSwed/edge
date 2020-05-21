@@ -1,41 +1,25 @@
 import React from 'react';
-import cx from 'classnames';
 
-import './styles.css';
+import Box from '../Box';
 
-type Props = {
-  /**
-   * Width of the box
-   * @default 'auto''
-   */
-  width?: number | 'auto';
-  /**
-   * Height of the box
-   * @default 'auto'
-   */
-  height?: number | 'auto';
-} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = React.ComponentProps<typeof Box>;
 
-const Placeholder = React.forwardRef<HTMLDivElement, Props>(
-  ({ height = 'auto', width = 'auto', className, children, ...props }, ref) => {
-    const classes = cx('fx-placeholder', className);
-    const style = {
-      ...props.style,
-      height,
-      width,
-    };
-
-    return (
-      <div className={classes} style={style} {...props} ref={ref}>
-        <svg xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="0" x2="100%" y2="100%"></line>
-          <line x1="100%" y1="0" x2="0" y2="100%"></line>
-        </svg>
-        {children}
-      </div>
-    );
-  }
-);
+const Placeholder = React.forwardRef<HTMLDivElement, Props>(({ children, ...props }, ref) => {
+  return (
+    <Box
+      bg="gray.100"
+      border="2px solid"
+      borderColor="gray.300"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      {...props}
+      ref={ref}
+    >
+      {children}
+    </Box>
+  );
+});
 
 if (__DEV__) {
   Placeholder.displayName = 'FxPlaceholder';

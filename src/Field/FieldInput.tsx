@@ -24,6 +24,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
       onClear,
       inputRef: providedInputRef,
       inputProps,
+      variant,
       ...props
     },
     ref
@@ -59,6 +60,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
         <FieldInputWrapper
           size={size}
           tone={tone || 'default'}
+          variant={variant || 'default'}
           disabled={disabled}
           onClick={onWrapperClick}
           {...props}

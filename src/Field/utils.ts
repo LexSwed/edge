@@ -103,6 +103,10 @@ export type FieldInputProps = {
    */
   tone?: React.ComponentProps<typeof FieldMessage>['tone'];
   /**
+   * Visual mode of the field
+   */
+  variant?: 'underlined' | 'borderless';
+  /**
    * React Ref to the input element
    */
   inputRef?: InputProps['ref'];

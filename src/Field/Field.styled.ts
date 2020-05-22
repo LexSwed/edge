@@ -157,6 +157,43 @@ const tone = variant<object, FieldInputWrapperProps['tone']>({
   },
 });
 
+const visualVariant = variant<object, NonNullable<FieldInputProps['variant']> | 'default'>({
+  prop: 'variant',
+  variants: {
+    default: {
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderRadius: 'm',
+      backgroundColor: 'surface.1',
+    },
+    underlined: {
+      'borderBottomWidth': '2px',
+      'borderBottomStyle': 'solid',
+      'borderTopLeftRadius': 'm',
+      'borderTopRightRadius': 'm',
+      'position': 'relative',
+      '&:after': {
+        content: '',
+        display: 'block',
+        position: 'absolute',
+        borderBottom: 'solid 2px',
+        borderColor: 'brand.500',
+        transform: ' scaleX(0)',
+        transition: 'transform 250ms ease-in-out',
+        left: '0',
+        bottom: '-2px',
+        width: '100%',
+      },
+      '&:focus-within:after': {
+        transform: 'scaleX(1)',
+      },
+    },
+    borderless: {
+      border: 'none',
+    },
+  },
+});
+
 function disabled({ disabled }: { disabled?: boolean }) {
   if (disabled) {
     return css`
@@ -169,67 +206,23 @@ function disabled({ disabled }: { disabled?: boolean }) {
   return null;
 }
 
-function underlined({ underlined }: { underlined?: boolean }) {
-  if (underlined) {
-    return css`
-      border-bottom: 2px solid;
-      border-top-left-radius: ${(props) => props.theme.radii.m};
-      border-top-right-radius: ${(props) => props.theme.radii.m};
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        border-bottom: solid 2px;
-        border-color: ${(props) => props.theme.colors.brand[500]};
-        transform: scaleX(0);
-        transition: transform 250ms ease-in-out;
-        left: 0;
-        bottom: -2px;
-        width: 100%;
-      }
-
-      &:focus-within {
-        &:after {
-          transform: scaleX(1);
-        }
-      }
-    `;
-  }
-
-  return css`
-    border: 1px solid;
-    border-radius: ${(props) => props.theme.radii.m};
-  `;
-}
-
 type FieldInputWrapperProps = {
   disabled?: boolean;
   underlined?: boolean;
   size: FieldInputProps['size'];
   tone: NonNullable<FieldInputProps['tone']> | 'default';
+  variant: NonNullable<FieldInputProps['variant']> | 'default';
 };
 
 export const FieldInputWrapper = styled.div<FieldInputWrapperProps>`
   display: inline-flex;
   align-items: center;
   flex-flow: row nowrap;
-  background: ${(props) => props.theme.colors.surface[1]};
-  border-color: ${(props) => props.theme.colors.border.default};
   box-sizing: border-box;
   width: 100%;
-  position: relative;
   cursor: text;
   color: ${(props) => props.theme.colors.text.default};
-  &:hover {
-    border-color: ${(props) => props.theme.colors.border.hover};
-  }
-  &:focus-within {
-    border-color: ${(props) => props.theme.colors.border.focus};
-    &:after {
-      transform: scaleX(1);
-    }
-  }
-  ${underlined}
+  ${visualVariant}
   ${tone}
   ${size}
   ${disabled}

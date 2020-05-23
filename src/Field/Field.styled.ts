@@ -164,29 +164,14 @@ const visualVariant = variant<object, NonNullable<FieldInputProps['variant']> | 
       borderWidth: '1px',
       borderStyle: 'solid',
       borderRadius: 'm',
-      backgroundColor: 'surface.1',
     },
     underlined: {
-      'borderBottomWidth': '2px',
-      'borderBottomStyle': 'solid',
-      'borderTopLeftRadius': 'm',
-      'borderTopRightRadius': 'm',
-      'position': 'relative',
-      '&:after': {
-        content: '',
-        display: 'block',
-        position: 'absolute',
-        borderBottom: 'solid 2px',
-        borderColor: 'brand.500',
-        transform: ' scaleX(0)',
-        transition: 'transform 250ms ease-in-out',
-        left: '0',
-        bottom: '-2px',
-        width: '100%',
-      },
-      '&:focus-within:after': {
-        transform: 'scaleX(1)',
-      },
+      borderBottomWidth: '1px',
+      borderBottomStyle: 'solid',
+      borderTopLeftRadius: 'm',
+      borderTopRightRadius: 'm',
+      paddingBottom: '1px',
+      position: 'relative',
     },
     borderless: {
       border: 'none',
@@ -194,12 +179,46 @@ const visualVariant = variant<object, NonNullable<FieldInputProps['variant']> | 
   },
 });
 
+function underlinedVariant(props: FieldInputProps) {
+  if (props.variant === 'underlined') {
+    return css<FieldInputProps>`
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        border-bottom: solid 2px;
+        ${(props) => {
+          if (props.disabled) {
+            return css`
+              border-color: ${(props) => props.theme.colors.border.default};
+              transform: scaleY(0.5);
+            `;
+          }
+          return css`
+            border-color: inherit;
+            transform: scaleY(0.5) scaleX(0);
+          `;
+        }}
+        transition: transform 250ms ease-in-out;
+        left: 0;
+        bottom: -1px;
+        width: 100%;
+      }
+      &:focus-within:after {
+        transform: scaleX(1);
+      }
+    `;
+  }
+
+  return null;
+}
+
 function disabled({ disabled }: { disabled?: boolean }) {
   if (disabled) {
     return css`
-      pointer-events: none;
       background: ${(props) => props.theme.colors.surface.disabled};
       border-color: ${(props) => props.theme.colors.surface.disabled} !important;
+      cursor: not-allowed;
     `;
   }
 
@@ -222,7 +241,9 @@ export const FieldInputWrapper = styled.div<FieldInputWrapperProps>`
   width: 100%;
   cursor: text;
   color: ${(props) => props.theme.colors.text.default};
+  background-color: ${(props) => props.theme.colors.surface[1]};
   ${visualVariant}
+  ${underlinedVariant}
   ${tone}
   ${size}
   ${disabled}

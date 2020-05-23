@@ -6,7 +6,7 @@ menu: Components
 
 import { useState } from 'react';
 import { Playground } from 'docz';
-import { TextField, Box, Icon, Stack } from '@fxtrot/edge';
+import { TextField, Box, Icon, Stack, Columns, Column } from '@fxtrot/edge';
 
 ## Basic usage
 
@@ -74,12 +74,44 @@ always controlled. This creattes additional overhead and code to cover such rare
 ## Variants
 
 <Playground>
-  <Box width={300}>
-    <Stack>
+  <Box display="grid" gridAutoRows="auto" gridTemplateColumns="repeat(3, 1fr)" gridGap="s">
+    <Box p={2}>
       <TextField label="Default variant" />
-      <TextField label="Underlined" variant="underlined" message="The input is incorrect" tone="positive" />
-      <TextField label="Positive tone" size="l" type="password" message="The password seems strong" tone="positive" />
-    </Stack>
+    </Box>
+    <Box p={2}>
+      <TextField label="Default variant positive" message="The input is very much correct" tone="positive" />
+    </Box>
+    <Box p={2}>
+      <TextField label="Default variant disabled" disabled />
+    </Box>
+    <Box p={2} bg="gray.100">
+      <TextField label="Underlined" variant="underlined" />
+    </Box>
+    <Box p={2} bg="gray.100">
+      <TextField
+        label="Underlined positive"
+        variant="underlined"
+        message="The input is very much correct"
+        tone="positive"
+      />
+    </Box>
+    <Box p={2} bg="gray.100">
+      <TextField label="Underlined disabled" variant="underlined" disabled />
+    </Box>
+    <Box p={2} bg="gray.100">
+      <TextField label="Borderless" variant="borderless" />
+    </Box>
+    <Box p={2} bg="gray.100">
+      <TextField
+        label="Borderless positive"
+        variant="borderless"
+        message="The input is very much correct"
+        tone="positive"
+      />
+    </Box>
+    <Box p={2} bg="gray.100">
+      <TextField label="Borderless disabled" variant="borderless" disabled />
+    </Box>
   </Box>
 </Playground>
 

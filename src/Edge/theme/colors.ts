@@ -85,7 +85,7 @@ const surface = {
   0: '#fff',
   1: '#fff',
   2: '#fff',
-  disabled: gray[200],
+  disabled: gray[300],
 };
 
 export default {

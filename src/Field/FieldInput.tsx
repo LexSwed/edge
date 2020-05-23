@@ -68,7 +68,14 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
         >
           <LeftIcon icon={icon} size={size} />
           <Input {...mergedInputProps} ref={inputRefs} />
-          {onClear && <ClearButton size={size} shown={Boolean(mergedInputProps?.value)} onClick={onClearClick} />}
+          {onClear && (
+            <ClearButton
+              size={size}
+              shown={Boolean(mergedInputProps?.value)}
+              disabled={disabled}
+              onClick={onClearClick}
+            />
+          )}
         </FieldInputWrapper>
         {message && (
           <MessageStyled tone={tone} disabled={disabled} id={mergedInputProps['aria-describedby']}>

@@ -15,11 +15,12 @@ type Props = {
   shown: boolean;
   onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   size: NonNullable<FieldInputProps['size']>;
+  disabled?: boolean;
 };
 
-const ClearButton: React.FC<Props> = ({ shown, onClick, size }) => {
+const ClearButton: React.FC<Props> = ({ shown, disabled, onClick, size }) => {
   return (
-    <FieldClearButton shown={shown}>
+    <FieldClearButton shown={shown && !disabled}>
       <IconButton icon="clear" onClick={onClick} size={sizeMap[size]} />
     </FieldClearButton>
   );

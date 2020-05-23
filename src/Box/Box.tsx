@@ -17,6 +17,8 @@ import {
   BorderProps,
   position,
   PositionProps,
+  grid,
+  GridProps,
 } from 'styled-system';
 import shouldForwardProp from '@styled-system/should-forward-prop';
 
@@ -27,12 +29,13 @@ type Props = SpaceProps &
   ColorProps &
   BorderRadiusProps &
   BorderProps &
-  PositionProps;
+  PositionProps &
+  GridProps;
 
 const Box = styled.div.withConfig({
   shouldForwardProp,
 })<Props>`
-  ${compose(layout, space, shadow, flexbox, color, borderRadius, border, position)}
+  ${compose(layout, space, shadow, flexbox, color, borderRadius, border, position, grid)}
 `;
 
 if (__DEV__) {

@@ -179,9 +179,9 @@ const visualVariant = variant<object, NonNullable<FieldInputProps['variant']> | 
   },
 });
 
-function underlinedVariant(props: FieldInputProps) {
+function underlinedVariant(props: FieldInputWrapperProps) {
   if (props.variant === 'underlined') {
-    return css<FieldInputProps>`
+    return css<FieldInputWrapperProps>`
       &:after {
         content: '';
         display: block;

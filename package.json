@@ -25,15 +25,15 @@
     "docz:build": "docz build",
     "docz:serve": "docz build && docz serve"
   },
-  "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "styled-components": "^5.1.0"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --pattern \"src/**/*.*\" --staged && tsdx lint"
     }
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

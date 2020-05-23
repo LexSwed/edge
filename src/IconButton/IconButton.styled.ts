@@ -5,7 +5,7 @@ import { ButtonStyled, buttonSize } from '../Button/Button.styled';
 import { Size } from '../@utils';
 
 export const Button = styled(ButtonStyled).attrs({
-  tone: 'transparent',
+  variant: 'transparent',
 })<React.ComponentProps<typeof ButtonStyled>>`
   padding: 0;
   display: flex;

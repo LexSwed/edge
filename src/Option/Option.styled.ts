@@ -1,8 +1,22 @@
-import styled, { css } from 'styled-components/macro';
+import styled from 'styled-components/macro';
+import { variant } from 'styled-system';
 
 type Props = {
-  bordered?: boolean;
+  variant?: 'bordered';
 };
+
+const variants = variant<object, NonNullable<Props['variant']>>({
+  prop: 'variant',
+  variants: {
+    bordered: {
+      'borderWidth': '1px',
+      'backgroundColor': 'transparent',
+      '&[aria-selected="true"],&:focus, &:active': {
+        borderColor: 'gray.700',
+      },
+    },
+  },
+});
 
 export const OptionStyled = styled.li<Props>`
   display: flex;
@@ -38,15 +52,5 @@ export const OptionStyled = styled.li<Props>`
     pointer-events: none;
     opacity: 0.6;
   }
-  ${(props) =>
-    props.bordered &&
-    css`
-      border-width: 1px;
-      background-color: transparent;
-      &[aria-selected='true'],
-      &:focus,
-      &:active {
-        border-color: ${(props) => props.theme.colors.gray[700]};
-      }
-    `}
+  ${variants}
 `;

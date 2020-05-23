@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Inline from '../Inline';
-import { ButtonStyled, Tone } from './Button.styled';
+import { ButtonStyled, Variant } from './Button.styled';
 import { Size } from '../@utils';
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props }, ref) => {
@@ -41,9 +41,9 @@ type ButtonProps = {
    */
   size?: Size;
   /**
-   * The color tone of the button
+   * Button variant
    */
-  tone?: Tone;
+  variant?: Variant;
 };
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps;

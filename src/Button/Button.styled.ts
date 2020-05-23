@@ -10,94 +10,101 @@ export const buttonSize = {
   xl: 46,
 };
 
-const sizeVariants: Record<Size, any> = {
-  xs: {
-    fontSize: 'xs',
-    height: buttonSize.xs,
-    px: 'xs',
+const size = variant<object, Size>({
+  prop: 'size',
+  variants: {
+    xs: {
+      fontSize: 'xs',
+      height: buttonSize.xs,
+      px: 'xs',
+    },
+    s: {
+      fontSize: 's',
+      height: buttonSize.s,
+      px: '10px',
+    },
+    m: {
+      fontSize: 'm',
+      height: buttonSize.m,
+      px: 'm',
+    },
+    l: {
+      fontSize: 'l',
+      height: buttonSize.l,
+      px: 'm',
+    },
+    xl: {
+      fontSize: 'xl',
+      height: buttonSize.xl,
+      px: 'm',
+    },
   },
-  s: {
-    fontSize: 's',
-    height: buttonSize.s,
-    px: '10px',
-  },
-  m: {
-    fontSize: 'm',
-    height: buttonSize.m,
-    px: 'm',
-  },
-  l: {
-    fontSize: 'l',
-    height: buttonSize.l,
-    px: 'm',
-  },
-  xl: {
-    fontSize: 'xl',
-    height: buttonSize.xl,
-    px: 'm',
-  },
-};
-export type Tone = 'flat' | 'transparent' | 'brand' | 'critical';
+});
 
-const toneVariants: Record<Tone, any> = {
-  flat: {
-    'borderColor': 'transparent',
-    'bg': 'gray.200',
-    '&:hover': {
-      bg: 'gray.300',
-    },
-    '&:active': {
-      bg: 'gray.200',
-    },
-    '&:disabled': {
-      color: 'gray.600',
-    },
-  },
-  transparent: {
-    'borderColor': 'transparent',
-    'bg': 'transparent',
-    '&:hover': {
+export type Variant = 'flat' | 'transparent' | 'brand' | 'critical';
+
+const variants = variant<object, Variant>({
+  prop: 'variant',
+  variants: {
+    flat: {
+      'borderColor': 'transparent',
       'bg': 'gray.200',
-      '&:not(:active):not(:focus)': {
-        borderColor: 'transparent',
+      '&:hover': {
+        bg: 'gray.300',
+      },
+      '&:active': {
+        bg: 'gray.200',
+      },
+      '&:disabled': {
+        color: 'gray.600',
       },
     },
-    '&:active': {
-      bg: 'gray.100',
+    transparent: {
+      'borderColor': 'transparent',
+      'bg': 'transparent',
+      '&:hover': {
+        'bg': 'gray.200',
+        '&:not(:active):not(:focus)': {
+          borderColor: 'transparent',
+        },
+      },
+      '&:active': {
+        bg: 'gray.100',
+      },
+      '&:disabled': {
+        color: 'gray.600',
+      },
     },
-    '&:disabled': {
-      color: 'gray.600',
+    brand: {
+      'color': '#fff',
+      'borderColor': 'transparent',
+      'bg': 'brand.600',
+      '&:hover': {
+        bg: 'brand.700',
+      },
+      '&:active': {
+        bg: 'brand.600',
+      },
+      '&:disabled': {
+        color: 'gray.200',
+      },
+    },
+    critical: {
+      'color': '#fff',
+      'borderColor': 'transparent',
+      'bg': 'red.600',
+      '&:hover': {
+        bg: 'red.700',
+      },
+      '&:active': {
+        bg: 'red.600',
+      },
+      '&:disabled': {
+        color: 'gray.200',
+      },
     },
   },
-  brand: {
-    'color': '#fff',
-    'borderColor': 'transparent',
-    'bg': 'brand.600',
-    '&:hover': {
-      bg: 'brand.700',
-    },
-    '&:active': {
-      bg: 'brand.600',
-    },
-    '&:disabled': {
-      color: 'gray.200',
-    },
-  },
-  critical: {
-    'color': '#fff',
-    'borderColor': 'transparent',
-    'bg': 'red.600',
-    '&:hover': {
-      bg: 'red.700',
-    },
-    '&:active': {
-      bg: 'red.600',
-    },
-    '&:disabled': {
-      color: 'gray.200',
-    },
-  },
-};
+});
 
 export const ButtonStyled = styled.button`
   background-color: #fff;
@@ -142,12 +149,6 @@ export const ButtonStyled = styled.button`
       pointer-events: all;
     }
   }
-  ${variant({
-    prop: 'size',
-    variants: sizeVariants,
-  })}
-  ${variant({
-    prop: 'tone',
-    variants: toneVariants,
-  })}
+  ${size}
+  ${variants}
 `;

@@ -7,7 +7,7 @@ type Props = {
    */
   as?: 'h1' | 'h2' | 'h3' | 'h4';
   /** Specifies font-weight: default bold or lighter */
-  tone?: 'light';
+  variant?: 'light';
 };
 
 export const HeadingStyled = styled.h1<Props>`
@@ -37,7 +37,7 @@ export const HeadingStyled = styled.h1<Props>`
     },
   })}
   ${variant({
-    prop: 'tone',
+    prop: 'variant',
     variants: {
       light: {
         fontWeight: 400,

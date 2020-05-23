@@ -3,9 +3,9 @@ import { FontSizeProps, fontSize, variant } from 'styled-system';
 
 type Props = {
   /**
-   * Text tone
+   * Text variant
    */
-  tone?: 'light';
+  variant?: 'light';
   /**
    * Text alignment
    */
@@ -20,8 +20,8 @@ export const TextStyled = styled.div<Props & FontSizeProps>`
   display: block;
   font-family: 'Source Sans Pro', system-ui, sans-serif;
   ${fontSize}
-  ${variant<object, NonNullable<Props['tone']>>({
-    prop: 'tone',
+  ${variant<object, NonNullable<Props['variant']>>({
+    prop: 'variant',
     variants: {
       light: {
         color: 'text.light',

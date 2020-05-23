@@ -37,15 +37,15 @@ export const Wrapper = styled.div<{ size: Size }>`
 `;
 
 const spin = keyframes`
-    0% {
+  0% {
     transform: rotate(0deg);
-    }
-    100% {
+  }
+  100% {
     transform: rotate(360deg);
-    }
+  }
 `;
 
-export const Particle = styled.div<{ size: Size; tone: 'dark' | 'light' | 'brand' }>`
+export const Particle = styled.div<{ size: Size; variant: 'dark' | 'light' | 'brand' }>`
   box-sizing: border-box;
   position: absolute;
   border-radius: 50%;
@@ -64,7 +64,7 @@ export const Particle = styled.div<{ size: Size; tone: 'dark' | 'light' | 'brand
     animation-delay: -0.15s;
   }
   ${variant<object, 'dark' | 'light' | 'brand'>({
-    prop: 'tone',
+    prop: 'variant',
     variants: {
       dark: {
         borderTopColor: 'gray.800',

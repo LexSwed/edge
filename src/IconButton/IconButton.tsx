@@ -15,7 +15,7 @@ const sizeToIcon: Record<Size, Size> = {
 type Props = {
   icon: string;
   size: Size;
-} & Omit<React.ComponentProps<typeof Button>, 'tone'>;
+} & Omit<React.ComponentProps<typeof Button>, 'variant'>;
 
 const IconButton: React.FC<Props> = ({ icon, size = 'm', ...props }) => {
   return (

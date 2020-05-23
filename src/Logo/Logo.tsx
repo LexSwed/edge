@@ -11,7 +11,7 @@ type Props = {
   /** Main color scheme of the Logo
    * @default 'brand'
    */
-  tone?: keyof typeof LogoIcon;
+  variant?: keyof typeof LogoIcon;
   /**
    * Size of the logo
    * @default 'm'
@@ -19,8 +19,12 @@ type Props = {
   size?: Size;
 } & Omit<React.DetailedHTMLProps<React.HTMLAttributes<SVGElement>, SVGElement>, 'children'>;
 
-const Logo = React.forwardRef<HTMLDivElement, Props>(({ tone = 'brand', size = 'm', ...props }, ref) => {
-  return <LogoStyled as={LogoIcon[tone]} size={size} ref={ref} {...props} />;
+const Logo = React.forwardRef<HTMLDivElement, Props>(({ variant = 'brand', size = 'm', ...props }, ref) => {
+  if (!LogoIcon[variant]) {
+    return null;
+  }
+
+  return <LogoStyled as={LogoIcon[variant]} size={size} ref={ref} {...props} />;
 });
 
 if (__DEV__) {

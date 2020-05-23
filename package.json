@@ -27,7 +27,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --pattern \"src/**/*.*\" --staged && tsdx lint"
+      "pre-commit": "pretty-quick --pattern \"src/**/*.*\" --staged && tsdx lint && tsc --noEmit"
     }
   },
   "peerDependencies": {

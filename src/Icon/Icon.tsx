@@ -1,42 +1,27 @@
 import React from 'react';
-import cx from 'classnames';
 
-import './styles.css';
+import { IconStyled } from './Icon.styled';
 import { Size } from '../@utils';
 
-type ElementProps = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>, 'children'>;
-
-type Props = ElementProps & {
-  /**
-   * Name of the icon
-   */
+type Props = React.ComponentProps<typeof IconStyled> & {
   icon: string;
-  /**
-   * Material Design icon tone
-   */
-  tone?: 'outlined' | 'round' | 'two-tone';
-  /**
-   *  Size of the icon
-   * @default 'm'
-   */
-  size?: Size;
+  size: Size;
 };
 
-const Icon = React.forwardRef<HTMLElement, Props>(({ icon, tone, size = 'm', className, ...props }, ref) => {
+const Icon = React.forwardRef<HTMLElement, Props>(({ icon, ...props }, ref) => {
   return (
-    <i
-      className={cx('material-icons', 'fx-icon', tone && `fx-icon--${tone}`, `fx-icon--${size}`, className)}
-      role="img"
-      {...props}
-      ref={ref}
-    >
+    <IconStyled {...props} ref={ref}>
       {icon}
-    </i>
+    </IconStyled>
   );
 });
 
 if (__DEV__) {
   Icon.displayName = 'FxIcon';
 }
+
+Icon.defaultProps = {
+  size: 'm',
+};
 
 export default Icon;

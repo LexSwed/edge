@@ -1,6 +1,5 @@
 import React from 'react';
-
-import './styles.css';
+import { Label } from './FieldLabel.styled';
 
 type FieldLabelAttrs = React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
 
@@ -10,9 +9,9 @@ type Props = FieldLabelAttrs & {
 
 const FieldLabel = React.forwardRef<HTMLLabelElement, Props>(({ children, ...props }, ref) => {
   return (
-    <label className="fx-fieldlabel" {...props} ref={ref}>
+    <Label fontSize="m" color="text.default" {...props} ref={ref}>
       {children}
-    </label>
+    </Label>
   );
 });
 

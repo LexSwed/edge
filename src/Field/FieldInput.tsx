@@ -1,15 +1,11 @@
 import React, { useCallback, useRef } from 'react';
-import cx from 'classnames';
 
-import Field from './Field';
 import ClearButton from './ClearButton';
 import LeftIcon from './LeftIcon';
-import FieldLabel from '../FieldLabel';
-import FieldMessage from '../FieldMessage';
 import { useMergedInputProps, useClearButton, FieldInputProps } from './utils';
 
-import './styles.css';
 import { useCombinedRefs } from '../@utils';
+import { Wrapper, FieldInputWrapper, Input, LabelStyled, MessageStyled } from './Field.styled';
 
 type WrapperProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'children' | 'onChange'>;
 
@@ -24,23 +20,16 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
       size = 'm',
       disabled,
       tone,
-      className,
       onClick,
       onClear,
       inputRef: providedInputRef,
       inputProps,
+      variant,
       ...props
     },
     ref
   ) => {
-    const classes = cx(
-      'fx-field-wrap',
-      `fx-field-wrap--${size}`,
-      tone && `fx-field-wrap--${tone}`,
-      disabled && 'fx-field-wrap--disabled',
-      className
-    );
-    const { className: inputClassName, ...mergedInputProps } = useMergedInputProps({
+    const mergedInputProps = useMergedInputProps({
       inputProps,
       disabled,
       ...props,
@@ -62,28 +51,38 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
     );
 
     return (
-      <Field className="fx-field-input">
+      <Wrapper tone={tone} {...props}>
         {label && (
-          <FieldLabel id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
+          <LabelStyled id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
             {label}
-          </FieldLabel>
+          </LabelStyled>
         )}
-        <div className={classes} onClick={onWrapperClick} {...props} ref={ref}>
-          <LeftIcon icon={icon} />
-          <input {...mergedInputProps} className={cx('fx-input', inputClassName)} ref={inputRefs} />
-          {onClear && <ClearButton shown={Boolean(mergedInputProps?.value)} onClick={onClearClick} />}
-        </div>
+        <FieldInputWrapper
+          size={size}
+          tone={tone || 'default'}
+          variant={variant || 'default'}
+          disabled={disabled}
+          onClick={onWrapperClick}
+          {...props}
+          ref={ref}
+        >
+          <LeftIcon icon={icon} size={size} />
+          <Input {...mergedInputProps} ref={inputRefs} />
+          {onClear && (
+            <ClearButton
+              size={size}
+              shown={Boolean(mergedInputProps?.value)}
+              disabled={disabled}
+              onClick={onClearClick}
+            />
+          )}
+        </FieldInputWrapper>
         {message && (
-          <FieldMessage
-            tone={tone}
-            disabled={disabled}
-            id={mergedInputProps['aria-describedby']}
-            className="fx-field-message"
-          >
+          <MessageStyled tone={tone} disabled={disabled} id={mergedInputProps['aria-describedby']}>
             {message}
-          </FieldMessage>
+          </MessageStyled>
         )}
-      </Field>
+      </Wrapper>
     );
   }
 );

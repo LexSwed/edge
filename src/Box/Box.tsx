@@ -1,28 +1,42 @@
-import React from 'react';
-import cx from 'classnames';
+import styled from 'styled-components/macro';
+import {
+  compose,
+  space,
+  SpaceProps,
+  shadow,
+  ShadowProps,
+  layout,
+  LayoutProps,
+  flexbox,
+  FlexboxProps,
+  color,
+  ColorProps,
+  borderRadius,
+  BorderRadiusProps,
+  border,
+  BorderProps,
+  position,
+  PositionProps,
+  grid,
+  GridProps,
+} from 'styled-system';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 
-import { SpacingProps, useSpacing } from '../@utils';
+type Props = SpaceProps &
+  ShadowProps &
+  LayoutProps &
+  FlexboxProps &
+  ColorProps &
+  BorderRadiusProps &
+  BorderProps &
+  PositionProps &
+  GridProps;
 
-import './styles.css';
-
-type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> &
-  SpacingProps & { elevation?: '0' | '1' | '2' };
-
-const Box = React.forwardRef<HTMLDivElement, Props>(
-  ({ className, children, style, p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my, elevation, ...props }, ref) => {
-    const classes = cx('fx-box', elevation && `fx-box--${elevation}`, className);
-    const styles = {
-      ...style,
-      ...useSpacing({ p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my }),
-    };
-
-    return (
-      <div className={classes} style={styles} {...props} ref={ref}>
-        {children}
-      </div>
-    );
-  }
-);
+const Box = styled.div.withConfig({
+  shouldForwardProp,
+})<Props>`
+  ${compose(layout, space, shadow, flexbox, color, borderRadius, border, position, grid)}
+`;
 
 if (__DEV__) {
   Box.displayName = 'FxBox';

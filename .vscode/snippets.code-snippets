@@ -20,9 +20,6 @@
     "prefix": "edgetemplate",
     "body": [
       "import React from 'react';",
-      "import cx from 'classnames';",
-      "",
-      "import './styles.css';",
       "",
       "type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;",
       "",

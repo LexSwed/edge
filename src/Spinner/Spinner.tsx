@@ -1,10 +1,9 @@
 import React from 'react';
-import cx from 'classnames';
 
 import { Size } from '../@utils';
 
-import './styles.css';
 import Logo from '../Logo';
+import { Wrapper, Particle } from './Spinner.styled';
 
 type Props = {
   /**
@@ -16,18 +15,18 @@ type Props = {
    * Color of the spinner
    * @default 'dark'
    */
-  tone?: 'dark' | 'light' | 'brand';
+  variant?: 'dark' | 'light' | 'brand';
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-const Spinner = React.forwardRef<HTMLDivElement, Props>(({ size = 'm', tone = 'dark', className, ...props }, ref) => {
+const Spinner = React.forwardRef<HTMLDivElement, Props>(({ size = 'm', variant = 'dark', ...props }, ref) => {
   return (
-    <div className={cx('fx-spinner', `fx-spinner--${size}`, `fx-spinner--${tone}`, className)} {...props} ref={ref}>
-      <div className="fx-spin" />
-      <div className="fx-spin" />
-      <div className="fx-spin" />
-      <div className="fx-spin" />
-      {size === 'xl' && <Logo size="s" tone={tone} />}
-    </div>
+    <Wrapper size={size} aria-busy="true" aria-live="polite" {...props} ref={ref}>
+      <Particle size={size} variant={variant} />
+      <Particle size={size} variant={variant} />
+      <Particle size={size} variant={variant} />
+      <Particle size={size} variant={variant} />
+      {size === 'xl' && <Logo size="s" variant={variant} />}
+    </Wrapper>
   );
 });
 

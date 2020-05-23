@@ -36,7 +36,7 @@ To work on the library, run:
 yarn start
 ```
 
-To work on the documentation or use it as a playground for the components you work on, start `docz` in a separate terminal:
+To work on the documentation or use it as a playground for the components you work on, start `docz` in a _separate_ terminal:
 
 ```bash
 yarn docz:dev

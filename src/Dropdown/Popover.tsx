@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
 
-import './styles.css';
 import { usePopper } from './utils/popover';
 import { context } from '../Edge/Edge';
+import { PopperWrapper } from './Dropdown.styled';
 
 type Props = {} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
@@ -15,30 +15,18 @@ const Popover: React.FC<Props> = ({ children, ...props }) => {
     return null;
   }
 
-  const el = edgeContext?.edgeEl?.current;
+  const edgeWrapperEl = edgeContext?.edgeEl?.current;
   const render = (
-    <div className="fx-popover" {...props} ref={dropdownRef as React.RefObject<HTMLDivElement>} hidden={!isOpen}>
+    <PopperWrapper {...props} ref={dropdownRef as React.RefObject<HTMLDivElement>} hidden={!isOpen}>
       {children}
-    </div>
+    </PopperWrapper>
   );
 
-  if (el) {
-    return ReactDOM.createPortal(render, el);
-  }
-
-  return render;
-};
-
-const Wrapper: React.FC<Props> = (props) => {
-  if (React.Children.count(props.children) < 1) {
-    return null;
-  }
-
-  return <Popover {...props} />;
+  return edgeWrapperEl ? ReactDOM.createPortal(render, edgeWrapperEl) : render;
 };
 
 if (__DEV__) {
   Popover.displayName = 'FxPopover';
 }
 
-export default Wrapper;
+export default Popover;

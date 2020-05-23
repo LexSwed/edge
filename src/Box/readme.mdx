@@ -9,26 +9,7 @@ import { Box, Stack } from '@fxtrot/edge';
 
 # Box
 
-You can apply padding or margin using next short props:
-
-| prop |         CSS alternative          |
-| :--: | :------------------------------: |
-| `p`  |            `padding`             |
-| `px` | `padding-left` + `padding-right` |
-| `py` | `padding-top` + `padding-bottom` |
-| `pt` |          `padding-top`           |
-| `pr` |         `padding-bottom`         |
-| `pl` |          `padding-left`          |
-| `pr` |         `padding-right`          |
-| `m`  |             `margin`             |
-| `mx` |  `margin-left` + `margin-right`  |
-| `my` |  `margin-top` + `margin-bottom`  |
-| `mt` |           `margin-top`           |
-| `mr` |         `margin-bottom`          |
-| `ml` |          `margin-left`           |
-| `mr` |          `margin-right`          |
-
-Sizes are: `xs`, `s`, `m`, `l`, `xl` which are defined as root CSS variables by [`Edge`](/fx-edge) component.
+Serves as a universal easy stylable component.
 
 ## Basic usage
 
@@ -37,26 +18,28 @@ import { Box } from '@fxtrot/edge';
 ```
 
 <Playground>
-  <Box style={{ background: 'var(--gray-200)' }}>Default box</Box>
+  <Box bg="gray.200" width={1 / 2}>
+    Default box
+  </Box>
 </Playground>
 
 ## Paddings
 
 <Playground>
   <Stack align="left">
-    <Box pt="xs" style={{ background: 'var(--gray-200)' }}>
+    <Box pt="xs" bg="gray.200">
       Padding top extra-small
     </Box>
-    <Box pl="s" style={{ background: 'var(--gray-200)' }}>
+    <Box pl="s" bg="gray.200">
       Padding left small
     </Box>
-    <Box p="m" style={{ background: 'var(--gray-200)' }}>
+    <Box p="m" bg="gray.200">
       All padding medium
     </Box>
-    <Box pb="l" style={{ background: 'var(--gray-200)' }}>
+    <Box pb="l" bg="gray.200">
       Padding bottom large
     </Box>
-    <Box pr="xl" style={{ background: 'var(--gray-200)' }}>
+    <Box pr="xl" bg="gray.200">
       Padding right extra-large
     </Box>
   </Stack>

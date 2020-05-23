@@ -1,31 +1,30 @@
 import React from 'react';
-import cx from 'classnames';
 
 import LogoBrand from './logo-solid.svg';
 import LogoDark from './logo-dark.svg';
 import LogoLight from './logo-light.svg';
 import { Size } from '../@utils';
 
-import './styles.css';
+import { LogoStyled } from './Logo.styled';
 
 type Props = {
   /** Main color scheme of the Logo
    * @default 'brand'
    */
-  tone?: keyof typeof LogoIcon;
+  variant?: keyof typeof LogoIcon;
   /**
    * Size of the logo
    * @default 'm'
    */
   size?: Size;
-} & Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'children'>;
+} & Omit<React.DetailedHTMLProps<React.HTMLAttributes<SVGElement>, SVGElement>, 'children'>;
 
-const Logo = React.forwardRef<HTMLDivElement, Props>(({ tone = 'brand', size = 'm', className, ...props }, ref) => {
-  const classes = cx('fx-logo', size && `fx-logo--${size}`, className);
+const Logo = React.forwardRef<HTMLDivElement, Props>(({ variant = 'brand', size = 'm', ...props }, ref) => {
+  if (!LogoIcon[variant]) {
+    return null;
+  }
 
-  const Icon = LogoIcon[tone];
-
-  return <Icon className={classes} ref={ref} {...props} />;
+  return <LogoStyled as={LogoIcon[variant]} size={size} ref={ref} {...props} />;
 });
 
 if (__DEV__) {

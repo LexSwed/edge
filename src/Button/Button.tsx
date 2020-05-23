@@ -1,24 +1,18 @@
 import React from 'react';
-import cx from 'classnames';
 
 import Inline from '../Inline';
+import { ButtonStyled, Variant } from './Button.styled';
 import { Size } from '../@utils';
 
-import './styles.css';
-
-const Button = React.forwardRef<HTMLButtonElement, Props>(
-  ({ size = 'm', tone, className, children, ...props }, ref) => {
-    const classes = cx('fx-button', `fx-button--${size}`, tone && `fx-button--${tone}`, className);
-
-    return (
-      <button {...props} className={classes} ref={ref}>
-        <Inline space={sizeToSpaceMap[size]} alignY="center" nowrap>
-          {children}
-        </Inline>
-      </button>
-    );
-  }
-);
+const Button = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props }, ref) => {
+  return (
+    <ButtonStyled {...props} ref={ref}>
+      <Inline space={sizeToSpaceMap[props.size || 'm']} alignY="center" nowrap>
+        {children}
+      </Inline>
+    </ButtonStyled>
+  );
+});
 
 if (__DEV__) {
   Button.displayName = 'FxButton';
@@ -26,12 +20,13 @@ if (__DEV__) {
 
 Button.defaultProps = {
   type: 'button',
+  size: 'm',
 };
 
 export default Button;
 
 /** Do not make it larger then 'm' */
-const sizeToSpaceMap: Record<NonNullable<Props['size']>, React.ComponentProps<typeof Inline>['space']> = {
+const sizeToSpaceMap: Record<NonNullable<ButtonProps['size']>, React.ComponentProps<typeof Inline>['space']> = {
   xs: 'xs',
   s: 's',
   m: 'm',
@@ -46,9 +41,9 @@ type ButtonProps = {
    */
   size?: Size;
   /**
-   * The color tone of the button
+   * Button variant
    */
-  tone?: 'flat' | 'transparent' | 'brand' | 'critical';
+  variant?: Variant;
 };
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps;

@@ -2,12 +2,15 @@ import React from 'react';
 
 import Icon from '../Icon';
 import type { FieldInputProps } from './utils';
+import { FieldIcon } from './Field.styled';
 
-const LeftIcon: React.FC<{ icon: FieldInputProps['icon'] }> = ({ icon }) => {
+type Props = { icon: FieldInputProps['icon']; size?: FieldInputProps['size'] };
+
+const LeftIcon: React.FC<Props> = ({ icon, size }) => {
   if (!icon) {
     return null;
   }
-  return <span className="fx-field-icon">{React.isValidElement(icon) ? icon : <Icon icon={icon} />}</span>;
+  return <FieldIcon>{React.isValidElement(icon) ? icon : <Icon icon={icon} size={size} />}</FieldIcon>;
 };
 
 export default LeftIcon;

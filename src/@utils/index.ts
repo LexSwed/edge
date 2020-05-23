@@ -1,4 +1,4 @@
-import { Children, useCallback, CSSProperties } from 'react';
+import { Children, useCallback } from 'react';
 
 export const renderValidChild: typeof Children['map'] = (children, renderFn) => {
   return Children.map(children, (child, i) => child && renderFn(child, i));
@@ -48,24 +48,3 @@ type Margins = {
 };
 
 export type SpacingProps = Paddings & Margins;
-
-export function useSpacing(props: Partial<SpacingProps>): CSSProperties {
-  const { p, pt, pl, pb, pr, px, py, m, mt, ml, mb, mr, mx, my } = props;
-  const style: CSSProperties = {};
-
-  style.paddingTop = cssVar(pt, py, p);
-  style.paddingRight = cssVar(pr, px, p);
-  style.paddingBottom = cssVar(pb, py, p);
-  style.paddingLeft = cssVar(pl, px, p);
-
-  style.marginTop = cssVar(mt, my, m);
-  style.marginRight = cssVar(mr, mx, m);
-  style.marginBottom = cssVar(mb, my, m);
-  style.marginLeft = cssVar(ml, mx, m);
-
-  return style;
-}
-
-function cssVar(value?: Size, axis?: Size, all?: Size) {
-  return value || axis || all ? `var(--${value || axis || all})` : undefined;
-}

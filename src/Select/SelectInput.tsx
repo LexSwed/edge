@@ -1,12 +1,9 @@
 import React from 'react';
-import cx from 'classnames';
 
 import { useToggleButtonProps, useDownshiftState } from '../Dropdown/utils';
-import FieldInput from '../Field/FieldInput';
-import Icon from '../Icon';
 
-import './styles.css';
 import type { SelectInputProps } from './utils';
+import { ArrowIcon, Field } from './Select.styled';
 
 const inputProps = {
   readOnly: true,
@@ -17,12 +14,11 @@ const SelectInput: React.FC<SelectInputProps> = ({ onSelect, value, ...props }) 
   const { isOpen } = useDownshiftState();
 
   return (
-    <FieldInput
-      className="fx-select"
+    <Field
       value={value ?? ''}
       onClear={onSelect ? () => onSelect(null) : null}
       inputProps={inputProps}
-      icon={<Icon icon="expand_more" className={cx('fx-select-icon', isOpen ? 'fx-select-expanded' : '')} />}
+      icon={<ArrowIcon icon="expand_more" size={props.size} expanded={isOpen} />}
       {...props}
       {...downshiftProps}
     />

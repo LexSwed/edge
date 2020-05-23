@@ -27,22 +27,22 @@ import { Spinner } from '@fxtrot/edge';
     <Spinner size="s" />
     <Spinner size="m" />
     <Spinner size="l" />
-    <Spinner size="xl" tone="brand" />
-    <Spinner size="xl" tone="dark" />
-    <Box style={{ backgroundColor: 'var(--gray-900)' }}>
-      <Spinner size="xl" tone="light" />
+    <Spinner size="xl" variant="brand" />
+    <Spinner size="xl" variant="dark" />
+    <Box bg="gray.900">
+      <Spinner size="xl" variant="light" />
     </Box>
   </Inline>
 </Playground>
 
-## Tones
+## Variants
 
 <Playground>
   <Inline space="l" alignY="center">
-    <Spinner tone="dark" />
-    <Box p="s" style={{ backgroundColor: 'var(--gray-900)' }}>
-      <Spinner tone="light" />
+    <Spinner variant="dark" />
+    <Box p="s" bg="gray.900">
+      <Spinner variant="light" />
     </Box>
-    <Spinner tone="brand" />
+    <Spinner variant="brand" />
   </Inline>
 </Playground>

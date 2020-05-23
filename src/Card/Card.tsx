@@ -1,15 +1,15 @@
 import React from 'react';
-import cx from 'classnames';
 
 import Box from '../Box';
+import theme from '../Edge/theme';
 
-import './styles.css';
+type Props = React.ComponentProps<typeof Box> & {
+  elevation: keyof typeof theme.shadows;
+};
 
-type Props = React.ComponentProps<typeof Box>;
-
-const Card = React.forwardRef<HTMLDivElement, Props>(({ className, children, ...props }, ref) => {
+const Card = React.forwardRef<HTMLDivElement, Props>(({ children, elevation, ...props }, ref) => {
   return (
-    <Box className={cx('fx-card', className)} {...props} ref={ref}>
+    <Box {...props} boxShadow={elevation} bg="surface.1" borderRadius="m" ref={ref}>
       {children}
     </Box>
   );
@@ -21,7 +21,7 @@ if (__DEV__) {
 
 Card.defaultProps = {
   p: 'm',
-  elevation: '1',
+  elevation: 1,
 };
 
 export default Card;

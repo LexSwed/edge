@@ -1,0 +1,34 @@
+---
+name: IconButton
+route: /fx-iconbutton
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { IconButton, Inline } from '@fxtrot/edge';
+
+# IconButton
+
+Clickable Icon
+
+## Basic usage
+
+```tsx
+import { IconButton } from '@fxtrot/edge';
+```
+
+<Playground>
+  <IconButton icon="clear" />
+</Playground>
+
+### Size
+
+<Playground>
+  <Inline space="m">
+    <IconButton icon="bug_report" size="xs" />
+    <IconButton icon="bug_report" size="s" />
+    <IconButton icon="bug_report" size="m" />
+    <IconButton icon="bug_report" size="l" />
+    <IconButton icon="bug_report" size="xl" />
+  </Inline>
+</Playground>

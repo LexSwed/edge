@@ -8,13 +8,13 @@ route: /
 Install the library:
 
 ```bash
-npm install @fxtrot/edge --save
+npm install @fxtrot/edge styled-components@5.x --save
 ```
 
 Or via `yarn`:
 
 ```bash
-yarn add @fxtrot/edge
+yarn add @fxtrot/edge styled-components@5.x
 ```
 
 Wrap your app in `ThemeProvider` which currently just injects global CSS-variables, but in case there will be some proper CSS-in-JS solution, it can actually do something:
@@ -37,8 +37,6 @@ Or for concurrent mode
 import ReactDOM from 'react-dom';
 
 import { Edge } from '@fxtrot/edge';
-
-import '@fxtrot/edge/styles.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Edge>

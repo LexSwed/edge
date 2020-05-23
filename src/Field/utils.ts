@@ -97,11 +97,15 @@ export type FieldInputProps = {
    * Size of the input
    * @default 'm'
    */
-  size?: Omit<Size, 'xs' | 'xl'>;
+  size?: Exclude<Size, 'xs' | 'xl'>;
   /**
    * Tone of the input field
    */
   tone?: React.ComponentProps<typeof FieldMessage>['tone'];
+  /**
+   * Visual mode of the field
+   */
+  variant?: 'underlined' | 'borderless';
   /**
    * React Ref to the input element
    */

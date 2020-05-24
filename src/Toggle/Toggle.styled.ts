@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 import Field from '../Field';
+import { Input } from '../Checkbox/Checkbox.styled';
 
 const size = () => css`
   width: 36px;
@@ -8,7 +9,8 @@ const size = () => css`
 
 export const ToggleStyled = styled.div<{ checked?: boolean }>`
   background: ${(props) => props.theme.colors.surface[1]};
-  border: 1px solid ${(props) => props.theme.colors.border.default};
+  border-width: 1px;
+  border-style: solid;
   border-radius: 10px;
   transition: background 1s ease-in-out, 0.12s ease-in-out;
   position: relative;
@@ -41,19 +43,8 @@ export const ToggleStyled = styled.div<{ checked?: boolean }>`
     `}
 `;
 
-export const Input = styled.input.attrs({
-  type: 'checkbox',
-})`
+export const ToggleInput = styled(Input)`
   ${size}
-  outline: none;
-  appearance: none;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
   ${({
     checked,
     theme: {
@@ -77,6 +68,9 @@ export const InputWrapper = styled.div`
 
 export const FieldStyled = styled(Field)`
   ${({ theme }) => css`
+    & ${ToggleStyled} {
+      border-color: ${theme.colors.border.default};
+    }
     &:hover ${ToggleStyled} {
       border-color: ${theme.colors.border.hover};
     }

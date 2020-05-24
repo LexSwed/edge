@@ -13,19 +13,24 @@ type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLD
   name?: InputProps['name'];
   value?: InputProps['value'];
   checked?: InputProps['checked'];
+  disabled?: InputProps['disabled'];
   onChange?: InputProps['onChange'];
   inputRef?: InputProps['ref'];
   inputProps?: InputProps;
 };
 
 const Checkbox = React.forwardRef<HTMLDivElement, Props>(
-  ({ label, message, tone, name, value, checked, onChange, inputRef, inputProps, children, ...props }, ref) => {
+  (
+    { label, message, tone, name, value, checked, disabled, onChange, inputRef, inputProps, children, ...props },
+    ref
+  ) => {
     const mergedInputProps = useMergedInputProps({
       label,
       message,
       name,
       value,
       checked,
+      disabled,
       onChange,
       inputProps,
     });
@@ -35,7 +40,7 @@ const Checkbox = React.forwardRef<HTMLDivElement, Props>(
         <InlineWrapper checked={checked}>
           <CheckBoxWrapper>
             <Input {...mergedInputProps} type="checkbox" ref={inputRef} />
-            <CheckMark checked={checked} tone={tone} />
+            <CheckMark checked={checked} />
           </CheckBoxWrapper>
           <FieldLabel id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
             {label}

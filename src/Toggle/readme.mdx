@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Toggle } from '@fxtrot/edge';
+import { Toggle, Stack } from '@fxtrot/edge';
 
 # Toggle
 
@@ -20,4 +20,14 @@ import { Toggle } from '@fxtrot/edge';
     const [toggle, setToggle] = React.useState(false);
     return <Toggle checked={toggle} label="Default toggle" onChange={() => setToggle(!toggle)} />;
   }}
+</Playground>
+
+## Tone and message
+
+<Playground>
+  <Stack>
+    <Toggle checked={false} label="Default toggle" message="Message for toggle" />
+    <Toggle checked={false} label="Positive tone" tone="positive" message="Everything is alright" />
+    <Toggle checked={false} label="Critical tone" tone="critical" message="Something went wrong..." />
+  </Stack>
 </Playground>

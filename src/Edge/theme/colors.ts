@@ -72,13 +72,13 @@ const border = {
 const positive = {
   1: green[500],
   2: green[600],
-  3: green[800],
+  3: green[700],
 };
 
 const critical = {
   1: red[400],
   2: red[600],
-  3: red[800],
+  3: red[700],
 };
 
 const surface = {

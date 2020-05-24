@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components/macro';
+
 import Inline from '../Inline';
-import { variant } from 'styled-system';
+import { outline } from '../Edge/theme';
 
 const size = '20px';
 const CheckmarkSvg = React.memo((props) => (
@@ -14,15 +15,15 @@ const CheckmarkSvg = React.memo((props) => (
   </svg>
 ));
 
-export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean; tone?: 'critical' | 'positive' }>`
+export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
   display: inline-block;
   position: relative;
   flex-shrink: 0;
-  border-radius: 2px;
+  border-radius: ${(props) => props.theme.radii.m};
   width: ${size};
   height: ${size};
   background-color: #fff;
-  border: ${(props) => `1px solid var(--border-color, ${props.theme.colors.border.default})`};
+  border: 1px solid ${(props) => props.theme.colors.border.default};
   cursor: pointer;
   box-sizing: border-box;
   & > path {
@@ -38,17 +39,6 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean; tone?: 'criti
         fill: #fff;
       }
     `}
-  ${variant({
-    prop: 'tone',
-    variants: {
-      critical: {
-        borderColor: 'critical.1',
-      },
-      positive: {
-        borderColor: 'positive.1',
-      },
-    },
-  })}
 `;
 
 export const InlineWrapper = styled(Inline).attrs({
@@ -61,13 +51,13 @@ export const InlineWrapper = styled(Inline).attrs({
   &:focus-within {
     border-color: ${(props) => props.theme.colors.border.focus};
   }
-  ${(props) => {
-    if (props.checked) {
+  ${outline}
+  ${({ checked, theme: { colors } }) => {
+    if (checked) {
       return css`
         &:hover {
           & ${CheckMark} {
-            --border-color: ${(props) => props.theme.colors.brand[700]};
-            --check-color: ${(props) => props.theme.colors.brand[700]};
+            --check-color: ${colors.brand[700]};
           }
         }
       `;
@@ -76,8 +66,8 @@ export const InlineWrapper = styled(Inline).attrs({
     return css`
       &:hover {
         & ${CheckMark} {
-          --border-color: ${(props) => props.theme.colors.border.default};
-          --check-color: ${(props) => props.theme.colors.border.hover};
+          border-color: ${colors.border.hover};
+          --check-color: ${colors.border.hover};
         }
       }
     `;
@@ -93,8 +83,7 @@ export const Input = styled.input`
   width: ${size};
   height: ${size};
   position: absolute;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  appearance: none;
   display: block;
   margin: 0;
   padding: 0;

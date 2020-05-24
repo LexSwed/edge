@@ -1,0 +1,23 @@
+---
+name: Toggle
+route: /fx-toggle
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Toggle } from '@fxtrot/edge';
+
+# Toggle
+
+## Basic usage
+
+```tsx
+import { Toggle } from '@fxtrot/edge';
+```
+
+<Playground>
+  {() => {
+    const [toggle, setToggle] = React.useState(false);
+    return <Toggle checked={toggle} label="Default toggle" onChange={() => setToggle(!toggle)} />;
+  }}
+</Playground>

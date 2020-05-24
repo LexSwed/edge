@@ -157,7 +157,7 @@ const tone = variant<object, FieldInputWrapperProps['tone']>({
   },
 });
 
-const visualVariant = variant<object, NonNullable<FieldInputProps['variant']> | 'default'>({
+const variants = variant<object, NonNullable<FieldInputProps['variant']> | 'default'>({
   prop: 'variant',
   variants: {
     default: {
@@ -242,7 +242,7 @@ export const FieldInputWrapper = styled.div<FieldInputWrapperProps>`
   cursor: text;
   color: ${(props) => props.theme.colors.text.default};
   background-color: ${(props) => props.theme.colors.surface[1]};
-  ${visualVariant}
+  ${variants}
   ${underlinedVariant}
   ${tone}
   ${size}

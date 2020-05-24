@@ -1,8 +1,8 @@
 import type { Size } from '../../@utils';
 
-type Space = string[] & Record<Size, number>;
+type Space = number[] & Record<Size, number>;
 
-export const space: Space = ['0px', '4px', '8px', '16px', '32px', '64px', '128px', '256px', '512px'] as Space;
+export const space: Space = [0, 4, 8, 16, 32, 64, 128, 256, 512] as Space;
 
 Object.assign(space, {
   xs: space[1],
@@ -41,7 +41,6 @@ export const radii = {
   m: '3px',
   l: '8px',
   xl: '12px',
-  round: '50%',
 };
 
 type Breakpoints = 'mobile' | 'tablet' | 'desktop' | 'wide';

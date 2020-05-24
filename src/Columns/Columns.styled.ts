@@ -47,19 +47,19 @@ const space = variant<object, Size>({
   prop: 'space',
   variants: {
     xs: {
-      '--space': theme.space[1],
+      '--space': theme.space.xs,
     },
     s: {
-      '--space': theme.space[2],
+      '--space': theme.space.s,
     },
     m: {
-      '--space': theme.space[3],
+      '--space': theme.space.m,
     },
     l: {
-      '--space': theme.space[4],
+      '--space': theme.space.l,
     },
     xl: {
-      '--space': theme.space[5],
+      '--space': theme.space.xl,
     },
   },
 });

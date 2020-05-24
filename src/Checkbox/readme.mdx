@@ -17,12 +17,12 @@ import { Checkbox } from '@fxtrot/edge';
 
 <Playground>
   {() => {
-    const [selected, setSelected] = React.useState(false);
+    const [checked, setChecked] = React.useState(false);
     return (
       <Checkbox
         label="Subscribe to news"
-        checked={selected}
-        onChange={(e) => setSelected(e.target.checked)}
+        checked={checked}
+        onChange={(e) => setChecked(e.target.checked)}
         message="This is the message"
       />
     );

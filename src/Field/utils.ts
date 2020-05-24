@@ -21,6 +21,7 @@ export function useMergedInputProps(props: Partial<FieldInputProps>): Partial<In
     name,
     label,
     message,
+    checked,
     inputProps: { id, defaultValue, ...inputProps } = {},
   } = props;
   const uid = useId(id);
@@ -37,6 +38,7 @@ export function useMergedInputProps(props: Partial<FieldInputProps>): Partial<In
     autoComplete,
     name,
     defaultValue,
+    checked,
     ...inputProps,
   };
 
@@ -83,6 +85,7 @@ export type FieldInputProps = {
   message?: string;
   placeholder?: InputProps['placeholder'];
   value?: InputProps['value'];
+  checked?: InputProps['checked'];
   onChange?: InputProps['onChange'];
   disabled?: InputProps['disabled'];
   autoFocus?: InputProps['autoFocus'];

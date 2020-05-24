@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { Size } from '../@utils';
-import { variant } from 'styled-system';
+import { variant, system } from 'styled-system';
 
 type Props = { align: 'left' | 'right' | 'center' };
 
@@ -25,28 +25,16 @@ export const StackStyled = styled.div<Props>`
   })}
 `;
 
+const space = system({
+  space: {
+    property: 'paddingBottom',
+    scale: 'space',
+  },
+});
+
 export const StackChildStyled = styled.div<{ space?: Size }>`
   &:last-child {
     padding-bottom: 0;
   }
-  ${variant<object, Size>({
-    prop: 'space',
-    variants: {
-      xs: {
-        pb: 'xs',
-      },
-      s: {
-        pb: 's',
-      },
-      m: {
-        pb: 'm',
-      },
-      l: {
-        pb: 'l',
-      },
-      xl: {
-        pb: 'xl',
-      },
-    },
-  })}
+  ${space}
 `;

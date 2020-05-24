@@ -52,12 +52,12 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean; tone?: 'criti
 `;
 
 export const InlineWrapper = styled(Inline).attrs({
+  nowrap: true,
   alignY: 'center',
   space: 's',
 })<{ checked?: boolean }>`
-  display: inline-flex;
+  display: inline-grid;
   border: 1px solid transparent;
-  padding-top: 0;
   &:focus-within {
     border-color: ${(props) => props.theme.colors.border.focus};
   }

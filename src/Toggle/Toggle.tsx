@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Field from '../Field';
+import { FieldStyled, InputWrapper, Input, ToggleStyled } from './Toggle.styled';
 import FieldLabel from '../FieldLabel';
 import FieldMessage from '../FieldMessage';
-import { useMergedInputProps, InputProps } from '../Field/utils';
-import { Input, InlineWrapper, CheckMark, CheckBoxWrapper } from './Checkbox.styled';
+import Inline from '../Inline';
+import { InputProps, useMergedInputProps } from '../Field/utils';
 
 type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
   label?: string;
@@ -18,7 +18,7 @@ type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLD
   inputProps?: InputProps;
 };
 
-const Checkbox = React.forwardRef<HTMLDivElement, Props>(
+const Toggle = React.forwardRef<HTMLDivElement, Props>(
   ({ label, message, tone, name, value, checked, onChange, inputRef, inputProps, children, ...props }, ref) => {
     const mergedInputProps = useMergedInputProps({
       label,
@@ -31,29 +31,25 @@ const Checkbox = React.forwardRef<HTMLDivElement, Props>(
     });
 
     return (
-      <Field {...props} ref={ref}>
-        <InlineWrapper checked={checked}>
-          <CheckBoxWrapper>
+      <FieldStyled {...props} ref={ref}>
+        <Inline space="m" nowrap alignY="center">
+          <InputWrapper>
             <Input {...mergedInputProps} type="checkbox" ref={inputRef} />
-            <CheckMark checked={checked} tone={tone} />
-          </CheckBoxWrapper>
+            <ToggleStyled checked={checked} />
+          </InputWrapper>
           <FieldLabel id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
             {label}
           </FieldLabel>
-        </InlineWrapper>
+        </Inline>
         {message && (
           <FieldMessage id={mergedInputProps['aria-describedby']} tone={tone}>
             {message}
           </FieldMessage>
         )}
         {checked && children}
-      </Field>
+      </FieldStyled>
     );
   }
 );
 
-if (__DEV__) {
-  Checkbox.displayName = 'FxCheckbox';
-}
-
-export default Checkbox;
+export default Toggle;

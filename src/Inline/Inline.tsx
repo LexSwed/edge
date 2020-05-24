@@ -12,6 +12,7 @@ const Inline = React.forwardRef<HTMLDivElement, Props>(
         </InlineGrid>
       );
     }
+
     return (
       <Wrapper space={space} {...props}>
         <Flex space={space} align={align} alignY={alignY} nowrap={nowrap} ref={ref}>

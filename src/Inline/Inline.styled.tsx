@@ -1,6 +1,6 @@
 import styled, { css, DefaultTheme, ThemedStyledProps } from 'styled-components/macro';
 import { Size } from '../@utils';
-import { space, SpaceProps, variant } from 'styled-system';
+import { space, SpaceProps, variant, system } from 'styled-system';
 
 type Props = {
   /**
@@ -29,7 +29,7 @@ export const Wrapper = styled.div<{ space?: Props['space'] }>`
   &:before {
     content: '';
     display: block;
-    margin-top: ${(props) => (props.space ? -(props.theme.space[props.space] + 1) : '-1px')};
+    margin-top: ${(props) => (props.space ? `${-(props.theme.space[props.space] + 1)}px` : '-1px')};
   }
 `;
 
@@ -63,20 +63,9 @@ const alignY = variant<object, Props['alignY']>({
   },
 });
 
-const wrap = (props: Partial<Props>) => {
-  if (props.nowrap) {
-    return css`
-      flex-wrap: nowrap;
-    `;
-  }
-
-  return css`
-    flex-wrap: wrap;
-  `;
-};
-
 export const Flex = styled.div<Props>`
   display: flex;
+  flex-wrap: wrap;
   ${parentMargin}
   ${align}
   ${alignY}
@@ -97,24 +86,31 @@ function parentMargin(props: ThemedStyledProps<Partial<Props>, DefaultTheme>) {
   const gap = -1 * props.theme.space[props.space];
 
   return css`
-    margin-left: ${gap};
-    margin-top: ${gap};
+    margin-left: ${gap}px;
+    margin-top: ${gap}px;
   `;
 }
+
+const gap = system({
+  space: {
+    property: 'gap',
+    scale: 'space',
+  },
+});
 
 // https://gist.github.com/OliverJAsh/7f29d0fa1d35216ec681d2949c3fe8b7#gistcomment-3229174
 export const FlexNew = styled.div<Props>`
   display: flex;
-  gap: ${(props) => (props.space ? props.theme.space[props.space] : 0)};
-  ${wrap}
+  flex-wrap: wrap;
+  ${gap}
   ${align}
   ${alignY}
 `;
 
 export const InlineGrid = styled.div<Props>`
   display: grid;
-  gap: ${(props) => (props.space ? props.theme.space[props.space] : 0)};
   grid-auto-flow: column;
+  ${gap}
   ${align}
   ${alignY}
 `;

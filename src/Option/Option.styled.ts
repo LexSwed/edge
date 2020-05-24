@@ -32,7 +32,7 @@ export const OptionStyled = styled.li<Props>`
   transition: border-color 0.12s, background-color 0.12s;
   color: ${(props) => props.theme.colors.text.default};
   font-family: inherit;
-  font-size: ${(props) => `${props.theme.fontSizes[2]}px`};
+  font-size: ${(props) => props.theme.fontSizes[2]};
   &:focus,
   &:active {
     background-color: transparent;

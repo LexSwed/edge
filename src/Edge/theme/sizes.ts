@@ -1,8 +1,8 @@
 import type { Size } from '../../@utils';
 
-type Space = number[] & Record<Size, number>;
+type Space = string[] & Record<Size, number>;
 
-export const space: Space = [0, 4, 8, 16, 32, 64, 128, 256, 512] as Space;
+export const space: Space = ['0px', '4px', '8px', '16px', '32px', '64px', '128px', '256px', '512px'] as Space;
 
 Object.assign(space, {
   xs: space[1],
@@ -13,9 +13,18 @@ Object.assign(space, {
   xxl: space[6],
 });
 
-type FontSize = number[] & Record<Size & 'xxl', number>;
+type FontSize = string[] & Record<Size & 'xxl', number>;
 
-export const fontSizes = [11.06, 12.44, 14, 17.72, 22.43, 28.38, 35.92, 45.46] as FontSize;
+export const fontSizes = [
+  '11.06px',
+  '12.44px',
+  '14px',
+  '17.72px',
+  '22.43px',
+  '28.38px',
+  '35.92px',
+  '45.46px',
+] as FontSize;
 
 Object.assign(fontSizes, {
   xs: fontSizes[1],
@@ -33,4 +42,28 @@ export const radii = {
   l: '8px',
   xl: '12px',
   round: '50%',
+};
+
+type Breakpoints = 'mobile' | 'tablet' | 'desktop' | 'wide';
+
+export const breakpoints = ['320px', '768px', '1024px', '1400px'] as string[] & Record<Breakpoints, string>;
+
+breakpoints.mobile = breakpoints[0];
+breakpoints.tablet = breakpoints[1];
+breakpoints.desktop = breakpoints[2];
+breakpoints.wide = breakpoints[3];
+
+export const mediaQueries = {
+  above: {
+    mobile: `@media screen and (min-width: ${breakpoints.mobile})`,
+    tablet: `@media screen and (min-width: ${breakpoints.tablet})`,
+    desktop: `@media screen and (min-width: ${breakpoints.desktop})`,
+    wide: `@media screen and (min-width: ${breakpoints.wide})`,
+  },
+  below: {
+    mobile: `@media screen and (max-width: ${breakpoints.mobile})`,
+    tablet: `@media screen and (max-width: ${breakpoints.tablet})`,
+    desktop: `@media screen and (max-width: ${breakpoints.desktop})`,
+    wide: `@media screen and (max-width: ${breakpoints.wide})`,
+  },
 };

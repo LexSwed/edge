@@ -1,0 +1,39 @@
+---
+name: Hidden
+route: /fx-hidden
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Hidden } from '@fxtrot/edge';
+
+# Hidden
+
+Allows you to hide content responsively. If you’re looking to hide content visually while making it available to assistive technologies, use HiddenVisually instead.
+
+## Basic usage
+
+```tsx
+import { Hidden } from '@fxtrot/edge';
+```
+
+<Playground>
+  <div>
+    Hidden below tablet size:
+    <Hidden as="span" below="tablet">
+      🙈
+    </Hidden>
+  </div>
+  <div>
+    Only visible for devices below desktop screen size:
+    <Hidden as="span" above="desktop">
+      🙈
+    </Hidden>
+  </div>
+  <div>
+    Only visible for tablets:
+    <Hidden as="span" below="mobile" above="desktop">
+      🙈
+    </Hidden>
+  </div>
+</Playground>

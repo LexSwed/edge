@@ -29,7 +29,7 @@ export const Wrapper = styled.div<{ space?: Props['space'] }>`
   &:before {
     content: '';
     display: block;
-    margin-top: ${(props) => (props.space ? `-${props.theme.space[props.space] + 1}px` : '-1px')};
+    margin-top: ${(props) => (props.space ? -(props.theme.space[props.space] + 1) : '-1px')};
   }
 `;
 
@@ -97,15 +97,15 @@ function parentMargin(props: ThemedStyledProps<Partial<Props>, DefaultTheme>) {
   const gap = -1 * props.theme.space[props.space];
 
   return css`
-    margin-left: ${gap}px;
-    margin-top: ${gap}px;
+    margin-left: ${gap};
+    margin-top: ${gap};
   `;
 }
 
 // https://gist.github.com/OliverJAsh/7f29d0fa1d35216ec681d2949c3fe8b7#gistcomment-3229174
 export const FlexNew = styled.div<Props>`
   display: flex;
-  gap: ${(props) => (props.space ? `${props.theme.space[props.space]}px` : 0)};
+  gap: ${(props) => (props.space ? props.theme.space[props.space] : 0)};
   ${wrap}
   ${align}
   ${alignY}
@@ -113,7 +113,7 @@ export const FlexNew = styled.div<Props>`
 
 export const InlineGrid = styled.div<Props>`
   display: grid;
-  gap: ${(props) => (props.space ? `${props.theme.space[props.space]}px` : 0)};
+  gap: ${(props) => (props.space ? props.theme.space[props.space] : 0)};
   grid-auto-flow: column;
   ${align}
   ${alignY}

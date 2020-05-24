@@ -9,6 +9,7 @@ export { default as ThemeProvider } from './Edge';
 export { default as FieldLabel } from './FieldLabel';
 export { default as FieldMessage } from './FieldMessage';
 export { default as Heading } from './Heading';
+export { default as Hidden } from './Hidden';
 export { default as Icon } from './Icon';
 export { default as IconButton } from './IconButton';
 export { default as Inline } from './Inline';

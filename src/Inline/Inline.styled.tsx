@@ -77,7 +77,6 @@ const wrap = (props: Partial<Props>) => {
 
 export const Flex = styled.div<Props>`
   display: flex;
-  ${wrap}
   ${parentMargin}
   ${align}
   ${alignY}
@@ -108,6 +107,14 @@ export const FlexNew = styled.div<Props>`
   display: flex;
   gap: ${(props) => (props.space ? `${props.theme.space[props.space]}px` : 0)};
   ${wrap}
+  ${align}
+  ${alignY}
+`;
+
+export const InlineGrid = styled.div<Props>`
+  display: grid;
+  gap: ${(props) => (props.space ? `${props.theme.space[props.space]}px` : 0)};
+  grid-auto-flow: column;
   ${align}
   ${alignY}
 `;

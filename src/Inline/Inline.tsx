@@ -1,10 +1,17 @@
 import React from 'react';
 
 import { renderValidChild, Size } from '../@utils';
-import { Wrapper, Flex, Child } from './Inline.styled';
+import { Wrapper, Flex, Child, InlineGrid } from './Inline.styled';
 
 const Inline = React.forwardRef<HTMLDivElement, Props>(
   ({ space, align = 'left', alignY = 'center', nowrap = false, children, ...props }, ref) => {
+    if (nowrap) {
+      return (
+        <InlineGrid space={space} align={align} alignY={alignY} {...props}>
+          {children}
+        </InlineGrid>
+      );
+    }
     return (
       <Wrapper space={space} {...props}>
         <Flex space={space} align={align} alignY={alignY} nowrap={nowrap} ref={ref}>

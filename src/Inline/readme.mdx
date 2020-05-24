@@ -20,10 +20,26 @@ import { Inline } from '@fxtrot/edge';
 <Playground>
   <Box p="m" width={350}>
     <Inline space="m">
-      {Array(6)
+      {Array(7)
         .fill(1)
         .map((_v, i) => (
           <Placeholder key={i} height={50} width={50}>
+            {i + 1}
+          </Placeholder>
+        ))}
+    </Inline>
+  </Box>
+</Playground>
+
+## Nowrap
+
+<Playground>
+  <Box p="m" width={350} bg="gray.200">
+    <Inline space="m" nowrap>
+      {Array(4)
+        .fill(1)
+        .map((_v, i) => (
+          <Placeholder key={i} height={50} width={50 + Math.random() * 100}>
             {i + 1}
           </Placeholder>
         ))}

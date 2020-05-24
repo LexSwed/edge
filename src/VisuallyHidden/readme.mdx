@@ -1,0 +1,27 @@
+---
+name: VisuallyHidden
+route: /fx-visuallyhidden
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { VisuallyHidden, IconButton } from '@fxtrot/edge';
+
+# VisuallyHidden
+
+Provides text for screen readers that is visually hidden. It is the logical opposite of the `aria-hidden` attribute.
+
+See more at (`@reach-ui`)[https://reacttraining.com/reach-ui/visually-hidden/].
+
+## Basic usage
+
+```tsx
+import { VisuallyHidden } from '@fxtrot/edge';
+```
+
+<Playground>
+  <p>
+    This text is accompanied with a hidden tip for screen readers.{' '}
+    <VisuallyHidden>Tip for screen readers</VisuallyHidden>
+  </p>
+</Playground>

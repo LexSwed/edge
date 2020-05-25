@@ -3,7 +3,7 @@ import React from 'react';
 import Field from '../Field';
 import FieldMessage from '../FieldMessage';
 import { useMergedInputProps, InputProps } from '../Field/utils';
-import { Input, Wrapper, CheckMark, Label } from './Checkbox.styled';
+import { Input, Wrapper, CheckMark, CheckboxWrapper, Label } from './Checkbox.styled';
 import Box from '../Box';
 
 type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
@@ -37,11 +37,18 @@ const Checkbox = React.forwardRef<HTMLDivElement, Props>(
 
     return (
       <Field {...props} ref={ref}>
-        <Wrapper checked={checked} disabled={disabled} display="inline-grid" gridTemplateColumns="auto 1fr" gridGap="s">
-          <Box display="inline-flex">
+        <Wrapper
+          checked={checked}
+          disabled={disabled}
+          display="inline-grid"
+          gridTemplateColumns="auto 1fr"
+          gridGap="s"
+          alignItems="flex-start"
+        >
+          <CheckboxWrapper>
             <Input {...mergedInputProps} type="checkbox" ref={inputRef} />
             <CheckMark checked={checked} />
-          </Box>
+          </CheckboxWrapper>
           <Box>
             <Label id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id} disabled={disabled}>
               {label}

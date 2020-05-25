@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FieldStyled, ToggleInput, ToggleStyled, Label } from './Toggle.styled';
+import { FieldStyled, ToggleWrapper, ToggleInput, ToggleStyled, Label } from './Toggle.styled';
 import Box from '../Box';
 import FieldMessage from '../FieldMessage';
 import { InputProps, useMergedInputProps } from '../Field/utils';
@@ -38,10 +38,10 @@ const Toggle = React.forwardRef<HTMLDivElement, Props>(
     return (
       <FieldStyled {...props} ref={ref}>
         <Box display="grid" gridTemplateColumns="auto 1fr" gridGap="s">
-          <Box position="relative">
+          <ToggleWrapper>
             <ToggleInput {...mergedInputProps} type="checkbox" ref={inputRef} />
             <ToggleStyled checked={checked} />
-          </Box>
+          </ToggleWrapper>
           <Box>
             {label && (
               <Label id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>

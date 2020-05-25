@@ -13,7 +13,8 @@ export const outline = () => css`
   outline-style: solid;
   outline-width: 1px;
   outline-color: transparent;
-  &:focus-within {
+  &:focus-within,
+  &:focus {
     outline-color: ${(props) => props.theme.colors.border.focus};
   }
 `;

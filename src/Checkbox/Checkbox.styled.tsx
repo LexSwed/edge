@@ -52,9 +52,14 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
     `}
 `;
 
-export const Wrapper = styled(Box)<{ checked?: boolean; disabled?: boolean }>`
+export const CheckboxWrapper = styled(Box)`
   ${outline}
-  ${({ checked, disabled, theme: { colors } }) => {
+  outline-width: 2px;
+  height: ${size};
+`;
+
+export const Wrapper = styled(Box)<{ checked?: boolean; disabled?: boolean }>(
+  ({ checked, disabled, theme: { colors } }) => {
     if (disabled) {
       const style: CSSObject = {
         [`& ${Input}`]: {
@@ -94,12 +99,8 @@ export const Wrapper = styled(Box)<{ checked?: boolean; disabled?: boolean }>`
         }
       }
     `;
-  }}
-`;
-
-export const CheckBoxWrapper = styled.span`
-  display: inline-flex;
-`;
+  }
+);
 
 export const Input = styled.input`
   cursor: pointer;

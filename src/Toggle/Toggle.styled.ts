@@ -2,16 +2,20 @@ import styled, { css } from 'styled-components/macro';
 import Field from '../Field';
 import { Input } from '../Checkbox/Checkbox.styled';
 import FieldLabel from '../FieldLabel';
+import Box from '../Box';
+import { outline } from '../Edge/theme';
 
+const height = '20px';
 const size = () => css`
   width: 36px;
-  height: 20px;
+  height: ${height};
 `;
 
 export const ToggleStyled = styled.div<{ checked?: boolean }>`
   background: ${(props) => props.theme.colors.surface[1]};
   border-width: 1px;
   border-style: solid;
+  border-color: ${(props) => props.theme.colors.border.focus};
   border-radius: 10px;
   transition: background 1s ease-in-out, 0.12s ease-in-out;
   position: relative;
@@ -22,7 +26,7 @@ export const ToggleStyled = styled.div<{ checked?: boolean }>`
     border-radius: 50%;
     width: 12px;
     height: 12px;
-    background-color: ${(props) => props.theme.colors.border.default};
+    background-color: ${(props) => props.theme.colors.border.hover};
     position: absolute;
     top: 3px;
     left: 3px;
@@ -54,29 +58,21 @@ export const ToggleInput = styled(Input)`
   }) =>
     !checked &&
     css`
-      &:hover + ${ToggleStyled}:after {
-        background-color: ${border.hover};
-      }
-      &:focus + ${ToggleStyled}:after {
+      &:hover + ${ToggleStyled}:after, &:focus + ${ToggleStyled}:after {
         background-color: ${border.focus};
       }
     `}
 `;
 
-export const FieldStyled = styled(Field)`
-  ${({ theme }) => css`
-    & ${ToggleStyled} {
-      border-color: ${theme.colors.border.default};
-    }
-    &:hover ${ToggleStyled} {
-      border-color: ${theme.colors.border.hover};
-    }
-    &:focus-within ${ToggleStyled} {
-      border-color: ${theme.colors.border.focus};
-    }
-  `}
+export const ToggleWrapper = styled(Box)`
+  position: relative;
+  height: ${height};
+  ${outline}
+  outline-width: 2px;
 `;
 
+export const FieldStyled = styled(Field)``;
+
 export const Label = styled(FieldLabel)`
-  line-height: 20px;
+  line-height: ${height};
 `;

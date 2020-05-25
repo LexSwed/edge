@@ -5,11 +5,12 @@ type FieldLabelAttrs = React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLab
 
 type Props = FieldLabelAttrs & {
   htmlFor: FieldLabelAttrs['htmlFor'];
+  disabled?: boolean;
 };
 
-const FieldLabel = React.forwardRef<HTMLLabelElement, Props>(({ children, ...props }, ref) => {
+const FieldLabel = React.forwardRef<HTMLLabelElement, Props>(({ children, disabled, ...props }, ref) => {
   return (
-    <Label fontSize="m" color="text.default" {...props} ref={ref}>
+    <Label fontSize="m" color={disabled ? 'text.disabled' : 'text.default'} {...props} ref={ref}>
       {children}
     </Label>
   );

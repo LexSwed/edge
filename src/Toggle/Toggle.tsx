@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { FieldStyled, ToggleWrapper, ToggleInput, ToggleStyled, Label } from './Toggle.styled';
+import { ToggleWrapper, ToggleInput, ToggleStyled, Label } from './Toggle.styled';
 import Box from '../Box';
 import FieldMessage from '../FieldMessage';
 import { InputProps, useMergedInputProps } from '../Field/utils';
+import Field from '../Field';
 
 type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
   align?: 'left' | 'right' | 'apart';
@@ -36,7 +37,7 @@ const Toggle = React.forwardRef<HTMLDivElement, Props>(
     });
 
     return (
-      <FieldStyled {...props} ref={ref}>
+      <Field {...props} ref={ref}>
         <Box display="grid" gridTemplateColumns="auto 1fr" gridGap="s">
           <ToggleWrapper>
             <ToggleInput {...mergedInputProps} type="checkbox" ref={inputRef} />
@@ -44,7 +45,7 @@ const Toggle = React.forwardRef<HTMLDivElement, Props>(
           </ToggleWrapper>
           <Box>
             {label && (
-              <Label id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
+              <Label id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id} disabled={disabled}>
                 {label}
               </Label>
             )}
@@ -56,7 +57,7 @@ const Toggle = React.forwardRef<HTMLDivElement, Props>(
           </Box>
         </Box>
         {checked && children}
-      </FieldStyled>
+      </Field>
     );
   }
 );

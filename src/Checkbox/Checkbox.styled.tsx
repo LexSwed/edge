@@ -18,11 +18,6 @@ const CheckmarkSvg = React.memo((props) => (
 
 export const Label = styled(FieldLabel)<{ disabled?: boolean }>`
   line-height: 20px;
-  ${({ disabled, theme }) =>
-    disabled &&
-    css`
-      color: ${theme.colors.text.disabled};
-    `}
 `;
 
 export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`

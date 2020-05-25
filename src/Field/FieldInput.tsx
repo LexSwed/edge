@@ -53,7 +53,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
     return (
       <Wrapper tone={tone} {...props}>
         {label && (
-          <LabelStyled id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
+          <LabelStyled disabled={disabled} id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
             {label}
           </LabelStyled>
         )}

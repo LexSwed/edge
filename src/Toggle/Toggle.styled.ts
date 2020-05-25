@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components/macro';
-import Field from '../Field';
+import styled, { css, CSSObject } from 'styled-components/macro';
 import { Input } from '../Checkbox/Checkbox.styled';
 import FieldLabel from '../FieldLabel';
 import Box from '../Box';
@@ -50,18 +49,42 @@ export const ToggleStyled = styled.div<{ checked?: boolean }>`
 
 export const ToggleInput = styled(Input)`
   ${size}
-  ${({
-    checked,
-    theme: {
-      colors: { border },
-    },
-  }) =>
-    !checked &&
-    css`
-      &:hover + ${ToggleStyled}:after, &:focus + ${ToggleStyled}:after {
-        background-color: ${border.focus};
+  ${({ checked, disabled, theme: { colors } }) => {
+    if (disabled) {
+      const styles: CSSObject = {
+        cursor: 'default',
+      };
+
+      if (checked) {
+        styles[`& + ${ToggleStyled}`] = {
+          borderColor: colors.border.disabled,
+          backgroundColor: colors.border.disabled,
+        };
+        styles[` & + ${ToggleStyled}:after`] = {
+          backgroundColor: '#fff',
+        };
+      } else {
+        styles[`& + ${ToggleStyled}`] = {
+          borderColor: colors.border.disabled,
+        };
+        styles[` & + ${ToggleStyled}:after`] = {
+          backgroundColor: colors.border.disabled,
+        };
       }
-    `}
+
+      return styles;
+    }
+
+    if (checked) {
+      return null;
+    }
+
+    return css`
+      &:hover + ${ToggleStyled}:after, &:focus + ${ToggleStyled}:after {
+        background-color: ${colors.border.focus};
+      }
+    `;
+  }}
 `;
 
 export const ToggleWrapper = styled(Box)`
@@ -70,8 +93,6 @@ export const ToggleWrapper = styled(Box)`
   ${outline}
   outline-width: 2px;
 `;
-
-export const FieldStyled = styled(Field)``;
 
 export const Label = styled(FieldLabel)`
   line-height: ${height};

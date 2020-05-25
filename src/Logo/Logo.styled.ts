@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro';
 import { variant } from 'styled-system';
+
 import { Size } from '../@utils';
 
 export const LogoStyled = styled.svg`

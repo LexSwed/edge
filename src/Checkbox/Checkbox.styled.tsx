@@ -1,6 +1,7 @@
 import React from 'react';
-import styled, { css } from 'styled-components/macro';
+import styled, { css, CSSObject } from 'styled-components/macro';
 
+import FieldLabel from '../FieldLabel';
 import Inline from '../Inline';
 import { outline } from '../Edge/theme';
 
@@ -15,6 +16,14 @@ const CheckmarkSvg = React.memo((props) => (
   </svg>
 ));
 
+export const Label = styled(FieldLabel)<{ disabled?: boolean }>(
+  ({ disabled, theme }) =>
+    disabled &&
+    css`
+      color: ${theme.colors.text.disabled};
+    `
+);
+
 export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
   display: inline-block;
   position: relative;
@@ -28,7 +37,7 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
   box-sizing: border-box;
   & > path {
     transition: fill 0.12s ease-in-out;
-    fill: var(--check-color, transparent);
+    fill: transparent;
   }
   ${(props) =>
     props.checked &&
@@ -41,23 +50,44 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
     `}
 `;
 
+styled.div({});
+
 export const InlineWrapper = styled(Inline).attrs({
   nowrap: true,
   alignY: 'center',
   space: 's',
-})<{ checked?: boolean }>`
+})<{ checked?: boolean; disabled?: boolean }>`
   display: inline-grid;
   border: 1px solid transparent;
   &:focus-within {
     border-color: ${(props) => props.theme.colors.border.focus};
   }
   ${outline}
-  ${({ checked, theme: { colors } }) => {
+  ${({ checked, disabled, theme: { colors } }) => {
+    if (disabled) {
+      const style: CSSObject = {
+        [`& ${Input}`]: {
+          cursor: 'default',
+        },
+      };
+
+      if (checked) {
+        style[`& ${CheckMark}`] = {
+          backgroundColor: colors.border.disabled,
+          borderColor: colors.border.disabled,
+        };
+        style[`& ${CheckMark} path`] = {
+          fill: '#fff',
+        };
+      }
+
+      return style;
+    }
     if (checked) {
       return css`
         &:hover {
-          & ${CheckMark} {
-            --check-color: ${colors.brand[700]};
+          & ${CheckMark} path {
+            fill: ${colors.brand[700]};
           }
         }
       `;
@@ -67,7 +97,9 @@ export const InlineWrapper = styled(Inline).attrs({
       &:hover {
         & ${CheckMark} {
           border-color: ${colors.border.hover};
-          --check-color: ${colors.border.hover};
+        }
+        & ${CheckMark} path {
+          fill: ${colors.border.hover};
         }
       }
     `;

@@ -58,6 +58,7 @@ const text = {
   default: gray[900],
   light: gray[700],
   ultralight: gray[500],
+  disabled: gray[600],
   modes: {
     dark: { default: '#fff', light: gray[300] },
   },
@@ -67,6 +68,7 @@ const border = {
   default: gray[500],
   hover: gray[600],
   focus: gray[800],
+  disabled: gray[500],
 };
 
 const positive = {

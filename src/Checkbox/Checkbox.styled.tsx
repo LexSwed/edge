@@ -35,6 +35,7 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
   border: 1px solid ${(props) => props.theme.colors.border.default};
   cursor: pointer;
   box-sizing: border-box;
+  transition: 0.12s ease-in-out;
   & > path {
     transition: fill 0.12s ease-in-out;
     fill: transparent;
@@ -49,8 +50,6 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
       }
     `}
 `;
-
-styled.div({});
 
 export const InlineWrapper = styled(Inline).attrs({
   nowrap: true,
@@ -86,8 +85,8 @@ export const InlineWrapper = styled(Inline).attrs({
     if (checked) {
       return css`
         &:hover {
-          & ${CheckMark} path {
-            fill: ${colors.brand[700]};
+          & ${CheckMark} {
+            background-color: ${colors.brand[700]};
           }
         }
       `;

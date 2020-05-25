@@ -3,6 +3,7 @@ import { Input } from '../Checkbox/Checkbox.styled';
 import FieldLabel from '../FieldLabel';
 import Box from '../Box';
 import { outline } from '../Edge/theme';
+import { variant } from 'styled-system';
 
 const height = '20px';
 const size = () => css`
@@ -94,6 +95,33 @@ export const ToggleWrapper = styled(Box)`
   outline-width: 2px;
 `;
 
+export const ContentWrapper = styled(Box)``;
+
 export const Label = styled(FieldLabel)`
   line-height: ${height};
+`;
+
+export const Wrapper = styled(Box)<{ align?: 'left' | 'right' | 'apart' }>`
+  ${variant({
+    prop: 'align',
+    variants: {
+      left: {},
+      right: {
+        gridTemplateColumns: '1fr auto',
+        [`& ${ToggleWrapper}`]: {
+          order: 2,
+        },
+        [`& ${ContentWrapper}`]: {
+          textAlign: 'right',
+          justifySelf: 'flex-end',
+        },
+      },
+      apart: {
+        gridTemplateColumns: '1fr auto',
+        [`& ${ToggleWrapper}`]: {
+          order: 2,
+        },
+      },
+    },
+  })}
 `;

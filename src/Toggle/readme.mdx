@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Toggle, Box } from '@fxtrot/edge';
+import { Toggle, Box, Stack } from '@fxtrot/edge';
 
 # Toggle
 
@@ -41,5 +41,17 @@ import { Toggle } from '@fxtrot/edge';
     <Toggle checked={false} label="Critical tone disabled" tone="critical" message="Something went wrong..." disabled />
     <Toggle checked={false} label="Critical tone checked disabled" tone="critical" message="Something went wrong..." checked disabled />
 
+  </Box>
+</Playground>
+
+## Align
+
+<Playground>
+  <Box width={400}>
+    <Stack space="m">
+      <Toggle label="Aligned left" message="Message for toggle" />
+      <Toggle label="Aligned right" tone="critical" message="Message for toggle" align="right" />
+      <Toggle label="Apart" message="Message for toggle" align="apart" />
+    </Stack>
   </Box>
 </Playground>

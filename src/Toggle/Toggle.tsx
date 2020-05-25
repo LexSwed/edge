@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { FieldStyled, InputWrapper, ToggleInput, ToggleStyled } from './Toggle.styled';
-import FieldLabel from '../FieldLabel';
+import { FieldStyled, ToggleInput, ToggleStyled, Label } from './Toggle.styled';
+import Box from '../Box';
 import FieldMessage from '../FieldMessage';
-import Inline from '../Inline';
 import { InputProps, useMergedInputProps } from '../Field/utils';
 
 type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
@@ -38,20 +37,24 @@ const Toggle = React.forwardRef<HTMLDivElement, Props>(
 
     return (
       <FieldStyled {...props} ref={ref}>
-        <Inline space="m" nowrap alignY="center">
-          <InputWrapper>
+        <Box display="grid" gridTemplateColumns="auto 1fr" gridGap="s">
+          <Box position="relative">
             <ToggleInput {...mergedInputProps} type="checkbox" ref={inputRef} />
             <ToggleStyled checked={checked} />
-          </InputWrapper>
-          <FieldLabel id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
-            {label}
-          </FieldLabel>
-        </Inline>
-        {message && (
-          <FieldMessage id={mergedInputProps['aria-describedby']} tone={tone}>
-            {message}
-          </FieldMessage>
-        )}
+          </Box>
+          <Box>
+            {label && (
+              <Label id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
+                {label}
+              </Label>
+            )}
+            {message && (
+              <FieldMessage id={mergedInputProps['aria-describedby']} tone={tone}>
+                {message}
+              </FieldMessage>
+            )}
+          </Box>
+        </Box>
         {checked && children}
       </FieldStyled>
     );

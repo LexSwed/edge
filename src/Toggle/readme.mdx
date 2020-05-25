@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Toggle, Stack } from '@fxtrot/edge';
+import { Toggle, Box } from '@fxtrot/edge';
 
 # Toggle
 
@@ -25,9 +25,21 @@ import { Toggle } from '@fxtrot/edge';
 ## Tone and message
 
 <Playground>
-  <Stack>
-    <Toggle checked={false} label="Default toggle" message="Message for toggle" />
+  <Box display="grid" gridAutoRows="auto" gridTemplateColumns="repeat(4, 1fr)" gridGap="s">
+    <Toggle label="Default toggle" message="Message for toggle" />
+    <Toggle label="Default toggle checked" message="Message for toggle" checked />
+    <Toggle label="Default toggle disabled" message="Message for toggle" disabled />
+    <Toggle label="Default toggle checked disabled" message="Message for toggle" checked disabled />
+
     <Toggle checked={false} label="Positive tone" tone="positive" message="Everything is alright" />
+    <Toggle checked={false} label="Positive tone checked" tone="positive" message="Everything is alright" checked />
+    <Toggle checked={false} label="Positive tone disabled" tone="positive" message="Everything is alright" disabled />
+    <Toggle checked={false} label="Positive tone checked disabled" tone="positive" message="Everything is alright" checked disabled />
+
     <Toggle checked={false} label="Critical tone" tone="critical" message="Something went wrong..." />
-  </Stack>
+    <Toggle checked={false} label="Critical tone checked" tone="critical" message="Something went wrong..." checked />
+    <Toggle checked={false} label="Critical tone disabled" tone="critical" message="Something went wrong..." disabled />
+    <Toggle checked={false} label="Critical tone checked disabled" tone="critical" message="Something went wrong..." checked disabled />
+
+  </Box>
 </Playground>

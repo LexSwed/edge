@@ -10,7 +10,7 @@ const icons: Record<NonNullable<Props['tone']>, React.ReactNode> = {
 
 const FieldMessage = React.forwardRef<HTMLDivElement, Props>(({ id, tone, children, ...props }, ref) => {
   return (
-    <Message id={id} tone={tone} fontSize="s" color="text.light" alignY="center" space="xs" {...props} ref={ref}>
+    <Message id={id} tone={tone} fontSize="s" color="text.light" {...props} ref={ref}>
       {tone ? icons[tone] : null}
       <span>{children}</span>
     </Message>

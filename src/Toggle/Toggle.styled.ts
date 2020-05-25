@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components/macro';
 import Field from '../Field';
 import { Input } from '../Checkbox/Checkbox.styled';
+import FieldLabel from '../FieldLabel';
 
 const size = () => css`
   width: 36px;
@@ -62,10 +63,6 @@ export const ToggleInput = styled(Input)`
     `}
 `;
 
-export const InputWrapper = styled.div`
-  position: relative;
-`;
-
 export const FieldStyled = styled(Field)`
   ${({ theme }) => css`
     & ${ToggleStyled} {
@@ -78,4 +75,8 @@ export const FieldStyled = styled(Field)`
       border-color: ${theme.colors.border.focus};
     }
   `}
+`;
+
+export const Label = styled(FieldLabel)`
+  line-height: 20px;
 `;

@@ -8,7 +8,11 @@ type Props = {
   tone: 'positive' | 'critical';
 };
 
-export const Message = styled(Inline)<Props & FontSizeProps & ColorProps>`
+export const Message = styled(Inline).attrs({
+  alignY: 'top',
+  space: 'xs',
+  nowrap: true,
+})<Props & FontSizeProps & ColorProps>`
   transition: 0.2s ease-in-out;
   ${fontSize}
   ${color}

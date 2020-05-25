@@ -4,7 +4,7 @@ import { variant, SpaceProps } from 'styled-system';
 import theme from '../Edge/theme';
 import Column from '../Column';
 
-export type Props = {
+type Props = {
   /**
    * Space between columns
    */

@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css, CSSObject } from 'styled-components/macro';
 
 import FieldLabel from '../FieldLabel';
-import Inline from '../Inline';
+import Box from '../Box';
 import { outline } from '../Edge/theme';
 
 const size = '20px';
@@ -16,13 +16,14 @@ const CheckmarkSvg = React.memo((props) => (
   </svg>
 ));
 
-export const Label = styled(FieldLabel)<{ disabled?: boolean }>(
-  ({ disabled, theme }) =>
+export const Label = styled(FieldLabel)<{ disabled?: boolean }>`
+  line-height: 20px;
+  ${({ disabled, theme }) =>
     disabled &&
     css`
       color: ${theme.colors.text.disabled};
-    `
-);
+    `}
+`;
 
 export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
   display: inline-block;
@@ -51,16 +52,7 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
     `}
 `;
 
-export const InlineWrapper = styled(Inline).attrs({
-  nowrap: true,
-  alignY: 'center',
-  space: 's',
-})<{ checked?: boolean; disabled?: boolean }>`
-  display: inline-grid;
-  border: 1px solid transparent;
-  &:focus-within {
-    border-color: ${(props) => props.theme.colors.border.focus};
-  }
+export const Wrapper = styled(Box)<{ checked?: boolean; disabled?: boolean }>`
   ${outline}
   ${({ checked, disabled, theme: { colors } }) => {
     if (disabled) {

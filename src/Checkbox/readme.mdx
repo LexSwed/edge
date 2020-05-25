@@ -22,7 +22,6 @@ import { Checkbox } from '@fxtrot/edge';
       <Checkbox
         label="Subscribe to news"
         checked={checked}
-        disabled
         onChange={(e) => setChecked(e.target.checked)}
         message="This is the message"
       />
@@ -33,15 +32,23 @@ import { Checkbox } from '@fxtrot/edge';
 ## Tone
 
 <Playground>
-  <Box display="grid" gridAutoRows="auto" gridTemplateColumns="repeat(2, 1fr)" gridGap="s">
+  <Box display="grid" gridAutoRows="auto" gridTemplateColumns="repeat(4, 1fr)" gridGap="s">
+
     <Checkbox label="No tone" message="Normal tone" />
+    <Checkbox label="No tone checked"  message="Normal tone checked" checked />
     <Checkbox label="No tone" message="Normal tone disabled" disabled />
-    <Checkbox label="No tone checked" checked message="Normal tone checked" />
-    <Checkbox label="No tone checked" checked message="Normal tone checked disabled" disabled />
+    <Checkbox label="No tone checked" checked message="Normal tone checked disabled" checked disabled />
+
     <Checkbox label="Positive tone" message="Positive tone" tone="positive" />
+    <Checkbox label="Positive tone" message="Positive tone checked"  tone="positive" checked />
     <Checkbox label="Positive tone" message="Positive tone disabled" tone="positive" disabled />
+    <Checkbox label="Positive tone" message="Positive tone checked disabled" checked disabled tone="positive" />
+
     <Checkbox label="Critical tone" message="Critical tone" tone="critical" />
+    <Checkbox label="Critical tone" message="Critical tone checked" tone="critical" checked />
     <Checkbox label="Critical tone" message="Critical tone disabled" tone="critical" disabled />
+    <Checkbox label="Critical tone" message="Critical tone checked disabled" tone="critical" checked disabled />
+
   </Box>
 </Playground>
 

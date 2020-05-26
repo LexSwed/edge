@@ -19,16 +19,14 @@ export function useMergedInputProps(props: Partial<FieldInputProps>): Partial<In
     autoFocus,
     autoComplete,
     name,
-    label,
-    message,
     checked,
     inputProps: { id, defaultValue, ...inputProps } = {},
+    message,
   } = props;
   const uid = useId(id);
-  const inputId = `input-${uid}`;
 
   const merged: Partial<InputProps> = {
-    id: inputId,
+    id: uid,
     value,
     onChange,
     type,
@@ -42,15 +40,8 @@ export function useMergedInputProps(props: Partial<FieldInputProps>): Partial<In
     ...inputProps,
   };
 
-  const labelId = `${inputId}-label`;
-  const messageId = `${inputId}-message`;
-
-  if (label && !merged['aria-labelledby']) {
-    merged['aria-labelledby'] = labelId;
-  }
-
   if (message && !merged['aria-describedby']) {
-    merged['aria-describedby'] = messageId;
+    merged['aria-describedby'] = `${uid}-message`;
   }
 
   return merged;
@@ -123,6 +114,7 @@ export type FieldInputProps = {
   onClear?: () => void;
 };
 
-export type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
+export interface InputProps
+  extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   ref: React.Ref<HTMLInputElement>;
-};
+}

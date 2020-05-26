@@ -1,34 +1,36 @@
 import styled, { css } from 'styled-components/macro';
-import { variant, color, fontSize, FontSizeProps, ColorProps } from 'styled-system';
+import { variant } from 'styled-system';
 
-import Inline from '../Inline';
+import Box from '../Box';
 
 type Props = {
   disabled?: boolean;
-  tone: 'positive' | 'critical';
+  tone?: 'positive' | 'critical';
 };
 
-export const Message = styled(Inline).attrs({
-  alignY: 'top',
-  space: 'xs',
-  nowrap: true,
-})<Props & FontSizeProps & ColorProps>`
-  transition: 0.2s ease-in-out;
-  ${fontSize}
-  ${color}
-  line-height: 1;
-  ${disabled}
-  ${variant<object, Props['tone']>({
-    prop: 'tone',
-    variants: {
-      positive: {
-        color: 'positive.2',
-      },
-      critical: {
-        color: 'critical.2',
-      },
+const tone = variant<object, NonNullable<Props['tone']>>({
+  prop: 'tone',
+  variants: {
+    positive: {
+      color: 'positive.2',
     },
-  })}
+    critical: {
+      color: 'critical.2',
+    },
+  },
+});
+
+export const Message = styled(Box).attrs({
+  display: 'grid',
+  gridTemplateRows: '1fr',
+  gridGap: 'xs',
+})<Props>`
+  transition: 0.2s ease-in-out;
+  line-height: 1;
+  font-size: ${(props) => props.theme.fontSizes.s};
+  grid-template-columns: ${(props) => (props.tone ? 'auto 1fr' : '1fr')};
+  ${tone}
+  ${disabled};
 `;
 
 function disabled({ disabled }: { disabled?: boolean }) {

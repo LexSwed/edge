@@ -32,6 +32,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
     const mergedInputProps = useMergedInputProps({
       inputProps,
       disabled,
+      message,
       ...props,
     });
 
@@ -53,7 +54,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
     return (
       <Wrapper tone={tone} {...props}>
         {label && (
-          <LabelStyled disabled={disabled} id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id}>
+          <LabelStyled disabled={disabled} htmlFor={mergedInputProps.id}>
             {label}
           </LabelStyled>
         )}
@@ -67,7 +68,7 @@ const FieldInput = React.forwardRef<HTMLDivElement, Props>(
           ref={ref}
         >
           <LeftIcon icon={icon} size={size} />
-          <Input {...mergedInputProps} ref={inputRefs} />
+          <Input {...mergedInputProps} ref={inputRefs as React.Ref<HTMLInputElement>} />
           {onClear && (
             <ClearButton
               size={size}

@@ -4,13 +4,13 @@ import Icon from '../Icon';
 import { Message } from './FieldMessage.styled';
 
 const icons: Record<NonNullable<Props['tone']>, React.ReactNode> = {
-  positive: <Icon icon="check_circle_outline" size="xs" />,
-  critical: <Icon icon="error_outline" size="xs" />,
+  positive: <Icon icon="check_circle_outline" size="xs" aria-hidden="true" />,
+  critical: <Icon icon="error_outline" size="xs" aria-hidden="true" />,
 };
 
-const FieldMessage = React.forwardRef<HTMLDivElement, Props>(({ id, tone, children, ...props }, ref) => {
+const FieldMessage = React.forwardRef<HTMLDivElement, Props>(({ tone, children, ...props }, ref) => {
   return (
-    <Message id={id} tone={tone} fontSize="s" color="text.light" {...props} ref={ref}>
+    <Message {...props} tone={tone} color="text.light" ref={ref}>
       {tone ? icons[tone] : null}
       <span>{children}</span>
     </Message>

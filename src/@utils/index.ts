@@ -23,7 +23,7 @@ export function joinRefs<T>(...refs: Ref<T>[]) {
     });
 }
 
-type Ref<T> = React.Ref<T> | React.MutableRefObject<T> | null | undefined;
+type Ref<T> = React.Ref<T> | React.MutableRefObject<T> | undefined;
 
 export type Size = 'xs' | 's' | 'm' | 'l' | 'xl';
 

@@ -5,6 +5,7 @@ import FieldMessage from '../FieldMessage';
 import { variant, padding, PaddingProps } from 'styled-system';
 import { FieldInputProps } from './utils';
 import { Size } from '../@utils';
+import { outline } from '../Edge/theme';
 
 export const LabelStyled = styled(FieldLabel)``;
 export const MessageStyled = styled(FieldMessage)``;
@@ -134,12 +135,15 @@ const variants = variant<object, NonNullable<FieldInputProps['variant']> | 'defa
       borderRadius: 'm',
     },
     underlined: {
-      borderBottomWidth: '1px',
-      borderBottomStyle: 'solid',
-      borderTopLeftRadius: 'm',
-      borderTopRightRadius: 'm',
-      paddingBottom: '1px',
-      position: 'relative',
+      'borderBottomWidth': '1px',
+      'borderBottomStyle': 'solid',
+      'borderTopLeftRadius': 'm',
+      'borderTopRightRadius': 'm',
+      'paddingBottom': '1px',
+      'position': 'relative',
+      '&:focus-within': {
+        outlineWidth: 0,
+      },
     },
     borderless: {
       border: 'none',
@@ -203,6 +207,8 @@ export const FieldInputWrapper = styled.div<FieldInputWrapperProps>`
   width: 100%;
   color: ${(props) => props.theme.colors.text.default};
   background-color: ${(props) => props.theme.colors.surface[1]};
+  border: none;
+  ${outline}
   ${variants}
   ${underlinedVariant}
   ${tone}

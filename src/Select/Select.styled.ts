@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro';
 
-import { outline } from '../Edge/theme';
 import Icon from '../Icon';
 import { FieldInputWrapper, INPUT_SIZE } from '../Field/Field.styled';
 import LeftIcon from '../Field/LeftIcon';
@@ -16,7 +15,6 @@ export const FieldWrapper = styled(FieldInputWrapper).attrs({ as: 'button' })`
   height: ${INPUT_SIZE};
   padding: 0;
   cursor: default;
-  ${outline}
 `;
 
 export const Value = styled.div<{ withIcon: boolean } & ColorProps>`

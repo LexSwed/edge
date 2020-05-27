@@ -113,6 +113,13 @@ import { Select, Option } from '@fxtrot/edge';
           </Option>
         ))}
       </Select>
+      <Select label="Disabled select" message="Message is ignored" variant="underlined">
+        {['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'].map((person) => (
+          <Option key={person} value={person}>
+            {person}
+          </Option>
+        ))}
+      </Select>
     </Stack>
   </Box>
 </Playground>

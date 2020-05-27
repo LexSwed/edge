@@ -33,4 +33,4 @@ export default ListBox;
 type OptionChildren = React.ReactComponentElement<typeof Option>;
 type Props = {
   children: OptionChildren[] | OptionChildren;
-} & Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>, 'ref'>;
+} & Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>, 'ref' | 'children'>;

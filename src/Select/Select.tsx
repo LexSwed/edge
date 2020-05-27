@@ -12,12 +12,16 @@ type Props = SelectInputProps & {
 };
 
 const Select = React.forwardRef<HTMLButtonElement, Props>(({ children, ...props }, ref) => {
-  const options = [
-    <ClearOption value="" key="default-value" disabled={props.required}>
-      Select one...
-    </ClearOption>,
-    ...React.Children.toArray(children),
-  ] as React.ComponentProps<typeof ListBox>['children'];
+  const options = React.useMemo(
+    () =>
+      [
+        <ClearOption value="" key="default-value" disabled={props.required}>
+          Select one...
+        </ClearOption>,
+        ...React.Children.toArray(children),
+      ] as React.ComponentProps<typeof ListBox>['children'],
+    [children, props.required]
+  );
 
   const downshift = useSelect({ value: props.value, onSelect: props.onSelect, options });
 

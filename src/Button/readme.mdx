@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Button, Icon, Inline } from '@fxtrot/edge';
+import { Box, Button, Icon, Inline } from '@fxtrot/edge';
 
 # Button
 
@@ -26,7 +26,7 @@ import { Button } from '@fxtrot/edge';
 
 <Playground>
   <Inline space="m">
-    <Button variant="default">Default</Button>
+    <Button>Default</Button>
     <Button variant="flat">Flat</Button>
     <Button variant="transparent">Transparent</Button>
     <Button variant="brand">Brand</Button>
@@ -44,6 +44,37 @@ import { Button } from '@fxtrot/edge';
     <Button size="l">Large</Button>
     <Button size="xl">Extra large</Button>
   </Inline>
+</Playground>
+
+## Loading
+
+<Playground>
+  {() => {
+    const [loading, setLoading] = React.useState(false);
+    const onClick = () => {
+      setLoading(true);
+      setTimeout(() => setLoading(false), 1000);
+    };
+    return (
+      <Inline space="m" alignY="center">
+        <Button onClick={onClick} loading={loading}>
+          Start loading
+        </Button>
+        <Button onClick={onClick} loading={loading} variant="flat">
+          Start loading
+        </Button>
+        <Button onClick={onClick} loading={loading} variant="transparent">
+          Start loading
+        </Button>
+        <Button onClick={onClick} loading={loading} variant="brand">
+          Start loading
+        </Button>
+        <Button onClick={onClick} loading={loading} variant="critical">
+          Start loading
+        </Button>
+      </Inline>
+    );
+  }}
 </Playground>
 
 ## With Icon

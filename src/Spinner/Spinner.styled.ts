@@ -10,7 +10,7 @@ const size = variant<object, Size>({
       size: '12px',
     },
     s: {
-      borderWidth: '4px',
+      borderWidth: '3px',
       size: '16px',
     },
     m: {

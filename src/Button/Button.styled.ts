@@ -1,6 +1,7 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 import { variant } from 'styled-system';
 import { Size } from '../@utils';
+import { outline } from '../Edge/theme';
 
 export const buttonSize = {
   xs: 20,
@@ -60,8 +61,8 @@ const variants = variant<object, Variant>({
       },
     },
     transparent: {
-      'borderColor': 'transparent',
-      'bg': 'transparent',
+      'borderColor': 'surface.0',
+      'bg': 'surface.0',
       '&:hover': {
         'bg': 'gray.200',
         '&:not(:active):not(:focus)': {
@@ -82,7 +83,7 @@ const variants = variant<object, Variant>({
       '&:hover': {
         bg: 'brand.700',
       },
-      '&:active': {
+      '&:active, &:focus': {
         bg: 'brand.600',
       },
       '&:disabled': {
@@ -96,7 +97,7 @@ const variants = variant<object, Variant>({
       '&:hover': {
         bg: 'red.700',
       },
-      '&:active': {
+      '&:active, &:focus': {
         bg: 'red.600',
       },
       '&:disabled': {
@@ -106,7 +107,12 @@ const variants = variant<object, Variant>({
   },
 });
 
-export const ButtonStyled = styled.button`
+const borderRadius = css`
+  border-radius: ${(props) => props.theme.radii.s};
+`;
+
+export const ButtonStyled = styled.button<{ size: Size }>`
+  position: relative;
   background-color: #fff;
   border: 1px solid ${(props) => props.theme.colors.border.default};
   color: ${(props) => props.theme.colors.text.default};
@@ -117,8 +123,9 @@ export const ButtonStyled = styled.button`
   text-decoration: none;
   flex-shrink: 0;
   box-sizing: border-box;
-  border-radius: ${(props) => props.theme.radii.s};
   padding: 0;
+  ${borderRadius}
+  ${outline}
   &:hover {
     background-color: ${(props) => props.theme.colors.gray[200]};
   }
@@ -131,7 +138,6 @@ export const ButtonStyled = styled.button`
   }
   &:focus {
     border-color: ${(props) => props.theme.colors.border.focus};
-    outline: none;
   }
   &:disabled {
     position: relative;
@@ -151,4 +157,17 @@ export const ButtonStyled = styled.button`
   }
   ${size}
   ${variants}
+`;
+
+export const SpinnerWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${borderRadius}
 `;

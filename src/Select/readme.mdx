@@ -39,7 +39,12 @@ import { Select, Option } from '@fxtrot/edge';
       'Stephane Tarleton',
       'Paul Haack',
     ];
-    const [value, setValue] = React.useState(people[0]);
+    const [value, setValue] = React.useState('');
+    React.useEffect(() => {
+      setTimeout(() => {
+        setValue(people[3])
+      }, 1000)
+    }, [])
     return (
       <Box style={{ width: '240px' }}>
         <Select
@@ -57,29 +62,44 @@ import { Select, Option } from '@fxtrot/edge';
         </Select>
       </Box>
     );
-  }}
+}}
+
+</Playground>
+
+## Icon
+
+<Playground>
+  <Box width={200}>
+    <Select icon="public" label="Language" message="Language of the app">
+      {['English', 'Spanish', 'Ukrainian'].map((lang) => (
+        <Option key={lang} value={lang}>
+          {lang}
+        </Option>
+      ))}
+    </Select>
+  </Box>
 </Playground>
 
 ## Message and tone
 
 <Playground>
-  <Box style={{ width: '300px' }}>
+  <Box width={300}>
     <Stack>
-      <Select label="Default tone" size="s" message="Selected person will deploy the app">
+      <Select label="Default tone" message="Selected person will deploy the app">
         {['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'].map((person) => (
           <Option key={person} value={person}>
             {person}
           </Option>
         ))}
       </Select>
-      <Select label="Critical tone" size="m" message="Something is incorrect" tone="critical">
+      <Select label="Critical tone" message="Something is incorrect" tone="critical">
         {['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'].map((person) => (
           <Option key={person} value={person}>
             {person}
           </Option>
         ))}
       </Select>
-      <Select label="Positive tone" size="l" message="The selection is okay" tone="positive">
+      <Select label="Positive tone" message="The selection is okay" tone="positive">
         {['Taran Burt', 'Jaimee Rios', 'Haniya Padilla'].map((person) => (
           <Option key={person} value={person}>
             {person}
@@ -93,18 +113,6 @@ import { Select, Option } from '@fxtrot/edge';
           </Option>
         ))}
       </Select>
-    </Stack>
-  </Box>
-</Playground>
-
-## Sizes
-
-<Playground>
-  <Box style={{ width: '300px' }}>
-    <Stack>
-      <Select placeholder="Small inline input" size="s" />
-      <Select label="Normal input (default)" placeholder="Medium" size="m" />
-      <Select label="Prominent input" placeholder="Large" size="l" />
     </Stack>
   </Box>
 </Playground>

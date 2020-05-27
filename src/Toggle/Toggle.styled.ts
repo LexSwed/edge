@@ -92,7 +92,6 @@ export const ToggleWrapper = styled(Box)`
   position: relative;
   height: ${height};
   ${outline}
-  outline-width: 2px;
 `;
 
 export const ContentWrapper = styled(Box)``;

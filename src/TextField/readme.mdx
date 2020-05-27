@@ -115,39 +115,46 @@ always controlled. This creattes additional overhead and code to cover such rare
   </Box>
 </Playground>
 
-## Sizes
-
-<Playground>
-  <Box width={300}>
-    <Stack>
-      <TextField placeholder="Small inline input" size="s" />
-      <TextField label="Normal input (default)" placeholder="Medium" size="m" />
-      <TextField label="Prominent input" placeholder="Large" size="l" />
-    </Stack>
-  </Box>
-</Playground>
-
 ## With icon
 
 <Playground>
   <Box width={300}>
     <Stack>
-      <TextField label="Small with" size="s" icon="search" value="Small sized" onChange={() => {}} onClear={() => {}} />
       <TextField
-        label="Normal input (default)"
-        size="m"
-        icon="expand_more"
-        value="Medium sized"
+        label="Default input"
+        size="s"
+        icon="search"
+        value="Small sized"
         onChange={() => {}}
-        allowClear
+        onClear={() => {}}
       />
       <TextField
-        label="Prominent input"
+        label="Underlined"
+        size="m"
+        icon="search"
+        value="Medium sized"
+        variant="underlined"
+        onChange={() => {}}
+        onClear={() => {}}
+      />
+      <TextField
+        label="Underlined positive"
         size="l"
         icon="search"
         value="Large sized"
         onChange={() => {}}
         onClear={() => {}}
+        variant="underlined"
+        tone="positive"
+      />
+      <TextField
+        label="Borderless input with icon"
+        size="l"
+        icon="search"
+        value="Large sized"
+        onChange={() => {}}
+        onClear={() => {}}
+        variant="borderless"
       />
     </Stack>
   </Box>

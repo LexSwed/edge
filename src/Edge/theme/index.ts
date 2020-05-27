@@ -10,11 +10,10 @@ const shadows = {
 };
 
 export const outline = () => css`
-  outline-style: solid;
-  outline-width: 1px;
-  outline-color: transparent;
   &:focus-within,
   &:focus {
+    outline-style: auto;
+    outline-width: 2px;
     outline-color: ${(props) => props.theme.colors.border.focus};
   }
 `;

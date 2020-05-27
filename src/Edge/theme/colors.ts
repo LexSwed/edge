@@ -65,8 +65,8 @@ const text = {
 };
 
 const border = {
-  default: gray[500],
-  hover: gray[600],
+  default: gray[600],
+  hover: gray[700],
   focus: gray[800],
   disabled: gray[500],
 };
@@ -78,7 +78,7 @@ const positive = {
 };
 
 const critical = {
-  1: red[400],
+  1: red[500],
   2: red[600],
   3: red[700],
 };

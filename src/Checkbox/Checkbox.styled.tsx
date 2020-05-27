@@ -49,7 +49,7 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
 
 export const CheckboxWrapper = styled(Box)`
   ${outline}
-  outline-width: 2px;
+  outline-style: solid;
   height: ${size};
 `;
 

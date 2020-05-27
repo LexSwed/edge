@@ -19,52 +19,39 @@ type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLD
   inputProps?: InputProps;
 };
 
-const Checkbox = React.forwardRef<HTMLDivElement, Props>(
-  (
-    { label, message, tone, name, value, checked, disabled, onChange, inputRef, inputProps, children, ...props },
-    ref
-  ) => {
-    const mergedInputProps = useMergedInputProps({
-      label,
-      message,
-      name,
-      value,
-      checked,
-      disabled,
-      onChange,
-      inputProps,
-    });
+const Checkbox = React.forwardRef<HTMLDivElement, Props>((initialProps, ref) => {
+  const [inputProps, wrapperProps] = useMergedInputProps(initialProps);
+  const { label, message, tone, children, ...props } = wrapperProps;
 
-    return (
-      <Field {...props} ref={ref}>
-        <Wrapper
-          checked={checked}
-          disabled={disabled}
-          display="inline-grid"
-          gridTemplateColumns="auto 1fr"
-          gridGap="s"
-          alignItems="flex-start"
-        >
-          <CheckboxWrapper>
-            <Input {...mergedInputProps} type="checkbox" ref={inputRef} />
-            <CheckMark checked={checked} />
-          </CheckboxWrapper>
-          <Box>
-            <Label id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id} disabled={disabled}>
-              {label}
-            </Label>
-            {message && (
-              <FieldMessage id={mergedInputProps['aria-describedby']} tone={tone}>
-                {message}
-              </FieldMessage>
-            )}
-          </Box>
-        </Wrapper>
-        {checked && children}
-      </Field>
-    );
-  }
-);
+  return (
+    <Field {...props} ref={ref}>
+      <Wrapper
+        checked={inputProps.checked}
+        disabled={inputProps.disabled}
+        display="inline-grid"
+        gridTemplateColumns="auto 1fr"
+        gridGap="s"
+        alignItems="flex-start"
+      >
+        <CheckboxWrapper>
+          <Input {...inputProps} type="checkbox" />
+          <CheckMark checked={inputProps.checked} />
+        </CheckboxWrapper>
+        <Box>
+          <Label id={inputProps['aria-labelledby']} htmlFor={inputProps.id} disabled={inputProps.disabled}>
+            {label}
+          </Label>
+          {message && (
+            <FieldMessage id={inputProps['aria-describedby']} tone={tone}>
+              {message}
+            </FieldMessage>
+          )}
+        </Box>
+      </Wrapper>
+      {inputProps.checked && children}
+    </Field>
+  );
+});
 
 if (__DEV__) {
   Checkbox.displayName = 'FxCheckbox';

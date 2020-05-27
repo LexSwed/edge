@@ -44,9 +44,7 @@ export function useSelect({ value, onSelect, options }: UseSelectParams) {
   const items = useMemo<OptionChildren[]>(() => Children.toArray(options) as OptionChildren[], [options]);
   const onSelectedItemChange: UseSelectProps<OptionChildren>['onSelectedItemChange'] = useCallback(
     ({ selectedItem }) => {
-      setTimeout(() => {
-        onSelect?.(optionToString(selectedItem));
-      }, 0);
+      onSelect?.(optionToString(selectedItem));
     },
     [onSelect]
   );

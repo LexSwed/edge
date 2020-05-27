@@ -19,46 +19,33 @@ type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLD
   inputProps?: InputProps;
 };
 
-const Toggle = React.forwardRef<HTMLDivElement, Props>(
-  (
-    { label, message, tone, name, value, checked, disabled, onChange, align, inputRef, inputProps, children, ...props },
-    ref
-  ) => {
-    const mergedInputProps = useMergedInputProps({
-      label,
-      message,
-      name,
-      value,
-      checked,
-      disabled,
-      onChange,
-      inputProps,
-    });
+const Toggle = React.forwardRef<HTMLDivElement, Props>((initialProps, ref) => {
+  const [inputProps, wrapperProps] = useMergedInputProps(initialProps);
+  const { label, message, tone, align, children, ...props } = wrapperProps;
 
-    return (
-      <Field {...props} ref={ref}>
-        <Wrapper display="grid" gridTemplateColumns="auto 1fr" gridGap="s" align={align}>
-          <ToggleWrapper>
-            <ToggleInput {...mergedInputProps} type="checkbox" ref={inputRef} />
-            <ToggleStyled checked={checked} />
-          </ToggleWrapper>
-          <ContentWrapper>
-            {label && (
-              <Label id={mergedInputProps['aria-labelledby']} htmlFor={mergedInputProps.id} disabled={disabled}>
-                {label}
-              </Label>
-            )}
-            {message && (
-              <FieldMessage id={mergedInputProps['aria-describedby']} tone={tone}>
-                {message}
-              </FieldMessage>
-            )}
-          </ContentWrapper>
-        </Wrapper>
-        {checked && children}
-      </Field>
-    );
-  }
-);
+  return (
+    <Field {...props} ref={ref}>
+      <Wrapper display="grid" gridTemplateColumns="auto 1fr" gridGap="s" align={align}>
+        <ToggleWrapper>
+          <ToggleInput {...inputProps} type="checkbox" />
+          <ToggleStyled checked={inputProps.checked} />
+        </ToggleWrapper>
+        <ContentWrapper>
+          {label && (
+            <Label id={inputProps['aria-labelledby']} htmlFor={inputProps.id} disabled={inputProps.disabled}>
+              {label}
+            </Label>
+          )}
+          {message && (
+            <FieldMessage id={inputProps['aria-describedby']} tone={tone}>
+              {message}
+            </FieldMessage>
+          )}
+        </ContentWrapper>
+      </Wrapper>
+      {inputProps.checked && children}
+    </Field>
+  );
+});
 
 export default Toggle;

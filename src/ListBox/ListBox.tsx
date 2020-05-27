@@ -9,7 +9,7 @@ import { ListBoxStyled } from './ListBox.styled';
 const ListBox = React.forwardRef<HTMLUListElement, Props>(({ children, ...props }, forwardedRef) => {
   const { dropdownRef } = useDropdown();
   const { isOpen, getMenuProps, getItemProps } = useDownshiftState();
-  const { ref, ...menuProps } = getMenuProps();
+  const { ref, ...menuProps } = getMenuProps(props);
   const combinedRef = useCombinedRefs(ref, forwardedRef, dropdownRef as React.RefObject<HTMLUListElement>);
 
   return (
@@ -33,4 +33,4 @@ export default ListBox;
 type OptionChildren = React.ReactComponentElement<typeof Option>;
 type Props = {
   children: OptionChildren[] | OptionChildren;
-} & Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>, 'ref' | 'children'>;
+} & Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLUListElement>, HTMLUListElement>, 'ref'>;

@@ -1,4 +1,4 @@
-import { css } from 'styled-components/macro';
+import { css, ThemeProps, DefaultTheme } from 'styled-components/macro';
 
 import * as sizes from './sizes';
 import colors from './colors';
@@ -9,12 +9,12 @@ const shadows = {
   2: '0px 12.8px 28.8px rgba(0, 0, 0, 0.13), 0px 0px 9.2px rgba(0, 0, 0, 0.11)',
 };
 
-export const outline = () => css`
-  &:focus-within,
-  &:focus {
-    outline-style: auto;
-    outline-width: 2px;
-    outline-color: ${(props) => props.theme.colors.border.focus};
+export const outline = (props: ThemeProps<DefaultTheme>) => css`
+  outline: none;
+
+  &[data-focus-visible]:focus,
+  &[data-focus-visible]:focus-within {
+    outline: 2px auto ${props.theme.colors.border.focus};
   }
 `;
 

@@ -57,7 +57,7 @@ const red = {
 const text = {
   default: gray[900],
   light: gray[700],
-  ultralight: gray[500],
+  ultralight: gray[600],
   disabled: gray[600],
   modes: {
     dark: { default: '#fff', light: gray[300] },
@@ -65,8 +65,8 @@ const text = {
 };
 
 const border = {
-  default: gray[600],
-  hover: gray[700],
+  default: gray[500],
+  hover: gray[600],
   focus: gray[800],
   disabled: gray[500],
 };

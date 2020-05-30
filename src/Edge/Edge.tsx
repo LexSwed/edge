@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components/macro';
 
 import theme from './theme';
 import { EdgeStyled } from './Edge.styled';
+import FocusManager from '../FocusManager';
 
 type EdgeContext = {
   edgeEl: React.RefObject<HTMLDivElement> | null;
@@ -19,13 +20,15 @@ const Edge: React.FC<Props> = ({ children }) => {
   const edgeEl = useRef(null);
 
   return (
-    <ThemeProvider theme={theme}>
-      <context.Provider value={{ edgeEl }}>
-        <EdgeStyled color="text.default" ref={edgeEl}>
-          {children}
-        </EdgeStyled>
-      </context.Provider>
-    </ThemeProvider>
+    <FocusManager>
+      <ThemeProvider theme={theme}>
+        <context.Provider value={{ edgeEl }}>
+          <EdgeStyled color="text.default" ref={edgeEl}>
+            {children}
+          </EdgeStyled>
+        </context.Provider>
+      </ThemeProvider>
+    </FocusManager>
   );
 };
 

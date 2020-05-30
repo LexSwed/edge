@@ -4,7 +4,7 @@ import { useToggleButtonProps, useDownshiftState } from '../Dropdown/utils';
 
 import { useCombinedRefs } from '../@utils';
 import type { SelectInputProps } from './utils';
-import { ArrowIcon, FieldWrapper, Value, Chevron } from './Select.styled';
+import { ArrowIcon, Field, Value, Chevron } from './Select.styled';
 import { Wrapper, LabelStyled, MessageStyled } from '../Field/Field.styled';
 import { useMergedInputProps } from '../Field/utils';
 import LeftIcon from '../Field/LeftIcon';
@@ -26,7 +26,7 @@ const SelectInput = React.forwardRef<HTMLButtonElement, SelectInputProps>((initi
           {label}
         </LabelStyled>
       )}
-      <FieldWrapper
+      <Field
         tone={tone || 'default'}
         variant={variant || 'default'}
         disabled={disabled}
@@ -45,7 +45,7 @@ const SelectInput = React.forwardRef<HTMLButtonElement, SelectInputProps>((initi
           </Value>
         )}
         <Chevron icon={<ArrowIcon icon="expand_more" expanded={isOpen} />} />
-      </FieldWrapper>
+      </Field>
       {message && (
         <MessageStyled tone={tone} disabled={disabled} id={inputProps['aria-describedby']}>
           {message}

@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 import Icon from '../Icon';
-import { FieldInputWrapper, INPUT_SIZE } from '../Field/Field.styled';
+import { fieldStyles, INPUT_SIZE, fieldWrapperStyles } from '../Field/Field.styled';
 import LeftIcon from '../Field/LeftIcon';
 import { color, ColorProps } from 'styled-system';
 import Option from '../Option';
@@ -11,10 +11,12 @@ export const ArrowIcon = styled(Icon)<{ expanded: boolean }>`
   transform: ${(props) => props.expanded && 'rotate(180deg)'};
 `;
 
-export const FieldWrapper = styled(FieldInputWrapper).attrs({ as: 'button' })`
+export const Field = styled.button<Parameters<typeof fieldStyles>[0]>`
+  ${fieldWrapperStyles}
+  ${fieldStyles}
+  cursor: default;
   height: ${INPUT_SIZE};
   padding: 0;
-  cursor: default;
 `;
 
 export const Value = styled.div<{ withIcon: boolean } & ColorProps>`

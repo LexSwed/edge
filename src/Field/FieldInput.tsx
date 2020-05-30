@@ -4,7 +4,7 @@ import ClearButton from './ClearButton';
 import LeftIcon from './LeftIcon';
 import { useMergedInputProps, FieldInputProps } from './utils';
 
-import { Wrapper, FieldInputWrapper, Input, LabelStyled, MessageStyled, INPUT_SIZE } from './Field.styled';
+import { Wrapper, FieldInputWrapper, Input, LabelStyled, MessageStyled } from './Field.styled';
 
 const FieldInput = React.forwardRef<HTMLDivElement, FieldInputProps>((initialProps, ref) => {
   const [inputProps, wrapperProps] = useMergedInputProps(initialProps);
@@ -18,16 +18,16 @@ const FieldInput = React.forwardRef<HTMLDivElement, FieldInputProps>((initialPro
           {label}
         </LabelStyled>
       )}
-      <FieldInputWrapper
-        tone={tone || 'default'}
-        variant={variant || 'default'}
-        disabled={inputProps.disabled}
-        withClearButton={Boolean(onClear)}
-        {...props}
-        ref={ref}
-      >
+      <FieldInputWrapper {...props} ref={ref}>
         <LeftIcon icon={icon} />
-        <Input {...inputProps} pr={onClear ? INPUT_SIZE : '8px'} pl={icon ? INPUT_SIZE : '8px'} />
+        <Input
+          {...inputProps}
+          tone={tone || 'default'}
+          variant={variant || 'default'}
+          disabled={inputProps.disabled}
+          withClearButton={Boolean(onClear)}
+          withIcon={Boolean(icon)}
+        />
         {onClear && <ClearButton shown={Boolean(inputProps?.value)} disabled={inputProps.disabled} onClick={onClear} />}
       </FieldInputWrapper>
       {message && (

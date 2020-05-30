@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components/macro';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components/macro';
 import Field from './Field';
 import FieldLabel from '../FieldLabel';
 import FieldMessage from '../FieldMessage';
-import { variant, padding, PaddingProps } from 'styled-system';
+import { variant } from 'styled-system';
 import { FieldInputProps } from './utils';
 import { Size } from '../@utils';
 import { outline } from '../Edge/theme';
@@ -29,9 +29,25 @@ export const Wrapper = styled(Field)<{ tone: FieldInputProps['tone'] }>`
   }
 `;
 
+export const fieldStyles = ({ withIcon, withClearButton, theme }: FieldProps & ThemeProps<DefaultTheme>) => {
+  return css`
+  color: ${theme.colors.text.default};
+  background-color: ${theme.colors.surface[1]};
+  border: none;
+  cursor: text;
+  padding-left: ${withIcon ? INPUT_SIZE : `${theme.space.s}px`};
+  padding-right: ${withClearButton ? INPUT_SIZE : `${theme.space.s}px`};
+  ${outline}
+  ${variants}
+  ${underlinedVariant}
+  ${tone}
+  ${disabled}
+  `;
+};
+
 export const INPUT_SIZE = '36px';
 
-export const Input = styled.input<PaddingProps>`
+export const Input = styled.input<FieldProps>`
   all: unset;
   font-size: inherit;
   color: ${(props) => props.theme.colors.text.default};
@@ -42,10 +58,7 @@ export const Input = styled.input<PaddingProps>`
   padding: 0;
   width: 100%;
   height: ${INPUT_SIZE};
-  ${padding}
-  &:focus {
-    outline: none;
-  }
+  ${fieldStyles}
   &::-webkit-calendar-picker-indicator {
     display: none;
   }
@@ -93,7 +106,7 @@ export const FieldClearButton = styled.span<{ shown: boolean }>`
   ${clearButtonVisibility}
 `;
 
-const tone = variant<object, FieldInputWrapperProps['tone']>({
+const tone = variant<object, FieldProps['tone']>({
   prop: 'tone',
   variants: {
     default: {
@@ -151,9 +164,9 @@ const variants = variant<object, NonNullable<FieldInputProps['variant']> | 'defa
   },
 });
 
-function underlinedVariant(props: FieldInputWrapperProps) {
+function underlinedVariant(props: FieldProps) {
   if (props.variant === 'underlined') {
-    return css<FieldInputWrapperProps>`
+    return css<FieldProps>`
       &:after {
         content: '';
         display: block;
@@ -197,28 +210,24 @@ function disabled({ disabled }: { disabled?: boolean }) {
   return null;
 }
 
-export const FieldInputWrapper = styled.div<FieldInputWrapperProps>`
+export const fieldWrapperStyles = css`
   position: relative;
-  cursor: text;
   display: inline-flex;
   align-items: center;
   flex-flow: row nowrap;
   box-sizing: border-box;
   width: 100%;
-  color: ${(props) => props.theme.colors.text.default};
-  background-color: ${(props) => props.theme.colors.surface[1]};
-  border: none;
-  ${outline}
-  ${variants}
-  ${underlinedVariant}
-  ${tone}
-  ${disabled}
 `;
 
-type FieldInputWrapperProps = {
+export const FieldInputWrapper = styled.div`
+  ${fieldWrapperStyles}
+`;
+
+type FieldProps = {
   disabled?: boolean;
   underlined?: boolean;
   tone: NonNullable<FieldInputProps['tone']> | 'default';
   variant: NonNullable<FieldInputProps['variant']> | 'default';
   withClearButton: boolean;
+  withIcon: Boolean;
 };

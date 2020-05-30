@@ -2,7 +2,6 @@ import styled, { css, CSSObject } from 'styled-components/macro';
 import { Input } from '../Checkbox/Checkbox.styled';
 import FieldLabel from '../FieldLabel';
 import Box from '../Box';
-import { outline } from '../Edge/theme';
 import { variant } from 'styled-system';
 
 const height = '20px';
@@ -91,7 +90,6 @@ export const ToggleInput = styled(Input)`
 export const ToggleWrapper = styled(Box)`
   position: relative;
   height: ${height};
-  ${outline}
 `;
 
 export const ContentWrapper = styled(Box)``;

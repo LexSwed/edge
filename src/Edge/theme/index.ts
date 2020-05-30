@@ -12,8 +12,7 @@ const shadows = {
 export const outline = (props: ThemeProps<DefaultTheme>) => css`
   outline: none;
 
-  &[data-focus-visible]:focus,
-  &[data-focus-visible]:focus-within {
+  &[data-focus-visible]:focus {
     outline: 2px auto ${props.theme.colors.border.focus};
   }
 `;

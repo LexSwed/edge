@@ -1,19 +1,3 @@
-const inputTypesWhitelist = {
-  'text': true,
-  'search': true,
-  'url': true,
-  'tel': true,
-  'email': true,
-  'password': true,
-  'number': true,
-  'date': true,
-  'month': true,
-  'week': true,
-  'time': true,
-  'datetime': true,
-  'datetime-local': true,
-};
-
 const events = [
   'mousemove',
   'mousedown',
@@ -86,7 +70,7 @@ export function applyFocusVisiblePolyfill() {
       return;
     }
 
-    if (hadKeyboardEvent || focusTriggersKeyboardModality(e.target as HTMLFormElement)) {
+    if (hadKeyboardEvent) {
       addFocusVisible(e.target);
     }
   }
@@ -209,6 +193,21 @@ function isValidFocusTarget(el: Element | EventTarget | null) {
   );
 }
 
+// const inputTypesWhitelist = {
+//   'text': true,
+//   'search': true,
+//   'url': true,
+//   'tel': true,
+//   'email': true,
+//   'password': true,
+//   'number': true,
+//   'date': true,
+//   'month': true,
+//   'week': true,
+//   'time': true,
+//   'datetime': true,
+//   'datetime-local': true,
+// };
 /**
  * Computes whether the given element should automatically trigger the
  * `focus-visible` class being added, i.e. whether it should always match
@@ -216,24 +215,24 @@ function isValidFocusTarget(el: Element | EventTarget | null) {
  * @param {Element} el
  * @return {boolean}
  */
-function focusTriggersKeyboardModality(el: HTMLFormElement) {
-  let type: keyof typeof inputTypesWhitelist = el.type;
-  let tagName = el.tagName;
+// function focusTriggersKeyboardModality(el: HTMLFormElement) {
+//   let type: keyof typeof inputTypesWhitelist = el.type;
+//   let tagName = el.tagName;
 
-  if (tagName === 'INPUT' && inputTypesWhitelist[type] && !el.readOnly) {
-    return true;
-  }
+//   if (tagName === 'INPUT' && inputTypesWhitelist[type] && !el.readOnly) {
+//     return true;
+//   }
 
-  if (tagName === 'TEXTAREA' && !el.readOnly) {
-    return true;
-  }
+//   if (tagName === 'TEXTAREA' && !el.readOnly) {
+//     return true;
+//   }
 
-  if (el.isContentEditable) {
-    return true;
-  }
+//   if (el.isContentEditable) {
+//     return true;
+//   }
 
-  return false;
-}
+//   return false;
+// }
 
 /**
  * Add the `focus-visible` class to the given element if it was not added by

@@ -48,8 +48,6 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
 `;
 
 export const CheckboxWrapper = styled(Box)`
-  ${outline}
-  outline-style: solid;
   height: ${size};
 `;
 
@@ -109,7 +107,5 @@ export const Input = styled.input`
   border: none;
   -webkit-tap-highlight-color: transparent;
   z-index: 1;
-  &:focus {
-    outline: none;
-  }
+  ${outline}
 `;

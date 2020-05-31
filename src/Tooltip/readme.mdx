@@ -1,0 +1,36 @@
+---
+name: Tooltip
+route: /fx-tooltip
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Tooltip, IconButton, Text, TextLink, Inline } from '@fxtrot/edge';
+
+# Tooltip
+
+## Basic usage
+
+```tsx
+import { Tooltip } from '@fxtrot/edge';
+```
+
+<Playground>
+  <Inline space="xl">
+    <div>
+      What is{' '}
+      <Tooltip hover placement="bottom-start" content="Link to the answer">
+        <TextLink href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">consciousness</TextLink>
+      </Tooltip>
+    </div>
+    <Tooltip
+      content={
+        <Text>
+          This is the tooltip with <TextLink href="#">link</TextLink>
+        </Text>
+      }
+    >
+      <IconButton icon="settings" />
+    </Tooltip>
+  </Inline>
+</Playground>

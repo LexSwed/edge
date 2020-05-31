@@ -17,12 +17,12 @@ type Props = {
   size: Size;
 } & Omit<React.ComponentProps<typeof Button>, 'variant'>;
 
-const IconButton: React.FC<Props> = ({ icon, size = 'm', ...props }) => {
+const IconButton = React.forwardRef<HTMLButtonElement, Props>(({ icon, size = 'm', ...props }, ref) => {
   return (
-    <Button size={size} {...props}>
+    <Button size={size} {...props} ref={ref}>
       <Icon size={sizeToIcon[size]} icon={icon} />
     </Button>
   );
-};
+});
 
 export default IconButton;

@@ -1,26 +1,17 @@
-import React, { useEffect } from 'react';
-import { Options as PopoverOptions } from '@popperjs/core';
+import React from 'react';
 
-import { downshiftContext, dropdownStaticContext, useDropdownProviderValue, useSelect } from './utils';
+import { downshiftContext, useSelect } from './utils';
+import { PopoverWrapper } from '../Popover/utils';
 
 type Props = {
-  placement?: PopoverOptions['placement'];
   downshift: ReturnType<typeof useSelect>;
 };
 
-const Dropdown: React.FC<Props> = ({ placement, downshift, children }) => {
-  const refs = useDropdownProviderValue();
-
-  useEffect(() => {
-    if (placement) {
-      refs.popperOptionsRef.current = { placement };
-    }
-  }, [placement, refs.popperOptionsRef]);
-
+const Dropdown: React.FC<Props> = ({ downshift, children }) => {
   return (
-    <dropdownStaticContext.Provider value={refs}>
+    <PopoverWrapper>
       <downshiftContext.Provider value={downshift}>{children}</downshiftContext.Provider>
-    </dropdownStaticContext.Provider>
+    </PopoverWrapper>
   );
 };
 

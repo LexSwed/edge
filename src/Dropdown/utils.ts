@@ -1,27 +1,14 @@
 import { createContext, useRef, useMemo, useContext, Children, useCallback } from 'react';
-import { Options as PopperOptions } from '@popperjs/core';
 import { useSelect as useDownshiftSelect, UseSelectProps } from 'downshift';
 
-import Option from '../../Option';
-import { useCombinedRefs } from '../../@utils';
+import Option from '../Option';
+import { useCombinedRefs } from '../@utils';
+import { usePopoverRefs } from '../Popover/utils';
 
 export const downshiftContext = createContext<DownshiftContextType>({} as DownshiftContextType);
-export const dropdownStaticContext = createContext<DropdownStaticContext>({} as DropdownStaticContext);
-
-export function useDropdownProviderValue() {
-  const triggerRef = useRef<HTMLElement>(null);
-  const dropdownRef = useRef<HTMLElement>(null);
-  const popperOptionsRef = useRef<Partial<PopperOptions>>({});
-
-  return { triggerRef, dropdownRef, popperOptionsRef };
-}
 
 export function useDropdownOpen() {
   return useContext(downshiftContext).isOpen;
-}
-
-export function useDropdown() {
-  return useContext(dropdownStaticContext);
 }
 
 const stateReducer: UseSelectProps<any>['stateReducer'] = (_state, { type, changes }) => {
@@ -68,7 +55,7 @@ export function useDownshiftState() {
 }
 
 export function useToggleButtonProps() {
-  const { triggerRef } = useDropdown();
+  const { triggerRef } = usePopoverRefs();
   const { getToggleButtonProps } = useDownshiftState();
 
   const { ref: downshiftRef, ...downshiftProps } = getToggleButtonProps();
@@ -85,12 +72,6 @@ export function optionToString(item?: OptionChildren): string {
   const { value } = item.props;
   return typeof value === 'string' ? value : JSON.stringify(value);
 }
-
-type DropdownStaticContext = {
-  triggerRef: React.RefObject<HTMLElement>;
-  dropdownRef: React.RefObject<HTMLElement>;
-  popperOptionsRef: React.RefObject<Partial<PopperOptions>>;
-};
 
 type DownshiftContextType = ReturnType<typeof useSelect>;
 

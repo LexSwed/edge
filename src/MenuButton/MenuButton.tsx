@@ -4,20 +4,14 @@ import { Dropdown } from '../Dropdown';
 import ToggleButton from './ToggleButton';
 import { useSelect } from '../Dropdown/utils';
 
-type Props = {
-  /**
-   * Placement according to [popper reference](https://popper.js.org/docs/v2/constructors/#options)
-   * @default 'bottom-start'
-   */
-  placement?: DDProps['placement'];
-};
+type Props = {};
 
-const MenuButton: React.FC<Props> = ({ children, placement }) => {
+const MenuButton: React.FC<Props> = ({ children }) => {
   const [button, menu] = Children.toArray(children);
   const downshift = useSelect({ options: React.isValidElement(menu) ? menu.props.children : [] });
 
   return (
-    <Dropdown downshift={downshift} placement={placement}>
+    <Dropdown downshift={downshift}>
       <ToggleButton>{button}</ToggleButton>
       {menu}
     </Dropdown>
@@ -29,5 +23,3 @@ if (__DEV__) {
 }
 
 export default MenuButton;
-
-type DDProps = React.ComponentProps<typeof Dropdown>;

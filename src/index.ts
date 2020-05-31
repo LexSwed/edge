@@ -25,4 +25,5 @@ export { default as Text } from './Text';
 export { default as TextField } from './TextField';
 export { default as TextLink } from './TextLink';
 export { default as Toggle } from './Toggle';
+export { default as Tooltip } from './Tooltip';
 export { default as VisuallyHidden } from './VisuallyHidden';

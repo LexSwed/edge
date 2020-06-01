@@ -30,18 +30,6 @@ const widthModifier: Partial<Modifier<'widther', {}>> = {
 
     return state;
   },
-  effect: ({
-    state: {
-      elements: { popper, reference },
-    },
-  }) => {
-    const { width: refWidth } = reference.getBoundingClientRect();
-    const { width: popperWidth } = popper.getBoundingClientRect();
-
-    popper.style.width = `${refWidth > popperWidth ? refWidth : popperWidth}px`;
-
-    return () => {};
-  },
 };
 
 export type UsePopper<T = HTMLElement, P = HTMLElement> = {
@@ -69,7 +57,7 @@ export function usePopper({ triggerRef, popoverRef, placement, offset, shown }: 
       modifiers.push({
         name: 'offset',
         options: {
-          offset: offset as any, // types are borken
+          offset,
         },
       });
     }

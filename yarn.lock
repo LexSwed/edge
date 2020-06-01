@@ -1256,6 +1256,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.3.1":
+  version "7.10.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
+  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/standalone@^7.4.5", "@babel/standalone@^7.9.6":
   version "7.10.0"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.10.0.tgz#02934ffbe711c1b3a3609ed3e01e92bf906f7b15"
@@ -1749,7 +1756,7 @@
     native-url "^0.2.6"
     schema-utils "^2.6.5"
 
-"@popperjs/core@^2.3.3":
+"@popperjs/core@^2.3.2", "@popperjs/core@^2.3.3":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.4.0.tgz#0e1bdf8d021e7ea58affade33d9d607e11365915"
   integrity sha512-NMrDy6EWh9TPdSRiHmHH2ye1v5U0gBD7pRYwSwJvomx7Bm4GG04vu63dYiVzebLOx2obPpJugew06xVP0Nk7hA==
@@ -2072,6 +2079,14 @@
     compass-vertical-rhythm "^1.4.5"
     modularscale "^2.0.1"
     object-assign "^4.1.1"
+
+"@tippyjs/react@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@tippyjs/react/-/react-4.0.2.tgz#fadd14f1e36dd4f63f5f241cc78f3a1bb8394250"
+  integrity sha512-iAKTjUmrXqTTJ4HZRDgmvVfUiv9pTzJoDjPLDbmvB6vttkuYvZ/o8NhHa72vMFgHpiMFNoYWtB8OCRR6x5Zs8w==
+  dependencies:
+    prop-types "^15.6.2"
+    tippy.js "^6.2.0"
 
 "@types/babel__core@^7.1.0":
   version "7.1.7"
@@ -12566,6 +12581,14 @@ react-simple-code-editor@^0.10.0:
   resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.10.0.tgz#73e7ac550a928069715482aeb33ccba36efe2373"
   integrity sha512-bL5W5mAxSW6+cLwqqVWY47Silqgy2DKDTR4hDBrLrUqC5BXc29YVx17l2IZk5v36VcDEq1Bszu2oHm1qBwKqBA==
 
+react-spring@^8.0.27:
+  version "8.0.27"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"
+  integrity sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    prop-types "^15.5.8"
+
 react@^16.13.0, react@^16.8.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
@@ -14732,6 +14755,13 @@ tiny-glob@^0.2.6:
   dependencies:
     globalyzer "^0.1.0"
     globrex "^0.1.1"
+
+tippy.js@^6.2.0:
+  version "6.2.3"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-6.2.3.tgz#0a5db67dc6bd9129233b26052b7ae2b2047fd73e"
+  integrity sha512-MzqHMrr2C0IC8ZUnG5kLQPxonWJ7V+Usqiy2W5b+dCvAfousio0mA85h+Ea5wRq94AQGd8mbFGeciRgkP+F+7w==
+  dependencies:
+    "@popperjs/core" "^2.3.2"
 
 title-case@^2.1.0:
   version "2.1.1"

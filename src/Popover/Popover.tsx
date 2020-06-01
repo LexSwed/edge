@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { usePopper, UsePopper, usePopoverRefs } from './utils';
 import { context } from '../Edge/Edge';
 import { PopperWrapper } from './Popover.styled';
+import VisuallyHidden from '../VisuallyHidden';
 
 type Props = {
   shown: UsePopper['shown'];
@@ -28,11 +29,15 @@ const Popover: React.FC<Props> = ({ shown, offset, placement, children, ...props
   }
 
   const edgeWrapperEl = edgeContext?.edgeEl?.current;
-  const render = (
-    <PopperWrapper {...props} ref={popoverRef} hidden={!shown}>
+  let render = (
+    <PopperWrapper {...props} ref={popoverRef}>
       {children}
     </PopperWrapper>
   );
+
+  if (!shown) {
+    render = <VisuallyHidden>{render}</VisuallyHidden>;
+  }
 
   return edgeWrapperEl ? ReactDOM.createPortal(render, edgeWrapperEl) : render;
 };

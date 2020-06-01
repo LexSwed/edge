@@ -65,7 +65,9 @@
     "@popperjs/core": "^2.3.3",
     "@reach/auto-id": "^0.10.3",
     "@styled-system/should-forward-prop": "^5.1.5",
+    "@tippyjs/react": "^4.0.2",
     "downshift": "^5.2.0",
+    "react-spring": "^8.0.27",
     "styled-system": "^5.1.5"
   },
   "publishConfig": {

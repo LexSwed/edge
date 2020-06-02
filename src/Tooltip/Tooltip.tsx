@@ -11,16 +11,16 @@ type Props = {
   children: React.ReactElement;
 };
 
+const config = { tension: 600 };
+const initialStyles = { opacity: 0 };
+
 const Tooltip: React.FC<Props> = ({ content, placement = 'top', delay = 200, children }) => {
   const trigger = React.Children.only(children);
-  const config = { tension: 400 };
-  const initialStyles = { opacity: 0, transform: placement.includes('top') ? 'translateY(5px)' : 'translateY(-5px)' };
   const [props, setSpring] = useSpring(() => initialStyles);
 
   const onMount: TippyProps['onMount'] = () => {
     setSpring({
       opacity: 1,
-      transform: 'translateY(0)',
       onRest: () => {},
       config,
     });
@@ -37,7 +37,7 @@ const Tooltip: React.FC<Props> = ({ content, placement = 'top', delay = 200, chi
   return (
     <Tippy
       render={(attrs) => (
-        <Wrapper p="xs" style={props} {...attrs}>
+        <Wrapper role="tooltip" style={props} {...attrs}>
           {content}
         </Wrapper>
       )}

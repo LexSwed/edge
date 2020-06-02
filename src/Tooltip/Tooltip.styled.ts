@@ -1,10 +1,11 @@
-import styled from 'styled-components/macro';
-import { padding, PaddingProps } from 'styled-system';
+import styled, { css } from 'styled-components/macro';
 import { animated } from 'react-spring';
 
-export const Wrapper = styled(animated.div)<PaddingProps>`
-  background-color: ${(props) => props.theme.colors.surface[2]};
-  box-shadow: ${(props) => props.theme.shadows[2]};
-  ${padding}
-  border-radius: ${(props) => props.theme.radii.m};
+export const Wrapper = styled(animated.div)`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.surface[2]};
+    box-shadow: ${theme.shadows[2]};
+    border-radius: ${theme.radii.m};
+    padding: ${theme.space.xs};
+  `}
 `;

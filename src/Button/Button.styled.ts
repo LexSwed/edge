@@ -53,10 +53,10 @@ const variants = variant<object, Variant>({
       'borderColor': 'border.default',
       'bg': 'surface.0',
       '&:hover': {
-        bg: 'gray.200',
+        bg: 'shade.200',
       },
       '&:active': {
-        bg: 'gray.300',
+        bg: 'shade.300',
       },
       '&:active,&:hover': {
         borderColor: 'border.hover',
@@ -67,28 +67,28 @@ const variants = variant<object, Variant>({
     },
     flat: {
       'borderColor': 'transparent',
-      'bg': 'gray.200',
+      'bg': 'shade.200',
       '&:hover': {
-        bg: 'gray.300',
+        bg: 'shade.300',
       },
       '&:active': {
-        bg: 'gray.200',
+        bg: 'shade.200',
       },
       '&:disabled': {
-        color: 'gray.600',
+        color: 'shade.600',
       },
     },
     transparent: {
       'borderColor': 'transparent',
       'bg': 'transparent',
       '&:hover': {
-        bg: 'gray.200',
+        bg: 'shade.200',
       },
       '&:active': {
-        bg: 'gray.100',
+        bg: 'shade.100',
       },
       '&:disabled': {
-        color: 'gray.600',
+        color: 'shade.600',
       },
     },
     brand: {
@@ -102,7 +102,7 @@ const variants = variant<object, Variant>({
         bg: 'brand.600',
       },
       '&:disabled': {
-        color: 'gray.200',
+        color: 'shade.200',
       },
     },
     critical: {
@@ -116,7 +116,7 @@ const variants = variant<object, Variant>({
         bg: 'red.600',
       },
       '&:disabled': {
-        color: 'gray.200',
+        color: 'shade.200',
       },
     },
   },
@@ -141,6 +141,8 @@ export const ButtonStyled = styled.button<{ size: Size; variant?: Variant }>`
   padding: 0;
   ${borderRadius}
   ${outline}
+  ${(props) => variants({ ...props, variant: props.variant || 'default' })}
+  ${size}
   &:disabled {
     position: relative;
     border-color: transparent;
@@ -157,8 +159,6 @@ export const ButtonStyled = styled.button<{ size: Size; variant?: Variant }>`
       pointer-events: all;
     }
   }
-  ${size}
-  ${(props) => variants({ ...props, variant: props.variant || 'default' })}
 `;
 
 export const SpinnerWrapper = styled.div`

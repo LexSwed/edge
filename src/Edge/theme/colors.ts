@@ -1,4 +1,5 @@
-const gray = {
+const shade = {
+  0: '#fff',
   100: '#f7fafc',
   200: '#edf2f7',
   300: '#e2e8f0',
@@ -8,6 +9,22 @@ const gray = {
   700: '#4a5568',
   800: '#2d3748',
   900: '#1a202c',
+  1000: '#000',
+  modes: {
+    dark: {
+      0: '#000',
+      100: '#1A202C',
+      200: '#2D3748',
+      300: '#333333',
+      400: '#3b3b3b',
+      500: '#484848',
+      600: '#4d4d4d',
+      700: '#484d56',
+      800: '#767980',
+      900: '#a3a6ab',
+      1000: '#fff',
+    },
+  },
 };
 const brand = {
   100: '#ebf4ff',
@@ -55,26 +72,31 @@ const red = {
 };
 
 const text = {
-  default: gray[900],
-  light: gray[700],
-  ultralight: gray[600],
-  disabled: gray[600],
+  default: shade[900],
+  light: shade[700],
+  ultralight: shade[600],
+  disabled: shade[600],
   modes: {
-    dark: { default: '#fff', light: gray[200], ultralight: gray[300], disabled: gray[400] },
+    dark: {
+      default: shade.modes.dark[1000],
+      light: shade.modes.dark[700],
+      ultralight: shade.modes.dark[600],
+      disabled: shade.modes.dark[600],
+    },
   },
 };
 
 const border = {
-  default: gray[500],
-  hover: gray[600],
-  focus: gray[800],
-  disabled: gray[500],
+  default: shade[500],
+  hover: shade[600],
+  focus: shade[800],
+  disabled: shade[500],
   modes: {
     dark: {
-      default: 'rgb(107, 107, 107)',
-      hover: 'rgb(138, 138, 138)',
-      focus: 'rgb(128, 128, 128)',
-      disabled: gray[500],
+      default: shade.modes.dark[600],
+      hover: shade.modes.dark[700],
+      focus: shade.modes.dark[800],
+      disabled: shade.modes.dark[500],
     },
   },
 };
@@ -92,22 +114,22 @@ const critical = {
 };
 
 const surface = {
-  0: '#fff',
-  1: '#fff',
-  2: '#fff',
-  disabled: gray[300],
+  0: shade[0],
+  1: shade[0],
+  2: shade[0],
+  disabled: shade[300],
   modes: {
     dark: {
-      0: 'rgb(51, 51, 51)',
-      1: 'rgb(59, 59, 59)',
-      2: 'rgb(90, 90, 90)',
-      disabled: 'rgb(111, 111, 111)',
+      0: shade.modes.dark[100],
+      1: shade.modes.dark[200],
+      2: shade.modes.dark[300],
+      disabled: shade.modes.dark[400],
     },
   },
 };
 
 export default {
-  gray,
+  shade,
   brand,
   blue,
   green,

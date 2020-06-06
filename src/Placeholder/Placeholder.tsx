@@ -7,9 +7,9 @@ type Props = React.ComponentProps<typeof Box>;
 const Placeholder = React.forwardRef<HTMLDivElement, Props>(({ children, ...props }, ref) => {
   return (
     <Box
-      bg="gray.100"
+      bg="shade.100"
       border="2px solid"
-      borderColor="gray.300"
+      borderColor="shade.300"
       display="flex"
       justifyContent="center"
       alignItems="center"

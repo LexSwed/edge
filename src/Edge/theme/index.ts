@@ -12,9 +12,29 @@ const shadows = {
 export const outline = (props: ThemeProps<DefaultTheme>) => css`
   outline: none;
 
-  &:focus-visible {
+  &[data-focus-visible]:focus {
     outline: 2px auto ${props.theme.colors.border.focus};
   }
+/* position: relative;
+
+  &:after {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border-radius: ${props.theme.radii.m};
+    transition: box-shadow 0.12s ease-in-out;
+  }
+
+  &[data-focus-visible]:focus {
+    border-color: transparent !important;
+    &:after {
+      box-shadow: 0 0 0 2px ${props.theme.colors.border.focus};
+    }
+  } */
 `;
 
 export default { ...sizes, colors, shadows };

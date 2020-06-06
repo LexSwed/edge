@@ -2,7 +2,7 @@ exports.onCreateWebpackConfig = ({ actions, plugins }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        '@fxtrot/edge': require('path').resolve(__dirname, '../src'),
+        '@fxtrot/edge': require('path').resolve(__dirname, '../dist'),
       },
     },
     plugins: [

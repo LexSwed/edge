@@ -27,7 +27,7 @@ export const CheckMark = styled(CheckmarkSvg)<{ checked?: boolean }>`
   border-radius: ${(props) => props.theme.radii.m};
   width: ${size};
   height: ${size};
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.surface[1]};
   border: 1px solid ${(props) => props.theme.colors.border.default};
   cursor: pointer;
   box-sizing: border-box;
@@ -57,6 +57,10 @@ export const Wrapper = styled(Box)<{ checked?: boolean; disabled?: boolean }>(
       const style: CSSObject = {
         [`& ${Input}`]: {
           cursor: 'default',
+        },
+        [`& ${CheckMark}`]: {
+          backgroundColor: colors.shade[300],
+          borderColor: colors.shade[300],
         },
       };
 
@@ -99,7 +103,6 @@ export const Input = styled.input`
   cursor: pointer;
   width: ${size};
   height: ${size};
-  position: absolute;
   appearance: none;
   display: block;
   margin: 0;
@@ -108,4 +111,5 @@ export const Input = styled.input`
   -webkit-tap-highlight-color: transparent;
   z-index: 1;
   ${outline}
+  position: absolute;
 `;

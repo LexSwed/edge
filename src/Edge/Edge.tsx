@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components/macro';
 import defaultTheme from './theme';
 import { EdgeStyled } from './Edge.styled';
 import useTheme from './theme/useTheme';
+import FocusManager from '../FocusManager';
 
 type EdgeContext = {
   edgeEl: React.RefObject<HTMLDivElement> | null;
@@ -21,13 +22,15 @@ const Edge: React.FC<Props> = ({ children, mode = 'auto', theme = {} }) => {
   const mergedTheme = useTheme(mode, theme);
 
   return (
-    <ThemeProvider theme={mergedTheme}>
-      <context.Provider value={{ edgeEl }}>
-        <EdgeStyled color="text.default" ref={edgeEl}>
-          {children}
-        </EdgeStyled>
-      </context.Provider>
-    </ThemeProvider>
+    <FocusManager>
+      <ThemeProvider theme={mergedTheme}>
+        <context.Provider value={{ edgeEl }}>
+          <EdgeStyled color="text.default" ref={edgeEl}>
+            {children}
+          </EdgeStyled>
+        </context.Provider>
+      </ThemeProvider>
+    </FocusManager>
   );
 };
 

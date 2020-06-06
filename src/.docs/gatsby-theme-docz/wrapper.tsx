@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { jsx, Box, Flex, useColorMode } from 'theme-ui';
+import { useColorMode } from 'theme-ui';
 
-import { ThemeProvider } from '../../../src';
+import { ThemeProvider } from '../../../dist';
 
 import logo from '../../../src/Logo/logo-solid.svg';
 

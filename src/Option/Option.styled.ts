@@ -12,7 +12,7 @@ const variants = variant<object, NonNullable<Props['variant']>>({
       'borderWidth': '1px',
       'backgroundColor': 'transparent',
       '&[aria-selected="true"],&:focus, &:active': {
-        borderColor: 'gray.700',
+        borderColor: 'shade.700',
       },
     },
   },
@@ -27,7 +27,7 @@ export const OptionStyled = styled.li<Props>`
   height: 36px;
   cursor: pointer;
   border-radius: ${(props) => props.theme.radii.m};
-  background-color: ${(props) => (props['aria-selected'] === 'true' ? props.theme.colors.gray[300] : 'transparent')};
+  background-color: ${(props) => (props['aria-selected'] === 'true' ? props.theme.colors.shade[300] : 'transparent')};
   border: 0px solid transparent;
   transition: border-color 0.12s, background-color 0.12s;
   color: ${(props) => props.theme.colors.text.default};
@@ -40,15 +40,15 @@ export const OptionStyled = styled.li<Props>`
   }
   &[aria-selected='true'],
   &:hover {
-    background-color: ${(props) => props.theme.colors.gray[200]};
+    background-color: ${(props) => props.theme.colors.shade[200]};
     &:active {
-      background-color: ${(props) => props.theme.colors.gray[300]};
+      background-color: ${(props) => props.theme.colors.shade[300]};
     }
   }
   &:disabled,
   &[disabled] {
-    background-color: ${(props) => props.theme.colors.gray[200]};
-    color: ${(props) => props.theme.colors.gray[600]};
+    background-color: ${(props) => props.theme.colors.shade[200]};
+    color: ${(props) => props.theme.colors.shade[600]};
     pointer-events: none;
     opacity: 0.6;
   }

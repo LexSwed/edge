@@ -24,7 +24,7 @@ import { Logo } from '@fxtrot/edge';
 <Playground>
   <Inline>
     <Logo variant="brand" />
-    <Box style={{ backgroundColor: 'var(--gray-900)' }}>
+    <Box bg="shade.900">
       <Logo variant="light" />
     </Box>
     <Logo variant="dark" />
@@ -57,15 +57,3 @@ import { Logo } from '@fxtrot/edge';
     </Stack>
   </Inline>
 </Playground>
-
-<!-- ## Squared
-
-By default, logo has line bottom space to be visually aligned with the text (the `x` part). You can make it squared using `squared` prop:
-
-<Playground>
-  <Inline>
-    <Box p="xs" style={{ backgroundColor: 'var(--gray-900)' }}>
-      <Logo tone="light" squared />
-    </Box>
-  </Inline>
-</Playground> -->

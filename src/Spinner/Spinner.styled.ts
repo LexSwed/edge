@@ -52,7 +52,7 @@ export const Particle = styled.div<{ size: Size; variant: 'dark' | 'light' | 'br
   animation: ${spin} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-style: solid;
   border-color: transparent;
-  border-top-color: ${(props) => props.theme.colors.gray[600]};
+  border-top-color: ${(props) => props.theme.colors.shade[600]};
   ${size}
   &:nth-child(1) {
     animation-delay: -0.45s;
@@ -67,7 +67,7 @@ export const Particle = styled.div<{ size: Size; variant: 'dark' | 'light' | 'br
     prop: 'variant',
     variants: {
       dark: {
-        borderTopColor: 'gray.800',
+        borderTopColor: 'shade.800',
       },
       light: {
         borderTopColor: '#fff',

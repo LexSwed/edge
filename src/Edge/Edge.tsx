@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import { ThemeProvider } from 'styled-components/macro';
 
-import theme from './theme';
+import defaultTheme from './theme';
 import { EdgeStyled } from './Edge.styled';
-import FocusManager from '../FocusManager';
+import useTheme from './theme/useTheme';
 
 type EdgeContext = {
   edgeEl: React.RefObject<HTMLDivElement> | null;
@@ -12,23 +12,22 @@ type EdgeContext = {
 export const context = React.createContext<EdgeContext>({ edgeEl: null });
 
 type Props = {
-  mode?: 'light' | 'dark';
-  theme?: Partial<typeof theme>;
+  mode?: 'light' | 'dark' | 'auto';
+  theme?: Partial<typeof defaultTheme>;
 };
 
-const Edge: React.FC<Props> = ({ children }) => {
+const Edge: React.FC<Props> = ({ children, mode = 'auto', theme = {} }) => {
   const edgeEl = useRef(null);
+  const mergedTheme = useTheme(mode, theme);
 
   return (
-    <FocusManager>
-      <ThemeProvider theme={theme}>
-        <context.Provider value={{ edgeEl }}>
-          <EdgeStyled color="text.default" ref={edgeEl}>
-            {children}
-          </EdgeStyled>
-        </context.Provider>
-      </ThemeProvider>
-    </FocusManager>
+    <ThemeProvider theme={mergedTheme}>
+      <context.Provider value={{ edgeEl }}>
+        <EdgeStyled color="text.default" ref={edgeEl}>
+          {children}
+        </EdgeStyled>
+      </context.Provider>
+    </ThemeProvider>
   );
 };
 

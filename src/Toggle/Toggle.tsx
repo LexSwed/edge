@@ -27,7 +27,7 @@ const Toggle = React.forwardRef<HTMLDivElement, Props>((initialProps, ref) => {
     <Field {...props} ref={ref}>
       <Wrapper display="grid" gridTemplateColumns="auto 1fr" gridGap="s" align={align}>
         <ToggleWrapper>
-          <ToggleInput {...inputProps} type="checkbox" />
+          <ToggleInput {...inputProps} type="checkbox" role="switch" />
           <ToggleStyled checked={inputProps.checked} />
         </ToggleWrapper>
         <ContentWrapper>

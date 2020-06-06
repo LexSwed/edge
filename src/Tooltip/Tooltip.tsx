@@ -1,6 +1,5 @@
 import React from 'react';
 import Tippy, { TippyProps } from '@tippyjs/react/headless';
-import { useSpring } from 'react-spring';
 
 import { Wrapper } from './Tooltip.styled';
 
@@ -11,33 +10,13 @@ type Props = {
   children: React.ReactElement;
 };
 
-const config = { tension: 600 };
-const initialStyles = { opacity: 0 };
-
-const Tooltip: React.FC<Props> = ({ content, placement = 'top', delay = 200, children }) => {
+const Tooltip: React.FC<Props> = ({ content, placement = 'top', delay = 100, children }) => {
   const trigger = React.Children.only(children);
-  const [props, setSpring] = useSpring(() => initialStyles);
-
-  const onMount: TippyProps['onMount'] = () => {
-    setSpring({
-      opacity: 1,
-      onRest: () => {},
-      config,
-    });
-  };
-
-  const onHide: TippyProps['onHide'] = ({ unmount }) => {
-    setSpring({
-      ...initialStyles,
-      onRest: unmount,
-      config: { ...config, clamp: true },
-    });
-  };
 
   return (
     <Tippy
       render={(attrs) => (
-        <Wrapper role="tooltip" style={props} {...attrs}>
+        <Wrapper role="tooltip" {...attrs}>
           {content}
         </Wrapper>
       )}
@@ -46,9 +25,6 @@ const Tooltip: React.FC<Props> = ({ content, placement = 'top', delay = 200, chi
       disabled={trigger.props?.disabled}
       interactive={true}
       interactiveBorder={10}
-      animation={true}
-      onMount={onMount}
-      onHide={onHide}
       offset={[0, 5]}
       aria={{
         content: 'describedby',

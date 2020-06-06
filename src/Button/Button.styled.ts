@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components/macro';
 import { variant } from 'styled-system';
+
 import { Size } from '../@utils';
 import { outline } from '../Edge/theme';
+import Inline from '../Inline';
 
 export const buttonSize = {
   xs: 20,
@@ -42,11 +44,27 @@ const size = variant<object, Size>({
   },
 });
 
-export type Variant = 'flat' | 'transparent' | 'brand' | 'critical';
+export type Variant = 'default' | 'flat' | 'transparent' | 'brand' | 'critical';
 
 const variants = variant<object, Variant>({
   prop: 'variant',
   variants: {
+    default: {
+      'borderColor': 'border.default',
+      'bg': 'surface.0',
+      '&:hover': {
+        bg: 'gray.200',
+      },
+      '&:active': {
+        bg: 'gray.300',
+      },
+      '&:active,&:hover': {
+        borderColor: 'border.hover',
+      },
+      '&:focus': {
+        borderColor: 'border.focus',
+      },
+    },
     flat: {
       'borderColor': 'transparent',
       'bg': 'gray.200',
@@ -61,13 +79,10 @@ const variants = variant<object, Variant>({
       },
     },
     transparent: {
-      'borderColor': 'surface.0',
-      'bg': 'surface.0',
+      'borderColor': 'transparent',
+      'bg': 'transparent',
       '&:hover': {
-        'bg': 'gray.200',
-        '&:not(:active):not(:focus)': {
-          borderColor: 'transparent',
-        },
+        bg: 'gray.200',
       },
       '&:active': {
         bg: 'gray.100',
@@ -111,10 +126,10 @@ const borderRadius = css`
   border-radius: ${(props) => props.theme.radii.s};
 `;
 
-export const ButtonStyled = styled.button<{ size: Size }>`
+export const ButtonStyled = styled.button<{ size: Size; variant?: Variant }>`
   position: relative;
   background-color: #fff;
-  border: 1px solid ${(props) => props.theme.colors.border.default};
+  border: 1px solid transparent;
   color: ${(props) => props.theme.colors.text.default};
   font-family: var(--font-family);
   line-height: 1;
@@ -126,19 +141,6 @@ export const ButtonStyled = styled.button<{ size: Size }>`
   padding: 0;
   ${borderRadius}
   ${outline}
-  &:hover {
-    background-color: ${(props) => props.theme.colors.gray[200]};
-  }
-  &:active {
-    background-color: ${(props) => props.theme.colors.gray[300]};
-  }
-  &:active,
-  &:hover {
-    border-color: ${(props) => props.theme.colors.border.hover};
-  }
-  &:focus {
-    border-color: ${(props) => props.theme.colors.border.focus};
-  }
   &:disabled {
     position: relative;
     border-color: transparent;
@@ -156,7 +158,7 @@ export const ButtonStyled = styled.button<{ size: Size }>`
     }
   }
   ${size}
-  ${variants}
+  ${(props) => variants({ ...props, variant: props.variant || 'default' })}
 `;
 
 export const SpinnerWrapper = styled.div`
@@ -170,4 +172,12 @@ export const SpinnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
   ${borderRadius}
+`;
+
+export const InlineStyled = styled(Inline).withConfig({
+  shouldForwardProp: (prop) => !['loading'].includes(prop as string),
+})<{
+  loading?: boolean;
+}>`
+  opacity: ${(props) => props.loading && '0'};
 `;

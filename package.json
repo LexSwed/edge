@@ -60,14 +60,16 @@
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "styled-components": "^5.1.1",
     "tsdx": "^0.13.2",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.5"
   },
   "dependencies": {
     "@popperjs/core": "^2.3.3",
     "@reach/auto-id": "^0.10.3",
     "@styled-system/should-forward-prop": "^5.1.5",
     "@tippyjs/react": "^4.0.2",
+    "deepmerge": "^4.2.2",
     "downshift": "^5.2.0",
+    "memoize-one": "^5.1.1",
     "react-spring": "^8.0.27",
     "styled-system": "^5.1.5"
   },

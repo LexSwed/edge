@@ -1,35 +1,26 @@
-import type { Size } from '../../@utils';
+const sizes = [0, 4, 8, 16, 32, 64, 128, 256, 512];
 
-type Space = number[] & Record<Size, number>;
+export const space = {
+  ...Object(sizes),
+  xs: sizes[1],
+  s: sizes[2],
+  m: sizes[3],
+  l: sizes[4],
+  xl: sizes[5],
+  xxl: sizes[6],
+};
 
-export const space: Space = [0, 4, 8, 16, 32, 64, 128, 256, 512] as Space;
+const fonts = ['11.06px', '12.44px', '14px', '17.72px', '22.43px', '28.38px', '35.92px', '45.46px'];
 
-Object.assign(space, {
-  xs: space[1],
-  s: space[2],
-  m: space[3],
-  l: space[4],
-  xl: space[5],
-  xxl: space[6],
-});
-
-export const fontSizes = [
-  '11.06px',
-  '12.44px',
-  '14px',
-  '17.72px',
-  '22.43px',
-  '28.38px',
-  '35.92px',
-  '45.46px',
-] as string[] & Record<Size | 'xxl', string>;
-
-fontSizes.xs = fontSizes[1];
-fontSizes.s = fontSizes[1];
-fontSizes.m = fontSizes[2];
-fontSizes.l = fontSizes[3];
-fontSizes.xl = fontSizes[4];
-fontSizes.xxl = fontSizes[5];
+export const fontSizes = {
+  ...Object(fonts),
+  xs: fonts[1],
+  s: fonts[1],
+  m: fonts[2],
+  l: fonts[3],
+  xl: fonts[4],
+  xxl: fonts[5],
+};
 
 export const radii = {
   xs: 0,
@@ -43,22 +34,17 @@ type Breakpoints = 'mobile' | 'tablet' | 'desktop' | 'wide';
 
 export const breakpoints = ['320px', '768px', '1024px', '1400px'] as string[] & Record<Breakpoints, string>;
 
-breakpoints.mobile = breakpoints[0];
-breakpoints.tablet = breakpoints[1];
-breakpoints.desktop = breakpoints[2];
-breakpoints.wide = breakpoints[3];
-
 export const mediaQueries = {
   above: {
-    mobile: `@media screen and (min-width: ${breakpoints.mobile})`,
-    tablet: `@media screen and (min-width: ${breakpoints.tablet})`,
-    desktop: `@media screen and (min-width: ${breakpoints.desktop})`,
-    wide: `@media screen and (min-width: ${breakpoints.wide})`,
+    mobile: `@media screen and (min-width: ${breakpoints[0]})`,
+    tablet: `@media screen and (min-width: ${breakpoints[1]})`,
+    desktop: `@media screen and (min-width: ${breakpoints[2]})`,
+    wide: `@media screen and (min-width: ${breakpoints[3]})`,
   },
   below: {
-    mobile: `@media screen and (max-width: ${breakpoints.mobile})`,
-    tablet: `@media screen and (max-width: ${breakpoints.tablet})`,
-    desktop: `@media screen and (max-width: ${breakpoints.desktop})`,
-    wide: `@media screen and (max-width: ${breakpoints.wide})`,
+    mobile: `@media screen and (max-width: ${breakpoints[0]})`,
+    tablet: `@media screen and (max-width: ${breakpoints[1]})`,
+    desktop: `@media screen and (max-width: ${breakpoints[2]})`,
+    wide: `@media screen and (max-width: ${breakpoints[3]})`,
   },
 };

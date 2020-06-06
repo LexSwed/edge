@@ -60,7 +60,7 @@ const text = {
   ultralight: gray[600],
   disabled: gray[600],
   modes: {
-    dark: { default: '#fff', light: gray[300] },
+    dark: { default: '#fff', light: gray[200], ultralight: gray[300], disabled: gray[400] },
   },
 };
 
@@ -69,6 +69,14 @@ const border = {
   hover: gray[600],
   focus: gray[800],
   disabled: gray[500],
+  modes: {
+    dark: {
+      default: 'rgb(107, 107, 107)',
+      hover: 'rgb(138, 138, 138)',
+      focus: 'rgb(128, 128, 128)',
+      disabled: gray[500],
+    },
+  },
 };
 
 const positive = {
@@ -88,6 +96,14 @@ const surface = {
   1: '#fff',
   2: '#fff',
   disabled: gray[300],
+  modes: {
+    dark: {
+      0: 'rgb(51, 51, 51)',
+      1: 'rgb(59, 59, 59)',
+      2: 'rgb(90, 90, 90)',
+      disabled: 'rgb(111, 111, 111)',
+    },
+  },
 };
 
 export default {
@@ -96,10 +112,9 @@ export default {
   blue,
   green,
   red,
-  text,
-  border,
-  accent: brand[600],
   positive,
   critical,
+  text,
+  border,
   surface,
 };

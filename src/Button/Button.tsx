@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Inline from '../Inline';
-import { ButtonStyled, Variant, SpinnerWrapper } from './Button.styled';
+import { ButtonStyled, Variant, SpinnerWrapper, InlineStyled } from './Button.styled';
 import { Size } from '../@utils';
 import Spinner from '../Spinner';
 
@@ -17,9 +16,9 @@ const Button = React.forwardRef<HTMLButtonElement, Props>(
             />
           </SpinnerWrapper>
         )}
-        <Inline space={sizeToSpaceMap[size]} alignY="center" align="center" nowrap>
+        <InlineStyled loading={loading} space={sizeToSpaceMap[size]} alignY="center" align="center" nowrap>
           {children}
-        </Inline>
+        </InlineStyled>
       </ButtonStyled>
     );
   }

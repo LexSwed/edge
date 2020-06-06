@@ -1,3 +1,5 @@
+import { isServer } from '../@utils';
+
 const events = [
   'mousemove',
   'mousedown',
@@ -17,7 +19,7 @@ const events = [
  * @see https://github.com/WICG/focus-visible
  */
 export function applyFocusVisiblePolyfill() {
-  if (typeof window === 'undefined') {
+  if (isServer) {
     return;
   }
 

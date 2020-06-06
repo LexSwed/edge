@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-
-const match = window.matchMedia('(prefers-color-scheme: dark)');
+import { isClient } from '../../@utils';
 
 export const usePreferredTheme = (mode: Mode) => {
   const [theme, setTheme] = useState(() => (mode === 'auto' ? getTheme() : mode));
@@ -14,13 +13,15 @@ export const usePreferredTheme = (mode: Mode) => {
       return setTheme(mode);
     }
 
+    const match = matchesDark();
+
     const handler = () => {
       setTheme(getTheme);
     };
 
-    match.addEventListener('change', handler);
+    match?.addEventListener('change', handler);
 
-    return () => match.removeEventListener('change', handler);
+    return () => match?.removeEventListener('change', handler);
   }, [mode]);
 
   return theme;
@@ -28,16 +29,24 @@ export const usePreferredTheme = (mode: Mode) => {
 
 export default usePreferredTheme;
 
-type Mode = 'dark' | 'light' | 'auto';
+function matchesDark() {
+  if (isSupported()) {
+    return window.matchMedia('(prefers-color-scheme: dark)');
+  }
+
+  return null;
+}
 
 function getTheme() {
   if (!isSupported()) {
     return 'light';
   }
 
-  return match.matches ? 'dark' : 'light';
+  return matchesDark()?.matches ? 'dark' : 'light';
 }
 
 function isSupported() {
-  return typeof window !== 'undefined' && 'matchMedia' in window;
+  return isClient && 'matchMedia' in window;
 }
+
+type Mode = 'dark' | 'light' | 'auto';

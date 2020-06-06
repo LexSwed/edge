@@ -23,6 +23,13 @@ export function joinRefs<T>(...refs: Ref<T>[]) {
     });
 }
 
+export const isClient =
+  typeof window !== 'undefined' &&
+  typeof window.document !== 'undefined' &&
+  typeof window.document.createElement !== 'undefined';
+
+export const isServer = !isClient;
+
 type Ref<T> = React.Ref<T> | React.MutableRefObject<T> | undefined;
 
 export type Size = 'xs' | 's' | 'm' | 'l' | 'xl';

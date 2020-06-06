@@ -5,6 +5,7 @@ import { usePopper, UsePopper, usePopoverRefs } from './utils';
 import { context } from '../Edge/Edge';
 import { PopperWrapper } from './Popover.styled';
 import VisuallyHidden from '../VisuallyHidden';
+import { isServer } from '../@utils';
 
 type Props = {
   shown: UsePopper['shown'];
@@ -24,7 +25,7 @@ const Popover: React.FC<Props> = ({ shown, offset, placement, children, ...props
     offset,
   });
 
-  if (typeof window === 'undefined') {
+  if (isServer) {
     return null;
   }
 

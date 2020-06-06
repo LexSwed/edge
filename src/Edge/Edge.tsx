@@ -5,6 +5,7 @@ import defaultTheme from './theme';
 import { EdgeStyled } from './Edge.styled';
 import useTheme from './theme/useTheme';
 import FocusManager from '../FocusManager';
+import { isClient } from '../@utils';
 
 type EdgeContext = {
   edgeEl: React.RefObject<HTMLDivElement> | null;
@@ -40,7 +41,7 @@ if (__DEV__) {
 
 export default Edge;
 
-if (typeof window !== 'undefined') {
+if (isClient) {
   Object.entries({
     main: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap&subset=cyrillic',
     icons:

@@ -16,8 +16,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --jsxFragment React.Fragment --compress --format modern,cjs",
-    "start": "microbundle-crl watch --jsxFragment React.Fragment --no-compress --format modern,cjs",
+    "build": "microbundle-crl --compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "lint": "eslint .",
     "docz:dev": "docz dev",

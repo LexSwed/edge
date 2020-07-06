@@ -3,7 +3,12 @@ import { variant } from 'styled-system';
 
 import { Size } from '../@utils';
 
-export const LogoStyled = styled.svg`
+type Props = {
+  variant: 'brand' | 'dark' | 'light';
+  size: Size;
+};
+
+export const LogoStyled = styled.svg<Props>`
   --color: ${(props) => props.theme.colors.brand[600]};
   --light-color: ${(props) => props.theme.colors.brand[400]};
   ${variant<object, Size>({

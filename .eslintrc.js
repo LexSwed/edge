@@ -1,4 +1,5 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
   extends: ['react-app', 'plugin:jsx-a11y/recommended', 'prettier/@typescript-eslint', 'plugin:prettier/recommended'],
   plugins: ['jsx-a11y'],
   settings: {
@@ -35,10 +36,4 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ['*.ts,*.tsdx'],
-      parser: '@typescript-eslint/parser',
-    },
-  ],
 };

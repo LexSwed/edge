@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { applyFocusVisiblePolyfill } from './focus-visible';
 
 const FocusManager: React.FC = ({ children }) => {
-  React.useEffect(() => {
+  useEffect(() => {
     const cleanup = applyFocusVisiblePolyfill();
 
     return cleanup;

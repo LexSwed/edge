@@ -22,7 +22,9 @@
     "moduleResolution": "node",
     "jsx": "preserve",
     "esModuleInterop": true,
-    "types": ["react", "jest"]
+    "types": ["react", "jest"],
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src", "types"],
   "exclude": ["node_modules", "dist"]

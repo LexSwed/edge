@@ -1,8 +1,6 @@
 import React from 'react';
 
-import LogoBrand from './logo-solid.svg';
-import LogoDark from './logo-dark.svg';
-import LogoLight from './logo-light.svg';
+import { LogoBrand, LogoDark, LogoLight } from './Logos';
 import { Size } from '../@utils';
 
 import { LogoStyled } from './Logo.styled';
@@ -17,9 +15,9 @@ type Props = {
    * @default 'm'
    */
   size?: Size;
-} & Omit<React.DetailedHTMLProps<React.HTMLAttributes<SVGElement>, SVGElement>, 'children'>;
+} & React.ComponentProps<typeof LogoStyled>;
 
-const Logo = React.forwardRef<HTMLDivElement, Props>(({ variant = 'brand', size = 'm', ...props }, ref) => {
+const Logo = React.forwardRef<SVGSVGElement, Props>(({ variant = 'brand', size = 'm', ...props }, ref) => {
   if (!LogoIcon[variant]) {
     return null;
   }

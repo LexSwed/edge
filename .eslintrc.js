@@ -1,8 +1,15 @@
 module.exports = {
-  extends: ['eslint:recommended', 'react-app', 'prettier/@typescript-eslint', 'plugin:prettier/recommended'],
+  extends: ['react-app', 'plugin:jsx-a11y/recommended', 'prettier/@typescript-eslint', 'plugin:prettier/recommended'],
+  plugins: ['jsx-a11y'],
   settings: {
     react: {
       version: 'detect',
+    },
+  },
+  parserOptions: {
+    ecmaVersion: 2020,
+    ecmaFeatures: {
+      jsx: true,
     },
   },
   rules: {
@@ -15,17 +22,23 @@ module.exports = {
         ignoreRestSiblings: false,
       },
     ],
-    "no-restricted-imports": [
-      "error",
+    'no-restricted-imports': [
+      'error',
       {
-        "paths": [{
-          "name": "styled-components",
-          "message": "Please import from styled-components/macro."
-        }],
-        "patterns": [
-          "!styled-components/macro"
-        ]
-      }
-    ]
+        paths: [
+          {
+            name: 'styled-components',
+            message: 'Please import from styled-components/macro.',
+          },
+        ],
+        patterns: ['!styled-components/macro'],
+      },
+    ],
   },
+  overrides: [
+    {
+      files: ['*.ts,*.tsdx'],
+      parser: '@typescript-eslint/parser',
+    },
+  ],
 };

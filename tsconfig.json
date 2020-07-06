@@ -1,8 +1,8 @@
 {
-  "include": ["src", "types"],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
+    "outDir": "dist",
     "lib": ["dom", "esnext"],
     "importHelpers": true,
     "declaration": true,
@@ -23,5 +23,7 @@
     "jsx": "react",
     "esModuleInterop": true,
     "types": ["react", "jest"]
-  }
+  },
+  "include": ["src", "types"],
+  "exclude": ["node_modules", "dist"]
 }

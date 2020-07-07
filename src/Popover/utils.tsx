@@ -1,6 +1,5 @@
 import React, { createContext, useRef, useMemo, useLayoutEffect, useContext } from 'react';
-import { createPopper, Instance as PopperInstance, Options, Modifier, State } from '@popperjs/core/lib/popper-lite';
-import { Placement } from '@popperjs/core';
+import { createPopper, Instance as PopperInstance, Options, Modifier, State, Placement } from '@popperjs/core';
 
 export const popoverContext = createContext({} as PopoverContext);
 

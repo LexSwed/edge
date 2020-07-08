@@ -6,6 +6,7 @@ export { default as Column } from './Column';
 export { default as Columns } from './Columns';
 export { default as ContentBlock } from './ContentBlock';
 export { default as ThemeProvider } from './Edge';
+export { default as CSSReset } from './Edge/CSSReset';
 export { default as FieldLabel } from './FieldLabel';
 export { default as FieldMessage } from './FieldMessage';
 export { default as Heading } from './Heading';

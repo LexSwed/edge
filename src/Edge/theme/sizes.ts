@@ -1,25 +1,25 @@
-const sizes = [0, 4, 8, 16, 32, 64, 128, 256, 512];
+const sizes = [0, '0.25rem', '0.5rem', '1rem', '2rem', '4rem', '8rem', '16rem', '32rem'];
 
 export const space = {
   ...Object(sizes),
-  xs: sizes[1],
-  s: sizes[2],
-  m: sizes[3],
-  l: sizes[4],
-  xl: sizes[5],
-  xxl: sizes[6],
+  xs: sizes[2],
+  s: sizes[3],
+  m: sizes[4],
+  l: sizes[5],
+  xl: sizes[6],
+  xxl: sizes[7],
 };
 
-const fonts = ['11.06px', '12.44px', '14px', '17.72px', '22.43px', '28.38px', '35.92px', '45.46px'];
+export const fonts = ['0.875rem', '1rem', '1.25rem', '1.5rem', '1.875rem', '2.25rem', '3rem', '4rem', '4.5rem'];
 
 export const fontSizes = {
   ...Object(fonts),
-  xs: fonts[1],
-  s: fonts[1],
-  m: fonts[2],
-  l: fonts[3],
-  xl: fonts[4],
-  xxl: fonts[5],
+  xs: fonts[2],
+  s: fonts[2],
+  m: fonts[3],
+  l: fonts[4],
+  xl: fonts[6],
+  xxl: fonts[7],
 };
 
 export const radii = {

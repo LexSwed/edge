@@ -1,7 +1,8 @@
 import styled from 'styled-components/macro';
+import { color, ColorProps } from 'styled-system';
 
-export const TextLinkStyled = styled.a`
-  color: ${(props) => props.theme.colors.brand[700]};
+export const TextLinkStyled = styled.a<ColorProps>`
+  ${color}
   text-decoration: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -10,3 +11,7 @@ export const TextLinkStyled = styled.a`
     text-decoration: underline;
   }
 `;
+
+TextLinkStyled.defaultProps = {
+  color: 'brand.700',
+};

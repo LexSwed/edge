@@ -6,6 +6,7 @@ import { ThemeProvider } from '../../../src';
 
 const Wrapper: React.FC = ({ children }) => {
   const [color] = useColorMode();
+
   return (
     <>
       <Helmet>

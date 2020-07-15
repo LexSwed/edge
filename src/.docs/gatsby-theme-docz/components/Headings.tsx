@@ -4,13 +4,13 @@ import { Heading, TextLink } from '../../../../src';
 const heading = (level: string) => {
   const Component = (props: any) => {
     return !!props.id ? (
-      <Heading mb="m" as={level} {...props}>
-        <TextLink color="gray.900" href={`#${props.id}`}>
+      <Heading my="m" as={level} {...props}>
+        <TextLink color="text.default" href={`#${props.id}`}>
           {props.children}
         </TextLink>
       </Heading>
     ) : (
-      <Heading mb="m" {...props} />
+      <Heading my="m" as={level} {...props} />
     );
   };
 

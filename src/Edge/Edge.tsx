@@ -6,6 +6,7 @@ import { EdgeStyled } from './Edge.styled';
 import useTheme from './theme/useTheme';
 import FocusManager from '../FocusManager';
 import { isClient } from '../@utils';
+import CSSReset from './CSSReset';
 
 type EdgeContext = {
   edgeEl: React.RefObject<HTMLDivElement> | null;
@@ -27,6 +28,7 @@ const Edge: React.FC<Props> = ({ children, mode = 'auto', theme = {} }) => {
       <ThemeProvider theme={mergedTheme}>
         <context.Provider value={{ edgeEl }}>
           <EdgeStyled color="text.default" ref={edgeEl}>
+            <CSSReset />
             {children}
           </EdgeStyled>
         </context.Provider>

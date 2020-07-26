@@ -32,11 +32,10 @@ export const Wrapper = styled(Field)<{ tone: FieldInputProps['tone'] }>`
 export const fieldStyles = ({ withIcon, withClearButton, theme }: FieldProps & ThemeProps<DefaultTheme>) => {
   return css`
   color: ${theme.colors.text.default};
-  background-color: ${theme.colors.surface[1]};
   border: none;
   cursor: text;
-  padding-left: ${withIcon ? INPUT_SIZE : `${theme.space.s}px`};
-  padding-right: ${withClearButton ? INPUT_SIZE : `${theme.space.s}px`};
+  padding-left: ${withIcon ? INPUT_SIZE : theme.space.s};
+  padding-right: ${withClearButton ? INPUT_SIZE : theme.space.s};
   ${outline}
   ${variants}
   ${underlinedVariant}
@@ -50,6 +49,7 @@ export const INPUT_SIZE = '36px';
 export const Input = styled.input<FieldProps>`
   all: unset;
   font-size: inherit;
+  display: inline-block;
   color: ${(props) => props.theme.colors.text.default};
   line-height: 1.2;
   border: none;
@@ -79,6 +79,9 @@ export const FieldIcon = styled.span<{ size?: Size }>`
   height: ${INPUT_SIZE};
   width: ${INPUT_SIZE};
   padding: 10px;
+  & svg {
+    fill: inherit;
+  }
 `;
 
 function clearButtonVisibility({ shown }: { shown: boolean }) {
@@ -186,8 +189,8 @@ function underlinedVariant(props: FieldProps) {
         }}
         transition: transform 250ms ease-in-out;
         left: 0;
+        right: 0;
         bottom: -1px;
-        width: 100%;
       }
       &:focus-within:after {
         transform: scaleX(1);

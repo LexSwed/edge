@@ -64,7 +64,7 @@ export function useToggleButtonProps() {
   return downshiftProps;
 }
 
-export function optionToString(item?: OptionChildren): string {
+export function optionToString(item: OptionChildren | null): string {
   if (!item) {
     return '';
   }

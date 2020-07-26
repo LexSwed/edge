@@ -15,6 +15,7 @@ export const Field = styled.button<Parameters<typeof fieldStyles>[0]>`
   ${fieldWrapperStyles}
   ${fieldStyles}
   cursor: default;
+  background-color: ${({ theme }) => theme.colors.surface[1]};
   height: ${INPUT_SIZE};
   padding: 0;
 `;

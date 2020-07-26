@@ -83,11 +83,11 @@ function parentMargin(props: ThemedStyledProps<Partial<Props>, DefaultTheme>) {
     `;
   }
 
-  const gap = -1 * props.theme.space[props.space];
+  const gap = props.theme.space[props.space];
 
   return css`
-    margin-left: ${gap}px;
-    margin-top: ${gap}px;
+    margin-left: calc(-1 * ${gap});
+    margin-top: calc(-1 * ${gap});
   `;
 }
 
